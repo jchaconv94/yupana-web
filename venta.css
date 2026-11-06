@@ -595,6 +595,8 @@ button.bubble { text-align: left; cursor: pointer; color: var(--ink); font-famil
 .plan-feats svg { flex: 0 0 18px; margin-top: 2px; color: var(--brand); }
 .plan-muju .plan-feats svg { color: #b45309; }
 .plan-hatun .plan-feats svg { color: #283593; }
+.plan-cta { margin-top: auto; width: 100%; }
+.plan-feats { margin-bottom: 22px; }
 .basic-line { margin-top: 22px; display: flex; align-items: flex-start; gap: 14px; background: var(--bg); border: 1px solid var(--line); border-radius: 20px; padding: 16px 18px; }
 .basic-ico { flex: 0 0 42px; width: 42px; height: 42px; border-radius: 14px; display: grid; place-items: center; background: linear-gradient(135deg, #8a7a82, #4e4248); box-shadow: 0 8px 18px -10px rgba(60, 20, 40, 0.6); }
 .basic-ico svg { width: 20px; height: 20px; fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
