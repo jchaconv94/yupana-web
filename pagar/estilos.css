@@ -116,11 +116,45 @@ button:disabled { cursor: default; }
 
 /* Computadora */
 .desk { min-height: 100dvh; }
-.desk .hero { height: 320px; padding: 22px 48px; }
+.dots { position: absolute; inset: 0; pointer-events: none; }
+/* Las demás pantallas en la computadora (6 nov): la cabecera de color a todo el ancho, la marca y tu cuenta arriba
+   como en pagar, y lo de abajo en una columna centrada (760; 560 en entrar y ¡Pago aprobado!). El botón de abajo va
+   pegado a lo de arriba, no al fondo de la pantalla. */
+@media (min-width: 900px) {
+  .page { padding-bottom: 48px; }
+  .page.nofoot { padding-bottom: 48px; }
+  .foot { position: static; }
+  .foot > div { background: none; padding-top: 22px; }
+  .page.broad { --w: 760px; max-width: none; }
+  .page.broad.slim { --w: 560px; }
+  .page.broad > .hero { padding-left: 48px !important; padding-right: 48px !important; }
+  .page.broad > .hero > * { width: 100%; max-width: var(--w); margin-left: auto; margin-right: auto; }
+  .page.broad > .hero > .wtop { max-width: 1084px; }
+  .page.broad > .hero > .stairs { width: 520px; height: 325px; max-width: none; }
+  .page.broad > .hero > .dots { left: 50%; right: auto; width: 390px; margin-left: -195px; }
+  .page.broad > .hero > .listo-cta { margin-top: 0 !important; }
+  .page.broad > .body, .page.broad > .foot > div { max-width: calc(var(--w) + 96px); padding-left: 48px; padding-right: 48px; margin-left: auto; margin-right: auto; }
+}
+/* Computadora en dos columnas (6 nov): lo que eliges a la izquierda y el resumen fijo a la derecha */
+.desk .hero { height: 300px; padding: 22px 48px; }
 .desk .stairs { width: 520px; height: 325px; }
-.desk .top { position: relative; max-width: 1120px; margin: 0 auto; }
-.desk .head { position: relative; width: 760px; margin: 20px auto 0; }
-.desk .sheetcard { position: relative; width: 760px; margin: -96px auto 48px; padding: 26px; display: flex; flex-direction: column; gap: 20px; }
+.desk .top { position: relative; max-width: 1084px; margin: 0 auto; gap: 24px; }
+.desk .head { position: relative; max-width: 1084px; margin: 36px auto 0; }
+.desk-body { position: relative; max-width: 1180px; margin: -110px auto 48px; padding: 0 48px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; align-items: start; }
+.desk .sheetcard { position: relative; padding: 28px; display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+.sum { padding: 24px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 18px 40px -24px rgba(122, 10, 54, 0.35); }
+.sum-plan { border-top: 1px solid var(--line); padding-top: 16px; }
+.sum-empty { color: var(--muted); font-weight: 700; font-size: 15px; }
+.sum-total { border-top: 1px solid var(--line); padding-top: 16px; }
+.sum-trust { display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 700; color: var(--muted); border-top: 1px solid var(--line); padding-top: 14px; }
+.prow { display: grid; grid-template-columns: 220px minmax(0, 1fr) auto 22px; align-items: center; gap: 18px; }
+.prow-name { display: flex; flex-direction: column; gap: 8px; }
+.prow-lines { display: flex; flex-direction: column; gap: 6px; }
+.prow-price { display: flex; flex-direction: column; align-items: flex-end; white-space: nowrap; }
+@media (min-width: 1100px) {
+  .desk-body { grid-template-columns: minmax(0, 1fr) 360px; }
+  .desk-side { position: sticky; top: 24px; }
+}
 .stepper { display: flex; align-items: center; gap: 12px; }
 .stepper .dot { width: 28px; height: 28px; border-radius: 14px; display: flex; align-items: center; justify-content: center;
   font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 16px; }
