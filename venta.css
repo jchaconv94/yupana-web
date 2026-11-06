@@ -96,18 +96,62 @@ button.btn { background: transparent; cursor: pointer; }
 .phone.sm { border-radius: 32px; padding: 7px; }
 .phone.sm img { border-radius: 26px; }
 
-/* El aviso que llega */
+/* El aviso que llega (6 nov: llega, se queda y vuelve a llegar) */
 .toast {
-  position: absolute; left: 50%; top: 112px; transform: translateX(-50%) rotate(-2deg);
+  position: absolute; left: 50%; top: 112px; transform: translateX(-50%); rotate: -2deg; z-index: 2;
   width: 300px; display: flex; align-items: center; gap: 12px;
   background: rgba(24, 14, 19, 0.94); color: #fff; padding: 12px 14px; border-radius: 18px;
-  box-shadow: 0 18px 40px -14px rgba(0, 0, 0, 0.6); animation: llega 0.9s cubic-bezier(.2,.9,.3,1.2) 0.4s both;
+  box-shadow: 0 18px 40px -14px rgba(0, 0, 0, 0.6); animation: toast-loop 8s ease 0.9s infinite both;
 }
 .toast b { display: block; font-size: 15px; }
 .toast small { display: block; font-size: 13.5px; opacity: 0.85; font-weight: 700; }
 .badge-y { flex: 0 0 38px; height: 38px; border-radius: 11px; background: linear-gradient(135deg, #9b3fb5, #5a1670); display: grid; place-items: center; font-weight: 800; font-size: 18px; }
-@keyframes llega { from { opacity: 0; transform: translate(-50%, -26px) rotate(-2deg); } to { opacity: 1; transform: translate(-50%, 0) rotate(-2deg); } }
-@media (prefers-reduced-motion: reduce) { .toast { animation: none; } html { scroll-behavior: auto; } }
+@keyframes toast-loop { 0% { opacity: 0; translate: 0 -26px; } 7%, 72% { opacity: 1; translate: 0 0; } 80%, 100% { opacity: 0; translate: 0 -14px; } }
+
+/* Lo que dice Yupana en voz alta, debajo del aviso */
+.say { position: absolute; left: 50%; top: 312px; z-index: 2; width: 292px; display: flex; align-items: center; gap: 10px; background: #fff; color: var(--ink); padding: 10px 12px; border-radius: 18px; box-shadow: 0 18px 40px -16px rgba(40, 0, 18, 0.55); transform: translateX(-50%); rotate: 1.5deg; animation: say-loop 8s ease 0.9s infinite both; }
+.say-ico { flex: 0 0 36px; height: 36px; border-radius: 11px; background: var(--soft); display: grid; place-items: center; }
+.say-ico svg { width: 20px; height: 20px; fill: none; stroke: var(--brand); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.say-txt { font-weight: 800; font-size: 14px; line-height: 1.25; }
+.say-txt small { display: block; font-size: 11.5px; color: var(--muted); font-weight: 700; }
+.say-wave { display: flex; align-items: center; gap: 3px; height: 22px; margin-left: auto; padding-right: 2px; }
+.say-wave i { width: 3px; height: 100%; border-radius: 2px; background: var(--brand); animation: wave 0.9s ease-in-out infinite; }
+.say-wave i:nth-child(2) { animation-delay: 0.15s; }
+.say-wave i:nth-child(3) { animation-delay: 0.3s; }
+.say-wave i:nth-child(4) { animation-delay: 0.45s; }
+@keyframes say-loop { 0%, 13% { opacity: 0; translate: 0 14px; scale: 0.96; } 20%, 72% { opacity: 1; translate: 0 0; scale: 1; } 80%, 100% { opacity: 0; translate: 0 8px; scale: 0.98; } }
+@keyframes wave { 0%, 100% { transform: scaleY(0.35); } 50% { transform: scaleY(1); } }
+
+/* La portada se arma al entrar: las palabras suben, "sola" se subraya, el celular sube y queda flotando */
+.hero h1 .w { display: inline-block; animation: word 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both; animation-delay: calc(var(--d) * 90ms + 150ms); }
+.hero .hx { animation: up 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both; animation-delay: calc(var(--d) * 90ms + 150ms); }
+@keyframes word { from { opacity: 0; translate: 0 0.45em; } }
+@keyframes up { from { opacity: 0; translate: 0 18px; } }
+.hero .hl { position: relative; color: var(--coin); }
+.hl-line { position: absolute; left: -3%; bottom: -0.1em; width: 106%; height: 0.3em; overflow: visible; }
+.hl-line path { fill: none; stroke: var(--coin); stroke-width: 6; stroke-linecap: round; stroke-dasharray: 100; animation: draw 0.8s ease 1.05s both; }
+@keyframes draw { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }
+.hero .stairs path { stroke-dasharray: 700; animation: draw-long 2.4s ease 0.2s both; }
+@keyframes draw-long { from { stroke-dashoffset: 700; } to { stroke-dashoffset: 0; } }
+.chip { display: inline-flex; align-items: center; gap: 6px; padding: 2px 11px 2px 4px; border-radius: 999px; background: rgba(255, 255, 255, 0.16); line-height: 1.3; vertical-align: 2px; }
+.chip i { font-style: normal; width: 24px; height: 24px; border-radius: 8px; display: grid; place-items: center; font-size: 13px; font-weight: 800; }
+.chip-y i { background: linear-gradient(135deg, #9b3fb5, #5a1670); }
+.chip-p i { background: linear-gradient(135deg, #1fc1ad, #0e8576); }
+.hero .lead2 svg { width: 22px; height: 22px; vertical-align: -5px; margin-right: 8px; fill: none; stroke: var(--coin); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.glow { position: absolute; left: 50%; top: 40px; width: 360px; height: 360px; margin-left: -180px; border-radius: 50%; background: radial-gradient(circle, rgba(255, 214, 102, 0.42) 0%, rgba(255, 198, 41, 0.12) 40%, transparent 68%); animation: glow 6s ease-in-out infinite; pointer-events: none; }
+@keyframes glow { 0%, 100% { scale: 1; opacity: 0.85; } 50% { scale: 1.12; opacity: 1; } }
+.hero-phone { animation: phone-in 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.35s both, float 6s ease-in-out 1.4s infinite; }
+@keyframes phone-in { from { opacity: 0; translate: 0 48px; } }
+@keyframes float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -8px; } }
+
+/* Al bajar, cada parte entra suave (solo con JavaScript y si la persona no pidió menos movimiento) */
+.js-rv .rv { opacity: 0; translate: 0 28px; transition: opacity 0.7s ease, translate 0.8s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.js-rv .rv.in { opacity: 1; translate: 0 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero h1 .w, .hero .hx, .hero-phone, .glow, .toast, .say, .say-wave i, .hl-line path, .hero .stairs path { animation: none !important; }
+  html { scroll-behavior: auto; }
+}
 
 /* ¿Te pasa? */
 .pains { padding: 56px 0 8px; }
@@ -272,6 +316,8 @@ button.bubble { text-align: left; cursor: pointer; color: var(--ink); font-famil
   .hero-art { height: 380px; }
   .hero-art .phone { width: 250px; }
   .toast { width: 270px; top: 100px; }
+  .say { width: 262px; top: 296px; }
+  .say-txt { font-size: 13px; }
   h2 { font-size: 28px; }
   .step-art .phone { width: 230px; }
   .float-card { width: 180px; right: -4px; }
@@ -302,10 +348,12 @@ button.bubble { text-align: left; cursor: pointer; color: var(--ink); font-famil
   .hero-cta .btn { flex: 0 0 auto; min-height: 58px; padding: 0 30px; font-size: 18px; }
   .hero-art { flex: 0 0 420px; max-width: 420px; height: 600px; align-self: flex-end; }
   .hero-art .phone { width: 330px; top: 10px; }
-  .toast { left: -40px; top: 150px; transform: rotate(-3deg); width: 330px; padding: 14px 16px; animation-name: llega-d; }
+  .toast { left: -40px; top: 150px; transform: none; rotate: -3deg; width: 330px; padding: 14px 16px; }
   .toast b { font-size: 17px; }
   .toast small { font-size: 15px; }
-  @keyframes llega-d { from { opacity: 0; transform: translateY(-26px) rotate(-3deg); } to { opacity: 1; transform: rotate(-3deg); } }
+  .say { left: -64px; top: 410px; transform: none; rotate: 2deg; width: 320px; padding: 12px 14px; }
+  .say-txt { font-size: 15.5px; }
+  .glow { width: 520px; height: 520px; margin-left: -260px; top: 30px; }
 
   .pains { padding: 88px 0 16px; }
 
