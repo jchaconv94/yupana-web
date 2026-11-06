@@ -127,7 +127,10 @@ button.btn { background: transparent; cursor: pointer; }
 .hero .hx { animation: up 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both; animation-delay: calc(var(--d) * 90ms + 150ms); }
 @keyframes word { from { opacity: 0; translate: 0 0.45em; } }
 @keyframes up { from { opacity: 0; translate: 0 18px; } }
-.hero .hl { position: relative; color: var(--coin); }
+.hero .hl { position: relative; display: inline-block; color: var(--coin); }
+.hero .bang { color: var(--coin); }
+.desk-br { display: none; }
+@media (min-width: 900px) { .desk-br { display: inline; } }
 .hl-line { position: absolute; left: -3%; bottom: -0.1em; width: 106%; height: 0.3em; overflow: visible; }
 .hl-line path { fill: none; stroke: var(--coin); stroke-width: 6; stroke-linecap: round; stroke-dasharray: 100; animation: draw 0.8s ease 1.05s both; }
 @keyframes draw { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }
