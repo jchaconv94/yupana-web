@@ -1,0 +1,140 @@
+/* Paga tu plan de Yupana: las pantallas aprobadas el 5 nov (lienzo "Pagar tu plan"), con el mismo estilo de la app
+   (magenta Aurora, Nunito y Baloo 2, tarjetas blancas). En el celular, una columna con el botón fijo abajo; desde 900
+   de ancho, la versión de computadora (cabecera ancha, pasos y una tarjeta de 760). */
+:root {
+  --bg: #fbf7f8;
+  --ink: #1f1a1c;
+  --muted: #5e4f55;
+  --label: #6b5a61;
+  --line: #efe3e7;
+  --brand: #c2185b;
+  --field: #f7f1f3;
+  --border: #e5d6db;
+  --aurora: linear-gradient(160deg, #f0306e 0%, #c2185b 55%, #7a0a36 100%);
+  --button: linear-gradient(135deg, #f0306e, #a0124b);
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); color: var(--ink); }
+body { font-family: 'Nunito', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+button, input { font: inherit; color: inherit; }
+button { cursor: pointer; background: none; border: 0; padding: 0; }
+button:disabled { cursor: default; }
+:focus-visible { outline: 3px solid #ffc629; outline-offset: 2px; }
+[hidden] { display: none !important; }
+.app { display: flex; flex-direction: column; min-height: 100dvh; }
+.app > * { flex: 0 0 auto; }
+.app > .page, .app > .desk, .app > .loading { flex: 1 0 auto; min-height: 0; }
+.loading { min-height: 100dvh; display: flex; align-items: center; justify-content: center; font-weight: 800; color: var(--label); }
+
+.num { font-family: 'Baloo 2', sans-serif; font-weight: 800; line-height: 1; }
+.kicker, .label { font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+.label { color: var(--label); }
+.muted { color: var(--muted); }
+.row { display: flex; align-items: center; gap: 12px; }
+.card { background: #fff; border-radius: 20px; box-shadow: 0 4px 14px rgba(31, 26, 28, 0.06); }
+.chip { display: inline-flex; align-items: center; gap: 4px; border-radius: 8px; padding: 2px 8px; font-size: 12px; font-weight: 800; white-space: nowrap; }
+.chip.coin { background: #ffc629; color: #5a3b00; }
+.brandrow { display: flex; align-items: center; gap: 10px; }
+.brandname { font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 21px; line-height: 1; }
+.mark { width: 44px; height: 44px; border-radius: 14px; display: flex; align-items: center; justify-content: center;
+  font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 17px; color: #fff; flex: 0 0 auto; background: var(--button); }
+
+/* La cabecera magenta con las dos escaleras finas */
+.hero { position: relative; overflow: hidden; color: #fff; background: var(--aurora); }
+.stairs { position: absolute; right: 0; bottom: 0; width: 390px; height: 244px; pointer-events: none; }
+.back, .iconbtn { width: 44px; height: 44px; border-radius: 22px; background: rgba(255, 255, 255, 0.16); display: flex;
+  align-items: center; justify-content: center; flex: 0 0 auto; color: #fff; font-weight: 800; font-size: 15px; }
+.back.soft { background: #f3e7eb; }
+.xbtn { width: 44px; height: 44px; border-radius: 22px; background: #f3e7eb; display: flex; align-items: center; justify-content: center; flex: 0 0 auto; }
+
+/* Botones */
+.btn { height: 52px; border-radius: 26px; display: flex; align-items: center; justify-content: center; gap: 8px;
+  font-size: 16px; font-weight: 800; width: 100%; }
+.btn.main { background: var(--button); color: #fff; box-shadow: 0 8px 18px rgba(122, 10, 54, 0.25); }
+.btn.line { background: #fff; color: var(--brand); border: 1.5px solid #e7c3d0; }
+.btn.white { background: #fff; color: var(--brand); }
+.btn.google { background: #fff; color: var(--ink); border: 1.5px solid var(--border); }
+.btn.off, .btn:disabled { background: #eadde1; color: #8f7d84; box-shadow: none; border: 0; }
+.btn.danger { background: #b3261e; color: #fff; }
+.textbtn { height: 48px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px; color: var(--label); width: 100%; }
+.link { font-weight: 800; font-size: 14px; color: var(--brand); }
+.secure { display: flex; align-items: center; justify-content: center; gap: 6px; font-size: 13px; font-weight: 700; color: var(--label); }
+
+/* Opciones (plan, tiempo, cómo pagas) */
+.choice { border: 1.5px solid var(--border); border-radius: 18px; background: #fff; padding: 14px; position: relative; text-align: left; width: 100%; }
+.choice.on { border: 2px solid var(--brand); background: #fff5f8; padding: 13.5px; }
+.radio { width: 22px; height: 22px; border-radius: 11px; border: 2px solid #cdb7bf; flex: 0 0 auto; position: relative; }
+.choice.on .radio { border: 0; background: var(--brand); }
+.choice.on .radio::after { content: ''; position: absolute; left: 7px; top: 3px; width: 6px; height: 11px; border: solid #fff;
+  border-width: 0 2.4px 2.4px 0; transform: rotate(45deg); }
+.yape { width: 44px; height: 44px; border-radius: 14px; background: linear-gradient(135deg, #9b3fb5, #5a1670); color: #fff;
+  font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 20px; display: flex; align-items: center; justify-content: center; flex: 0 0 auto; }
+.cardico { width: 44px; height: 44px; border-radius: 14px; background: #283593; display: flex; align-items: center; justify-content: center; flex: 0 0 auto; }
+
+/* Campos */
+.field { background: var(--field); border-radius: 14px; padding: 10px 14px; display: block; position: relative; }
+.field .flabel { font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--label); display: block; }
+.field input, .field .mp { display: block; width: 100%; border: 0; background: transparent; padding: 0; margin-top: 2px; height: 24px;
+  font-size: 16px; font-weight: 700; color: var(--ink); outline: none; }
+.field input::placeholder { color: #9c8a91; font-weight: 600; }
+.field:focus-within { background: #fff; box-shadow: 0 0 0 2px var(--brand) inset; }
+.field.bottom { display: flex; flex-direction: column; }
+.field.bottom .mp, .field.bottom input { margin-top: auto; }
+.field.bad { box-shadow: 0 0 0 2px #b3261e inset; background: #fff; }
+.fielderr { font-size: 13px; font-weight: 700; color: #b3261e; margin: 6px 4px 0; }
+.boxes { display: flex; gap: 7px; position: relative; }
+.boxes span { flex: 1; height: 54px; border-radius: 14px; background: var(--field); display: flex; align-items: center; justify-content: center;
+  font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 26px; color: var(--ink); }
+.boxes span.cur { background: #fff; box-shadow: 0 0 0 2px var(--brand) inset; }
+.boxes input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; border: 0; font-size: 16px; caret-color: transparent; }
+.tick { width: 24px; height: 24px; border-radius: 7px; border: 2px solid #cdb7bf; background: #fff; flex: 0 0 auto; position: relative; }
+.tick.on { background: var(--brand); border-color: var(--brand); }
+.tick.on::after { content: ''; position: absolute; left: 6px; top: 1px; width: 6px; height: 12px; border: solid #fff; border-width: 0 2.4px 2.4px 0; transform: rotate(45deg); }
+
+/* Página del celular: una columna, el botón fijo abajo */
+.page { position: relative; width: 100%; max-width: 480px; margin: 0 auto; padding-bottom: 140px; }
+.page.nofoot { padding-bottom: 32px; }
+.body { padding: 0 16px; position: relative; display: flex; flex-direction: column; gap: 14px; }
+.foot { position: fixed; left: 0; right: 0; bottom: 0; z-index: 5; pointer-events: none; }
+.foot > div { pointer-events: auto; max-width: 480px; margin: 0 auto; padding: 18px 16px calc(18px + env(safe-area-inset-bottom));
+  display: flex; flex-direction: column; gap: 8px; background: linear-gradient(to top, var(--bg) 70%, rgba(251, 247, 248, 0)); }
+.note { font-size: 13px; font-weight: 700; text-align: center; color: var(--muted); }
+
+/* Hojas desde abajo (celular) y ventanas (computadora) */
+.scrim { position: fixed; inset: 0; z-index: 20; background: rgba(31, 10, 20, 0.45); display: flex; align-items: flex-end; justify-content: center; }
+.sheet { width: 100%; max-width: 480px; max-height: 92dvh; overflow: auto; background: #fbf7f8; border-radius: 28px 28px 0 0;
+  padding: 12px 16px calc(20px + env(safe-area-inset-bottom)); display: flex; flex-direction: column; gap: 14px; }
+.sheet.white { background: #fff; }
+.grab { width: 40px; height: 5px; border-radius: 3px; background: #e0d0d6; align-self: center; flex: 0 0 auto; }
+@media (min-width: 900px) {
+  .scrim { align-items: center; background: rgba(31, 10, 20, 0.5); }
+  .sheet { max-width: 760px; border-radius: 28px; padding: 24px 28px 26px; box-shadow: 0 24px 60px rgba(31, 10, 20, 0.35); }
+  .sheet.small { max-width: 520px; }
+  .sheet .grab { display: none; }
+}
+
+/* Computadora */
+.desk { min-height: 100dvh; }
+.desk .hero { height: 320px; padding: 22px 48px; }
+.desk .stairs { width: 520px; height: 325px; }
+.desk .top { position: relative; max-width: 1120px; margin: 0 auto; }
+.desk .head { position: relative; width: 760px; margin: 20px auto 0; }
+.desk .sheetcard { position: relative; width: 760px; margin: -96px auto 48px; padding: 26px; display: flex; flex-direction: column; gap: 20px; }
+.stepper { display: flex; align-items: center; gap: 12px; }
+.stepper .dot { width: 28px; height: 28px; border-radius: 14px; display: flex; align-items: center; justify-content: center;
+  font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 16px; }
+.stepper .now { background: #fff; color: var(--brand); }
+.stepper .later { border: 2px solid rgba(255, 255, 255, 0.5); color: rgba(255, 255, 255, 0.8); font-size: 15px; }
+.stepper .sep { width: 44px; height: 2px; border-radius: 1px; background: rgba(255, 255, 255, 0.4); }
+.stepper .name { font-weight: 800; font-size: 16px; }
+.strip { display: flex; justify-content: space-between; align-items: center; gap: 12px; background: var(--field); border-radius: 16px; padding: 12px 14px; }
+.deskfoot { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--line); padding-top: 18px; }
+.inset { border-left: 4px solid var(--line); padding: 2px 0 2px 16px; }
+
+/* Modo de prueba: se nota que no se cobra de verdad */
+.testbar { background: #fff1c7; color: #5c3f00; font-size: 13px; font-weight: 800; text-align: center; padding: 6px 12px; }
+
+/* Menú de la cuenta */
+.menu { position: absolute; right: 0; top: 52px; z-index: 30; background: #fff; color: var(--ink); border-radius: 16px; padding: 14px;
+  box-shadow: 0 12px 30px rgba(31, 10, 20, 0.2); width: 260px; display: flex; flex-direction: column; gap: 10px; text-align: left; }
