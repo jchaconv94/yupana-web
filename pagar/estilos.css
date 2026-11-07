@@ -203,3 +203,44 @@ button:disabled { cursor: default; }
 .in-app .hero { border-top: var(--app-top, 0px) solid transparent; background-origin: border-box; }
 .in-app .page:not(:has(> .hero))::before { content: ''; display: block; height: var(--app-top, 0px); background: var(--aurora); }
 .in-app .loading { background: var(--aurora); color: #fff; }
+
+/* Punto 4 (7 nov): la flecha para volver a la página de Yupana, tu foto (la cuenta) y su menú */
+.toprow { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; position: relative; gap: 8px; }
+a.back { text-decoration: none; }
+.acct { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 24px; flex: 0 0 auto; }
+.acct:hover .acct-av { filter: brightness(1.05); }
+.acct-av { width: 36px; height: 36px; border-radius: 18px; background: var(--button); color: #fff; display: inline-flex; align-items: center;
+  justify-content: center; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 17px; flex: 0 0 auto; }
+.menu { width: 288px; gap: 6px; padding: 14px 10px 8px; }
+.menu-who { display: flex; gap: 12px; align-items: center; padding: 0 6px 12px; border-bottom: 1px solid var(--line); }
+.menu-rows { display: flex; flex-direction: column; }
+.menu-row { display: flex; align-items: center; gap: 12px; height: 50px; padding: 0 6px; border-radius: 12px; font-weight: 800; font-size: 15px;
+  color: var(--ink); text-decoration: none; width: 100%; text-align: left; }
+.menu-row:hover { background: #fbf2f5; }
+.menu-ico { width: 34px; height: 34px; border-radius: 11px; background: #fce4ec; color: var(--brand); display: flex; align-items: center;
+  justify-content: center; flex: 0 0 auto; }
+
+/* La entrada (la A, elegida el 7 nov) */
+.flow { display: flex; flex-direction: column; }
+.flow-row { display: grid; grid-template-columns: 44px 1fr; column-gap: 14px; }
+.flow-rail { display: flex; flex-direction: column; align-items: center; }
+.flow-dot { position: relative; width: 44px; height: 44px; border-radius: 22px; background: var(--button); display: flex; align-items: center;
+  justify-content: center; box-shadow: 0 6px 14px rgba(122, 10, 54, 0.25); flex: 0 0 auto; }
+.flow.oncolor .flow-dot { background: rgba(255, 255, 255, 0.18); box-shadow: none; border: 1px solid rgba(255, 255, 255, 0.32); }
+.flow-n { position: absolute; top: -4px; right: -5px; width: 20px; height: 20px; border-radius: 10px; background: #ffc629; color: #5a3b00;
+  font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center; line-height: 1; }
+.flow-line { flex: 1; width: 2px; background: #f3c6d6; margin: 4px 0; min-height: 12px; }
+.flow.oncolor .flow-line { background: rgba(255, 255, 255, 0.35); }
+.signin { padding: 22px; display: flex; flex-direction: column; gap: 16px; }
+.signin-sep { height: 1px; background: var(--line); }
+.trust { display: flex; flex-direction: column; gap: 10px; align-items: center; }
+.app > .split { flex: 1 0 auto; }
+.split { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); min-height: 100dvh; }
+.split-color { position: relative; overflow: hidden; background: var(--aurora); color: #fff; padding: 32px 48px 40px; display: flex;
+  flex-direction: column; justify-content: space-between; gap: 32px; }
+.split-color .stairs { width: 520px; height: 325px; }
+.split-side { display: flex; align-items: center; justify-content: center; padding: 48px; }
+.split-color > span[aria-hidden='true'] { position: absolute; inset: 0; pointer-events: none; }
+.acct-av { overflow: hidden; }
+.acct-av img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.acct-av.ring { box-shadow: 0 0 0 2.5px #fff, 0 6px 16px rgba(60, 0, 25, 0.3); }
