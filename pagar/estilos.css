@@ -196,3 +196,10 @@ button:disabled { cursor: default; }
 /* Menú de la cuenta */
 .menu { position: absolute; right: 0; top: 52px; z-index: 30; background: #fff; color: var(--ink); border-radius: 16px; padding: 14px;
   box-shadow: 0 12px 30px rgba(31, 10, 20, 0.2); width: 260px; display: flex; flex-direction: column; gap: 10px; text-align: left; }
+
+/* Dentro de Yupana (APK 24): la página va a pantalla completa, también debajo de la barra de arriba del celular (la
+   hora y la batería). La cabecera magenta se pinta ahí; las pantallas sin cabecera llevan una franja magenta del mismo
+   alto, y "Abriendo…" va en magenta. */
+.in-app .hero { border-top: var(--app-top, 0px) solid transparent; background-origin: border-box; }
+.in-app .page:not(:has(> .hero))::before { content: ''; display: block; height: var(--app-top, 0px); background: var(--aurora); }
+.in-app .loading { background: var(--aurora); color: #fff; }
