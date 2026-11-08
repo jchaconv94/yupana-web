@@ -215,7 +215,7 @@ a { color: inherit; }
   .page.narrowpage { max-width: 760px; }
   .page.with-bar { padding-bottom: 140px; }
   .hero { border-radius: 24px; padding: 24px 28px 68px; }
-  .hero .stairs { width: 520px; height: 220px; }
+  .hero .stairs { width: auto; height: max(220px, calc(100% * 244 / 213)); aspect-ratio: 390 / 244; }
   .body { padding: 0 20px; }
   .hero.home { padding: 24px 28px; display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
   .hero.home .hero-amount { font-size: 56px; }
@@ -240,3 +240,178 @@ a { color: inherit; }
 }
 /* Las pantallas de adentro no llevan el menú flotante (tienen su flecha atrás). */
 .app:has(.inner) .tabbar { display: none; }
+
+/* La entrada (como la A de la página de pago, 7 nov) y tu cuenta con tu foto de Google */
+.btn.google { background: #fff; color: var(--ink); border: 1.5px solid var(--border); }
+.split { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); min-height: 100vh; min-height: 100dvh; }
+.split-color { position: relative; overflow: hidden; background: var(--aurora); color: #fff; padding: 32px 48px 40px; display: flex;
+  flex-direction: column; justify-content: space-between; gap: 32px; }
+.split-color .stairs { position: absolute; right: 0; bottom: 0; width: 520px; height: 325px; pointer-events: none; }
+.split-side { display: flex; align-items: center; justify-content: center; padding: 48px; background: var(--bg); }
+.signin { padding: 22px; display: flex; flex-direction: column; gap: 16px; }
+.signin-sep { height: 1px; background: var(--line); }
+.sees { display: flex; flex-direction: column; gap: 18px; }
+.sees-row { display: flex; gap: 14px; align-items: center; }
+.sees-dot { width: 44px; height: 44px; border-radius: 22px; background: var(--button); display: flex; align-items: center;
+  justify-content: center; box-shadow: 0 6px 14px rgba(122, 10, 54, 0.25); flex: 0 0 auto; }
+.sees.oncolor .sees-dot { background: rgba(255, 255, 255, 0.18); box-shadow: none; border: 1px solid rgba(255, 255, 255, 0.32); }
+.acct { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 24px; flex: 0 0 auto;
+  border: 0; background: none; padding: 0; }
+.acct:hover .acct-av { filter: brightness(1.05); }
+.acct-av { width: 36px; height: 36px; border-radius: 18px; background: var(--button); color: #fff; display: inline-flex; align-items: center;
+  justify-content: center; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 17px; flex: 0 0 auto; overflow: hidden; }
+.acct-av img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.acct-av.ring { box-shadow: 0 0 0 2.5px #fff, 0 6px 16px rgba(60, 0, 25, 0.3); }
+.acct:focus-visible, .sideacct:focus-visible, .menu-row:focus-visible { outline: 3px solid #ffc629; outline-offset: 2px; }
+.sideacct { display: flex; align-items: center; gap: 12px; width: 100%; padding: 14px 10px 4px; border: 0; background: none;
+  border-top: 1px solid var(--line); color: inherit; }
+.sideacct:hover { background: #fdf8fa; }
+.menu { background: #fff; color: var(--ink); border-radius: 16px; box-shadow: 0 12px 30px rgba(31, 10, 20, 0.2); width: 288px;
+  display: flex; flex-direction: column; gap: 6px; padding: 14px 10px 8px; text-align: left; z-index: 46; }
+.menu-who { display: flex; gap: 12px; align-items: center; padding: 0 6px 12px; border-bottom: 1px solid var(--line); }
+.menu-rows { display: flex; flex-direction: column; }
+.menu-row { display: flex; align-items: center; gap: 12px; height: 50px; padding: 0 6px; border-radius: 12px; font-weight: 800; font-size: 15px;
+  color: var(--ink); text-decoration: none; width: 100%; text-align: left; border: 0; background: none; }
+.menu-row:hover { background: #fbf2f5; }
+.menu-ico { width: 34px; height: 34px; border-radius: 11px; background: #fce4ec; color: var(--brand); display: flex; align-items: center;
+  justify-content: center; flex: 0 0 auto; }
+
+/* Inicio más premium (la A, elegida el 7 nov): cuánto más que el mes anterior y cuadritos de color */
+.deltapill { display: inline-flex; align-items: center; gap: 4px; background: rgba(255, 255, 255, 0.18); border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 14px; padding: 3px 10px 3px 7px; font-size: 13px; font-weight: 800; white-space: nowrap; }
+.stat-head { display: flex; align-items: center; gap: 10px; }
+.stat .num { margin-top: 10px; }
+.sectitle { display: flex; align-items: center; gap: 10px; }
+.mini { display: inline-flex; align-items: center; gap: 6px; }
+
+/* Negocios con íconos (propuesta del 7 nov) */
+.tilepill { gap: 8px; padding: 6px 8px 6px 6px; }
+.pillcount { display: inline-flex; align-items: center; justify-content: center; min-width: 24px; height: 24px; border-radius: 12px;
+  padding: 0 7px; background: #f3e7eb; color: #524347; font-size: 13px; }
+.pill.on .pillcount { background: rgba(255, 255, 255, 0.22); color: #fff; }
+.planrow { display: flex; align-items: flex-start; gap: 8px; margin-top: 4px; font-size: 14px; line-height: 20px; }
+.usage { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 6px; font-size: 13px; font-weight: 700; color: var(--muted); }
+.use { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+.biztable td { padding: 12px 14px; vertical-align: middle; }
+.clickrow { cursor: pointer; }
+.clickrow:hover td { background: #fdf8fa; }
+.biztable th { padding-top: 0; }
+.rowno { color: var(--label); font-weight: 800; font-size: 13px; width: 44px; padding-right: 0 !important; }
+.pager { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px 14px;
+  border-top: 1px solid var(--line); flex-wrap: wrap; }
+.pg { min-width: 38px; height: 38px; border-radius: 12px; border: 1.5px solid var(--border); background: #fff; color: #524347;
+  font-weight: 800; font-size: 14px; display: inline-flex; align-items: center; justify-content: center; padding: 0 8px; }
+.pg:hover:not(:disabled):not(.on) { background: #fdf8fa; }
+.pg.on { background: var(--brand); border-color: var(--brand); color: #fff; }
+.pg:disabled { opacity: 0.4; }
+.pg.gap { border: 0; min-width: 20px; }
+.pg:focus-visible { outline: 3px solid #ffc629; outline-offset: 2px; }
+.paytable th.right { text-align: right; }
+.bizrow { padding: 12px; }
+.bizrow .planrow { font-size: 13.5px; }
+.bizrow .usage { gap: 4px 12px; }
+.pgsize { height: 38px; border-radius: 12px; border: 1.5px solid var(--border); background: #fff; color: var(--ink);
+  font: inherit; font-weight: 800; font-size: 14px; padding: 0 30px 0 12px; cursor: pointer; appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23C2185B' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 10px center; }
+.pgsize:focus-visible { outline: 3px solid #ffc629; outline-offset: 2px; }
+
+/* La ficha del negocio con íconos (la B, elegida el 8 nov) */
+.planbtns > .btn { flex: 1 1 190px; white-space: nowrap; }
+.owner-av { width: 44px; height: 44px; border-radius: 22px; background: var(--button); color: #fff; display: flex; align-items: center;
+  justify-content: center; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 17px; flex: 0 0 auto; }
+.factrow { display: flex; align-items: center; gap: 12px; padding: 10px 16px; border-top: 1px solid var(--line); min-height: 62px; }
+.factico { width: 34px; height: 34px; border-radius: 11px; background: #fce4ec; color: var(--brand); display: flex; align-items: center;
+  justify-content: center; flex: 0 0 auto; }
+.facttext { font-size: 15px; overflow-wrap: anywhere; }
+@media (min-width: 900px) {
+  .body.ficha { gap: 18px; }
+  .body.ficha .cols { gap: 18px; }
+  .body.ficha .cols.even { align-items: stretch; }
+  .usetiles { display: grid; }
+  .plancard { display: flex; flex-direction: column; }
+  .plancard .plandiv { margin-top: auto !important; }
+  .plancard .planbtns { margin-bottom: 16px; }
+  .planbtns > .btn { flex: 0 0 auto; min-height: 44px; border-radius: 22px; font-size: 15px; padding: 0 18px; }
+}
+@media (max-width: 359px) {
+  .uses > div { padding: 12px; }
+  .uses .stat-head { flex-direction: column; align-items: flex-start; gap: 6px; }
+}
+@media (min-width: 900px) and (max-width: 1149px) {
+  .usetiles .stat-head { flex-direction: column; align-items: flex-start; gap: 8px; }
+}
+
+/* Planes con íconos (la A, elegida el 8 nov) */
+.planrowlink { padding: 14px 14px 14px 16px; }
+.pricerow { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.usage.col { flex-direction: column; gap: 8px; font-size: 14px; }
+.plangrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.plancol { position: relative; display: flex; flex-direction: column; padding: 18px 16px 16px; text-decoration: none; color: inherit;
+  border: 2px solid transparent; }
+.plancol:hover { background: #fdf8fa; }
+.plancol.reco { border-color: var(--brand); }
+.edgepill { position: absolute; top: -12px; left: 16px; background: #ffc629; color: #5a3b00; border-radius: 10px; padding: 3px 10px;
+  font-size: 12px; font-weight: 800; }
+.plancol:focus-visible { outline: 3px solid #ffc629; outline-offset: 2px; }
+@media (min-width: 900px) and (max-width: 1149px) {
+  .plangrid { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 22px; }
+}
+
+/* Cambiar un plan con íconos y la tarjeta como la verá el dueño (propuesta del 8 nov); dos columnas desde 1150 */
+.stack { display: flex; flex-direction: column; gap: 12px; }
+.sechead { display: flex; align-items: center; gap: 12px; }
+.herobadge { display: inline-flex; padding: 4px; border-radius: 19px; background: rgba(255, 255, 255, 0.92); flex: 0 0 auto; }
+.yeardeal { font-size: 13px; padding: 4px 10px; white-space: normal; line-height: 1.3; }
+.steprow { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-top: 1px solid var(--line); }
+.teamhead + .steprow { border-top: 0; }
+.pill-short { display: none; }
+@media (max-width: 429px) {
+  .steprow > span[aria-hidden] { display: none !important; }
+}
+@media (max-width: 379px) {
+  .steprow .stepper { gap: 6px; }
+  .steprow .stepper button { width: 36px; height: 36px; }
+  .ownercard .pill-full { display: none; }
+  .ownercard .pill-short { display: inline; }
+}
+.featgrid { display: grid; grid-template-columns: minmax(0, 1fr); padding-bottom: 4px; }
+.featrow { display: flex; align-items: center; gap: 12px; padding: 10px 16px; min-height: 58px; border-top: 1px solid var(--line); }
+.featrow:first-child { border-top: 0; }
+.featrow.off > span[aria-hidden] { opacity: 0.45; filter: grayscale(1); }
+.ownercard { position: relative; border: 1.5px solid var(--border); border-radius: 20px; padding: 18px 16px 16px; display: flex;
+  flex-direction: column; gap: 6px; background: #fff; }
+.ownercard.reco { border: 2px solid var(--brand); }
+.ownercard .edgepill { max-width: calc(100% - 32px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ownprice { display: flex; align-items: baseline; margin-top: 8px; }
+.ownside { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.ownmore { border-top: 1px solid var(--line); margin-top: 8px; padding-top: 12px; }
+.ownstat { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 14px; }
+.ownstat .num { font-size: 24px; line-height: 1; }
+.ownfeat { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 14px; }
+@media (min-width: 1150px) {
+  .editgrid { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 18px; align-items: start; }
+  .editmain, .editside { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+  .editside { position: sticky; top: 24px; }
+}
+
+/* Anotar un pago con íconos (propuesta del 8 nov) */
+.planpick { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 8px; }
+.pickcard { position: relative; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 12px 6px 10px;
+  border: 1.5px solid var(--border); border-radius: 16px; background: #fff; cursor: pointer; font: inherit; color: inherit; }
+.pickcard.on { border: 2px solid var(--brand); background: #fff5f8; }
+.pickcard .pickname { font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 18px; line-height: 1.1; margin-top: 4px; }
+.pickcard.on .pickname { color: var(--brand); }
+.pickcard .check { position: absolute; top: 6px; right: 6px; }
+.pickcard:focus-visible, .methodtile:focus-visible { outline: 3px solid #ffc629; outline-offset: 2px; }
+.methodgrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 8px; }
+.methodtile { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; min-height: 76px;
+  padding: 10px 4px; border: 1.5px solid var(--border); border-radius: 16px; background: #fff; cursor: pointer; font: inherit;
+  font-size: 13px; font-weight: 800; color: #524347; text-align: center; line-height: 1.15; }
+.methodtile.on { border: 2px solid var(--brand); background: #fff5f8; color: var(--brand); }
+.sheetfoot { position: sticky; bottom: -20px; margin: 0 -20px -20px; padding: 12px 20px 20px; background: #fff; display: flex;
+  flex-direction: column; gap: 12px; box-shadow: 0 -8px 16px rgba(31, 26, 28, 0.06); }
+@media (max-width: 359px) {
+  .methodtile { font-size: 12px; }
+}
