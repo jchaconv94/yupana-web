@@ -415,3 +415,9 @@ a { color: inherit; }
 @media (max-width: 359px) {
   .methodtile { font-size: 12px; }
 }
+
+/* Dentro de Yupana (8 nov): la cabecera de color sube por debajo de la barra de arriba del celular. */
+.in-app .hero { border-top: var(--app-top, 0px) solid transparent; background-origin: border-box; }
+.in-app .page:not(:has(> .hero))::before { content: ''; display: block; height: var(--app-top, 0px); background: var(--aurora); }
+.in-app .loading { background: var(--aurora); color: #fff; min-height: 100vh; }
+
