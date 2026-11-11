@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Yupana · Tu caja chevere</title>
+<title>Yupana · Tu caja se anota sola</title>
 <meta name="description" content="Cada Yape y Plin que llega a tu celular se anota solo. Al cerrar, Yupana te dice si tu caja cuadra. Y si tienes equipo, sabes cuánto cobró cada uno. 14 días gratis, sin tarjeta.">
 <meta name="theme-color" content="#c2185b">
 <meta property="og:title" content="Yupana · Tu caja se anota sola">
@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&amp;family=Nunito:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="venta.css?v=b46a045bf9">
+<link rel="stylesheet" href="venta.css?v=610790be6c">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Necesito una cuenta especial de Yape o Plin?","acceptedAnswer":{"@type":"Answer","text":"No. Yupana lee los avisos que ya te llegan al celular cuando te yapean o te plinean. Sigues cobrando como siempre."}},{"@type":"Question","name":"¿Yupana ve mi dinero o mis claves?","acceptedAnswer":{"@type":"Answer","text":"No. Solo lee los avisos de pagos de Yape y Plin. No entra a tu banco, no ve tus claves y no mueve tu plata."}},{"@type":"Question","name":"¿En qué celulares funciona?","acceptedAnswer":{"@type":"Answer","text":"En celulares Android. En algunas marcas, como Xiaomi, Oppo o Vivo, hay que prender dos permisos más: Yupana te muestra cómo, paso a paso."}},{"@type":"Question","name":"¿Qué pasa cuando terminan los 14 días?","acceptedAnswer":{"@type":"Answer","text":"Sigues gratis con Básico: el lector, tu caja y el cierre en tu celular. No se borra nada y no se cobra nada solo. Si quieres seguir con tu equipo, eliges un plan."}},{"@type":"Question","name":"¿Mi equipo necesita correo o Google?","acceptedAnswer":{"@type":"Answer","text":"No. Tú agregas a cada persona y le das un PIN de 4 cifras. Entra con su PIN en el celular que tú conectas. Cuando ya no trabaja contigo, la das de baja."}},{"@type":"Question","name":"¿Cómo pago mi plan?","acceptedAnswer":{"@type":"Answer","text":"Aquí, en la página de Yupana: con Yape, con tu código de aprobación, o con tarjeta. Con Yape pagas cada vez que quieres seguir; con tarjeta se cobra solo y lo cancelas cuando quieras."}},{"@type":"Question","name":"¿Puedo dejar de pagar cuando quiera?","acceptedAnswer":{"@type":"Answer","text":"Sí. No hay contratos. Si dejas de pagar, pasas a Básico y no se borra nada."}},{"@type":"Question","name":"¿Yupana es de Yape o de Plin?","acceptedAnswer":{"@type":"Answer","text":"No. Yupana es una app independiente, hecha en Perú. No está relacionada con Yape, con Plin ni con ningún banco."}}]}</script>
 </head>
 <body>
@@ -192,8 +192,8 @@
         <p class="sub left">Apenas llega un Yape o un Plin, Yupana te dice quién te pagó y cuánto. Si es un Yape, también el código de seguridad.</p>
         <ul class="voices">
           <li><span class="v-name">Killa</span><span class="v-txt">La voz de Yupana</span><span class="tag tag-free">Gratis</span></li>
-          <li><span class="v-name">Amaru · Inti</span><span class="v-txt">Dos voces más y 5 sonidos de aviso</span><span class="tag tag-muju">Desde Muju</span></li>
-          <li><span class="v-name">Qori · Qoya · Qolqe</span><span class="v-txt">Voces más naturales. Escúchalas:</span><span class="tag tag-winay">Desde Wiñay</span>
+          <li><span class="v-name">Amaru · Inti</span><span class="v-txt">Dos voces más y 5 sonidos de aviso</span><span data-f="voces_celular" class="tag tag-muju">Desde Muju</span></li>
+          <li><span class="v-name">Qori · Qoya · Qolqe</span><span class="v-txt">Voces más naturales. Escúchalas:</span><span data-f="voces_nube" class="tag tag-winay">Desde Wiñay</span>
             <span class="v-play">
               <button class="mini play" type="button" data-audio="audio/qori.mp3" aria-label="Escuchar la voz Qori"><span class="play-ico" aria-hidden="true"></span>Qori</button>
               <button class="mini play" type="button" data-audio="audio/qoya.mp3" aria-label="Escuchar la voz Qoya"><span class="play-ico" aria-hidden="true"></span>Qoya</button>
@@ -202,7 +202,7 @@
           </li>
         </ul>
         <ul class="ticks">
-          <li>A tu equipo también le suena, en su celular (desde Muju)</li>
+          <li>A tu equipo también le suena, en su celular (<span data-f="avisos_equipo" data-low>desde Muju</span>)</li>
           <li>Aunque Yupana esté cerrada</li>
         </ul>
       </div>
@@ -228,20 +228,20 @@
       <article class="chap">
         <span class="chap-n">1</span>
         <div class="chap-head">
-          <h3>Tu equipo entra con su PIN <span class="tag tag-muju">Desde Muju</span></h3>
+          <h3>Tu equipo entra con su PIN <span data-f="equipo" class="tag tag-muju">Desde Muju</span></h3>
           <p>Tú agregas a cada persona y le das su PIN. Entra en su celular o en uno del local.</p>
         </div>
         <ul class="chap-tiles">
           <li><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/></svg></span><b>Con su PIN de 4 cifras</b><span>Sin correo ni Google</span></li>
           <li><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10 18.5h4"/></svg></span><b>Celulares del local</b><span>Los conectas mostrando un QR</span></li>
-          <li><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span><b>Anotan en su horario <span class="tag tag-winay">Desde Wiñay</span></b><span>Fuera de su turno, no</span></li>
+          <li><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span><b>Anotan en su horario <span data-f="horarios" class="tag tag-winay">Desde Wiñay</span></b><span>Fuera de su turno, no</span></li>
         </ul>
       </article>
 
       <article class="chap">
         <span class="chap-n">2</span>
         <div class="chap-head">
-          <h3>Cobran con tu QR y el monto exacto <span class="tag tag-muju">Desde Muju</span></h3>
+          <h3>Cobran con tu QR y el monto exacto <span data-f="cobrar_qr" class="tag tag-muju">Desde Muju</span></h3>
           <p>El pago queda a nombre de quien cobró, cuando llega de verdad a tu celular.</p>
         </div>
         <div class="flow">
@@ -270,7 +270,7 @@
         </div>
         <article class="t-wide">
           <div class="t-text">
-            <h4>Pantalla de cobros en el mostrador <span class="tag tag-winay">Desde Wiñay</span></h4>
+            <h4>Pantalla de cobros en el mostrador <span data-f="pantalla" class="tag tag-winay">Desde Wiñay</span></h4>
             <p>Una tablet o un celular muestra tu QR con el monto. El cliente lo ve, paga desde su app y la pantalla le dice «¡Yape recibido!».</p>
           </div>
           <div class="tablet"><img src="img/pantalla.webp" alt="Pantalla de cobros: total a pagar S/ 25.00 con el QR de Yape y el de Plin" width="1180" height="820" loading="lazy"></div>
@@ -280,7 +280,7 @@
       <article class="chap">
         <span class="chap-n">3</span>
         <div class="chap-head">
-          <h3>Tú ves cuánto cobró cada uno <span class="tag tag-winay">Desde Wiñay</span></h3>
+          <h3>Tú ves cuánto cobró cada uno <span data-f="por_persona" class="tag tag-winay">Desde Wiñay</span></h3>
           <p>Desde tu celular, al momento, y al cerrar cada turno.</p>
         </div>
         <div class="t-grid">
@@ -310,7 +310,7 @@
       <article class="keep keep-cloud">
         <div class="keep-txt">
           <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18h10a4 4 0 0 0 .6-8A6 6 0 0 0 6.2 9.6 4.2 4.2 0 0 0 7 18z"/></svg></span>
-          <h3>En la nube <span class="tag tag-muju">Desde Muju</span></h3>
+          <h3>En la nube <span data-f="nube" class="tag tag-muju">Desde Muju</span></h3>
           <p>Tu caja vive en tu celular y en la nube, al mismo tiempo.</p>
           <ul class="keep-list"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><span>Todo tu historial, de todos los años</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><span>Lo que anota tu equipo te llega al instante</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><span>Si pierdes el celular, entras con tu cuenta y está todo</span></li></ul>
         </div>
@@ -350,15 +350,15 @@
       </article>
       <article class="b-tile">
         <div class="b-art art-color" aria-hidden="true"><div class="swatches"><i style="background:#d81b60"></i><i style="background:#ef6c00"></i><i style="background:#c49000"></i><i style="background:#6d4c41"></i><i style="background:#1e63c9"></i><i style="background:#3f51b5"></i><i style="background:#0288d1"></i><i style="background:#455a64"></i></div></div>
-        <div class="b-body"><h3>Tu logo y tu color</h3><p>Tu equipo reconoce tu negocio. El logo es gratis.</p><span class="tag tag-muju">Color desde Muju</span></div>
+        <div class="b-body"><h3>Tu logo y tu color</h3><p>Tu equipo reconoce tu negocio. El logo es gratis.</p><span data-f="color" data-pre="Color " class="tag tag-muju">Color desde Muju</span></div>
       </article>
       <article class="b-tile">
         <div class="b-art art-split" aria-hidden="true"><div class="split"><div><small>CON QR</small><b>S/&nbsp;16.00</b></div><div><small>EN EFECTIVO</small><b>S/&nbsp;5.00</b></div></div></div>
-        <div class="b-body"><h3>Parte en efectivo y vuelto</h3><p>Una parte con QR y otra en efectivo, y todo cuadra.</p><span class="tag tag-muju">Desde Muju</span></div>
+        <div class="b-body"><h3>Parte en efectivo y vuelto</h3><p>Una parte con QR y otra en efectivo, y todo cuadra.</p><span data-f="cobrar_qr" class="tag tag-muju">Desde Muju</span></div>
       </article>
       <article class="b-tile">
         <div class="b-art art-hours" aria-hidden="true"><div class="hours"><span>Rosa · hoy</span><div class="bar"><i></i></div><small><span>8:00 a. m.</span><span>4:00 p. m.</span></small></div></div>
-        <div class="b-body"><h3>Horarios del equipo</h3><p>Anotan solo en su horario, con el tiempo extra que elijas.</p><span class="tag tag-winay">Desde Wiñay</span></div>
+        <div class="b-body"><h3>Horarios del equipo</h3><p>Anotan solo en su horario, con el tiempo extra que elijas.</p><span data-f="horarios" class="tag tag-winay">Desde Wiñay</span></div>
       </article>
     </div>
   </div>
@@ -538,6 +538,6 @@
   <a class="btn btn-main btn-sm" href="#descargar">Prueba gratis</a>
 </div>
 
-<script type="module" src="venta.js?v=b46a045bf9"></script>
+<script type="module" src="venta.js?v=610790be6c"></script>
 </body>
 </html>

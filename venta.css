@@ -251,8 +251,11 @@ button.btn { background: transparent; cursor: pointer; }
 .tag-free { background: var(--green-bg); color: var(--green); }
 .tag-muju { background: #fff3d6; color: #8a4a06; }
 .tag-winay { background: var(--soft); color: var(--brand); }
+.tag-hatun { background: #e8eafc; color: #3949ab; }
 .team .tag-muju { background: rgba(255, 198, 41, 0.18); color: var(--coin); }
 .team .tag-winay { background: rgba(240, 48, 110, 0.22); color: #ff9cbf; }
+.team .tag-hatun { background: rgba(121, 134, 255, 0.22); color: #b8c0ff; }
+.team .tag-free { background: rgba(76, 195, 122, 0.2); color: #9be7b6; }
 
 /* Avisos en voz */
 .voice { margin-top: 48px; padding: 8px 0 24px; }
