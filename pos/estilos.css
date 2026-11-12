@@ -1005,7 +1005,8 @@ html:has(.mpage.with-cart) { scroll-padding-bottom: 110px; }
 .entry-split { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; }
 .entry-color { background: var(--aurora); color: #fff; position: relative; overflow: hidden; padding: 40px 56px; display: flex;
   flex-direction: column; justify-content: space-between; gap: 32px; }
-.entry-color .stairs { position: absolute; right: 0; bottom: 0; width: 520px; height: 325px; pointer-events: none; }
+/* Las escaleras abajo a la izquierda (12 nov, el usuario: "las escaleras a la izquierda y el yupanero a mi derecha"). */
+.entry-color .stairs { position: absolute; left: 0; bottom: 0; width: 520px; height: 325px; transform: scaleX(-1); pointer-events: none; }
 .entry-color h1 { font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 48px; line-height: 1.05; }
 .entry-color p { font-size: 18px; font-weight: 700; opacity: .94; margin-top: 10px; }
 .entry-brand { font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 24px; }
@@ -1114,4 +1115,227 @@ html:has(.mpage.with-cart) { scroll-padding-bottom: 110px; }
   .here-amount { font-size: 56px; }
   .here-amount small { font-size: 28px; }
   .here-card-title { font-size: 22px; }
+}
+
+/* ===== entrada del equipo y del plan (12 nov, propuesta) ===== */
+.entry-alt { display: flex; align-items: center; gap: 12px; width: 100%; padding: 12px 14px; border-radius: 18px; border: 1.5px solid var(--border);
+  background: #fff; min-height: 64px; color: var(--ink); }
+.entry-alt b { display: block; font-size: 16px; font-weight: 900; }
+.entry-alt .grow > span { display: block; font-size: 13px; font-weight: 700; color: var(--muted); }
+.entry-alt > .ic { color: var(--muted); }
+.entry-alt-ic { width: 40px; height: 40px; border-radius: 12px; background: #e3f2fd; color: #1565c0; display: flex; align-items: center;
+  justify-content: center; flex: none; }
+.lockhead { display: flex; align-items: center; gap: 14px; }
+.lockhead .kicker { display: block; font-size: 12px; font-weight: 900; letter-spacing: 1px; color: var(--label); text-transform: uppercase;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lockhead h2 { font-size: 26px; }
+.planbadge { display: inline-flex; align-items: center; justify-content: center; flex: none; box-shadow: 0 6px 14px rgba(40, 53, 147, .25); }
+.lockbox { background: #f3f4fb; border-radius: 16px; padding: 14px 16px; display: flex; flex-direction: column; gap: 9px; }
+.lockbox b { font-size: 13px; font-weight: 900; color: var(--label); }
+.lockbox .row { font-size: 14.5px; font-weight: 800; gap: 9px; align-items: flex-start; }
+.lockbox .row .ic { color: #283593; margin-top: 1px; }
+.backlink { display: inline-flex; align-items: center; gap: 6px; font-weight: 900; font-size: 15px; color: var(--brand); align-self: flex-start;
+  min-height: 40px; margin: -8px 0 -8px -4px; padding: 0 4px; }
+.where { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; background: var(--field); border-radius: 10px; padding: 6px 10px;
+  font-size: 13.5px; font-weight: 800; color: var(--ink); }
+.where .ic { color: var(--brand); }
+.codeboxes { position: relative; display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; cursor: text; }
+.codeboxes input { position: absolute; inset: 0; opacity: 0; width: 100%; height: 100%; font-size: 16px; }
+.codeboxes .cb { height: 60px; border-radius: 14px; background: var(--field); display: flex; align-items: center; justify-content: center;
+  font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 28px; border: 2px solid transparent; }
+.codeboxes .cb.full { background: #fff; border-color: var(--border); }
+.codeboxes .cb.now { background: #fff; border-color: var(--brand); }
+.codeboxes input:not(:focus) ~ .cb.now { border-color: transparent; background: var(--field); }
+.hint.okh { margin-top: 0; color: var(--ok); background: var(--okSoft); border-radius: 12px; padding: 10px 12px; }
+.hint.okh .ic { color: var(--ok); }
+.hint.okh b { font-weight: 900; }
+
+.pinpage { min-height: 100vh; background: linear-gradient(180deg, #c2185b 0%, #7a0a36 42%, #150a10 100%); color: #fff; display: flex;
+  flex-direction: column; align-items: center; justify-content: center; padding: 32px 16px 16px; gap: 20px; }
+.pincol { width: 100%; max-width: 340px; display: flex; flex-direction: column; align-items: center; gap: 14px; flex: 1;
+  justify-content: center; }
+.pinbrand { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.pinbrand b { font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 22px; }
+.pinbiz { display: inline-flex; align-items: center; gap: 8px; background: rgba(255, 255, 255, .14); border-radius: 999px; padding: 5px 14px 5px 5px;
+  font-weight: 800; font-size: 14.5px; max-width: 100%; }
+.pinbiz .bizmark { width: 28px; height: 28px; border-radius: 9px; background: #fff4e2; color: #a0124b; font-family: 'Baloo 2', sans-serif;
+  font-weight: 800; font-size: 12px; display: flex; align-items: center; justify-content: center; flex: none; }
+.pinsay { margin-top: 10px; font-size: 19px; font-weight: 900; min-height: 28px; display: flex; align-items: center; gap: 6px; text-align: center; }
+.pinsay.warn { color: #ffd8a8; font-size: 16.5px; }
+.pindots { display: flex; gap: 18px; height: 20px; align-items: center; }
+.pindots i { width: 16px; height: 16px; border-radius: 50%; border: 2px solid rgba(255, 255, 255, .7); }
+.pindots i.on { background: #fff; border-color: #fff; }
+.pinkeys { margin-top: 8px; width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px 22px; justify-items: center; }
+.pk { width: 72px; height: 72px; border-radius: 50%; background: rgba(255, 255, 255, .12); color: #fff; font-family: 'Baloo 2', sans-serif;
+  font-weight: 700; font-size: 30px; display: flex; align-items: center; justify-content: center; }
+.pk:hover:not(:disabled) { background: rgba(255, 255, 255, .2); }
+.pk.del { background: none; }
+.pk:disabled { opacity: .45; cursor: default; }
+.pk.del:disabled { opacity: .3; }
+.pinlink { font-weight: 900; font-size: 15px; color: #fff; opacity: .9; min-height: 44px; padding: 0 10px; }
+.pinowner { display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; font-weight: 800; color: rgba(255, 255, 255, .78);
+  min-height: 44px; padding: 0 12px; }
+.pinpage :focus-visible { outline-color: #ffc629; }
+@media (max-height: 700px) {
+  .pk { width: 60px; height: 60px; font-size: 26px; }
+  .pinkeys { gap: 10px 22px; }
+}
+.bizcard:disabled, .bizbtn:disabled { cursor: default; opacity: 1; }
+.pinforgot { font-size: 14.5px; font-weight: 800; text-align: center; background: rgba(255, 255, 255, .12); border-radius: 14px; padding: 10px 14px; max-width: 320px; }
+.pinbusy { opacity: .6; }
+.pinsay { display: block; line-height: 1.3; } .pinsay .ic { vertical-align: -3px; margin-right: 2px; }
+
+/* Interruptor (Material 3) y "Después de" de Seguridad (12 nov, fotos). */
+.swt { flex: none; width: 52px; height: 32px; border-radius: 16px; background: var(--field); border: 2px solid var(--muted); position: relative; padding: 0; }
+.swt i { position: absolute; top: 50%; left: 6px; width: 16px; height: 16px; border-radius: 50%; background: var(--muted); transform: translateY(-50%); transition: all .15s; }
+.swt.on { background: var(--brand); border-color: var(--brand); }
+.swt.on i { left: 24px; width: 24px; height: 24px; background: #fff; }
+.lockwhen { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border); }
+.lockother { display: inline-flex; align-items: center; gap: 10px; font-weight: 800; color: var(--muted); }
+.lockother input { width: 84px; height: 44px; border-radius: 12px; border: 2px solid var(--border); padding: 0 12px; font: inherit; font-size: 18px; font-weight: 900; color: var(--ink); text-align: center; background: #fff; }
+/* Una sola línea al escribir: el borde se pone magenta (sin el contorno del navegador encima, que se veía doble). */
+.lockother input:focus, .lockother input:focus-visible { outline: none; border-color: var(--brand); }
+.lockother input[aria-invalid='true'] { border-color: var(--bad); }
+.lockchips { display: grid; grid-template-columns: repeat(3, 1fr); }
+.lockchips button { padding: 0 6px; display: flex; align-items: center; justify-content: center; text-align: center; }
+.lockerr { color: var(--bad); font-weight: 800; font-size: 14px; }
+.pinsub { margin-top: -8px; font-size: 14.5px; font-weight: 700; opacity: .85; text-align: center; max-width: 300px; }
+.pinallow { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 18px; border-radius: 24px;
+  background: rgba(255, 255, 255, .16); color: #fff; font-weight: 900; font-size: 15.5px; margin-top: 6px; }
+.moretime { width: 100%; background: #fff; color: var(--ink); border-radius: 22px; padding: 18px; display: flex; flex-direction: column; gap: 12px; margin-top: 6px; }
+.moretime > b { font-size: 17px; font-weight: 900; }
+.moretime > span { font-size: 13.5px; color: var(--muted); font-weight: 700; text-align: center; }
+.moregrid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.moregrid button { display: flex; align-items: center; justify-content: center; height: 48px; border-radius: 14px; border: 1.5px solid var(--border); background: #fff; font-weight: 900; font-size: 15.5px; color: var(--ink); }
+.moregrid button.on { border: 2px solid var(--brand); background: #fff5f8; color: var(--brand); }
+.moreok { display: flex; align-items: center; justify-content: center; height: 52px; border-radius: 26px; background: linear-gradient(90deg, #e91e63, #c2185b); color: #fff; font-weight: 900; font-size: 16px; }
+/* Celulares bajitos (12 nov): con el aviso del horario y "El dueño puede dejarte seguir", todo entra sin bajar. */
+@media (max-height: 680px) {
+  .pincol { gap: 10px; }
+  .pk { width: 54px; height: 54px; font-size: 24px; }
+  .pinkeys { gap: 8px 22px; margin-top: 4px; }
+  .pinsay { margin-top: 2px; }
+  .pinallow { min-height: 44px; margin-top: 2px; }
+}
+/* "Escribe tu PIN" en la computadora (12 nov, el usuario): en la tarjeta blanca de la entrada, con el color a la izquierda. */
+.pincard { color: var(--ink); align-items: stretch; padding: 28px 24px; }
+.pincard .pincol { max-width: none; gap: 14px; }
+.pincard .pinbiz { background: var(--field); color: var(--ink); }
+.pincard .pinsay { margin-top: 4px; color: var(--ink); font-size: 22px; font-family: 'Baloo 2', sans-serif; font-weight: 800; }
+.pincard .pinsay.warn { color: var(--warn); font-family: inherit; font-size: 16.5px; font-weight: 900; }
+.pincard .pinsub { color: var(--muted); opacity: 1; }
+.pincard .pindots i { border-color: var(--border); border-width: 2px; }
+.pincard .pindots i.on { background: var(--brand); border-color: var(--brand); }
+.pincard .pinkeys { max-width: 300px; gap: 12px 20px; }
+.pincard .pk { width: 64px; height: 64px; background: var(--field); color: var(--ink); font-size: 27px; }
+.pincard .pk:hover:not(:disabled) { background: #f1e3e8; }
+.pincard .pk.del { background: none; color: var(--muted); }
+.pincard .pinlink { color: var(--brand); opacity: 1; }
+.pincard .pinallow { background: #fce4ec; color: var(--brand); }
+.pincard .pinforgot { background: var(--field); color: var(--ink); }
+.pincard .moretime { padding: 0; margin-top: 0; }
+.pincard :focus-visible { outline-color: var(--brand); }
+
+
+/* ===== El inca de Yupana y registrarse en la web (12 nov, propuesta) ===== */
+.entry-mid { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 26px; max-width: 440px; }
+/* El inca de pie abajo a la derecha del color (cerca del medio de la pantalla), parado sobre el borde; el globo a su izquierda. */
+.inca-says { position: relative; z-index: 1; display: flex; align-items: flex-end; justify-content: flex-end; gap: 6px; margin: 0 -24px -26px 0;
+  pointer-events: none; }
+.inca-body { height: clamp(220px, 40vh, 360px); width: auto; display: block; filter: drop-shadow(0 14px 18px rgba(60, 0, 20, .28)); }
+.inca-bubble { position: relative; max-width: 250px; text-wrap: balance; margin-bottom: clamp(120px, 24vh, 220px); background: #fff; color: var(--ink);
+  border-radius: 20px; padding: 14px 18px; font-size: 16px; font-weight: 800; line-height: 1.35; box-shadow: 0 10px 26px rgba(60, 0, 20, .25); }
+.inca-bubble::after { content: ''; position: absolute; right: -9px; bottom: 22px; width: 20px; height: 20px; background: #fff; transform: rotate(45deg);
+  border-radius: 3px; }
+/* En el celular: el texto a la izquierda y el inca asomado sobre la tarjeta. */
+.entry-mhero { padding-bottom: 96px; }
+/* --peek: el ancho del inca de esa pantalla (cada pose mide distinto). */
+.entry-mtext { margin-top: 18px; max-width: calc(100% - var(--peek, 124px) + 6px); }
+.entry-m .entry-mhero h1 { font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 30px; line-height: 1.08; text-wrap: balance; }
+.hero > .inca-peek { position: absolute; right: 6px; bottom: 34px; height: 163px; width: auto; z-index: 1; pointer-events: none;
+  filter: drop-shadow(0 8px 12px rgba(60, 0, 20, .25)); }
+.entry-mbody { position: relative; z-index: 2; margin-top: -64px; gap: 14px; }
+@media (max-width: 359px) {
+  .entry-mtext { max-width: calc(100% - var(--peek-s, 104px) + 8px); }
+  .entry-m .entry-mhero h1 { font-size: 26px; }
+  .hero > .inca-peek { height: 136px; }
+}
+.reg-alt .entry-alt-ic { background: #fce4ec; color: var(--brand); }
+/* Los pasos del registro, a la izquierda. */
+.reg-steps { list-style: none; display: flex; flex-direction: column; gap: 14px; padding: 0; margin: 0; }
+.reg-steps li { display: flex; align-items: center; gap: 14px; }
+.reg-steps li > span:last-child { display: flex; flex-direction: column; }
+.reg-steps b { font-size: 17px; font-weight: 900; }
+.reg-steps li > span:last-child > span { font-size: 14px; font-weight: 700; opacity: .88; }
+.reg-num { width: 42px; height: 42px; border-radius: 13px; flex: none; display: flex; align-items: center; justify-content: center;
+  font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 20px; background: rgba(255, 255, 255, .16); color: #fff; }
+.reg-steps li.now .reg-num { background: #fff; color: var(--brand); box-shadow: 0 6px 14px rgba(60, 0, 20, .25); }
+.reg-steps li.done .reg-num { background: #ffc629; color: #7a0a36; }
+.reg-steps li.next { opacity: .72; }
+/* La tarjeta de cada paso. */
+.reg-card { gap: 16px; }
+.reg-top { display: flex; align-items: center; gap: 6px; margin: -8px 0 -6px -10px; }
+.reg-top > span { font-size: 13px; font-weight: 900; letter-spacing: .5px; color: var(--label); text-transform: uppercase; }
+.reg-back { width: 44px; height: 44px; border-radius: 22px; display: flex; align-items: center; justify-content: center; color: var(--ink); }
+.reg-back:hover { background: var(--field); }
+.reg-link { display: flex; align-items: center; justify-content: center; gap: 14px; background: var(--field); border-radius: 18px; padding: 16px 12px; }
+.reg-side { display: flex; flex-direction: column; align-items: center; gap: 6px; font-size: 13px; font-weight: 800; color: var(--muted); }
+.reg-g, .reg-store { width: 48px; height: 48px; border-radius: 15px; display: flex; align-items: center; justify-content: center; }
+.reg-g { background: #fff; box-shadow: 0 3px 10px rgba(80, 20, 40, .1); }
+.reg-store { background: linear-gradient(135deg, #f0306e, #c2185b); color: #fff; }
+.reg-dots { display: flex; align-items: center; gap: 5px; color: var(--brand); margin-bottom: 20px; }
+.reg-dots > i:not(.ic) { width: 6px; height: 6px; border-radius: 3px; background: var(--brand); }
+/* Los puntitos son <i> sin clase; la flecha (un ícono) va al medio de ellos. */
+.reg-dots > i:nth-child(1) { opacity: .35; } .reg-dots > i:nth-child(2) { opacity: .5; } .reg-dots > i:nth-child(3) { opacity: .65; } .reg-dots > i:nth-child(4) { opacity: .8; }
+.reg-preview, .reg-chip { display: flex; align-items: center; gap: 12px; border: 1.5px solid var(--line); border-radius: 18px; padding: 12px 14px; min-width: 0; }
+.reg-preview b, .reg-chip b { display: block; font-size: 16px; font-weight: 900; overflow-wrap: anywhere; }
+.reg-preview .grow > span, .reg-chip .grow > span { display: block; font-size: 13px; font-weight: 700; color: var(--muted); overflow-wrap: break-word; }
+.reg-preview .grow, .reg-chip .grow { min-width: 0; }
+.reg-mark { position: relative; width: 50px; height: 50px; border-radius: 15px; flex: none; display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, #f0306e, #c2185b); color: #fff; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 19px; }
+.reg-mark.big { width: 64px; height: 64px; border-radius: 19px; font-size: 24px; }
+.reg-mark > i { position: absolute; right: -7px; bottom: -7px; width: 28px; height: 28px; border-radius: 14px; background: #ffc629; color: #7a0a36;
+  display: flex; align-items: center; justify-content: center; border: 3px solid #fff; font-style: normal; }
+.reg-ava { width: 40px; height: 40px; border-radius: 20px; flex: none; display: flex; align-items: center; justify-content: center; background: #fce4ec;
+  color: var(--brand); font-weight: 900; font-size: 16px; }
+.reg-opt { text-transform: none; letter-spacing: 0; font-weight: 700; color: var(--muted); }
+.reg-types { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 8px; }
+.reg-types button { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; min-height: 66px; padding: 8px 4px;
+  border: 1.5px solid var(--line); border-radius: 14px; background: #fff; color: var(--muted); font-size: 12.5px; font-weight: 800; }
+.reg-types button .ic { color: var(--label); }
+.reg-types button.on { border-color: var(--brand); background: #fff5f8; color: var(--brand); }
+.reg-types button.on .ic { color: var(--brand); }
+@media (max-width: 359px) { .reg-types { grid-template-columns: repeat(3, 1fr); } }
+.reg-optional { display: flex; flex-direction: column; gap: 8px; border: 1.5px dashed var(--border); border-radius: 18px; padding: 12px; }
+.reg-ready { display: flex; align-items: center; gap: 16px; }
+.reg-ready h2 { overflow-wrap: anywhere; }
+.reg-time { list-style: none; margin: 0; padding: 0 0 0 4px; display: flex; flex-direction: column; }
+.reg-time li { position: relative; padding: 0 0 14px 26px; display: flex; flex-direction: column; }
+.reg-time li::before { content: ''; position: absolute; left: 0; top: 3px; width: 14px; height: 14px; border-radius: 50%; box-sizing: content-box; border: 2.5px solid var(--brand); background: #fff; }
+.reg-time li.on::before { background: var(--brand); }
+.reg-time li:not(:last-child)::after { content: ''; position: absolute; left: 8.5px; top: 22px; bottom: 2px; width: 2px; background: #fce4ec; }
+.reg-time b { font-size: 15px; font-weight: 900; }
+.reg-time span { font-size: 13px; font-weight: 700; color: var(--muted); }
+.reg-phone { background: var(--field); border-radius: 18px; padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+.reg-phone h3 { font-size: 12px; font-weight: 900; letter-spacing: 1px; color: var(--label); text-transform: uppercase; }
+.reg-phone ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; counter-reset: paso; }
+.reg-phone li { counter-increment: paso; position: relative; padding-left: 38px; display: flex; flex-direction: column; min-height: 28px; }
+.reg-phone li::before { content: counter(paso); position: absolute; left: 0; top: 0; width: 28px; height: 28px; border-radius: 9px; background: var(--brand);
+  color: #fff; font-weight: 900; font-size: 14px; display: flex; align-items: center; justify-content: center; }
+.reg-phone b { font-size: 15px; font-weight: 900; }
+.reg-phone li > span { font-size: 13px; font-weight: 700; color: var(--muted); }
+.reg-phone .reg-mail { color: var(--ink); overflow-wrap: break-word; }
+.reg-play { display: flex; align-items: center; gap: 12px; }
+.reg-play img { height: 48px; width: auto; display: block; }
+.reg-play span { font-size: 12px; font-weight: 900; letter-spacing: .5px; text-transform: uppercase; color: #7a5600; background: #fff3c4; border-radius: 8px;
+  padding: 4px 8px; }
+/* El color de la izquierda queda fijo mientras la tarjeta de la derecha baja (el inca siempre a la vista). */
+@media (min-width: 900px) {
+  .entry-color { position: sticky; top: 0; height: 100vh; align-self: start; }
+}
+/* La G de Google nunca se encoge (a 320 quedaba como un punto). */
+.btn.google svg { flex: none; }
+@media (max-width: 359px) {
+  .reg-chip .reg-ava { display: none; }
+  .reg-ready { flex-direction: column; align-items: flex-start; gap: 12px; }
 }
