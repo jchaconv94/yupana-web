@@ -70,7 +70,7 @@ button:focus-visible, a:focus-visible, tr:focus-visible, input:focus-visible, se
 .st.wait { background: var(--warnSoft); color: var(--warn); }
 .st.bad { background: var(--badSoft); color: var(--bad); }
 .st.void { background: #efebec; color: #5e4f55; }
-.st.big { font-size: 12.5px; padding: 4px 10px; }
+.st.st-big { font-size: 12.5px; padding: 4px 10px; }
 mark { background: #fff1c7; color: inherit; border-radius: 4px; padding: 0 2px; }
 
 .mb { flex: none; line-height: 1; width: 26px; height: 26px; border-radius: 8px; color: #fff; font-family: 'Baloo 2', sans-serif;
@@ -663,8 +663,8 @@ td b { font-weight: 800; white-space: nowrap; }
 .preview .pav.p { color: var(--brand); }
 .preview .nm { font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 19px; margin-top: 4px; line-height: 1.15; max-width: 100%; }
 .preview .cap { font-size: 12px; font-weight: 800; opacity: .8; letter-spacing: .3px; text-transform: uppercase; }
-.chipw.ind { color: #3949ab; }
-.chipw.pk { color: var(--brand); }
+.chipw.chip-ruc { color: #3949ab; }
+.chipw.chip-dni { color: var(--brand); }
 .icgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(52px, 1fr)); gap: 8px; }
 .icgrid button { height: 52px; border-radius: 14px; background: #fce4ec; color: var(--brand); display: flex; align-items: center; justify-content: center;
   font-size: 25px; border: 2px solid transparent; }
@@ -1166,18 +1166,18 @@ html:has(.mpage.with-cart) { scroll-padding-bottom: 110px; }
 .pindots i { width: 16px; height: 16px; border-radius: 50%; border: 2px solid rgba(255, 255, 255, .7); }
 .pindots i.on { background: #fff; border-color: #fff; }
 .pinkeys { margin-top: 8px; width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px 22px; justify-items: center; }
-.pk { width: 72px; height: 72px; border-radius: 50%; background: rgba(255, 255, 255, .12); color: #fff; font-family: 'Baloo 2', sans-serif;
+.pinkey { width: 72px; height: 72px; border-radius: 50%; background: rgba(255, 255, 255, .12); color: #fff; font-family: 'Baloo 2', sans-serif;
   font-weight: 700; font-size: 30px; display: flex; align-items: center; justify-content: center; }
-.pk:hover:not(:disabled) { background: rgba(255, 255, 255, .2); }
-.pk.del { background: none; }
-.pk:disabled { opacity: .45; cursor: default; }
-.pk.del:disabled { opacity: .3; }
+.pinkey:hover:not(:disabled) { background: rgba(255, 255, 255, .2); }
+.pinkey.del { background: none; }
+.pinkey:disabled { opacity: .45; cursor: default; }
+.pinkey.del:disabled { opacity: .3; }
 .pinlink { font-weight: 900; font-size: 15px; color: #fff; opacity: .9; min-height: 44px; padding: 0 10px; }
 .pinowner { display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; font-weight: 800; color: rgba(255, 255, 255, .78);
   min-height: 44px; padding: 0 12px; }
 .pinpage :focus-visible { outline-color: #ffc629; }
 @media (max-height: 700px) {
-  .pk { width: 60px; height: 60px; font-size: 26px; }
+  .pinkey { width: 60px; height: 60px; font-size: 26px; }
   .pinkeys { gap: 10px 22px; }
 }
 .bizcard:disabled, .bizbtn:disabled { cursor: default; opacity: 1; }
@@ -1212,7 +1212,7 @@ html:has(.mpage.with-cart) { scroll-padding-bottom: 110px; }
 /* Celulares bajitos (12 nov): con el aviso del horario y "El dueño puede dejarte seguir", todo entra sin bajar. */
 @media (max-height: 680px) {
   .pincol { gap: 10px; }
-  .pk { width: 54px; height: 54px; font-size: 24px; }
+  .pinkey { width: 54px; height: 54px; font-size: 24px; }
   .pinkeys { gap: 8px 22px; margin-top: 4px; }
   .pinsay { margin-top: 2px; }
   .pinallow { min-height: 44px; margin-top: 2px; }
@@ -1227,8 +1227,8 @@ html:has(.mpage.with-cart) { scroll-padding-bottom: 110px; }
 .pincard .pindots i { border-color: var(--border); border-width: 2px; }
 .pincard .pindots i.on { background: var(--brand); border-color: var(--brand); }
 .pincard .pinkeys { max-width: 300px; gap: 12px 20px; }
-.pincard .pk { width: 64px; height: 64px; background: var(--field); color: var(--ink); font-size: 27px; }
-.pincard .pk:hover:not(:disabled) { background: #f1e3e8; }
+.pincard .pinkey { width: 64px; height: 64px; background: var(--field); color: var(--ink); font-size: 27px; }
+.pincard .pinkey:hover:not(:disabled) { background: #f1e3e8; }
 .pincard .pk.del { background: none; color: var(--muted); }
 .pincard .pinlink { color: var(--brand); opacity: 1; }
 .pincard .pinallow { background: #fce4ec; color: var(--brand); }
