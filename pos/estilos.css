@@ -1839,6 +1839,32 @@ a.entry-home { display: inline-flex; align-self: flex-start; width: fit-content;
 .dialog .ca-left .ca-last { padding-top: 0; max-width: 200px; font-size: 13px; }
 .ca-addrow .add { white-space: nowrap; }
 @media (max-width: 359px) { .ca-addrow .ca-addcat { width: 52px; padding: 0; } .ca-addrow .ca-addtxt { display: none; } }
+
+/* Cambiar los datos del negocio (ne-, 13 nov). */
+.ticket .tlogo { display: block; width: 64px; height: 64px; object-fit: contain; margin: 0 auto 8px; border-radius: 10px; }
+@media print { .ticket .tlogo { filter: grayscale(1); } }
+.ne-logo { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; align-items: center; }
+.ne-mark { width: 72px; height: 72px; border-radius: 20px; background: var(--brandSoft, #FCE4EC); color: var(--brand); display: grid; place-items: center; font-weight: 900; font-size: 24px; overflow: hidden; grid-row: span 1; }
+.ne-mark img { width: 100%; height: 100%; object-fit: cover; }
+.ne-logo-r { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.ne-logo-b { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.ne-up { display: inline-flex; align-items: center; gap: 7px; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1.5px solid var(--border); background: var(--card, #fff); color: var(--brand); font-weight: 900; font-size: 14.5px; }
+.ne-rm { min-height: 44px; padding: 0 10px; color: var(--muted); font-weight: 800; font-size: 14px; background: none; border: none; }
+.ne-logo-note { grid-column: 1 / -1; font-size: 13px; font-weight: 600; color: var(--muted); line-height: 1.35; }
+.ne-bad { color: var(--bad); font-weight: 800; }
+.ne-lock { display: flex; align-items: center; justify-content: space-between; gap: 8px; color: var(--ink); }
+.ne-lock .ic { color: var(--muted); }
+.ne-cols { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 24px; margin-top: 18px; align-items: start; }
+.ne-prev { display: flex; flex-direction: column; gap: 8px; }
+.ne-cap { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 800; color: var(--muted); }
+.ne-ticket { box-shadow: 0 1px 0 var(--border), 0 8px 24px rgba(80, 20, 50, .08); border: 1px solid var(--border); }
+.ne-fade { opacity: .45; }
+.hero .ne-prev { padding: 4px 6px 0; position: relative; z-index: 1; }
+.hero .ne-cap { color: rgba(255, 255, 255, .9); justify-content: center; }
+.hero .ne-ticket { max-width: 300px; width: 100%; margin: 0 auto; box-shadow: 0 10px 30px rgba(60, 0, 30, .25); border: none; }
+.field .static.ne-lock { display: flex; width: 100%; }
+.bizmark { overflow: hidden; }
+.bizmark .bizlogo { width: 100%; height: 100%; object-fit: cover; display: block; }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
