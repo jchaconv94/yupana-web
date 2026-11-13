@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&amp;family=Nunito:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="venta.css?v=610790be6c">
+<link rel="stylesheet" href="venta.css?v=d91a6d42ec">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Necesito una cuenta especial de Yape o Plin?","acceptedAnswer":{"@type":"Answer","text":"No. Yupana lee los avisos que ya te llegan al celular cuando te yapean o te plinean. Sigues cobrando como siempre."}},{"@type":"Question","name":"¿Yupana ve mi dinero o mis claves?","acceptedAnswer":{"@type":"Answer","text":"No. Solo lee los avisos de pagos de Yape y Plin. No entra a tu banco, no ve tus claves y no mueve tu plata."}},{"@type":"Question","name":"¿En qué celulares funciona?","acceptedAnswer":{"@type":"Answer","text":"En celulares Android. En algunas marcas, como Xiaomi, Oppo o Vivo, hay que prender dos permisos más: Yupana te muestra cómo, paso a paso."}},{"@type":"Question","name":"¿Qué pasa cuando terminan los 14 días?","acceptedAnswer":{"@type":"Answer","text":"Sigues gratis con Básico: el lector, tu caja y el cierre en tu celular. No se borra nada y no se cobra nada solo. Si quieres seguir con tu equipo, eliges un plan."}},{"@type":"Question","name":"¿Mi equipo necesita correo o Google?","acceptedAnswer":{"@type":"Answer","text":"No. Tú agregas a cada persona y le das un PIN de 4 cifras. Entra con su PIN en el celular que tú conectas. Cuando ya no trabaja contigo, la das de baja."}},{"@type":"Question","name":"¿Cómo pago mi plan?","acceptedAnswer":{"@type":"Answer","text":"Aquí, en la página de Yupana: con Yape, con tu código de aprobación, o con tarjeta. Con Yape pagas cada vez que quieres seguir; con tarjeta se cobra solo y lo cancelas cuando quieras."}},{"@type":"Question","name":"¿Puedo dejar de pagar cuando quiera?","acceptedAnswer":{"@type":"Answer","text":"Sí. No hay contratos. Si dejas de pagar, pasas a Básico y no se borra nada."}},{"@type":"Question","name":"¿Yupana es de Yape o de Plin?","acceptedAnswer":{"@type":"Answer","text":"No. Yupana es una app independiente, hecha en Perú. No está relacionada con Yape, con Plin ni con ningún banco."}}]}</script>
 </head>
 <body>
@@ -37,7 +37,8 @@
     </nav>
     <div class="nav-act">
       <a class="nav-pay" href="pagar/">Pagar mi plan</a>
-      <a class="btn btn-main btn-sm" href="#descargar">Prueba gratis</a>
+      <a class="nav-enter" href="pos/">Entrar</a>
+      <a class="btn btn-main btn-sm" href="pos/?empezar=registrar">Prueba gratis</a>
     </div>
   </div>
 </header>
@@ -49,12 +50,11 @@
   <svg class="stairs" viewBox="0 0 390 244" preserveAspectRatio="xMaxYMax meet" aria-hidden="true"><g fill="none" stroke="rgba(255,255,255,0.09)" stroke-width="14"><path d="M226 244 V198 H258 V166 H290 V134 H322 V102 H354 V70 H386 V38 H418"/><path d="M270 244 V220 H302 V188 H334 V156 H366 V124 H398"/></g></svg>
   <div class="wrap hero-in">
     <div class="hero-text">
-      <p class="kicker hx" style="--d:0">La app de caja para negocios que cobran con Yape y Plin</p>
       <h1><span class="w" style="--d:1">¡Tu</span> <span class="w" style="--d:2">caja</span> <span class="w" style="--d:3">se</span> <span class="w" style="--d:4">anota</span> <span class="w" style="--d:5"><span class="hl">sola<svg class="hl-line" viewBox="0 0 200 24" preserveAspectRatio="none" aria-hidden="true"><path d="M5 17 C 55 6, 125 5, 195 12" pathLength="100"/></svg></span><span class="bang">!</span></span></h1>
       <p class="lead hx" style="--d:7">Cada <span class="chip chip-y"><i>Y</i>Yape</span> y <span class="chip chip-p"><i>P</i>Plin</span> entra solo.<br class="desk-br"> Tú solo cuentas y cierras.</p>
       <p class="lead2 hx" style="--d:8"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.8-3.4 3-5.2 5.5-5.2s4.7 1.8 5.5 5.2"/><circle cx="17" cy="9" r="2.6"/><path d="M15.6 14.2c2.6-.4 4.5 1.3 5 4.3"/></svg>Y si alguien cobra por ti, sabes cuánto cobró cada uno.</p>
       <div class="hero-cta hx" style="--d:9">
-        <a class="btn btn-white" href="#descargar">Prueba 14 días gratis</a>
+        <a class="btn btn-white" href="pos/?empezar=registrar">Prueba 14 días gratis</a>
         <button class="btn btn-ghost play" type="button" data-audio="audio/aviso.mp3" aria-label="Escuchar cómo te avisa Yupana un Yape"><span class="play-ico" aria-hidden="true"></span><span class="play-txt">Escucha un aviso</span></button>
       </div>
       <ul class="hero-trust hx" style="--d:10">
@@ -62,6 +62,7 @@
         <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg>No se cobra solo</li>
         <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg>Sin quitarte un % de tus ventas</li>
       </ul>
+      <p class="hero-what hx" style="--d:11">La app de caja para negocios que cobran con Yape y Plin.</p>
     </div>
     <div class="hero-art">
       <div class="glow" aria-hidden="true"></div>
@@ -421,7 +422,7 @@
   </div>
   <p class="plan-intro">Todo lo de Básico, más:</p>
   <ul class="plan-feats"><li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18h10a4 4 0 0 0 .6-8A6 6 0 0 0 6.2 9.6 4.2 4.2 0 0 0 7 18z"></path></svg><span>Tu caja en la nube, todo tu historial</span></li><li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1"></rect><rect x="14" y="4" width="6" height="6" rx="1"></rect><rect x="4" y="14" width="6" height="6" rx="1"></rect><path d="M14 14h2v2h-2zM18 18h2v2h-2zM14 18h2M18 14h2"></path></svg><span>Cobrar con QR con el monto</span></li><li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10v4h3l4 4V6L8 10z"></path><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a7.5 7.5 0 0 1 0 11"></path></svg><span>Avisos en voz de cada pago a tu equipo</span></li><li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18c1.2 0 1.8-.8 1.8-1.7 0-1.2-1-1.6-1-2.6 0-1 .8-1.7 1.8-1.7H17a4 4 0 0 0 4-4C21 6.6 17 3 12 3z"></path><circle cx="7.5" cy="11" r="1"></circle><circle cx="10.5" cy="7.5" r="1"></circle><circle cx="15" cy="7.5" r="1"></circle></svg><span>El color de tu negocio</span></li><li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"></rect><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"></path></svg><span>Voces Amaru e Inti</span></li><li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V6l10-2v12"></path><circle cx="6.5" cy="18" r="2.5"></circle><circle cx="16.5" cy="16" r="2.5"></circle></svg><span>5 sonidos de aviso más</span></li></ul>
-  <a class="btn btn-line plan-cta" href="#descargar">Elegir Muju</a>
+  <a class="btn btn-line plan-cta" href="pos/?empezar=registrar">Elegir Muju</a>
 </article><article class="plan plan-winay has-badge" data-plan="winay">
   <div class="plan-badge">Recomendado para negocios con equipo</div>
   <header class="plan-head"><span class="plan-ico" style="background:linear-gradient(135deg, #F0306E, #A0124B)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21V8"></path><path d="M12 12.5C12 9.5 9.6 7.5 6 7.5c0 3.3 2.4 5 6 5z"></path><path d="M12 16.5c0-3 2.4-5 6-5 0 3.3-2.4 5-6 5z"></path><path d="M12 8c0-2.3 1.6-4 4.2-4 0 2.4-1.7 4-4.2 4z"></path><path d="M8 21h8"></path></svg></span><div><h3>Wiñay</h3><p class="plan-mean">Crecer</p></div></header>
@@ -430,18 +431,18 @@
     <div><span class="st-ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"></rect><path d="M8 20h8M12 16v4"></path></svg></span><p class="st-n"><b>01</b><span>pantalla de cobros</span></p></div>
   </div>
   <div class="p-month">
-    <p class="plan-price"><span class="cur">S/</span><span class="int">29</span><span class="dec">.90</span><span class="per"> al mes</span></p>
-    <p class="plan-day">IGV incluido · unos S/ 1 al día</p>
-    <p class="plan-year">o S/ 299 al año · 2 meses gratis</p>
+    <p class="plan-price"><span class="cur">S/</span><span class="int">39</span><span class="dec">.90</span><span class="per"> al mes</span></p>
+    <p class="plan-day">IGV incluido · unos S/ 1.30 al día</p>
+    <p class="plan-year">o S/ 399 al año · 2 meses gratis</p>
   </div>
   <div class="p-year">
-    <p class="plan-price"><span class="cur">S/</span><span class="int">299</span><span class="per"> al año</span></p>
-    <p class="plan-day">IGV incluido · S/ 24.92 al mes</p>
-    <p class="plan-year">2 meses gratis · o S/ 29.90 al mes</p>
+    <p class="plan-price"><span class="cur">S/</span><span class="int">399</span><span class="per"> al año</span></p>
+    <p class="plan-day">IGV incluido · S/ 33.25 al mes</p>
+    <p class="plan-year">2 meses gratis · o S/ 39.90 al mes</p>
   </div>
   <p class="plan-intro">Todo lo de Muju, más:</p>
   <ul class="plan-feats"><li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.6"></circle><path d="M5 20c1-4 4-6 7-6s6 2 7 6"></path></svg><span>2 personas más que Muju</span></li><li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.5V12l3 2"></path></svg><span>Horarios: anotan solo en su horario</span></li><li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2.5"></rect><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"></path><path d="M12 14.5v2"></path></svg><span>Cierre de turno de cada uno</span></li><li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16"></path><path d="M7 16v-4M12 16V7M17 16v-6"></path></svg><span>Lo que cobró cada uno</span></li><li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h1.5M8 8v8M11.5 5v14M15 8v8M18.5 10.5v3"></path></svg><span>Voces Qori, Qoya y Qolqe</span></li></ul>
-  <a class="btn btn-main plan-cta" href="#descargar">Prueba 14 días gratis</a>
+  <a class="btn btn-main plan-cta" href="pos/?empezar=registrar">Elegir Wiñay</a>
 </article><article class="plan plan-hatun" data-plan="hatun">
   
   <header class="plan-head"><span class="plan-ico" style="background:linear-gradient(135deg, #7986CB, #283593)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22v-5"></path><path d="M12 2.8l-6 8.2h3.2L5 17h14l-4.2-6H18z"></path></svg></span><div><h3>Hatun</h3><p class="plan-mean">Grande</p></div></header>
@@ -450,18 +451,18 @@
     <div><span class="st-ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"></rect><path d="M8 20h8M12 16v4"></path></svg></span><p class="st-n"><b>03</b><span>pantallas de cobros</span></p></div>
   </div>
   <div class="p-month">
-    <p class="plan-price"><span class="cur">S/</span><span class="int">49</span><span class="dec">.90</span><span class="per"> al mes</span></p>
-    <p class="plan-day">IGV incluido · unos S/ 1.70 al día</p>
-    <p class="plan-year">o S/ 499 al año · 2 meses gratis</p>
+    <p class="plan-price"><span class="cur">S/</span><span class="int">79</span><span class="dec">.90</span><span class="per"> al mes</span></p>
+    <p class="plan-day">IGV incluido · unos S/ 2.70 al día</p>
+    <p class="plan-year">o S/ 799 al año · 2 meses gratis</p>
   </div>
   <div class="p-year">
-    <p class="plan-price"><span class="cur">S/</span><span class="int">499</span><span class="per"> al año</span></p>
-    <p class="plan-day">IGV incluido · S/ 41.58 al mes</p>
-    <p class="plan-year">2 meses gratis · o S/ 49.90 al mes</p>
+    <p class="plan-price"><span class="cur">S/</span><span class="int">799</span><span class="per"> al año</span></p>
+    <p class="plan-day">IGV incluido · S/ 66.58 al mes</p>
+    <p class="plan-year">2 meses gratis · o S/ 79.90 al mes</p>
   </div>
   <p class="plan-intro">Todo lo de Wiñay, más:</p>
   <ul class="plan-feats"><li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.6"></circle><path d="M5 20c1-4 4-6 7-6s6 2 7 6"></path></svg><span>7 personas más que Wiñay</span></li><li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"></rect><path d="M8 20h8M12 16v4"></path></svg><span>2 pantallas más que Wiñay</span></li><li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4A8 8 0 1 1 20 11.5z"></path></svg><span>Te ayudamos por WhatsApp primero</span></li></ul>
-  <a class="btn btn-line plan-cta" href="#descargar">Elegir Hatun</a>
+  <a class="btn btn-line plan-cta" href="pos/?empezar=registrar">Elegir Hatun</a>
 </article></div></div>
     <div class="basic-line">
       <span class="basic-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.6"/><path d="M5 20c1-4 4-6 7-6s6 2 7 6"/></svg></span>
@@ -470,11 +471,11 @@
     <div class="start">
       <div class="start-txt">
         <span class="start-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21V8"/><path d="M12 12.5C12 9.5 9.6 7.5 6 7.5c0 3.3 2.4 5 6 5z"/><path d="M12 16.5c0-3 2.4-5 6-5 0 3.3-2.4 5-6 5z"/><path d="M12 8c0-2.3 1.6-4 4.2-4 0 2.4-1.7 4-4.2 4z"/><path d="M8 21h8"/></svg></span>
-        <div><h3>Empieza con 14 días gratis del plan Wiñay</h3><p>Pruebas todo lo del plan Wiñay. Al terminar, eliges tu plan.</p></div>
+        <div><h3>Empieza con 14 días gratis del plan Muju</h3><p>Pruebas todo lo del plan Muju. Al terminar, eliges tu plan.</p></div>
       </div>
       <ul class="start-ticks"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><span>Sin tarjeta</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><span>No se cobra solo</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><span>Pagas con Yape o tarjeta</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><span>Sin contratos</span></li></ul>
       <div class="start-acts">
-        <a class="btn btn-white" href="#descargar">Prueba 14 días gratis</a>
+        <a class="btn btn-white" href="pos/?empezar=registrar">Prueba 14 días gratis</a>
         <a class="start-have" href="pagar/">¿Ya usas Yupana? <b>Pagar mi plan&nbsp;›</b></a>
       </div>
     </div>
@@ -504,7 +505,7 @@
   <div class="wrap final-in">
     <svg class="final-logo" width="64" height="70" viewBox="72 48 368 400" role="img" aria-label="Yupana"><rect x="104" y="168" width="74" height="74" rx="16" fill="#FFF4E2"/><rect x="154" y="218" width="74" height="74" rx="16" fill="#FFF4E2"/><rect x="334" y="168" width="74" height="74" rx="16" fill="#FFF4E2"/><rect x="284" y="218" width="74" height="74" rx="16" fill="#FFF4E2"/><rect x="204" y="262" width="104" height="74" rx="16" fill="#FFF4E2"/><rect x="219" y="300" width="74" height="132" rx="16" fill="#FFF4E2"/><circle cx="256" cy="176" r="44" fill="#FFC629" stroke="#E08A00" stroke-width="10"/><text x="256" y="191" text-anchor="middle" font-family="Baloo 2" font-weight="800" font-size="40" fill="#AD1457">S/</text><line x1="256" y1="88" x2="256" y2="64" stroke="#FFC629" stroke-width="12" stroke-linecap="round"/><line x1="206" y1="104" x2="190" y2="86" stroke="#FFC629" stroke-width="12" stroke-linecap="round"/><line x1="306" y1="104" x2="322" y2="86" stroke="#FFC629" stroke-width="12" stroke-linecap="round"/></svg>
     <h2>¡Empieza hoy, gratis!</h2>
-    <p class="lead">14 días gratis del plan Wiñay, sin tarjeta. Tu caja se anota sola desde el primer Yape.</p>
+    <p class="lead">14 días gratis del plan Muju, sin tarjeta. Tu caja se anota sola desde el primer Yape.</p>
     <div class="store">
       <span class="gp gp-soon"><small>Muy pronto</small><img src="img/google-play.png" alt="Muy pronto: descargar en Google Play" width="646" height="250"></span>
     </div>
@@ -520,7 +521,7 @@
       <a class="foot-logo" href="#inicio" aria-label="Yupana, ir arriba"><svg width="40" height="44" viewBox="72 48 368 400" aria-hidden="true"><rect x="104" y="168" width="74" height="74" rx="16" fill="#FFF4E2"/><rect x="154" y="218" width="74" height="74" rx="16" fill="#FFF4E2"/><rect x="334" y="168" width="74" height="74" rx="16" fill="#FFF4E2"/><rect x="284" y="218" width="74" height="74" rx="16" fill="#FFF4E2"/><rect x="204" y="262" width="104" height="74" rx="16" fill="#FFF4E2"/><rect x="219" y="300" width="74" height="132" rx="16" fill="#FFF4E2"/><circle cx="256" cy="176" r="44" fill="#FFC629" stroke="#E08A00" stroke-width="10"/><text x="256" y="191" text-anchor="middle" font-family="Baloo 2" font-weight="800" font-size="40" fill="#AD1457">S/</text><line x1="256" y1="88" x2="256" y2="64" stroke="#FFC629" stroke-width="12" stroke-linecap="round"/><line x1="206" y1="104" x2="190" y2="86" stroke="#FFC629" stroke-width="12" stroke-linecap="round"/><line x1="306" y1="104" x2="322" y2="86" stroke="#FFC629" stroke-width="12" stroke-linecap="round"/></svg><span>Yupana</span></a>
       <p class="foot-tag">Tu caja chévere</p>
       <p>La app de caja para negocios que cobran con Yape y Plin.</p>
-      <a class="btn btn-main btn-sm" href="#descargar">Prueba 14 días gratis</a>
+      <a class="btn btn-main btn-sm" href="pos/?empezar=registrar">Prueba 14 días gratis</a>
     </div>
     <nav class="foot-col" aria-label="Yupana"><h4>Yupana</h4><a href="#como">Cómo funciona</a><a href="#voz">Avisos en voz</a><a href="#equipo">Tu equipo</a><a href="#planes">Planes</a><a href="#preguntas">Preguntas</a></nav>
     <nav class="foot-col" aria-label="Tu cuenta"><h4>Tu cuenta</h4><a href="pagar/">Pagar mi plan</a><a href="pagar/">Cambiar de plan</a></nav>
@@ -535,9 +536,9 @@
 
 <div class="bar" id="barra">
   <span class="bar-txt"><b>14 días gratis</b>Planes desde <span data-desde>S/ 14.90</span> al mes</span>
-  <a class="btn btn-main btn-sm" href="#descargar">Prueba gratis</a>
+  <a class="btn btn-main btn-sm" href="pos/?empezar=registrar">Prueba gratis</a>
 </div>
 
-<script type="module" src="venta.js?v=610790be6c"></script>
+<script type="module" src="venta.js?v=d91a6d42ec"></script>
 </body>
 </html>

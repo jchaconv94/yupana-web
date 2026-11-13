@@ -71,14 +71,25 @@ button.btn { background: transparent; cursor: pointer; }
 .nav-links { display: none; }
 .nav-act { margin-left: auto; display: flex; align-items: center; gap: 14px; }
 .nav-pay { font-weight: 800; font-size: 15px; text-decoration: none; white-space: nowrap; display: inline-flex; align-items: center; min-height: 44px; }
-/* En el celular arriba solo va "Pagar mi plan": "Prueba gratis" está en la portada y en la barra de abajo. */
+/* "Entrar" (13 nov): a Yupana POS, para quien ya tiene su negocio (o un código). Borde, para no competir con la prueba. */
+.nav-enter { font-weight: 800; font-size: 15px; text-decoration: none; white-space: nowrap; display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border: 2px solid #f3c6d6; border-radius: 999px; color: var(--brand); background: #fff; }
+.nav-enter:hover { border-color: var(--brand); }
+/* En el celular arriba van "Pagar mi plan" y "Entrar": "Prueba gratis" está en la portada y en la barra de abajo. */
 @media (max-width: 599px) { .nav .btn-sm { display: none; } }
+@media (max-width: 379px) {
+  .nav-in { gap: 8px; }
+  .nav-act { gap: 6px; }
+  .brand { gap: 6px; }
+  .brand img { width: 30px; height: 30px; }
+  .brand span { font-size: 21px; }
+  .nav-pay, .nav-enter { font-size: 14px; }
+  .nav-enter { padding: 0 10px; }
+}
 
 /* Portada */
 .hero { background: linear-gradient(160deg, var(--a1) 0%, var(--a2) 52%, var(--a3) 100%); color: #fff; overflow: hidden; padding: 40px 0 0; }
 .stairs { position: absolute; right: 0; bottom: 0; width: 390px; height: 244px; pointer-events: none; }
 .hero-in { position: relative; display: flex; flex-direction: column; gap: 36px; }
-.kicker { display: inline-flex; font-weight: 800; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; background: rgba(60, 0, 25, 0.32); padding: 6px 12px; border-radius: 10px; line-height: 1.35; }
 .hero h1 { font-size: 46px; margin-top: 18px; }
 .hero .lead { font-size: 21px; font-weight: 700; margin-top: 14px; opacity: 0.97; }
 .hero .lead2 { font-size: 18px; margin-top: 6px; opacity: 0.88; }
@@ -86,6 +97,8 @@ button.btn { background: transparent; cursor: pointer; }
 .hero-cta .btn { flex: 1 1 220px; }
 .hero-trust { list-style: none; padding: 0; margin: 18px 0 0; display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 15px; font-weight: 700; opacity: 0.95; }
 .hero-trust li { display: inline-flex; align-items: center; gap: 6px; }
+/* Qué es Yupana (13 nov, la A elegida: abajo en la portada, no arriba del título). */
+.hero-what { margin: 18px 0 0; padding-top: 16px; border-top: 1px solid rgba(255, 255, 255, 0.22); max-width: 520px; font-size: 15px; font-weight: 700; opacity: 0.8; }
 .hero-trust svg { width: 18px; height: 18px; fill: none; stroke: var(--coin); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
 .hero-art { position: relative; align-self: center; width: 100%; max-width: 330px; height: 420px; }
 .hero-art .phone { position: absolute; left: 50%; transform: translateX(-50%); top: 0; width: 280px; }
@@ -341,7 +354,8 @@ button.bubble { text-align: left; cursor: pointer; color: var(--ink); font-famil
   .nav-links a { color: var(--ink); font-weight: 700; font-size: 16px; text-decoration: none; }
   .nav-links a:hover { color: var(--brand); }
   .nav-act { gap: 20px; }
-  .nav-pay { font-size: 16px; }
+  .nav-pay, .nav-enter { font-size: 16px; }
+  .hero-what { font-size: 16px; }
 
   .hero { padding: 64px 0 0; }
   .stairs { width: 640px; height: 400px; }
