@@ -1814,6 +1814,31 @@ a.entry-home { display: inline-flex; align-self: flex-start; width: fit-content;
 @media print {
   .print-area .ticket .en-unit, .print-area .ticket .en-words { color: #000; }
 }
+
+/* Categorías (13 nov) */
+.ca-tool { height: 42px; border-radius: 12px; padding: 0 16px; margin-left: auto; display: inline-flex; align-items: center; gap: 7px; font-weight: 900; font-size: 14px;
+  color: var(--brand); background: #fff; border: 1.5px solid var(--border); }
+.ca-tool:hover, .ca-tool.on { background: #fff0f5; border-color: #f3b6cb; }
+.ca-addrow { display: flex; gap: 8px; }
+.ca-addrow .add { flex: 1; min-width: 0; margin-top: 0; }
+.ca-addrow .ca-addcat { flex: none; width: auto; padding: 0 14px; }
+.ca-row .ca-pen { color: var(--label); flex: none; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 10px; }
+.ca-row:hover .ca-pen { background: var(--field); color: var(--brand); }
+.ca-hero { position: relative; z-index: 1; text-align: center; color: #fff; margin-top: 18px; display: flex; flex-direction: column; gap: 2px; }
+.ca-hero b { font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 28px; line-height: 1.1; }
+.ca-hero span { font-size: 14px; opacity: .9; }
+.ca-dsub { font-size: 13.5px; color: var(--label); margin-top: 4px; }
+.ca-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.ca-head > span:last-child { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.ca-ico { background: #fce4ec; color: var(--brand); }
+.ca-sub { margin-top: 4px; font-size: 14px; }
+.ca-del { display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; min-height: 44px; padding-top: 10px; font-weight: 900; font-size: 15px; color: #b3261e; }
+.dialog .ca-left { margin-right: auto; }
+.dialog .ca-left .ca-del { width: auto; padding: 0 6px; min-height: 46px; }
+.ca-last { display: flex; align-items: center; gap: 8px; justify-content: center; padding-top: 12px; font-size: 13.5px; color: var(--label); text-align: left; }
+.dialog .ca-left .ca-last { padding-top: 0; max-width: 200px; font-size: 13px; }
+.ca-addrow .add { white-space: nowrap; }
+@media (max-width: 359px) { .ca-addrow .ca-addcat { width: 52px; padding: 0; } .ca-addrow .ca-addtxt { display: none; } }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
