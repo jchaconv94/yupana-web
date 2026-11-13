@@ -1,0 +1,28 @@
+# Pone al día cada semana el padrón de RUC de Yupana POS (SUNAT lo publica gratis cada día).
+# La fuente está en jchaconv94/yupana, carpeta padron/: al cambiarla, copiar aquí `padron.yml` (a .github/workflows/),
+# `armar.py`, `subir.mjs` y `ubigeo_distrito.csv` (a padron/).
+# Se identifica ante la nube con el token OIDC de GitHub (sin claves guardadas): la función `padron` solo acepta este
+# flujo de la rama main de este repositorio.
+name: Padrón de RUC
+on:
+  schedule:
+    - cron: '37 9 * * 1' # lunes, 4:37 a. m. de Lima
+  workflow_dispatch: {}
+permissions:
+  contents: read
+  id-token: write
+concurrency:
+  group: padron
+  cancel-in-progress: false
+jobs:
+  padron:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - name: Bajar el padrón de SUNAT
+        run: curl -fsS --retry 5 --retry-delay 30 --max-time 900 -o padron.zip http://www2.sunat.gob.pe/padron_reducido_ruc.zip
+      - name: Armar los bloques
+        run: python3 -I padron/armar.py padron.zip salida padron/ubigeo_distrito.csv
+      - name: Subir a la nube
+        run: node padron/subir.mjs salida
