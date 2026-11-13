@@ -1001,6 +1001,101 @@ html:has(.mpage.with-cart) { scroll-padding-bottom: 110px; }
   .hero .linkish, .hero .pill { z-index: 2; }
 }
 
+/* ===== Revisión de vistas (13 nov): lo que se veía mal en el celular y la computadora (clases nuevas con vi-) ===== */
+
+/* Vender en la computadora: la canasta dice cuántos hay, deja ver dos productos enteros y, si hay más abajo (o arriba),
+   una sombra lo avisa. Cuando lo de cobrar no entra (el cliente con RUC, "Otro" y el vuelto), el panel va más junto
+   (useTightFit pone vi-tight y, si hace falta, vi-tight2) en vez de esconder al cliente; si entra, se ve igual que antes. */
+.vi-carth { font-size: 12px; font-weight: 900; letter-spacing: 1px; color: var(--label); text-transform: uppercase; margin-top: 4px; }
+.sell-right > .sell-lines { min-height: 112px;
+  background: linear-gradient(#fff 30%, rgba(255, 255, 255, 0)) top / 100% 28px no-repeat local,
+    linear-gradient(rgba(255, 255, 255, 0), #fff 70%) bottom / 100% 28px no-repeat local,
+    radial-gradient(farthest-side at 50% 0, rgba(80, 20, 40, .16), rgba(80, 20, 40, 0)) top / 100% 12px no-repeat scroll,
+    radial-gradient(farthest-side at 50% 100%, rgba(80, 20, 40, .16), rgba(80, 20, 40, 0)) bottom / 100% 12px no-repeat scroll; }
+/* "Total" y el monto en la misma línea base (antes "Total" quedaba más arriba). */
+.tot.grand { align-items: baseline; }
+.sell-right.vi-tight { gap: 8px; padding-top: 12px; padding-bottom: 12px; }
+/* Las piezas de cobrar traen su margen del celular (allá no hay gap): aquí ya separa el gap del panel. */
+.sell-right.vi-tight > .cash, .sell-right.vi-tight > .vuelto, .sell-right.vi-tight > .whereq { margin-top: 0; }
+.sell-right.vi-tight > .field { margin-top: 0 !important; }
+/* El cliente encontrado: su dirección en una línea. */
+.sell-right.vi-tight .found > span { min-width: 0; }
+.sell-right.vi-tight .found-sub { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+/* Op. gravada e IGV en una fila, como al pie de Cobrar en el celular. */
+.sell-right.vi-tight .vi-taxrows { display: flex; justify-content: space-between; gap: 10px; }
+.sell-right.vi-tight .vi-taxrows .tot { justify-content: flex-start; gap: 5px; font-size: 13px; font-weight: 800; white-space: nowrap; }
+.sell-right.vi-tight .tot.grand { padding-top: 8px; }
+.sell-right.vi-tight .tot.grand b { line-height: 1.25; }
+.sell-right.vi-tight .field { padding-top: 7px; padding-bottom: 7px; }
+.sell-right.vi-tight .pay > button { height: 54px; gap: 3px; }
+.sell-right.vi-tight > .btn { height: 50px; }
+.sell-right.vi-tight .vuelto { padding-top: 6px; padding-bottom: 6px; }
+.sell-right.vi-tight .seg button { min-height: 36px; padding: 7px 0; }
+.sell-right.vi-tight2 .vi-carth { margin-top: 0; }
+.sell-right.vi-tight2 .line { padding: 7px 0; }
+.sell-right.vi-tight2 .line:first-of-type { padding-top: 0; }
+.sell-right.vi-tight2 > .sell-lines { min-height: 100px; }
+.sell-right.vi-tight2 .pay > button { height: 50px; }
+.sell-right.vi-tight2 .field { padding-top: 6px; padding-bottom: 6px; }
+.sell-right.vi-tight2 > .sell-lines { min-height: 86px; }
+.sell-right.vi-tight2 .pay > button { height: 48px; }
+.sell-right.vi-tight2 .cash button { height: 38px; }
+.sell-right.vi-tight2 .vi-carth { font-size: 11px; }
+
+/* Inicio en la computadora de 900 a 1279: el nombre del medio (solo para el lector de pantalla) ya no se escapa de la
+   lista y no estira la página (se corría hacia arriba y dejaba una franja vacía). */
+.deskapp .content { position: relative; }
+
+/* Pestañas que se deslizan de lado (Comprobantes, Productos, Clientes, Vender): el borde se desvanece donde hay más
+   (useScrollFade). Antes "Revisar ①" quedaba escondida sin ningún aviso. */
+.tabs[data-more-r] { -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 56px), transparent);
+  mask-image: linear-gradient(90deg, #000 calc(100% - 56px), transparent); }
+.tabs[data-more-l] { -webkit-mask-image: linear-gradient(90deg, transparent, #000 56px); mask-image: linear-gradient(90deg, transparent, #000 56px); }
+.tabs[data-more-l][data-more-r] { -webkit-mask-image: linear-gradient(90deg, transparent, #000 56px, #000 calc(100% - 56px), transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 56px, #000 calc(100% - 56px), transparent); }
+
+/* Ajustes › Tu negocio: el logo con las iniciales en su cuadrito (salía "CL" como texto suelto). */
+.card > .row > .bizmark { background: #fce4ec; color: var(--brand); font-family: 'Baloo 2', sans-serif; font-weight: 800; display: flex;
+  align-items: center; justify-content: center; flex: none; }
+
+/* La canasta en celulares de menos de 375: el nombre baja de línea en vez de cortarse ("Agua 625 ml" y "Agua 2.5 L"). */
+@media (max-width: 374px) {
+  .line .dmain b { white-space: normal; overflow: visible; }
+}
+
+/* Tablet (601 a 899): la cabecera de color va a lo ancho (antes flotaba en una columna de 600 con franjas vacías a los
+   lados); lo de abajo sigue en su columna de 600 al centro, como en el celular. */
+@media (min-width: 601px) and (max-width: 899px) {
+  .mpage { max-width: none; }
+  .mpage > .body, .mpage > .lbody, .mpage > .vbody { width: 100%; max-width: 600px; margin-left: auto; margin-right: auto; }
+  .mpage > .hero { padding-left: max(20px, calc(50% - 280px)); padding-right: max(20px, calc(50% - 280px)); }
+  .mpage > .entry-mhero > .wacct-spot { right: max(12px, calc(50% - 288px)); }
+  .mpage > .hero > .inca-peek { right: max(6px, calc(50% - 294px)); }
+}
+
+/* Los textos chicos de las cabeceras de color, en blanco entero (al 85 % no se leían sobre lo claro del degradado). */
+.hero .over, .hero .sub { opacity: 1; }
+
+/* "Otro motivo" de Anular: una sola línea al escribir (el borde magenta, sin el contorno del navegador encima). */
+.otro:focus, .otro:focus-visible { outline: none; border-color: var(--brand); }
+
+/* Productos en Vender: el precio siempre abajo, alineado con los vecinos aunque el nombre baje a dos líneas. */
+.ptile > span:not(.pic):not(.q) { margin-top: auto; }
+
+/* Lo que se escribe de ejemplo dentro de los campos ("Sin documento", "9 cifras"): se lee (antes 2.5:1). */
+.field input::placeholder { color: #7a6970; }
+
+/* El interruptor de Seguridad: se toca en 44 px de alto (lo que se ve no cambia). */
+.swt::after { content: ''; position: absolute; left: -2px; right: -2px; top: -6px; bottom: -6px; }
+
+/* Reportes en la computadora: el "1,000" de arriba del gráfico ya no queda pegado al texto de encima. */
+.deskapp .chartbox { margin-top: 16px; }
+
+/* Reportes en celulares angostos: "Semana del 9 al 15 nov" entra en una línea. */
+@media (max-width: 374px) {
+  .hero .row > .pill { font-size: 12.5px; padding: 6px 10px; gap: 4px; white-space: nowrap; }
+}
+
 /* ===== Entrar con tu cuenta de Yupana (12 nov) ===== */
 .entry-split { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; }
 .entry-color { background: var(--aurora); color: #fff; position: relative; overflow: hidden; padding: 40px 56px; display: flex;
@@ -1141,11 +1236,12 @@ html:has(.mpage.with-cart) { scroll-padding-bottom: 110px; }
 .where .ic { color: var(--brand); }
 .codeboxes { position: relative; display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; cursor: text; }
 .codeboxes input { position: absolute; inset: 0; opacity: 0; width: 100%; height: 100%; font-size: 16px; }
+/* Las casillas vacías llevan su borde (13 nov: sin él casi no se veían sobre el blanco; WCAG 1.4.11 pide 3:1). */
 .codeboxes .cb { height: 60px; border-radius: 14px; background: var(--field); display: flex; align-items: center; justify-content: center;
-  font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 28px; border: 2px solid transparent; }
-.codeboxes .cb.full { background: #fff; border-color: var(--border); }
+  font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 28px; border: 2px solid #9c8a91; }
+.codeboxes .cb.full { background: #fff; }
 .codeboxes .cb.now { background: #fff; border-color: var(--brand); }
-.codeboxes input:not(:focus) ~ .cb.now { border-color: transparent; background: var(--field); }
+.codeboxes input:not(:focus) ~ .cb.now { border-color: #9c8a91; background: var(--field); }
 .hint.okh { margin-top: 0; color: var(--ok); background: var(--okSoft); border-radius: 12px; padding: 10px 12px; }
 .hint.okh .ic { color: var(--ok); }
 .hint.okh b { font-weight: 900; }
@@ -1229,7 +1325,7 @@ html:has(.mpage.with-cart) { scroll-padding-bottom: 110px; }
 .pincard .pinkeys { max-width: 300px; gap: 12px 20px; }
 .pincard .pinkey { width: 64px; height: 64px; background: var(--field); color: var(--ink); font-size: 27px; }
 .pincard .pinkey:hover:not(:disabled) { background: #f1e3e8; }
-.pincard .pk.del { background: none; color: var(--muted); }
+.pincard .pinkey.del { background: none; color: var(--muted); }
 .pincard .pinlink { color: var(--brand); opacity: 1; }
 .pincard .pinallow { background: #fce4ec; color: var(--brand); }
 .pincard .pinforgot { background: var(--field); color: var(--ink); }
@@ -1371,12 +1467,6 @@ a.entry-home { display: inline-flex; align-self: flex-start; width: fit-content;
 .ti.sunico { width: 44px; height: 44px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 23px; flex: none; }
 .suntitle { font-size: 16px; font-weight: 900; display: block; color: var(--ink); line-height: 1.25; }
 .over.sunover { display: block; color: var(--label); opacity: 1; margin-bottom: 10px; }
-.sunsteps { list-style: none; display: flex; flex-direction: column; gap: 14px; }
-.sunsteps li { display: flex; gap: 12px; align-items: flex-start; }
-.sunsteps i { font-style: normal; flex: none; width: 28px; height: 28px; border-radius: 14px; background: var(--button); color: #fff; font-weight: 900;
-  font-size: 14px; display: flex; align-items: center; justify-content: center; }
-.sunsteps b { display: block; font-size: 15px; font-weight: 900; color: var(--ink); }
-.sunsteps span { display: block; font-size: 13.5px; font-weight: 700; color: var(--muted); line-height: 1.35; margin-top: 2px; }
 .field.sunfile { width: 100%; text-align: left; }
 .sunfrow { display: flex; align-items: center; gap: 8px; font-size: 15.5px; font-weight: 800; margin-top: 4px; min-width: 0; color: var(--ink); }
 .sunfrow .grow { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -1396,6 +1486,334 @@ a.entry-home { display: inline-flex; align-self: flex-start; width: fit-content;
 .entry-back { width: 44px; height: 44px; border-radius: 22px; background: rgba(255, 255, 255, .16); color: #fff; display: flex; align-items: center;
   justify-content: center; flex: none; text-decoration: none; }
 .entry-back:hover { background: rgba(255, 255, 255, .26); }
+
+/* ===== Lo que no subió (13 nov): comprobantes y ventas que la nube no tiene o no aceptó ===== */
+.nu-list { padding: 14px 16px 6px; }
+.nu-list > h3 { margin-bottom: 4px; }
+.nu-item { display: flex; flex-direction: column; gap: 10px; padding: 14px 0; border-top: 1px solid var(--line); }
+.nu-list > h3 + .nu-item { border-top: none; padding-top: 6px; }
+.nu-top { display: flex; align-items: flex-start; gap: 12px; }
+.nu-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px; }
+.nu-main > b { font-size: 15.5px; font-weight: 900; overflow-wrap: anywhere; }
+.nu-main > span { font-size: 13px; font-weight: 700; color: var(--muted); }
+.nu-amt { font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 18px; white-space: nowrap; line-height: 1.25; }
+.mb.nu-mb { width: 40px; height: 40px; border-radius: 12px; font-size: 17px; }
+.mb.nu-mb > .ic { font-size: 21px; }
+.mb.nu-mb32 { width: 32px; height: 32px; border-radius: 10px; font-size: 14px; }
+.mb.nu-mb32 > .ic { font-size: 18px; }
+.nu-why { display: flex; gap: 10px; align-items: flex-start; border-radius: 14px; padding: 10px 12px; font-size: 13.5px; font-weight: 700;
+  line-height: 1.35; }
+.nu-why > .ic { font-size: 19px; line-height: 1; margin-top: 1px; }
+.nu-why b { font-weight: 900; }
+.nu-why.bad { background: var(--badSoft); color: #7a1a14; }
+.nu-why.bad > .ic { color: var(--bad); }
+.nu-why.wait { background: #fff6dc; color: #5c4100; }
+.nu-why.wait > .ic { color: #a06a00; }
+.nu-when { display: flex; gap: 8px; align-items: center; font-size: 13px; font-weight: 700; color: var(--muted); }
+.nu-when > .ic { font-size: 17px; color: var(--label); }
+.nu-acts { display: flex; flex-direction: column; gap: 8px; }
+.nu-links { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; margin-top: -2px; }
+.nu-links > button { min-height: 40px; font-weight: 900; font-size: 15px; color: var(--brand); padding: 0 2px; }
+.nu-links > .nu-quitar { color: var(--bad); }
+.nu-doc { display: flex; flex-direction: column; gap: 10px; }
+.nu-pfoot { margin-top: auto; padding: 12px 18px 16px; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 8px; flex: none; }
+/* ===== Conexión con SUNAT › "Cómo conectar, paso a paso" (13 nov) =====
+   Todo con `sg-` (las clases cortas se pisaban). Los dibujos de SUNAT miden en `em`: su letra sale del ancho donde van. */
+
+/* La invitación (de prueba). Celular: el inca de busto asomado sobre la tarjeta, con su globo a la izquierda. */
+.sg-invite { display: flex; flex-direction: column; }
+.sg-says { display: flex; align-items: flex-end; justify-content: flex-end; gap: 4px; margin: 4px 0 -26px; padding-right: 2px; }
+.sg-peek { height: 122px; width: auto; display: block; flex: none; filter: drop-shadow(0 8px 12px rgba(60, 0, 20, .2)); }
+.sg-bubble { position: relative; background: #fff; color: var(--ink); border-radius: 18px; padding: 11px 14px; font-size: 14.5px; font-weight: 800;
+  line-height: 1.35; box-shadow: 0 8px 22px rgba(80, 20, 40, .14); text-wrap: balance; }
+.sg-bubble::after { content: ''; position: absolute; width: 16px; height: 16px; background: #fff; transform: rotate(45deg); border-radius: 3px; }
+.sg-bright { max-width: 215px; margin-bottom: 46px; }
+.sg-bright::after { right: -7px; bottom: 18px; }
+.sg-icard { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 4px; }
+.sg-ititle { font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 21px; line-height: 1.15; color: var(--ink); display: block; text-wrap: balance; }
+.sg-resume { display: flex; align-items: flex-start; gap: 6px; font-size: 13.5px; font-weight: 800; color: var(--brand); margin-top: 6px; }
+.sg-resume .ic { font-size: 17px; line-height: 1.1; }
+.sg-ibtn { margin-top: 10px; }
+/* Computadora: el inca de pie a la izquierda, señalando su globo y la guía. */
+.sg-iwide { display: flex; align-items: stretch; gap: 16px; padding: 18px 22px 0 12px; }
+.sg-ibody { height: 200px; width: auto; display: block; flex: none; align-self: flex-end; filter: drop-shadow(0 10px 14px rgba(60, 0, 20, .18)); }
+.sg-itext { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; justify-content: center; padding-bottom: 18px; }
+.sg-bleft { align-self: flex-start; max-width: 360px; margin: 0 0 10px 8px; background: #fff5f8; box-shadow: none; }
+.sg-bleft::after { left: -6px; top: 16px; background: #fff5f8; }
+.sg-itext .sg-ibtn { align-self: flex-start; width: auto; padding: 0 22px; }
+
+/* Con el certificado vencido (13 nov, revisión de vistas): el puntito rojo y "Certificado vencido". */
+.bizbtn .sun.sg-expired { color: var(--bad); }
+.bizbtn .sun.sg-expired i { background: #d93025; box-shadow: 0 0 0 3px #fbd7d3; }
+.tile .ts .dt.sg-expired { background: #d93025; box-shadow: 0 0 0 3px #fbd7d3; }
+.bizhead span.sg-expired i, .bizcard .conn.sg-expired i { background: #ff8a80; box-shadow: 0 0 0 3px rgba(255, 138, 128, .35); }
+/* "Ver cómo pedirlo" (vence pronto) y "¿Cómo saco uno nuevo?" (venció): a la guía, en el paso del certificado. */
+.sg-glink { display: flex; align-items: center; gap: 2px; color: var(--brand); font-weight: 900; min-height: 36px; margin-top: 2px; }
+.sg-gbtn3 { display: flex; align-items: center; justify-content: center; gap: 6px; padding-top: 6px; }
+
+/* "¿Dónde lo encuentro?" debajo de cada campo de Conectar. */
+.sg-under { display: flex; align-items: flex-start; gap: 8px; }
+.sg-wlink { flex: none; display: inline-flex; align-items: center; gap: 4px; color: var(--brand); font-weight: 900; font-size: 13px; min-height: 36px;
+  padding: 6px 2px 0; margin-left: auto; }
+.sg-wlink .ic { font-size: 16px; }
+
+/* La guía en el celular. */
+.sg-hero { padding-bottom: 60px; }
+.sg-hstep { display: flex; flex-direction: column; gap: 2px; margin-top: 8px; }
+.sg-hnum { font-size: 12px; font-weight: 900; letter-spacing: 1.2px; text-transform: uppercase; opacity: .9; }
+.sg-htitle { font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 24px; line-height: 1.12; text-wrap: balance; }
+.sg-htitle b { font-weight: 800; }
+.sg-prog { display: flex; gap: 5px; margin-top: 12px; }
+.sg-prog i { flex: 1; height: 6px; border-radius: 3px; background: rgba(255, 255, 255, .28); overflow: hidden; display: block; }
+.sg-prog b { display: block; height: 100%; background: #fff; border-radius: 3px; transition: width .25s ease-out; }
+.sg-body { gap: 14px; }
+.sg-nav { display: flex; gap: 10px; }
+.sg-nav .btn { width: auto; flex: 1; padding: 0 14px; font-size: 16px; gap: 6px; }
+.sg-nav .sg-back { flex: none; padding: 0 18px; }
+@media (max-width: 359px) {
+  .sg-nav .sg-back { width: 56px; padding: 0; }
+  .sg-nav .sg-back .sg-backtxt { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .sg-htitle { font-size: 22px; }
+}
+
+/* Lo que dice cada pantalla (celular, computadora y "¿Dónde lo encuentro?"). */
+.sg-gbody { display: flex; flex-direction: column; gap: 12px; }
+.sg-part { font-size: 12px; font-weight: 900; letter-spacing: 1px; color: var(--label); text-transform: uppercase; }
+.sg-part b { font-weight: 900; }
+.sg-ptitle { font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 21px; line-height: 1.15; color: var(--ink); text-wrap: balance; }
+.sg-ptitle b { font-weight: 800; }
+.sg-why { font-size: 14.5px; font-weight: 700; color: var(--muted); line-height: 1.4; margin-top: -4px; }
+.sg-where { background: var(--field); border-radius: 14px; padding: 10px 12px; display: flex; flex-direction: column; gap: 3px; }
+.sg-wlbl { display: flex; align-items: center; gap: 4px; font-size: 11.5px; font-weight: 900; letter-spacing: 1px; color: var(--label); text-transform: uppercase; }
+.sg-wlbl .ic { font-size: 15px; color: var(--brand); }
+.sg-crumbs { font-size: 13.5px; font-weight: 800; color: var(--ink); line-height: 1.5; }
+.sg-sep { color: var(--brand); font-size: 15px; vertical-align: -2px; margin: 0 1px; }
+.sg-items { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.sg-items li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; font-weight: 700; color: var(--ink); line-height: 1.4; }
+.sg-items li > i { font-style: normal; flex: none; width: 28px; height: 28px; border-radius: 14px; background: var(--button); color: #fff; font-weight: 900;
+  font-size: 14px; display: flex; align-items: center; justify-content: center; margin-top: -2px; }
+.sg-items li > span { min-width: 0; overflow-wrap: anywhere; }
+.sg-items b { font-weight: 900; }
+.sg-tip { margin-top: 0; line-height: 1.4; font-size: 13.5px; }
+.sg-tip b { font-weight: 900; }
+.sg-help { display: flex; align-items: center; gap: 6px; color: var(--brand); font-weight: 900; font-size: 14px; min-height: 40px; padding-top: 4px; }
+.sg-help .ic { font-size: 18px; color: #1fa855; }
+.sg-open { text-decoration: none; }
+.sg-helpbody { display: flex; flex-direction: column; gap: 16px; }
+.sg-dlghead { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: -4px -8px 12px 0; }
+.sg-dlgfoot { margin-top: 16px; display: flex; justify-content: flex-end; }
+.sg-dlgfoot .btn { width: auto; padding: 0 28px; height: 48px; font-size: 16px; }
+
+/* La guía en la computadora: los 7 pasos arriba y una tarjeta con dos columnas (sin recuadros de distinto alto). */
+.sg-desk { display: flex; flex-direction: column; gap: 14px; width: 100%; max-width: 1120px; container-type: inline-size; }
+.sg-desk > .back { align-self: flex-start; }
+.sg-stepcard { padding: 12px 16px; }
+.sg-steps { list-style: none; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); }
+.sg-steps li { position: relative; }
+.sg-steps li + li::before { content: ''; position: absolute; top: 19px; right: calc(50% + 21px); width: calc(100% - 42px); height: 2px; background: var(--border); }
+.sg-steps li.sg-done::before, .sg-steps li.sg-now::before { background: #f3b6cb; }
+.sg-steps button { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 4px 2px; border-radius: 12px; min-height: 44px; }
+.sg-steps button:hover .sg-dot { box-shadow: 0 0 0 4px #fce4ec; }
+.sg-dot { width: 30px; height: 30px; border-radius: 15px; border: 2px solid var(--border); background: #fff; display: flex; align-items: center;
+  justify-content: center; font-weight: 900; font-size: 15px; color: var(--muted); }
+.sg-done .sg-dot { background: #fce4ec; border-color: #fce4ec; color: var(--brand); font-size: 19px; }
+.sg-now .sg-dot { background: var(--button); border-color: transparent; color: #fff; box-shadow: 0 4px 10px rgba(194, 24, 91, .3); }
+.sg-slbl { font-size: 12.5px; font-weight: 800; color: var(--muted); text-align: center; line-height: 1.2; }
+.sg-now .sg-slbl { color: var(--brand); font-weight: 900; }
+.sg-main { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); padding: 0; overflow: clip; }
+.sg-left { padding: 22px 24px 0; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.sg-over { font-size: 12px; font-weight: 900; letter-spacing: 1px; color: var(--brand); text-transform: uppercase; }
+.sg-over b { font-weight: 900; }
+.sg-right { background: #f6eef1; padding: 24px 26px; display: flex; align-items: center; justify-content: center; min-width: 0; }
+.sg-right > .sg-shot { max-width: 580px; }
+/* Atrás y Siguiente siempre a la vista (se quedan abajo mientras baja lo de arriba). */
+.sg-dnav { margin-top: auto; display: flex; gap: 10px; padding: 10px 0 20px; position: sticky; bottom: 0; background: #fff; z-index: 1; }
+.sg-dnav .btn { height: 48px; font-size: 15.5px; gap: 6px; }
+.sg-dnav .sg-back { width: auto; flex: none; padding: 0 20px; }
+.sg-dnav .sg-nextd { width: auto; flex: 1; border-radius: 24px; }
+@container (max-width: 740px) {
+  .sg-main { grid-template-columns: minmax(0, 1fr); }
+  .sg-right { order: -1; }
+  .sg-slbl { font-size: 11.5px; }
+}
+
+/* ----- Los dibujos de las pantallas de SUNAT ----- */
+.sg-shot { container-type: inline-size; width: 100%; margin: 0; }
+.sg-shot-in { display: flex; flex-direction: column; --sg-fs: clamp(10.5px, calc(100cqw * 13 / 340), 15px); font-size: var(--sg-fs); font-family: Arial, Helvetica, sans-serif;
+  color: #222; line-height: 1.3; text-align: left; }
+.sg-scr { background: #fff; border: 1px solid #ddd0d5; border-radius: .9em; overflow: hidden; box-shadow: 0 .35em 1em rgba(80, 20, 40, .14); }
+.sg-bar { display: flex; align-items: center; gap: .6em; background: #ece6e9; padding: .45em .7em; }
+.sg-dots { display: flex; gap: .3em; flex: none; }
+.sg-dots i { width: .62em; height: .62em; border-radius: 50%; background: #cbbec4; display: block; }
+.sg-url { flex: 1; min-width: 0; background: #fff; border-radius: 1em; padding: .25em .7em; font-size: .82em; color: #555; display: flex; gap: .35em;
+  align-items: center; white-space: nowrap; overflow: hidden; }
+.sg-url .ic { font-size: 1.05em; color: #888; }
+/* Lo que no hay que tocar va un poco apagado; lo marcado queda encima, con su aro amarillo, su número y la manito. */
+.sg-view { position: relative; isolation: isolate; background: #fff; --sg-bg: #fff; }
+.sg-view::after { content: ''; position: absolute; inset: 0; background: rgba(70, 35, 52, .13); z-index: 1; pointer-events: none; }
+.sg-m { position: relative; z-index: 2; display: inline-block; background: var(--sg-bg); border-radius: .4em;
+  box-shadow: 0 0 0 .2em #ffc629, 0 0 0 .55em rgba(255, 198, 41, .3); }
+.sg-mb { display: block; padding: .2em .3em; }
+.sg-round { border-radius: 2em; padding: 0; }
+/* Lo que lleva la manito deja lugar debajo (así la manito no tapa lo que sigue). */
+.sg-mt { margin-bottom: .75em; }
+/* El número y la manito miden lo mismo en todo el dibujo (aunque estén en una tabla con letra más chica). */
+.sg-n { position: absolute; z-index: 3; top: -1.2em; left: -1.2em; font-size: calc(var(--sg-fs) * .8); font-style: normal; width: 1.8em; height: 1.8em; line-height: 1.8em; border-radius: 50%;
+  background: linear-gradient(135deg, #f0306e, #a0124b); color: #fff; font-family: 'Nunito', sans-serif; font-weight: 900; text-align: center;
+  box-shadow: 0 0 0 .15em #fff; }
+.sg-n-tr { left: auto; right: -1.2em; }
+.sg-n-l { top: 50%; margin-top: -.9em; left: -2.2em; }
+.sg-hand { position: absolute; z-index: 3; font-size: var(--sg-fs); right: -1.15em; bottom: -1.2em; width: 1.75em; height: 1.75em; border-radius: 50%; background: #ffc629; color: #5a3b00;
+  display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 .15em #fff, 0 .2em .5em rgba(60, 30, 0, .3); }
+.sg-hand .ic { font-size: 1.1em; }
+.sg-then { display: flex; align-items: center; justify-content: center; gap: .3em; padding: .55em 0; font-family: 'Nunito', sans-serif; font-weight: 900;
+  font-size: .95em; color: var(--muted); }
+.sg-grow { flex: 1; min-width: 0; }
+.sg-a { color: #1c6bb5; overflow-wrap: anywhere; }
+.sg-small { font-size: .8em; color: #444; }
+.sg-tc { text-align: center; }
+.sg-center { display: flex; flex-direction: column; align-items: center; gap: .45em; text-align: center; }
+.sg-rrow { display: flex; justify-content: flex-end; align-items: flex-start; flex-wrap: wrap; gap: .5em; }
+.sg-btns { display: flex; align-items: flex-start; flex-wrap: wrap; gap: .45em; }
+.sg-nowrap { white-space: nowrap; font-size: .85em; }
+/* SUNAT Operaciones en Línea: arriba su nombre (sin el logo) y la barra azul con "Bienvenido, …". */
+.sg-solhead { display: flex; align-items: center; gap: .4em; padding: .55em .8em; background: #fff; }
+.sg-sunat { font-weight: 900; color: #1c5aa6; font-size: 1.2em; letter-spacing: .02em; }
+.sg-solname { font-size: .8em; color: #555; font-weight: 700; white-space: nowrap; }
+.sg-red { color: #b8143f; font-size: .8em; white-space: nowrap; display: inline-flex; gap: .25em; align-items: center; padding: .15em .2em; }
+.sg-solbar { display: flex; flex-wrap: wrap; align-items: center; gap: .45em .7em; background: #0d63b0; color: #fff; padding: .55em .8em; font-weight: 700;
+  font-size: .88em; --sg-bg: #0d63b0; }
+.sg-wel { display: inline-flex; align-items: center; gap: .1em; padding: .1em .15em; }
+.sg-habido { white-space: nowrap; padding: .1em .2em; display: inline-block; }
+.sg-salir { background: #18a9d1; color: #fff; padding: .3em .75em; border-radius: .2em; }
+.sg-dropwrap { background: #f3f3f3; padding: .2em .8em 1.3em; display: flex; justify-content: flex-end; --sg-bg: #fff; }
+.sg-drop { width: min(100%, 19em); background: #fff; border: 1px solid #ccc; border-top: 0; box-shadow: 0 .3em .8em rgba(0, 0, 0, .16); }
+.sg-dhead { display: flex; flex-direction: column; gap: .25em; padding: .8em 1em; font-size: .82em; color: #555; border-bottom: 1px solid #e5e5e5; }
+.sg-dhead b { color: #444; }
+.sg-ficha { align-self: center; background: #337ab7; color: #fff; padding: .35em .8em; border-radius: .25em; margin-top: .3em; }
+.sg-dops { display: flex; flex-direction: column; align-items: flex-start; padding: .55em .7em .8em; gap: .25em; }
+.sg-dlbl { font-size: .75em; color: #777; font-weight: 700; padding: 0 .4em; }
+.sg-op { color: #1c6bb5; font-size: .88em; padding: .3em .4em; display: block; }
+.sg-page { padding: .8em .8em 1.3em; background: #fff; }
+.sg-graybg { background: #f3f3f3; --sg-bg: #f3f3f3; }
+.sg-q { color: #1c5aa6; font-size: 1.12em; margin-bottom: .55em; }
+.sg-search { display: flex; align-items: stretch; border: 1px solid #ccc; border-radius: .2em; color: #999; overflow: hidden; }
+.sg-search > span:first-child { padding: .5em .6em; }
+.sg-sbtn { background: #a61c45; color: #fff; display: flex; align-items: center; padding: 0 .75em; }
+.sg-mgrid { display: grid; grid-template-columns: 7.4em minmax(0, 1fr); gap: .6em; margin-top: .9em; align-items: start; }
+.sg-tabsv { background: #f2f2f2; display: flex; flex-direction: column; --sg-bg: #f2f2f2; }
+.sg-tv { padding: .6em .55em; font-size: .88em; color: #444; display: flex; align-items: center; gap: .2em; }
+.sg-tv.sg-on { background: #0d63b0; color: #fff; font-weight: 700; }
+.sg-list { background: #f7f7f7; display: flex; flex-direction: column; padding: .3em .9em .3em 0; --sg-bg: #f7f7f7; }
+.sg-li { color: #1a4f8b; font-weight: 700; padding: .45em .5em; display: flex; gap: .1em; align-items: flex-start; font-size: .92em; }
+.sg-li2 { color: #333; font-weight: 700; padding: .35em .5em; font-size: .86em; display: flex; gap: .1em; align-items: flex-start; }
+.sg-li3 { color: #333; padding: .3em .5em; font-size: .84em; display: flex; gap: .1em; align-items: flex-start; }
+.sg-sub { padding-left: .7em; background: #fff; --sg-bg: #fff; }
+.sg-link { color: #1c6bb5; font-size: .84em; padding: .45em .5em .45em 1.5em; display: flex; gap: .3em; align-items: center; }
+.sg-link.sg-on { background: #d9d9d9; }
+.sg-tri { color: #1a4f8b; font-size: 1.1em; }
+/* Las pantallas de los formularios. */
+.sg-panel { background: #fff; border: 1px solid #337ab7; border-radius: .3em; --sg-bg: #fff; }
+.sg-phead { background: #337ab7; color: #fff; text-align: center; padding: .7em .6em; font-size: 1.02em; border-radius: .2em .2em 0 0; }
+.sg-pbody { padding: .8em 1em 1.6em; display: flex; flex-direction: column; gap: .55em; }
+.sg-info { background: #f5f5f5; border: 1px solid #e3e3e3; padding: .5em .6em; font-size: .78em; color: #444; }
+.sg-h4 { font-size: 1.02em; color: #333; border-bottom: 1px solid #ddd; padding-bottom: .25em; margin-top: .3em; }
+.sg-frow { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: .5em; align-items: center; font-size: .82em; padding: .15em; }
+.sg-frow b { color: #333; }
+.sg-ro { background: #eee; border: 1px solid #ccc; border-radius: .25em; padding: .3em .45em; color: #555; overflow-wrap: anywhere; }
+.sg-pdf { font-size: .82em; color: #2e7d32; display: flex; gap: .3em; align-items: center; flex-wrap: wrap; }
+.sg-pdf u { color: #1c6bb5; }
+.sg-chkrow { display: inline-flex; align-items: center; gap: .45em; font-size: .88em; color: #333; padding: .15em .25em; }
+.sg-chk { width: 1.05em; height: 1.05em; border: 1px solid #777; border-radius: .15em; background: #fff; display: inline-flex; align-items: center;
+  justify-content: center; flex: none; font-style: normal; }
+.sg-chk.sg-on { background: #0d63b0; border-color: #0d63b0; color: #fff; }
+.sg-chk .ic { font-size: .8em; }
+.sg-bbtn { display: inline-flex; align-items: center; gap: .35em; background: #2d6aa3; color: #fff; padding: .55em 1.3em; border-radius: .25em; font-weight: 700; }
+.sg-bbtn.sg-sm { padding: .4em .9em; }
+.sg-lbl { font-size: .82em; font-weight: 700; color: #444; display: block; }
+.sg-in { display: block; border: 1px solid #b9b9b9; border-radius: .2em; padding: .35em .5em; background: #fff; min-height: 2em; font-size: .92em; }
+.sg-ph { color: #999; }
+.sg-off { background: #ececec; }
+.sg-sel { display: flex; justify-content: space-between; align-items: center; gap: .3em; font-size: .78em; }
+.sg-code { min-width: 6em; letter-spacing: .12em; }
+.sg-inrow { display: flex; gap: .5em; align-items: center; }
+/* La entrada (Clave SOL). */
+.sg-login { background: #eef2f6; padding: 1.2em 1.1em 1.8em; }
+.sg-lcard { background: #fff; border-radius: .5em; box-shadow: 0 .2em .8em rgba(0, 0, 0, .12); padding: 1em 1.2em 1.6em; display: flex; flex-direction: column;
+  gap: .85em; max-width: 22em; margin: 0 auto; }
+.sg-lhead { display: flex; align-items: baseline; justify-content: center; gap: .4em; }
+.sg-lhead span:last-child { font-size: .88em; color: #555; font-weight: 700; }
+.sg-ltabs { display: flex; justify-content: space-around; align-items: center; border-bottom: 1px solid #ddd; padding-bottom: .35em; font-weight: 700; color: #777; }
+.sg-ltab { display: inline-block; padding: 0 .9em .2em; }
+.sg-ltab.sg-on { color: #0d63b0; border-bottom: .2em solid #0d63b0; }
+.sg-lfields { display: flex; flex-direction: column; gap: .3em; padding: .25em; }
+.sg-lbtn { display: block; text-align: center; background: #0d63b0; color: #fff; font-weight: 700; padding: .6em; border-radius: .3em; }
+/* El Buzón SOL y la página de RENIEC. */
+.sg-mail { background: #f4f4f4; padding: .7em .8em 1.6em; display: flex; flex-direction: column; gap: .55em; --sg-bg: #f4f4f4; }
+.sg-mailbar { background: #0b2340; color: #fff; padding: .45em .6em; font-size: .82em; display: flex; gap: .4em; align-items: center; border-radius: .2em; }
+.sg-msg { background: #e3f0fb; border-left: .25em solid #b8143f; padding: .5em .6em; display: flex; flex-direction: column; gap: .2em; font-size: .82em; color: #555; }
+.sg-msg b { font-weight: 400; }
+.sg-f7140 { background: #fff; border: 1px solid #ddd; padding: .6em .7em 1.1em; display: flex; flex-direction: column; gap: .45em; --sg-bg: #fff; }
+.sg-fband { background: #0d63b0; color: #fff; text-align: center; font-size: .82em; padding: .3em; font-family: Georgia, serif; }
+.sg-ftitle { text-align: center; color: #1a3d7c; font-weight: 700; font-size: .82em; }
+.sg-fbox { border: 1px solid #777; padding: .6em .9em 1.2em; font-size: .78em; color: #1a3d7c; display: flex; flex-direction: column; gap: .6em; }
+.sg-rbg { background: #3d6db0; padding: 1.2em 1em 1.6em; }
+.sg-rcard { background: #fff; max-width: 21em; margin: 0 auto; box-shadow: 0 .3em .8em rgba(0, 0, 0, .25); }
+.sg-rhead { background: #a8a6a4; color: #fff; font-weight: 900; font-size: 1.5em; letter-spacing: .06em; padding: .3em .6em; border-bottom: .25em solid #2f3a64; }
+.sg-rbody { padding: .8em 1em 1.6em; display: flex; flex-direction: column; gap: .35em; }
+.sg-rtitle { font-size: 1.02em; color: #333; margin-bottom: .3em; }
+.sg-rin { display: flex; align-items: center; gap: .4em; border: 1px solid #c7c7c7; border-radius: .25em; padding: .45em .6em; color: #666; }
+.sg-rro { background: #c9e2ec; border-color: #7fb6cc; color: #333; }
+.sg-rpw { display: flex; flex-direction: column; gap: .3em; padding: .2em; }
+.sg-rpw small { font-size: .75em; color: #777; font-style: italic; }
+.sg-gbtn { display: inline-block; background: #5cb85c; color: #fff; padding: .55em 1em; border-radius: .25em; }
+.sg-dl { background: #f1f1f1; border-top: 1px solid #ccc; padding: .7em .9em 1.4em; }
+.sg-file { display: inline-flex; align-items: center; gap: .35em; padding: .3em .6em; font-size: .9em; }
+/* Registro y Mantenimiento de Correo y Certificados Digitales, y los usuarios secundarios. */
+.sg-band { background: #3399cc; color: #111; text-align: center; font-weight: 700; padding: .55em .6em; font-family: Verdana, Arial, sans-serif; }
+.sg-bandl { background: #8cbfe6; font-size: .78em; padding: .75em .6em; }
+.sg-rm { padding: .8em 1.2em 1.6em; display: flex; flex-direction: column; gap: .55em; }
+.sg-box { border: 1px solid #ddd; border-radius: .2em; padding: .55em .6em; background: #fff; }
+.sg-boxrow { display: flex; align-items: center; gap: .45em; font-size: .85em; font-weight: 700; }
+.sg-caps { font-size: .78em; color: #222; }
+.sg-self { align-self: flex-start; }
+.sg-gbtn2 { display: inline-block; background: #eee; border: 1px solid #aaa; border-radius: .2em; padding: .45em .7em; font-weight: 700; font-size: .85em; color: #222; }
+.sg-gbtn2.sg-sm { font-weight: 400; font-size: .75em; padding: .35em .55em; }
+.sg-wbtn { display: inline-block; background: #f0f0f0; border: 1px solid #888; border-radius: .15em; padding: .3em .7em; font-size: .85em; color: #111; }
+.sg-confirm { padding: 1em 1em 1.6em; display: flex; flex-direction: column; gap: .55em; }
+.sg-table { border: 1px solid #ccc; font-size: .74em; }
+.sg-tr { display: grid; grid-template-columns: 1.25fr 1fr 1fr .8fr; gap: .35em; padding: .4em .45em; border-top: 1px solid #e3e3e3; align-items: center; }
+.sg-th { background: #ddd; border-top: 0; font-weight: 700; }
+.sg-opts .sg-tr { grid-template-columns: 1.4em minmax(0, 1fr); }
+.sg-users .sg-tr { grid-template-columns: 1fr 1.6fr .8fr; }
+.sg-sec { background: #b8cce4; font-weight: 700; font-size: .82em; padding: .35em .5em; }
+.sg-grid { display: grid; grid-template-columns: 9em minmax(0, 1fr); gap: .35em .5em; align-items: center; font-size: .84em; padding: .15em; }
+.sg-tree { display: flex; flex-direction: column; font-style: italic; font-size: .84em; color: #333; }
+.sg-fold { display: flex; gap: .35em; align-items: center; padding: .22em .2em; }
+.sg-fold.sg-on span { background: #bfe3f7; border: 1px solid #8cc9ec; padding: .1em .3em; }
+.sg-fic { color: #d8b25e; font-size: 1.2em; }
+.sg-blueit { color: #1515d4; font-style: italic; font-size: .88em; }
+/* El dibujo de Yupana (el último paso), con su letra y sus colores. */
+.sg-app { font-family: 'Nunito', system-ui, sans-serif; }
+.sg-app .sg-view { background: var(--bg); padding: 0 0 1.8em; display: flex; flex-direction: column; gap: .8em; }
+.sg-ahead { background: var(--aurora); color: #fff; font-weight: 900; text-transform: uppercase; letter-spacing: .08em; font-size: .82em; text-align: center;
+  padding: 1em .8em 2.4em; margin-bottom: -1.6em; }
+.sg-acard { background: #fff; border-radius: 1.2em; margin: 0 .9em; padding: .9em 1em 1em; display: flex; flex-direction: column; gap: .75em;
+  box-shadow: 0 .3em .9em rgba(80, 20, 40, .08); }
+.sg-acard .sg-m { border-radius: .9em; }
+.sg-aover { font-size: .75em; font-weight: 900; letter-spacing: .08em; color: var(--label); text-transform: uppercase; }
+.sg-afield { background: var(--field); border-radius: .9em; padding: .55em .85em; display: flex; flex-direction: column; gap: .15em; }
+.sg-aflabel { font-size: .7em; font-weight: 900; letter-spacing: .07em; color: var(--label); text-transform: uppercase; }
+.sg-afval { font-weight: 800; display: flex; align-items: center; gap: .3em; color: var(--ink); }
+.sg-afval .ic { color: var(--brand); }
+.sg-abtn { display: block; text-align: center; background: var(--button); color: #fff; font-weight: 900; padding: .75em; border-radius: 2em; }
+.sg-app .sg-view > .sg-m { margin: 0 1.6em .75em .9em; background: var(--bg); }
+/* Lo impreso (13 nov): el precio de cada uno (con más de uno) y el monto en letras. */
+.ticket .en-unit { font-size: 11.5px; font-weight: 600; color: var(--muted); white-space: nowrap; }
+.ticket .en-words { margin-top: 6px; font-size: 11.5px; color: var(--ink); }
+@media print {
+  .print-area .ticket .en-unit, .print-area .ticket .en-words { color: #000; }
+}
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
