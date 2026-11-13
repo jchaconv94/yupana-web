@@ -81,12 +81,15 @@ button.btn { background: transparent; cursor: pointer; }
    registrar un negocio). */
 .acct { display: none; width: 48px; height: 48px; align-items: center; justify-content: center; border-radius: 24px; flex: 0 0 auto; border: 0; padding: 0; background: none; cursor: pointer; }
 html.cuenta .acct { display: flex; }
-html.cuenta .nav-enter { display: none; }
+html.cuenta .nav-enter, html.cuenta .nav-pay { display: none; }
 html.con-negocio .nav-trial, html.con-negocio .bar { display: none; }
 .acct-av { width: 36px; height: 36px; border-radius: 18px; background: linear-gradient(135deg, var(--a1), #a0124b); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 17px; line-height: 1; overflow: hidden; flex: 0 0 auto; }
 .acct-av img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.acct-av.ring { width: 40px; height: 40px; font-size: 19px; box-shadow: 0 0 0 2.5px #fff, 0 0 0 4px #f3c6d6; }
-.acct:hover .acct-av.ring { box-shadow: 0 0 0 2.5px #fff, 0 0 0 4px var(--brand); }
+.acct { position: relative; }
+.acct-av.ring { width: 38px; height: 38px; border-radius: 50%; font-size: 18px; box-shadow: 0 0 0 1px rgba(31, 10, 20, 0.1); }
+.acct:hover .acct-av.ring { box-shadow: 0 0 0 1px rgba(31, 10, 20, 0.1), 0 0 0 5px #f6e9ee; }
+/* Conectado (13 nov): el puntito verde abajo a la derecha de tu foto. */
+.acct::after { content: ''; position: absolute; right: 4px; bottom: 4px; width: 11px; height: 11px; border-radius: 50%; background: #22b35e; box-shadow: 0 0 0 2px #fff; pointer-events: none; }
 .acct-scrim { position: fixed; inset: 0; z-index: 40; }
 .acct-menu { position: fixed; width: 340px; max-width: calc(100vw - 24px); background: #fff; color: var(--ink); border-radius: 16px; padding: 14px 10px 8px; box-shadow: 0 12px 30px rgba(31, 10, 20, 0.2); display: flex; flex-direction: column; gap: 6px; text-align: left; }
 .acct-who { display: flex; gap: 12px; align-items: center; padding: 0 6px 12px; border-bottom: 1px solid var(--line); }
@@ -752,4 +755,58 @@ button.bubble { text-align: left; cursor: pointer; color: var(--ink); font-famil
   .keep-txt { padding: 32px 28px; align-self: center; }
   .keep-shot { padding: 28px 22px; }
   .keep-shot .phone { width: 196px; }
+}
+/* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
+.yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
+  background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
+.yw.yw-out { opacity: 0; }
+.yw-board { position: absolute; inset: 0; opacity: .07; pointer-events: none;
+  background-image: radial-gradient(circle at center, #fff 0 9px, transparent 10px), linear-gradient(#fff 0 0), linear-gradient(90deg, #fff 0 0);
+  background-size: 120px 120px, 100% 2px, 2px 100%; background-position: 60px 60px, 0 0, 0 0; }
+.yw-in { position: relative; display: flex; flex-direction: column; align-items: center; padding: 0 28px; width: 100%; }
+.yw-logo { --s: 160px; --rest: min(calc(50vw - 89px), 170px); position: relative; width: var(--s); height: var(--s); }
+@media (max-height: 700px) { .yw-logo { --s: 124px; } }
+.yw-mark, .yw-coin { position: absolute; inset: 0; width: 100%; height: 100%; }
+.yw-glow { position: absolute; left: 50%; top: 32%; width: 360px; height: 360px; margin: -180px 0 0 -180px; border-radius: 50%; pointer-events: none;
+  background: radial-gradient(circle, rgba(255, 198, 41, .42) 0, rgba(255, 198, 41, .16) 38%, transparent 70%); animation: yw-shine 1.3s ease-out infinite; }
+/* La moneda está arriba al centro del logo (256, 176 en la figura de 368 × 400). */
+.yw-coin { transform-origin: 50% 32%; animation: yw-beat 1.3s infinite; animation-delay: .78s; }
+.yw-ring { position: absolute; left: 50%; top: 32%; width: 22%; height: 22%; transform: translate(-50%, -50%); border-radius: 50%;
+  border: 3px solid #ffc629; opacity: 0; animation: yw-ring 1.3s infinite; animation-delay: .78s; }
+.yw-chip { position: absolute; left: 50%; top: 62.5%; width: 150px; height: 40px; margin-left: -75px; border-radius: 20px; background: #fff;
+  color: #1f1a1c; display: flex; align-items: center; justify-content: center; gap: 8px; font-family: 'Nunito', system-ui, sans-serif;
+  font-weight: 800; font-size: 15px; white-space: nowrap; box-shadow: 0 10px 22px rgba(46, 8, 24, .35); opacity: 0;
+  animation: 3.9s linear infinite; }
+.yw-c1, .yw-c3 { animation-name: yw-left; }
+.yw-c2 { animation-name: yw-right; animation-delay: 1.3s; }
+.yw-c3 { animation-delay: 2.6s; }
+.yw-mb { font-style: normal; width: 26px; height: 26px; border-radius: 9px; display: inline-flex; align-items: center; justify-content: center;
+  color: #fff; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 13px; line-height: 1; }
+.yw-yape { background: linear-gradient(135deg, #9b3fb5, #5a1670); }
+.yw-plin { background: linear-gradient(135deg, #22b8a8, #0b6b61); }
+.yw-cash { background: #ffc629; color: #5c3b00; font-size: 11px; }
+.yw-title { margin-top: 22px; text-align: center; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 26px; line-height: 32px;
+  min-height: 32px; max-width: 520px; text-wrap: balance; }
+.yw-detail { margin-top: 6px; min-height: 22px; text-align: center; font-weight: 700; font-size: 16px; color: rgba(255, 255, 255, .88); }
+/* Cada pago: entra por su costado (0–0.26 s), espera, vuela a la moneda y se achica (0.42–0.78 s). Una vuelta = 3.9 s. */
+@keyframes yw-left {
+  0% { opacity: 0; transform: translate(calc(-1 * var(--rest) - 170px), 0) scale(1); }
+  2.3% { opacity: 1; }
+  6.7%, 10.8% { opacity: 1; transform: translate(calc(-1 * var(--rest)), 0) scale(1); }
+  18.2% { opacity: 1; }
+  20%, 100% { opacity: 0; transform: translate(0, calc(var(--s) * -0.305 - 20px)) scale(.3); }
+}
+@keyframes yw-right {
+  0% { opacity: 0; transform: translate(calc(var(--rest) + 170px), 0) scale(1); }
+  2.3% { opacity: 1; }
+  6.7%, 10.8% { opacity: 1; transform: translate(var(--rest), 0) scale(1); }
+  18.2% { opacity: 1; }
+  20%, 100% { opacity: 0; transform: translate(0, calc(var(--s) * -0.305 - 20px)) scale(.3); }
+}
+@keyframes yw-beat { 0%, 100% { transform: scale(1); } 7% { transform: scale(1.16); } 18% { transform: scale(1); } }
+@keyframes yw-ring { 0% { opacity: .9; transform: translate(-50%, -50%) scale(1); } 35%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(2.6); } }
+@keyframes yw-shine { 0%, 100% { opacity: .65; } 6% { opacity: 1; } 46% { opacity: .65; } }
+@media (prefers-reduced-motion: reduce) {
+  .yw-chip, .yw-ring { display: none; }
+  .yw-coin, .yw-glow { animation: none; }
 }
