@@ -76,6 +76,34 @@ button.btn { background: transparent; cursor: pointer; }
 .nav-enter:hover { border-color: var(--brand); }
 /* En el celular arriba van "Pagar mi plan" y "Entrar": "Prueba gratis" está en la portada y en la barra de abajo. */
 @media (max-width: 599px) { .nav .btn-sm { display: none; } }
+/* Tu cuenta (13 nov): si ya entraste en la web, tu foto de Google (o tu inicial) en vez de "Entrar", con un menú chico
+   como el de la página de pago. Con una cuenta que ya tiene su negocio, sin "Prueba gratis" (la prueba empieza al
+   registrar un negocio). */
+.acct { display: none; width: 48px; height: 48px; align-items: center; justify-content: center; border-radius: 24px; flex: 0 0 auto; border: 0; padding: 0; background: none; cursor: pointer; }
+html.cuenta .acct { display: flex; }
+html.cuenta .nav-enter { display: none; }
+html.con-negocio .nav-trial, html.con-negocio .bar { display: none; }
+.acct-av { width: 36px; height: 36px; border-radius: 18px; background: linear-gradient(135deg, var(--a1), #a0124b); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 17px; line-height: 1; overflow: hidden; flex: 0 0 auto; }
+.acct-av img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.acct-av.ring { width: 40px; height: 40px; font-size: 19px; box-shadow: 0 0 0 2.5px #fff, 0 0 0 4px #f3c6d6; }
+.acct:hover .acct-av.ring { box-shadow: 0 0 0 2.5px #fff, 0 0 0 4px var(--brand); }
+.acct-scrim { position: fixed; inset: 0; z-index: 40; }
+.acct-menu { position: fixed; width: 340px; max-width: calc(100vw - 24px); background: #fff; color: var(--ink); border-radius: 16px; padding: 14px 10px 8px; box-shadow: 0 12px 30px rgba(31, 10, 20, 0.2); display: flex; flex-direction: column; gap: 6px; text-align: left; }
+.acct-who { display: flex; gap: 12px; align-items: center; padding: 0 6px 12px; border-bottom: 1px solid var(--line); }
+.acct-who .acct-av { width: 44px; height: 44px; border-radius: 22px; font-size: 20px; }
+.acct-names { min-width: 0; display: flex; flex-direction: column; }
+.acct-names b { font-weight: 800; font-size: 16px; line-height: 1.3; }
+.acct-names span, .acct-txt span { color: var(--muted); font-size: 13px; font-weight: 700; line-height: 1.35; overflow-wrap: anywhere; }
+.acct-rows { display: flex; flex-direction: column; }
+.acct-row { display: flex; align-items: center; gap: 12px; min-height: 50px; padding: 6px; border-radius: 12px; color: var(--ink); text-decoration: none; width: 100%; text-align: left; background: none; border: 0; font: inherit; cursor: pointer; }
+.acct-row:hover { background: #fbf2f5; }
+.acct-row b { font-weight: 800; font-size: 15px; line-height: 1.3; }
+.acct-txt { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.acct-ico, .acct-mark { width: 34px; height: 34px; border-radius: 11px; display: flex; align-items: center; justify-content: center; flex: 0 0 auto; }
+.acct-ico { background: var(--soft); color: var(--brand); }
+.acct-mark { background: linear-gradient(135deg, var(--a1), #a0124b); color: #fff; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 14px; line-height: 1; }
+.acct-ico svg, .acct-go { fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.acct-go { color: #9c8a91; flex: 0 0 auto; }
 @media (max-width: 379px) {
   .nav-in { gap: 8px; }
   .nav-act { gap: 6px; }

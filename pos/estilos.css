@@ -1339,3 +1339,29 @@ html:has(.mpage.with-cart) { scroll-padding-bottom: 110px; }
   .reg-chip .reg-ava { display: none; }
   .reg-ready { flex-direction: column; align-items: flex-start; gap: 12px; }
 }
+
+/* ===== Tu cuenta arriba a la derecha (13 nov, el usuario marcó la esquina vacía): tu foto de Google y un menú chico,
+   como en la página de pago. En la computadora, arriba a la derecha de la página; en el celular, en la cabecera. ===== */
+.entry-split { position: relative; }
+.wacct-spot { position: absolute; top: 24px; right: 32px; z-index: 30; }
+.entry-mhero > .wacct-spot { position: absolute; top: calc(10px + env(safe-area-inset-top)); right: 12px; z-index: 3; }
+.wacct { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 24px; }
+.wacct:hover .wacct-av { filter: brightness(1.05); }
+.wacct-av { width: 36px; height: 36px; border-radius: 50%; background: var(--button); color: #fff; display: inline-flex; align-items: center;
+  justify-content: center; font-family: 'Baloo 2', sans-serif; font-weight: 800; line-height: 1; flex: none; overflow: hidden; }
+.wacct-av img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.wacct-av.ring { box-shadow: 0 0 0 2.5px #fff, 0 6px 16px rgba(60, 0, 25, .3); }
+.wacct-out { position: fixed; inset: 0; z-index: 1; cursor: default; }
+.wacct-menu { position: absolute; right: 0; top: 56px; z-index: 2; width: 288px; max-width: calc(100vw - 24px); background: #fff; color: var(--ink);
+  border-radius: 16px; padding: 14px 10px 8px; box-shadow: 0 12px 30px rgba(31, 10, 20, .2); display: flex; flex-direction: column; gap: 6px; text-align: left; }
+.wacct-who { display: flex; gap: 12px; align-items: center; padding: 0 6px 12px; border-bottom: 1px solid var(--line); }
+.wacct-who b { display: block; font-weight: 800; font-size: 16px; }
+.wacct-who span { display: block; font-size: 13px; font-weight: 700; color: var(--muted); overflow-wrap: anywhere; }
+.wacct-row { display: flex; align-items: center; gap: 12px; width: 100%; height: 50px; padding: 0 6px; border-radius: 12px; font-weight: 800; font-size: 15px;
+  color: var(--ink); text-align: left; }
+.wacct-row:hover { background: #fbf2f5; }
+.wacct-row > .ic { color: #9c8a91; }
+.wacct-ico { width: 34px; height: 34px; border-radius: 11px; background: #fce4ec; color: var(--brand); display: flex; align-items: center; justify-content: center; flex: none; }
+.hero .wacct-menu :focus-visible { outline-color: #8e0f43; }
+/* La marca de arriba lleva a la página de Yupana (sin cambiar cómo se ve). */
+a.entry-home { display: inline-flex; align-self: flex-start; width: fit-content; color: inherit; text-decoration: none; border-radius: 12px; }

@@ -21,7 +21,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&amp;family=Nunito:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="venta.css?v=68c40d3a2a">
+<link rel="stylesheet" href="venta.css?v=886a4b8fc1">
+<!-- Tu cuenta (13 nov): si ya entraste en la web, arriba va tu foto en vez de "Entrar" desde el primer momento (sin que
+     se vea "Entrar" y luego cambie). Lo mismo que `storedUser` de src/domain/web-account.ts; la página lo revisa después. -->
+<script>try{var s=JSON.parse(localStorage.getItem('yupana-pos')||'null'),u=s&&s.user;if(u&&u.id&&s.refresh_token&&!(u.app_metadata&&u.app_metadata.yupana_staff)&&!localStorage.getItem('yupana-pos:v2:computadora')){var h=document.documentElement,k=JSON.parse(localStorage.getItem('yupana-web:cuenta')||'null');h.classList.add('cuenta');if(k&&k.id===u.id&&k.owner===true)h.classList.add('con-negocio')}}catch(e){}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Necesito una cuenta especial de Yape o Plin?","acceptedAnswer":{"@type":"Answer","text":"No. Yupana lee los avisos que ya te llegan al celular cuando te yapean o te plinean. Sigues cobrando como siempre."}},{"@type":"Question","name":"¿Yupana ve mi dinero o mis claves?","acceptedAnswer":{"@type":"Answer","text":"No. Solo lee los avisos de pagos de Yape y Plin. No entra a tu banco, no ve tus claves y no mueve tu plata."}},{"@type":"Question","name":"¿En qué celulares funciona?","acceptedAnswer":{"@type":"Answer","text":"En celulares Android. En algunas marcas, como Xiaomi, Oppo o Vivo, hay que prender dos permisos más: Yupana te muestra cómo, paso a paso."}},{"@type":"Question","name":"¿Qué pasa cuando terminan los 14 días?","acceptedAnswer":{"@type":"Answer","text":"Sigues gratis con Básico: el lector, tu caja y el cierre en tu celular. No se borra nada y no se cobra nada solo. Si quieres seguir con tu equipo, eliges un plan."}},{"@type":"Question","name":"¿Mi equipo necesita correo o Google?","acceptedAnswer":{"@type":"Answer","text":"No. Tú agregas a cada persona y le das un PIN de 4 cifras. Entra con su PIN en el celular que tú conectas. Cuando ya no trabaja contigo, la das de baja."}},{"@type":"Question","name":"¿Cómo pago mi plan?","acceptedAnswer":{"@type":"Answer","text":"Aquí, en la página de Yupana: con Yape, con tu código de aprobación, o con tarjeta. Con Yape pagas cada vez que quieres seguir; con tarjeta se cobra solo y lo cancelas cuando quieras."}},{"@type":"Question","name":"¿Puedo dejar de pagar cuando quiera?","acceptedAnswer":{"@type":"Answer","text":"Sí. No hay contratos. Si dejas de pagar, pasas a Básico y no se borra nada."}},{"@type":"Question","name":"¿Yupana es de Yape o de Plin?","acceptedAnswer":{"@type":"Answer","text":"No. Yupana es una app independiente, hecha en Perú. No está relacionada con Yape, con Plin ni con ningún banco."}}]}</script>
 </head>
 <body>
@@ -38,7 +41,8 @@
     <div class="nav-act">
       <a class="nav-pay" href="pagar/">Pagar mi plan</a>
       <a class="nav-enter" href="ingreso/">Entrar</a>
-      <a class="btn btn-main btn-sm" href="registro/">Prueba gratis</a>
+      <a class="btn btn-main btn-sm nav-trial" href="registro/">Prueba gratis</a>
+      <button class="acct" id="cuenta" type="button" aria-label="Tu cuenta" aria-haspopup="dialog" aria-expanded="false"><span class="acct-av ring" id="cuenta-foto" aria-hidden="true"></span></button>
     </div>
   </div>
 </header>
@@ -539,6 +543,6 @@
   <a class="btn btn-main btn-sm" href="registro/">Prueba gratis</a>
 </div>
 
-<script type="module" src="venta.js?v=68c40d3a2a"></script>
+<script type="module" src="venta.js?v=886a4b8fc1"></script>
 </body>
 </html>
