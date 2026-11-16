@@ -1865,6 +1865,45 @@ a.entry-home { display: inline-flex; align-self: flex-start; width: fit-content;
 .field .static.ne-lock { display: flex; width: 100%; }
 .bizmark { overflow: hidden; }
 .bizmark .bizlogo { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Escáner de productos: cámara local y celular como lector de la computadora. */
+.sc-camera-body { width: 100%; }
+.sc-help { display: flex; align-items: center; gap: 10px; margin: 4px 0 14px; color: var(--muted); font-size: 14px; line-height: 1.4; }
+.sc-help img { width: 48px; height: 58px; object-fit: contain; }
+.sc-camera { height: 250px; border-radius: 18px; position: relative; overflow: hidden; background: #292529; }
+.sc-camera video { width: 100%; height: 100%; object-fit: cover; }
+.sc-camera > span { position: absolute; bottom: 12px; left: 10px; right: 10px; text-align: center; color: #fff; background: #211721bb; border-radius: 10px; padding: 6px; font-size: 12px; }
+.sc-frame { position: absolute; inset: 18% 10% 24%; border: 3px solid #ffc629; border-radius: 15px; pointer-events: none; }
+.sc-error { padding: 14px; background: #fff4e0; color: #705000; border-radius: 14px; font-size: 14px; line-height: 1.5; }
+.sc-error p { margin: 8px 0 14px; }
+.sc-error .btn { font-size: 15px; }
+.sc-good { display: flex; align-items: center; gap: 8px; padding: 13px; border-radius: 13px; background: var(--okSoft); color: var(--ok); font-weight: 800; font-size: 14px; line-height: 1.4; }
+.sc-code { background: var(--field); border-radius: 13px; padding: 15px; text-align: center; font-size: 18px; letter-spacing: 2px; overflow-wrap: anywhere; }
+.sc-product { display: flex; align-items: center; gap: 14px; border: 1px solid var(--border); border-radius: 17px; padding: 16px; }
+.sc-product > div { display: flex; flex-direction: column; gap: 4px; }
+.sc-product strong { color: var(--brand); font: 800 23px 'Baloo 2', sans-serif; }
+.sc-quantity { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; }
+.sc-quantity > div { display: flex; align-items: center; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.sc-quantity button { width: 44px; height: 44px; color: var(--brand); background: var(--field); text-align: center; font-size: 24px; }
+.sc-quantity b { min-width: 40px; text-align: center; }
+.sc-dialog-head { padding: 20px 22px 8px; display: flex; gap: 8px; align-items: center; justify-content: space-between; }
+.sc-dialog-head h2 { font: 800 25px/1.2 'Baloo 2', sans-serif; }
+.sc-dialog-body { padding: 12px 22px 24px; display: flex; flex-direction: column; gap: 14px; }
+.sc-dialog-body > p { color: var(--muted); line-height: 1.5; font-size: 14px; }
+.sc-remote-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; margin: 8px 0; }
+.sc-remote-bar > span { font-size: 12px; color: var(--muted); }
+.sc-phone-btn, .sc-catalog-scan { display: inline-flex; gap: 7px; align-items: center; min-height: 44px; color: var(--brand); font-weight: 900; font-size: 13px; }
+.sc-phone-btn:disabled { opacity: .45; cursor: default; }
+.sc-disconnect { min-height: 44px; color: var(--muted); text-decoration: underline; font-size: 13px; }
+.sc-pair-qr { display: block; width: 260px; max-width: 100%; align-self: center; }
+.sc-phone-page { max-width: 480px; margin: auto; min-height: 100vh; background: var(--bg); }
+.sc-phone-head { padding: 24px; overflow: hidden; }
+.sc-phone-head > img { width: 44px; height: 44px; }
+.sc-phone-head h1 { font: 800 26px/1.15 'Baloo 2', sans-serif; margin: 12px 0 8px; position: relative; z-index: 1; }
+.sc-phone-head p { font-size: 14px; }
+.sc-phone-content { padding: 20px; display: flex; flex-direction: column; gap: 16px; }
+.sc-phone-content > p { color: var(--muted); font-size: 14px; line-height: 1.5; }
+@media (max-height: 650px) { .sc-camera { height: 175px; } .sc-help img { height: 42px; width: 38px; } .sc-help { margin-bottom: 8px; } }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
