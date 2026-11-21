@@ -2260,6 +2260,10 @@ html:has(.vc-page) .toast { bottom: calc(96px + env(safe-area-inset-bottom)); }
 .cp-mark { display: flex; align-items: center; justify-content: center; overflow: hidden; background: #fff; color: var(--brand); font-family: 'Baloo 2', sans-serif;
   font-weight: 800; }
 .cp-mark .bizlogo { width: 100%; height: 100%; object-fit: cover; }
+/* Lo de adentro de estos botones, siempre centrado (21 nov: la cantidad y "S/ · %" salían a la izquierda). */
+.vc-qty, .vc-mode button, .vc-round, .vc-minus, .vc-plus, .vc-pad button, .vc-dchips button, .vc-charge, .vc-scan, .vc-back, .vc-box,
+.pf-seg button, .dlg-x, .hero-x { display: flex; align-items: center; justify-content: center; text-align: center; }
+.vc-charge { flex-direction: column; }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
