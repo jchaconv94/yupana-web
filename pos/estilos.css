@@ -2280,6 +2280,14 @@ html:has(.vc-page) .toast { bottom: calc(96px + env(safe-area-inset-bottom)); }
 .vx-each { font: 700 13px 'Nunito', sans-serif; color: var(--ok); white-space: nowrap; }
 .vx-disc { white-space: nowrap; }
 .vx-linetext .vx-was, .vc-linetext .vx-was { margin-right: 3px; }
+
+/* El teclado del celular nunca tapa los botones (21 nov): las hojas y las barras de abajo suben con él (`--kb`). */
+.sheet { bottom: var(--kb, 0px); max-height: calc(88vh - var(--kb, 0px)); }
+.foot, .vc-bar { bottom: var(--kb, 0px); }
+/* Buscar cliente en el celular: en una hoja (hasta la mitad), no encima de la pantalla. */
+.vx-csheet { display: flex; flex-direction: column; gap: 8px; padding-bottom: 8px; }
+.vx-csheet .vx-cinput { height: 52px; }
+.vx-cmode { align-self: flex-start; padding: 6px 2px; font-size: 14px; }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
