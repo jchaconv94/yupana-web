@@ -95,11 +95,7 @@ mark { background: #fff1c7; color: inherit; border-radius: 4px; padding: 0 2px; 
   align-items: center; justify-content: center; gap: 6px; min-height: 48px; }
 .danger .ic { font-size: 19px; }
 
-.field { display: block; background: var(--field); border-radius: 14px; padding: 10px 14px; }
 .flabel { font-size: 11px; font-weight: 900; letter-spacing: 1px; color: var(--label); text-transform: uppercase; display: block; }
-.field input { display: block; width: 100%; background: none; border: 0; outline: none; font-size: 16px; font-weight: 800; margin-top: 2px; }
-.field input::placeholder { color: #a8979d; font-weight: 700; }
-.field:focus-within { background: #fff; box-shadow: inset 0 0 0 1.5px var(--brand); }
 .field input[aria-invalid='true'] { color: var(--bad); }
 .found { display: flex; align-items: center; gap: 8px; margin-top: 8px; font-size: 13.5px; font-weight: 700; color: var(--ok); }
 .found-sub { color: var(--muted); font-weight: 700; }
@@ -111,7 +107,7 @@ mark { background: #fff1c7; color: inherit; border-radius: 4px; padding: 0 2px; 
 .hint.bad .ic { color: var(--bad); }
 
 .seg { display: flex; background: var(--field); border-radius: 14px; padding: 4px; gap: 4px; }
-.seg button { flex: 1; text-align: center; padding: 9px 0; border-radius: 11px; font-weight: 900; font-size: 15px; color: var(--muted); min-height: 40px; }
+.seg button { flex: 1 1 auto; white-space: nowrap; text-align: center; padding: 9px 14px; border-radius: 11px; font-weight: 900; font-size: 15px; color: var(--muted); min-height: 40px; }
 .seg button.on { background: #fff; color: var(--brand); box-shadow: 0 2px 6px rgba(0, 0, 0, .08); }
 
 .pay { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
@@ -631,18 +627,14 @@ td b { font-weight: 800; white-space: nowrap; }
 .cava.e { background: #e8eaf6; color: #3949ab; }
 .cava.sm { width: 34px; height: 34px; font-size: 12.5px; }
 .add.addtop { margin: 0 0 6px; }
-.field.on { background: #fff; box-shadow: inset 0 0 0 1.5px var(--brand); }
-.field.bad { box-shadow: inset 0 0 0 1.5px var(--bad); }
-.field .static { display: block; font-size: 15px; font-weight: 800; margin-top: 2px; line-height: 1.35; }
-.field.selfield { position: relative; }
+.field .static { display: block; font-size: 15px; font-weight: 800; line-height: 1.35; }
 .field select { display: block; width: 100%; appearance: none; -webkit-appearance: none; background: none; border: 0; outline: none; font-size: 16px;
-  font-weight: 800; margin-top: 2px; padding-right: 24px; cursor: pointer; }
-.field.selfield > .ic { position: absolute; right: 12px; bottom: 12px; font-size: 20px; color: var(--muted); pointer-events: none; }
+  font-weight: 800; padding-right: 24px; cursor: pointer; }
+.field.selfield > .ic { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); font-size: 20px; color: var(--muted); pointer-events: none; }
 .field .withbtn { display: flex; align-items: center; gap: 6px; }
 .field .withbtn input { flex: 1; min-width: 0; }
 .field .withbtn button { color: var(--brand); font-size: 22px; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; margin: -6px -6px -6px 0; }
 .field .pre { display: flex; align-items: baseline; gap: 4px; font-size: 16px; font-weight: 800; }
-.field .pre input { margin-top: 2px; }
 .frow { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .fgap > * + * { margin-top: 10px; }
 .calc { display: flex; gap: 14px; font-size: 13px; font-weight: 800; color: var(--muted); margin-top: 7px; padding: 0 4px; flex-wrap: wrap; }
@@ -780,7 +772,6 @@ td b { font-weight: 800; white-space: nowrap; }
 .sc2 { font-size: 13px; font-weight: 900; background: var(--field); border-radius: 8px; padding: 3px 9px; color: var(--ink); }
 
 /* paneles a la derecha en la computadora */
-.dpanel .dbody .field .flabel { font-size: 10.5px; }
 .dpanel .dbody .field input, .dpanel .dbody .field select { font-size: 15.5px; }
 .dpanel .dh.pv { padding-bottom: 16px; }
 .dpanel .pvw { display: flex; align-items: center; gap: 14px; margin-top: 12px; }
@@ -1026,17 +1017,17 @@ html:has(.mpage.with-cart) { scroll-padding-bottom: 110px; }
 .sell-right.vi-tight .vi-taxrows .tot { justify-content: flex-start; gap: 5px; font-size: 13px; font-weight: 800; white-space: nowrap; }
 .sell-right.vi-tight .tot.grand { padding-top: 8px; }
 .sell-right.vi-tight .tot.grand b { line-height: 1.25; }
-.sell-right.vi-tight .field { padding-top: 7px; padding-bottom: 7px; }
+.sell-right.vi-tight .field { padding-top: 12px; padding-bottom: 12px; }
 .sell-right.vi-tight .pay > button { height: 54px; gap: 3px; }
 .sell-right.vi-tight > .btn { height: 50px; }
 .sell-right.vi-tight .vuelto { padding-top: 6px; padding-bottom: 6px; }
-.sell-right.vi-tight .seg button { min-height: 36px; padding: 7px 0; }
+.sell-right.vi-tight .seg button { min-height: 36px; padding: 7px 12px; }
 .sell-right.vi-tight2 .vi-carth { margin-top: 0; }
 .sell-right.vi-tight2 .line { padding: 7px 0; }
 .sell-right.vi-tight2 .line:first-of-type { padding-top: 0; }
 .sell-right.vi-tight2 > .sell-lines { min-height: 100px; }
 .sell-right.vi-tight2 .pay > button { height: 50px; }
-.sell-right.vi-tight2 .field { padding-top: 6px; padding-bottom: 6px; }
+.sell-right.vi-tight2 .field { padding-top: 11px; padding-bottom: 11px; }
 .sell-right.vi-tight2 > .sell-lines { min-height: 86px; }
 .sell-right.vi-tight2 .pay > button { height: 48px; }
 .sell-right.vi-tight2 .cash button { height: 38px; }
@@ -1082,8 +1073,6 @@ html:has(.mpage.with-cart) { scroll-padding-bottom: 110px; }
 /* Productos en Vender: el precio siempre abajo, alineado con los vecinos aunque el nombre baje a dos líneas. */
 .ptile > span:not(.pic):not(.q) { margin-top: auto; }
 
-/* Lo que se escribe de ejemplo dentro de los campos ("Sin documento", "9 cifras"): se lee (antes 2.5:1). */
-.field input::placeholder { color: #7a6970; }
 
 /* El interruptor de Seguridad: se toca en 44 px de alto (lo que se ve no cambia). */
 .swt::after { content: ''; position: absolute; left: -2px; right: -2px; top: -6px; bottom: -6px; }
@@ -1908,6 +1897,228 @@ a.entry-home { display: inline-flex; align-self: flex-start; width: fit-content;
 .sc-phone-content { padding: 20px; display: flex; flex-direction: column; gap: 16px; }
 .sc-phone-content > p { color: var(--muted); font-size: 14px; line-height: 1.5; }
 @media (max-height: 650px) { .sc-camera { height: 175px; } .sc-help img { height: 42px; width: 38px; } .sc-help { margin-bottom: 8px; } }
+
+/* ===== Vender en la computadora, rediseño (21 nov 2026, docs/pos-vender/) ===== */
+.vx { position: fixed; inset: 0; display: flex; background: var(--bg); font-family: 'Nunito', sans-serif; color: var(--ink); }
+.vx-left { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.vx-top { height: 72px; flex: none; background: #fff; border-bottom: 1px solid var(--line); box-shadow: 0 2px 8px rgba(122, 10, 54, .05); display: flex; align-items: center; gap: 12px; padding: 0 16px; position: relative; z-index: 2; }
+.vx-back, .vx-scan, .vx-iconbtn { width: 46px; height: 46px; border-radius: 14px; border: 0; display: grid; place-items: center; background: transparent; color: var(--ink); cursor: pointer; flex: none; }
+.vx-back:hover, .vx-iconbtn:hover { background: var(--field); }
+.vx-scan { background: var(--field); }
+.vx-scan:disabled { opacity: .45; cursor: default; }
+.vx-logo { width: 40px; height: 40px; border-radius: 11px; background: var(--aurora); display: grid; place-items: center; flex: none; }
+.vx-brand { font: 800 21px 'Baloo 2', sans-serif; color: var(--brand); white-space: nowrap; margin-right: 6px; }
+.vx-brand i { font: 800 11px 'Nunito', sans-serif; font-style: normal; color: #fff; background: var(--brand); border-radius: 6px; padding: 2px 6px; vertical-align: 3px; }
+.vx-search { flex: 1; min-width: 0; height: 46px; border-radius: 14px; background: var(--field); display: flex; align-items: center; gap: 10px; padding: 0 14px; color: var(--muted); }
+.vx-search input { flex: 1; min-width: 0; border: 0; background: transparent; font: 600 15px 'Nunito', sans-serif; color: var(--ink); outline: none; }
+.vx-search:focus-within { box-shadow: 0 0 0 2px var(--brand); background: #fff; }
+.vx kbd { font: 700 12px 'Nunito', sans-serif; color: var(--muted); border: 1px solid var(--border); border-radius: 6px; padding: 1px 6px; background: #fff; }
+.vx-body { flex: 1; min-height: 0; display: flex; }
+.vx-cats { width: 104px; flex: none; background: #fff; border-right: 1px solid var(--line); display: flex; flex-direction: column; min-height: 0; position: relative; }
+.vx-catlist { flex: 1; overflow-y: auto; scrollbar-width: none; }
+.vx-catlist::-webkit-scrollbar { display: none; }
+.vx-cat { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 11px 6px; border: 0; border-bottom: 1px solid var(--line); background: #fff; color: var(--ink); font: 800 12px/1.15 'Nunito', sans-serif; text-align: center; cursor: pointer; }
+.vx-cat .ic { color: var(--muted); }
+.vx-cat:hover { background: #fdf6f9; }
+.vx-cat.on { background: #fce4ec; color: var(--brand); box-shadow: inset 4px 0 0 var(--brand); }
+.vx-cat.on .ic { color: var(--brand); }
+.vx-new { flex: none; height: 64px; justify-content: center; color: var(--brand); }
+.vx-new .ic { color: var(--brand); }
+.vx-more { position: absolute; left: 0; right: 0; bottom: 0; height: 56px; border: 0; background: linear-gradient(rgba(255, 255, 255, 0), #fff 60%); display: flex; align-items: flex-end; justify-content: center; padding-bottom: 6px; cursor: pointer; }
+.vx-more .ic { width: 30px; height: 30px; border-radius: 50%; background: #fff; border: 1px solid var(--border); display: grid; place-items: center; box-shadow: 0 2px 6px rgba(0, 0, 0, .1); color: var(--ink); }
+.vx-grid-wrap { flex: 1; min-width: 0; overflow-y: auto; background: #fff; }
+.vx-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); gap: 16px 8px; padding: 16px; align-content: start; }
+.vx-tile { border: 0; background: transparent; display: flex; flex-direction: column; align-items: center; cursor: pointer; padding: 0; font-family: inherit; color: var(--ink); }
+.vx-price { height: 24px; padding: 0 11px; border-radius: 999px; background: var(--brand); color: #fff; font: 800 13px/24px 'Nunito', sans-serif; margin-bottom: 8px; }
+.vx-pic { position: relative; height: 104px; display: flex; align-items: center; justify-content: center; }
+.vx-thumb { display: grid; place-items: center; border-radius: 50%; color: #fff; font-family: 'Baloo 2', sans-serif; font-weight: 800; flex: none; line-height: 1; }
+.vx-tile .vx-thumb { border-radius: 50%; transition: transform .12s; }
+.vx-tile:hover .vx-thumb { transform: scale(1.04); }
+.vx-tile:active .vx-thumb { transform: scale(.96); }
+.vx-tile.on .vx-thumb { outline: 3px solid var(--brand); outline-offset: 3px; }
+.vx-qty { position: absolute; top: calc(50% - 14px); right: -16px; min-width: 28px; height: 28px; padding: 0 6px; border-radius: 14px; background: var(--ink); color: #fff; font: 800 14px/28px 'Nunito', sans-serif; text-align: center; box-shadow: 0 0 0 3px #fff; }
+.vx-name { margin-top: 8px; text-align: center; font: 700 13.5px/17px 'Nunito', sans-serif; max-width: 150px; height: 34px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.vx-tile.on .vx-name { color: var(--brand); }
+.vx-free { min-height: 168px; border-radius: 18px; border: 2px dashed var(--brand); background: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; color: var(--brand); font: 800 15px 'Nunito', sans-serif; cursor: pointer; }
+.vx-free small { font: 600 12px 'Nunito', sans-serif; color: var(--muted); }
+.vx-free:hover { background: #fdf6f9; }
+.vx-sale { width: 380px; flex: none; background: #fff; display: flex; flex-direction: column; min-height: 0; box-shadow: -4px 0 16px rgba(122, 10, 54, .06); position: relative; z-index: 3; }
+.vx-client { height: 72px; flex: none; background: var(--aurora); color: #fff; display: flex; align-items: center; gap: 10px; padding: 0 14px 0 18px; }
+.vx-clienttext { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.vx-clienttext small { font: 600 12px 'Nunito', sans-serif; opacity: .85; }
+.vx-clienttext b { font: 800 16px 'Nunito', sans-serif; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.vx-lupa { width: 44px; height: 44px; border-radius: 50%; border: 0; background: rgba(255, 255, 255, .2); color: #fff; display: grid; place-items: center; cursor: pointer; flex: none; }
+.vx-lupa:hover { background: rgba(255, 255, 255, .3); }
+.vx-salehead { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px 10px 18px; border-bottom: 1px solid var(--line); flex: none; }
+.vx-salehead h2 { font: 800 18px 'Baloo 2', sans-serif; margin: 0; }
+.vx-salehead h2 span { font: 700 13px 'Nunito', sans-serif; color: var(--muted); }
+.vx-lines { flex: 1; overflow-y: auto; padding: 0 12px; }
+.vx-line { display: flex; align-items: center; gap: 8px; padding: 8px 6px; border-bottom: 1px solid var(--line); }
+.vx-line.hot { background: #fdf0f5; border-radius: 14px; box-shadow: inset 0 0 0 2px #f8bbd0; border-bottom-color: transparent; margin: 6px 0; padding: 10px 8px; }
+.vx-linebody { flex: 1; min-width: 0; display: flex; align-items: center; gap: 10px; border: 0; background: transparent; padding: 0; text-align: left; cursor: pointer; font-family: inherit; color: var(--ink); }
+.vx-linebody .vx-thumb { border-radius: 10px; }
+.vx-linetext { min-width: 0; display: flex; flex-direction: column; }
+.vx-linetext b { font: 800 14px 'Nunito', sans-serif; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.vx-linetext span { font: 600 12px 'Nunito', sans-serif; color: var(--muted); }
+.vx-amt { font: 800 15px 'Nunito', sans-serif; min-width: 52px; text-align: right; }
+.vx-x { width: 34px; height: 34px; border-radius: 10px; border: 0; background: transparent; color: #b9a7ae; display: grid; place-items: center; cursor: pointer; flex: none; margin-right: -6px; }
+.vx-x:hover { color: var(--bad); background: #fdecea; }
+.vx-step { display: flex; align-items: center; gap: 6px; flex: none; }
+.vx-minus, .vx-plus { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; cursor: pointer; flex: none; }
+.vx-minus { background: #fff; border: 1.5px solid #f48fb1; color: var(--brand); }
+.vx-plus { background: var(--brand); border: 0; color: #fff; }
+.vx-qin { width: 44px; height: 36px; border-radius: 10px; border: 1.5px solid var(--border); background: #fff; text-align: center; font: 800 16px 'Nunito', sans-serif; color: var(--ink); outline: none; }
+.vx-qin:focus { border-color: var(--brand); }
+.vx-step.big { display: flex; width: 100%; gap: 12px; margin-bottom: 14px; }
+.vx-step.big .vx-minus, .vx-step.big .vx-plus { width: 52px; height: 52px; }
+.vx-qin.big { flex: 1; min-width: 0; width: auto; height: 56px; border: 2px solid var(--brand); border-radius: 14px; font: 800 28px 'Baloo 2', sans-serif; }
+.vx-empty { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: var(--muted); font: 700 14px 'Nunito', sans-serif; text-align: center; padding: 20px; }
+.vx-salefoot { flex: none; padding: 12px 18px 16px; border-top: 1px solid var(--line); }
+.vx-total { display: flex; align-items: baseline; justify-content: space-between; }
+.vx-total span { display: flex; flex-direction: column; font: 800 16px 'Nunito', sans-serif; }
+.vx-total small { font: 600 12px 'Nunito', sans-serif; color: var(--muted); }
+.vx-total b { font: 800 36px 'Baloo 2', sans-serif; line-height: 1; }
+.vx-actions { display: flex; gap: 10px; margin-top: 12px; }
+.vx-quick { flex: 1; height: 56px; display: flex; align-items: center; justify-content: center; padding: 0; border-radius: 999px; border: 2px solid var(--brand); background: #fff; color: var(--brand); font: 800 15px 'Nunito', sans-serif; cursor: pointer; }
+.vx-quick:disabled { opacity: .45; cursor: default; }
+.vx-charge { flex: 1.3; height: 56px; margin: 0; display: flex; align-items: center; justify-content: center; gap: 8px; }
+.vx-charge kbd { color: #fff; background: transparent; border-color: rgba(255, 255, 255, .5); opacity: .85; }
+.vx-cobrar { flex: 1; min-height: 0; overflow-y: auto; padding: 18px 28px; }
+.vx-ctop { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+.vx-ctop h1 { font: 800 26px 'Baloo 2', sans-serif; margin: 0; }
+.vx-keep { height: 40px; padding: 0 14px 0 8px; border-radius: 12px; border: 1px solid var(--border); background: #fff; display: flex; align-items: center; gap: 4px; font: 800 14px 'Nunito', sans-serif; color: var(--ink); cursor: pointer; }
+.vx-count { margin-left: auto; font: 700 14px 'Nunito', sans-serif; color: var(--muted); }
+.vx-lab { font: 800 12px 'Nunito', sans-serif; letter-spacing: 1px; color: var(--label); margin: 0 0 8px; }
+.vx-paidlines { margin-top: 18px; background: #fff; border-radius: 16px; padding: 4px 16px; }
+.vx-payhead { height: 110px; flex: none; background: var(--aurora); color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.vx-payhead small { font: 800 12px 'Nunito', sans-serif; letter-spacing: 1.5px; opacity: .85; }
+.vx-payhead b { font: 800 44px 'Baloo 2', sans-serif; line-height: 1; }
+.vx-paybody { flex: 1; overflow-y: auto; padding: 16px 20px; }
+.vx-payfoot { flex: none; padding: 12px 20px 16px; border-top: 1px solid var(--line); }
+.vx-payfoot .btn { width: 100%; margin: 0; }
+.vx-dhead { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+.vx-dhead .vx-thumb { border-radius: 12px; }
+.vx-dhead h2 { margin: 0; }
+.vx-dhead .note { margin: 2px 0 0; }
+.vx-dtot { display: flex; justify-content: space-between; align-items: baseline; margin: 4px 0 16px; font: 800 15px 'Nunito', sans-serif; }
+.vx-dtot b { font: 800 26px 'Baloo 2', sans-serif; }
+.vx-danger { color: var(--bad) !important; margin-top: 8px; width: 100%; }
+/* Cobrar en la misma pantalla (21 nov, tal cual el dibujo aprobado) */
+.vx-link { border: 0; background: none; padding: 0; color: var(--brand); font: 800 14px 'Nunito', sans-serif; cursor: pointer; }
+.vx-docrow { display: flex; gap: 12px; align-items: center; }
+.vx-seg { display: flex; background: var(--field); border-radius: 12px; padding: 4px; width: 380px; flex: none; }
+.vx-seg button { flex: 1; height: 42px; border-radius: 9px; border: 0; background: transparent; font: 800 15px 'Nunito', sans-serif; color: var(--muted); cursor: pointer; white-space: nowrap; }
+.vx-seg button.on { background: #fff; color: var(--brand); box-shadow: 0 1px 3px rgba(0, 0, 0, .1); }
+.vx-clientbox { flex: 1; min-width: 0; height: 50px; border-radius: 14px; background: #fff; border: 1px solid var(--border); display: flex; align-items: center; gap: 10px; padding: 0 14px; font: 700 15px 'Nunito', sans-serif; color: var(--ink); cursor: pointer; text-align: left; }
+.vx-clientbox span { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.vx-clientbox .ic:first-child { color: var(--muted); }
+.vx-clientbox .ic:last-child { color: var(--brand); }
+.vx-methods { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.vx-methods button { position: relative; height: 112px; border-radius: 18px; border: 2px solid var(--border); background: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; font: 800 16px 'Nunito', sans-serif; color: var(--ink); cursor: pointer; }
+.vx-methods button.on { border-color: var(--brand); background: #fdf0f5; }
+.vx-methods .vx-check { position: absolute; top: 8px; right: 10px; color: var(--brand); }
+.vx-methods .vx-mb { width: 48px; height: 48px; border-radius: 14px; font-size: 18px; }
+.vx-methods .vx-mb .ic { font-size: 22px; }
+.vx-paid { height: 58px; border-radius: 14px; border: 2px solid var(--brand); display: flex; align-items: center; padding: 0 16px; margin-bottom: 10px; }
+.vx-paid span { color: var(--muted); font: 800 20px 'Baloo 2', sans-serif; }
+.vx-paid b { margin-left: auto; font: 800 30px 'Baloo 2', sans-serif; }
+.vx-paid.bad { border-color: var(--bad); }
+.vx-chips { display: flex; gap: 8px; }
+.vx-chips button { flex: 1; height: 46px; border-radius: 12px; border: 2px solid var(--border); background: #fff; font: 800 15px 'Nunito', sans-serif; color: var(--ink); cursor: pointer; }
+.vx-chips button.on { border-color: var(--brand); background: #fdf0f5; color: var(--brand); }
+.vx-keys { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 10px; }
+.vx-keys button { height: 54px; border-radius: 14px; background: #fff; border: 1px solid var(--border); font: 800 22px 'Nunito', sans-serif; color: var(--ink); cursor: pointer; display: grid; place-items: center; }
+.vx-keys button:active { background: var(--field); }
+.vx-change { margin-top: 12px; display: flex; align-items: center; justify-content: space-between; background: #e8f5e9; border-radius: 14px; padding: 10px 16px; color: var(--ok); }
+.vx-change span { font: 800 15px 'Nunito', sans-serif; }
+.vx-change b { font: 800 30px 'Baloo 2', sans-serif; line-height: 1; }
+.vx-change.bad { background: #fdecea; color: var(--bad); }
+.vx-info { display: flex; gap: 10px; align-items: flex-start; background: var(--field); border-radius: 14px; padding: 12px 14px; font: 600 13px/1.35 'Nunito', sans-serif; color: var(--muted); margin-top: 6px; }
+.vx-where { display: flex; flex-direction: column; gap: 10px; }
+.vx-where button { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; border: 2px solid var(--border); background: #fff; cursor: pointer; text-align: left; color: var(--ink); }
+.vx-where button.on { border-color: var(--brand); background: #fdf0f5; }
+.vx-where button.on > .ic { color: var(--brand); }
+.vx-where button > .ic { color: var(--muted); }
+.vx-where button.off { opacity: .55; }
+.vx-wic { width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; flex: none; background: #f3e5f5; color: var(--yape); }
+.vx-wic.plin { background: #e0f2f1; color: var(--plin); }
+.vx-wtext { flex: 1; display: flex; flex-direction: column; }
+.vx-wtext b { font: 800 15px 'Nunito', sans-serif; }
+.vx-wtext small { font: 600 12px 'Nunito', sans-serif; color: var(--muted); }
+.vx-payfoot .btn { display: flex; align-items: center; justify-content: center; gap: 10px; }
+.vx-payfoot .btn kbd { color: #fff; background: transparent; border-color: rgba(255, 255, 255, .5); opacity: .85; }
+.vx-seg button, .vx-chips button { display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 6px; }
+/* Buscar cliente: se despliega debajo de "Cliente" (dibujo aprobado del 21 nov) */
+.vx-client { position: relative; }
+.vx-clientwrap { position: relative; flex: 1; min-width: 0; display: flex; }
+.vx-popout { position: fixed; inset: 0; border: 0; background: transparent; z-index: 19; cursor: default; }
+.vx-csearch { position: absolute; z-index: 20; width: 356px; background: #fff; border-radius: 18px; box-shadow: 0 18px 44px rgba(0, 0, 0, .22); padding: 14px; color: var(--ink); text-align: left; }
+.vx-csearch.in-sale { right: 12px; top: 64px; }
+.vx-csearch.in-pay { right: 0; top: 56px; width: 100%; max-width: 420px; }
+.vx-cinput { display: flex; align-items: center; gap: 10px; height: 50px; border: 2px solid var(--brand); border-radius: 14px; padding: 0 12px; color: var(--muted); }
+.vx-cinput input { flex: 1; min-width: 0; border: 0; outline: none; font: 700 17px 'Nunito', sans-serif; letter-spacing: .3px; color: var(--ink); background: transparent; }
+.vx-badge { height: 22px; padding: 0 8px; border-radius: 6px; background: #e3f2fd; color: #1565c0; font: 800 11px/22px 'Nunito', sans-serif; }
+.vx-chint { font: 600 12px 'Nunito', sans-serif; color: var(--muted); margin: 6px 4px 4px; }
+.vx-cfound { width: 100%; display: flex; align-items: center; gap: 12px; padding: 12px 10px; margin-top: 6px; border-radius: 14px; border: 0; background: #f1f8e9; cursor: pointer; text-align: left; color: var(--ink); }
+.vx-cfound span:last-child, .vx-crow span:last-child { display: flex; flex-direction: column; min-width: 0; }
+.vx-cfound b, .vx-crow b { font: 800 15px 'Nunito', sans-serif; }
+.vx-cfound small { font: 600 12px 'Nunito', sans-serif; color: var(--ok); }
+.vx-crow small { font: 600 12px 'Nunito', sans-serif; color: var(--muted); }
+.vx-cav { width: 36px; height: 36px; border-radius: 50%; background: #e3f2fd; color: #1565c0; display: grid; place-items: center; flex: none; }
+.vx-cav.ok { width: 40px; height: 40px; background: #fff; color: var(--ok); }
+.vx-crow { width: 100%; display: flex; align-items: center; gap: 12px; padding: 9px 6px; border: 0; background: transparent; border-radius: 12px; cursor: pointer; text-align: left; color: var(--ink); }
+.vx-crow:hover, .vx-cfound:hover { filter: brightness(.98); background-color: #fdf6f9; }
+.vx-cwait { display: flex; align-items: center; gap: 8px; padding: 12px 6px 4px; font: 700 13px 'Nunito', sans-serif; color: var(--muted); }
+.vx-cname { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; font: 700 12px 'Nunito', sans-serif; color: var(--muted); }
+.vx-cgeneral { width: 100%; height: 44px; margin-top: 12px; border-radius: 12px; border: 1px solid var(--border); background: #fff; display: flex; align-items: center; justify-content: center; gap: 6px; font: 800 13px 'Nunito', sans-serif; color: var(--ink); cursor: pointer; }
+/* Descuentos (21 nov, dibujos aprobados) */
+.vx-seg2 { width: 100%; }
+.vx-dfield { display: flex; align-items: center; gap: 6px; height: 52px; margin-top: 10px; border-radius: 14px; border: 2px solid var(--brand); padding: 0 14px; }
+.vx-dfield span { color: var(--muted); font: 800 18px 'Nunito', sans-serif; }
+.vx-dfield input { flex: 1; min-width: 0; border: 0; outline: none; font: 800 20px 'Nunito', sans-serif; color: var(--ink); background: transparent; }
+.vx-dfield.bad { border-color: var(--bad); }
+.vx-derr { color: var(--bad); font: 700 13px 'Nunito', sans-serif; margin-top: 6px; }
+.vx-undisc { display: block; margin-top: 10px; }
+.vx-was { color: var(--muted); font-weight: 600; margin-right: 6px; font-size: .85em; }
+.vx-disc { font-style: normal; color: var(--ok); font-weight: 800; }
+.vx-amt .vx-was { display: block; text-align: right; font-size: 12px; margin: 0; }
+.vx-ok { color: var(--ok) !important; }
+.vx-dtot.vx-ok b { color: var(--ok); }
+.vx-subrow { display: flex; align-items: center; justify-content: space-between; font: 700 14px 'Nunito', sans-serif; color: var(--muted); margin-bottom: 2px; }
+.vx-subrow.vx-ok span { display: flex; align-items: center; gap: 4px; font-weight: 800; }
+.vx-xs { width: 26px; height: 26px; border-radius: 8px; border: 0; background: transparent; color: var(--muted); display: grid; place-items: center; cursor: pointer; }
+.vx-discbtn { display: flex; align-items: center; gap: 6px; border: 0; background: none; padding: 0 0 10px; font: 800 14px 'Nunito', sans-serif; color: var(--brand); cursor: pointer; }
+.vx-discbtn:disabled { opacity: .45; cursor: default; }
+.vx-memo { display: flex; align-items: center; gap: 8px; margin-top: 22px; font: 700 14px 'Nunito', sans-serif; color: var(--muted); }
+.vx-memo .ic { color: var(--muted); }
+.vx-memofield { margin-top: 18px; display: flex; flex-direction: column; gap: 6px; max-width: 640px; }
+.vx-memofield small { font: 600 12px 'Nunito', sans-serif; color: var(--muted); text-align: right; }
+.en-memo { font-size: 12px; margin-top: 4px; }
+.toast .topen { border: 0; background: none; color: inherit; font: inherit; padding: 0; text-align: left; cursor: pointer; text-decoration: underline; text-decoration-color: rgba(255, 255, 255, .35); text-underline-offset: 3px; }
+
+/* ===== Campos (21 nov, opción B elegida por el usuario): la caja blanca con borde se ve como campo; un solo texto, el
+   nombre del campo en gris adentro, que sube al borde al tocarlo o al escribir (Material Design, campo con contorno). Lo
+   de ejemplo ("9 cifras") se ve solo mientras se escribe. Borde 3.4:1 y nombre 5.1:1 sobre blanco (WCAG). ===== */
+.field { position: relative; display: block; background: #fff; border-radius: 14px; padding: 15px 14px; box-shadow: inset 0 0 0 1.5px #9e8590; }
+.field > .flabel { position: absolute; left: 14px; right: 14px; top: 50%; transform: translateY(-50%); margin: 0; font-size: 16px; font-weight: 700;
+  letter-spacing: 0; text-transform: none; color: #7a6970; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; pointer-events: none;
+  transition: top .15s, font-size .15s, color .15s; }
+.field:has(textarea) > .flabel { top: 26px; }
+.field:focus-within > .flabel, .field.on > .flabel, .field:has(input:not(:placeholder-shown)) > .flabel,
+.field:has(textarea:not(:placeholder-shown)) > .flabel, .field:has(select, .static, .sunfrow) > .flabel {
+  top: 0; right: auto; max-width: calc(100% - 20px); left: 9px; padding: 0 5px; font-size: 12.5px; font-weight: 800; color: var(--label); background: #fff; }
+.field:focus-within, .field.on { box-shadow: inset 0 0 0 2.5px var(--brand); }
+.field:focus-within > .flabel, .field.on > .flabel { color: var(--brand); }
+.field.bad { box-shadow: inset 0 0 0 2.5px var(--bad); }
+.field.bad > .flabel { color: var(--bad); }
+.field input, .field textarea { display: block; width: 100%; background: none; border: 0; outline: none; margin: 0; padding: 0; font: inherit;
+  font-size: 16px; font-weight: 800; line-height: 1.4; color: var(--ink); }
+.field textarea { min-height: 66px; resize: vertical; }
+.field :is(input, textarea)::placeholder { color: transparent; font-weight: 700; }
+.field :is(input, textarea):focus::placeholder { color: #8a7880; }
+.field .pre { line-height: 1.4; }
+/* "S/" o "+51" se ven recién al tocar el campo o con algo escrito (vacío, solo el nombre del campo). */
+.field:not(:focus-within):has(.pre input:placeholder-shown) .pre { color: transparent; }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
