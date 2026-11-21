@@ -2150,6 +2150,107 @@ a.entry-home { display: inline-flex; align-self: flex-start; width: fit-content;
 .hero > .hero-x, .hero-x { position: absolute; left: auto; top: calc(10px + env(safe-area-inset-top)); right: 10px; z-index: 2; width: 48px; height: 48px; border-radius: 24px;
   display: flex; align-items: center; justify-content: center; color: #fff; font-size: 26px; background: rgba(255, 255, 255, .14); }
 .hero-x:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+
+/* ===== Vender en el celular (21 nov, dibujo aprobado `docs/pos-vender/celular-*.png`). Prefijo vc-. ===== */
+.vc-page { background: #fff; min-height: 100vh; padding-bottom: calc(104px + env(safe-area-inset-bottom)); }
+.vc-top { position: sticky; top: 0; z-index: 15; background: #fff; padding: calc(10px + env(safe-area-inset-top)) 12px 0; border-bottom: 1px solid var(--line); }
+.vc-toprow { display: flex; align-items: center; gap: 8px; }
+.vc-back { width: 44px; height: 48px; display: flex; align-items: center; justify-content: center; color: var(--ink); flex: none; }
+.vc-search { flex: 1; min-width: 0; height: 48px; border-radius: 16px; background: var(--field); display: flex; align-items: center; gap: 8px; padding: 0 14px; color: var(--muted); }
+.vc-search input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; font: 700 16px 'Nunito', sans-serif; color: var(--ink); }
+.vc-search input::placeholder { color: var(--muted); }
+.vc-scan { width: 48px; height: 48px; border-radius: 14px; background: var(--aurora); color: #fff; display: flex; align-items: center; justify-content: center; flex: none; }
+.vc-chips { display: flex; gap: 8px; overflow-x: auto; padding: 12px 0; margin: 0 -12px; padding-left: 12px; padding-right: 12px; scrollbar-width: none; }
+.vc-chips::-webkit-scrollbar { display: none; }
+.vc-chips button { flex: none; height: 40px; padding: 0 14px; border-radius: 999px; border: 1.5px solid var(--border); background: #fff; display: flex; align-items: center;
+  gap: 6px; font: 800 14.5px 'Nunito', sans-serif; color: var(--ink); white-space: nowrap; }
+.vc-chips button .ic { color: var(--muted); }
+.vc-chips button.on { background: var(--brand); border-color: var(--brand); color: #fff; }
+.vc-chips button.on .ic { color: #fff; }
+.vc-body { padding: 14px 8px 0; }
+.vc-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px 6px; align-content: start; }
+.vc-grid .vx-tile { min-width: 0; }
+.vc-grid .vx-pic { height: 92px; }
+.vc-grid .vx-thumb { width: 76px !important; height: 76px !important; font-size: 27px !important; }
+.vc-grid .vx-qty { right: -10px; }
+.vc-grid .vx-name { font-size: 13px; max-width: 100%; padding: 0 2px; }
+.vc-free { min-height: 150px; margin: 0 4px; font-size: 14px; }
+.vc-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: flex; gap: 8px; padding: 10px 12px calc(12px + env(safe-area-inset-bottom));
+  background: #fff; border-radius: 22px 22px 0 0; box-shadow: 0 -6px 20px rgba(80, 20, 40, .08); }
+.vc-see { flex: 1; min-width: 0; height: 60px; border-radius: 16px; border: 1.5px solid var(--border); background: var(--field); display: flex; align-items: center;
+  gap: 10px; padding: 0 12px; text-align: left; color: var(--ink); }
+.vc-see:disabled { opacity: .55; }
+.vc-cart { position: relative; width: 40px; height: 40px; border-radius: 12px; background: #fff; display: flex; align-items: center; justify-content: center; color: var(--brand); flex: none; }
+.vc-cart em { position: absolute; top: -8px; left: -8px; min-width: 22px; height: 22px; padding: 0 5px; border-radius: 11px; background: var(--brand); color: #fff;
+  font: 900 12px/22px 'Nunito', sans-serif; font-style: normal; text-align: center; }
+.vc-seetext { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.vc-seetext b { font: 800 16px 'Nunito', sans-serif; }
+.vc-seetext small { font: 700 12.5px 'Nunito', sans-serif; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.vc-charge { flex: none; min-width: 112px; height: 60px; border-radius: 16px; background: var(--aurora); color: #fff; display: flex; flex-direction: column; align-items: center;
+  justify-content: center; padding: 0 14px; }
+.vc-charge small { font: 900 12.5px 'Nunito', sans-serif; letter-spacing: 1px; }
+.vc-charge b { font: 800 19px/1.1 'Baloo 2', sans-serif; white-space: nowrap; }
+.vc-charge:disabled { opacity: .5; }
+/* El aviso del producto agregado, con su cuadrito, sobre la barra de abajo. */
+.toast.with-pic { align-items: center; }
+.toast .t-pic { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; color: #fff; font: 800 13px 'Baloo 2', sans-serif; flex: none; }
+.toast .topen { white-space: pre-line; text-align: left; }
+html:has(.vc-page) .toast { bottom: calc(96px + env(safe-area-inset-bottom)); }
+/* La venta como hoja. */
+.vc-sale .vx-client { border-radius: 16px; height: 64px; margin-bottom: 6px; }
+.vc-sale .vx-salehead { padding: 10px 2px; }
+.vc-lines { display: flex; flex-direction: column; }
+.vc-line { display: flex; align-items: center; gap: 8px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.vc-linebody { flex: 1; min-width: 0; display: flex; align-items: center; gap: 10px; text-align: left; color: var(--ink); }
+.vc-linebody .vx-thumb { border-radius: 12px; }
+.vc-linetext { min-width: 0; display: flex; flex-direction: column; }
+.vc-linetext b { font: 800 15px 'Nunito', sans-serif; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.vc-linetext small { font: 700 12.5px 'Nunito', sans-serif; color: var(--muted); }
+.vc-linetext strong { font: 800 16px 'Nunito', sans-serif; }
+.vc-step { display: flex; align-items: center; gap: 6px; flex: none; }
+.vc-minus, .vc-plus { width: 40px; height: 40px; border-radius: 20px; display: flex; align-items: center; justify-content: center; }
+.vc-minus { border: 1.5px solid #f3b6cb; color: var(--brand); background: #fff; }
+.vc-plus { background: var(--brand); color: #fff; }
+.vc-qty { width: 44px; height: 40px; border-radius: 12px; border: 1.5px solid var(--border); background: #fff; font: 800 16px 'Nunito', sans-serif; color: var(--ink); }
+.vc-salefoot { display: flex; flex-direction: column; gap: 8px; }
+.vc-salefoot .vx-total b { font-size: 32px; }
+/* El producto: cantidad y descuento con el teclado de Yupana. */
+.vc-lhead { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.vc-lhead .vx-thumb { border-radius: 12px; }
+.vc-lhead > span:last-child { display: flex; flex-direction: column; min-width: 0; }
+.vc-lhead b { font: 800 17px 'Nunito', sans-serif; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.vc-lhead small { font: 700 13px 'Nunito', sans-serif; color: var(--muted); }
+.vc-qrow { display: flex; align-items: center; gap: 10px; margin: 6px 0 14px; }
+.vc-round { width: 52px; height: 52px; border-radius: 26px; border: 1.5px solid var(--border); background: #fff; color: var(--ink); display: flex; align-items: center;
+  justify-content: center; flex: none; }
+.vc-round.fill { background: var(--brand); border-color: var(--brand); color: #fff; }
+.vc-box { flex: 1; min-width: 0; height: 56px; border-radius: 16px; border: 2px solid var(--border); background: #fff; font: 800 26px 'Nunito', sans-serif; color: var(--ink);
+  display: flex; align-items: center; justify-content: center; gap: 6px; }
+.vc-box.on { border-color: var(--brand); }
+.vc-box span { font-size: 18px; color: var(--muted); }
+.vc-caret { width: 2px; height: 28px; background: var(--brand); animation: vccaret 1s steps(1) infinite; }
+@keyframes vccaret { 50% { opacity: 0; } }
+.vc-dlab { display: flex; align-items: center; justify-content: space-between; }
+.vc-mode { display: flex; gap: 2px; background: var(--field); border-radius: 10px; padding: 3px; }
+.vc-mode button { min-width: 40px; height: 32px; border-radius: 8px; font: 800 14px 'Nunito', sans-serif; color: var(--muted); }
+.vc-mode button.on { background: #fff; color: var(--brand); box-shadow: 0 1px 3px rgba(0, 0, 0, .1); }
+.vc-dchips { margin-top: 8px; }
+.vc-dchips button { font-size: 14px; }
+.vc-dbox { width: 100%; margin-top: 10px; flex: none; }
+.vc-ltot { display: flex; align-items: baseline; justify-content: space-between; margin-top: 14px; font: 800 16px 'Nunito', sans-serif; }
+.vc-ltot b { font: 800 28px 'Baloo 2', sans-serif; }
+.vc-pad { display: grid; grid-template-columns: repeat(3, 1fr) 1.15fr; grid-template-rows: repeat(4, 52px); gap: 8px; background: var(--field); margin: -6px -16px -10px;
+  padding: 10px 12px calc(12px + env(safe-area-inset-bottom)); }
+.vc-pad button { display: flex; align-items: center; justify-content: center; border-radius: 12px; background: #fff; font: 800 24px 'Nunito', sans-serif; color: var(--ink); box-shadow: 0 1px 2px rgba(0, 0, 0, .08); }
+.vc-pad button.borrar { grid-column: 4; grid-row: 1 / span 2; }
+.vc-pad button.listo { grid-column: 4; grid-row: 3 / span 2; background: var(--aurora); color: #fff; font-size: 19px; }
+.vc-pad button.listo:disabled { opacity: .5; }
+/* Cobrar en el celular: el comprobante y el cliente con la lupa. */
+.vc-docbox { display: flex; flex-direction: column; gap: 12px; }
+.vc-docbox .vx-seg { width: 100%; }
+.vc-docbox .vx-seg button { font-size: 14.5px; }
+.vc-docbox .vx-clientwrap { position: relative; }
+.vc-docbox .vx-csearch.in-pay { left: 0; right: 0; max-width: none; }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
