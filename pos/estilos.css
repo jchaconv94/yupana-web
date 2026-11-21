@@ -2143,8 +2143,13 @@ a.entry-home { display: inline-flex; align-self: flex-start; width: fit-content;
 }
 /* "¡Emitida!" en el celular: el botón de WhatsApp con aire arriba (21 nov, el usuario lo vio pegado al ticket): una franja
    del fondo antes de los botones; el ticket se sigue viendo al bajar. */
-.mpage.emitted .foot, .mpage.emitted.with-foot3 .foot { padding-top: 22px; background: linear-gradient(to top, var(--bg) calc(100% - 16px), rgba(251, 247, 248, 0)); }
-.mpage.emitted.with-foot3 { padding-bottom: calc(240px + env(safe-area-inset-bottom)); }
+.mpage.emitted .foot, .mpage.emitted.with-foot3 .foot { padding-top: 14px; background: var(--bg); border-top: 1px solid var(--line);
+  box-shadow: 0 -6px 18px rgba(80, 20, 40, .06); }
+.mpage.emitted.with-foot3 { padding-bottom: calc(190px + env(safe-area-inset-bottom)); }
+/* La X del "¡Emitida!" en el celular, arriba a la derecha (21 nov). */
+.hero > .hero-x, .hero-x { position: absolute; left: auto; top: calc(10px + env(safe-area-inset-top)); right: 10px; z-index: 2; width: 48px; height: 48px; border-radius: 24px;
+  display: flex; align-items: center; justify-content: center; color: #fff; font-size: 26px; background: rgba(255, 255, 255, .14); }
+.hero-x:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
