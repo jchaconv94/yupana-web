@@ -2322,6 +2322,10 @@ button.field.selfield { width: 100%; text-align: left; cursor: pointer; }
 .pk-sheet .pk-list { max-height: none; }
 .pk-sheet .pk-list button { min-height: 52px; font-size: 16px; }
 .pk-sel { padding: 5px 8px 5px 12px; gap: 4px; font-weight: 800; cursor: pointer; }
+
+/* "En tu cuenta" (21 nov): la venta abierta se guarda en la cuenta. */
+.vx-cloud { display: inline-flex; align-items: center; gap: 4px; padding: 3px 9px; border-radius: 999px; background: var(--okSoft, #e8f5ec);
+  color: var(--ok, #1b6b35); font: 800 12px 'Nunito', sans-serif; white-space: nowrap; margin-right: auto; margin-left: 8px; }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
