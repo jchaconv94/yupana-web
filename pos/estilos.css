@@ -2299,6 +2299,29 @@ html:has(.vc-page) .toast { bottom: calc(96px + env(safe-area-inset-bottom)); }
   .dlg-grab { display: block; }
   .dialog .dlg-x { top: 14px; }
 }
+
+/* La lista de Yupana (`Picker`, 21 nov): nunca la del navegador. Prefijo pk-. */
+.pk-wrap { position: relative; display: block; }
+span.pk-wrap { display: inline-block; }
+button.field.selfield { width: 100%; text-align: left; cursor: pointer; }
+.field.selfield .static { padding-right: 26px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pk-out { position: fixed; inset: 0; z-index: 70; background: transparent; cursor: default; }
+.pk-menu { position: absolute; z-index: 71; top: calc(100% + 6px); left: 0; min-width: 100%; width: max-content; max-width: 360px; background: #fff;
+  border-radius: 16px; box-shadow: 0 16px 40px rgba(30, 5, 15, .22); padding: 6px; }
+.pk-menu.up { top: auto; bottom: calc(100% + 6px); }
+.pk-list { display: flex; flex-direction: column; max-height: 300px; overflow-y: auto; }
+.pk-list button { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px;
+  font: 700 15px 'Nunito', sans-serif; color: var(--ink); text-align: left; }
+.pk-list button:hover { background: var(--field); }
+.pk-list button.on { color: var(--brand); background: #fdf0f5; font-weight: 800; }
+.pk-search { display: flex; align-items: center; gap: 8px; height: 44px; border: 1.5px solid var(--border); border-radius: 12px; padding: 0 10px;
+  margin-bottom: 6px; color: var(--muted); }
+.pk-search:focus-within { border-color: var(--brand); }
+.pk-search input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; font: 700 15px 'Nunito', sans-serif; color: var(--ink); }
+.pk-none { padding: 12px; font: 700 14px 'Nunito', sans-serif; color: var(--muted); }
+.pk-sheet .pk-list { max-height: none; }
+.pk-sheet .pk-list button { min-height: 52px; font-size: 16px; }
+.pk-sel { padding: 5px 8px 5px 12px; gap: 4px; font-weight: 800; cursor: pointer; }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }

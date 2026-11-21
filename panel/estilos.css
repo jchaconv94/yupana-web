@@ -448,6 +448,18 @@ a { color: inherit; }
   font-size: 16px; font-weight: 800; line-height: 1.4; color: var(--ink); }
 .field :is(input, textarea)::placeholder { color: transparent; font-weight: 600; }
 .field :is(input, textarea):focus::placeholder { color: #8a7880; }
+
+/* La lista de Yupana (21 nov): nunca la del navegador. */
+.pk-wrap { position: relative; display: inline-block; }
+.pk-btn { display: inline-flex; align-items: center; gap: 4px; padding: 0 8px 0 12px; font-weight: 800; cursor: pointer; }
+.pk-out { position: fixed; inset: 0; z-index: 70; background: transparent; border: 0; cursor: default; }
+.pk-menu { position: absolute; z-index: 71; left: 0; min-width: 100%; background: #fff; border-radius: 14px; box-shadow: 0 16px 40px rgba(30, 5, 15, .22);
+  padding: 6px; display: flex; flex-direction: column; }
+.pk-menu.up { bottom: calc(100% + 6px); }
+.pk-menu button { min-height: 40px; padding: 0 14px; border: 0; background: none; border-radius: 10px; font: 700 15px 'Nunito', sans-serif; color: var(--ink);
+  text-align: left; cursor: pointer; }
+.pk-menu button:hover { background: var(--field); }
+.pk-menu button.on { color: var(--brand); background: #fdf0f5; font-weight: 800; }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
