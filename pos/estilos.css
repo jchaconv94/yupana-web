@@ -3010,6 +3010,166 @@ th.r .th-sort { flex-direction: row-reverse; }
 
 .cp-foot .pf-cancel { margin-left: 8px; }
 .cp-find .dsearch { padding-right: 14px; }
+/* Compras en el celular (22 nov; sin recuadros grandes, pedido del usuario). */
+.cpm-card { margin: 0; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+.cpm .cpm-sec { background: #fff; margin-top: 14px; padding: 16px 16px 8px; display: flex; flex-direction: column; gap: 12px; min-height: 50vh; padding-bottom: 130px; border-top: 1px solid var(--line); }
+.cpm .cpm-sec .vx-lab { margin: 0; }
+.cpm-acts { display: flex; gap: 10px; }
+.cpm-acts .cp-addbtn { flex: 1; }
+.cpm-scan { flex: none; width: 52px; height: 52px; border-radius: 16px; display: flex; align-items: center; justify-content: center; color: var(--brand); background: #fff; box-shadow: inset 0 0 0 1.5px var(--border); }
+.cpm-scan:active { background: #fdf0f5; }
+.cpm-none { margin: 4px 0 0; font: 700 14px 'Nunito', sans-serif; color: var(--muted); text-align: center; }
+.cpm-foot { display: flex; align-items: center; gap: 14px; }
+.cpm-tot { flex: none; display: flex; flex-direction: column; }
+.cpm-tot small { font: 700 12.5px 'Nunito', sans-serif; color: var(--muted); }
+.cpm-tot b { font: 800 24px/1.1 'Baloo 2', sans-serif; color: var(--ink); }
+.cpm-foot .btn { flex: 1; min-width: 0; margin: 0; }
+.cpm-two { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-items: stretch; }
+.cpm-two > .field { min-width: 0; min-height: 58px; box-sizing: border-box; display: flex; align-items: center; }
+.cpm-two > .field > input { width: 100%; }
+.cpm-find { position: relative; }
+.cpm-find .search { margin: 0; box-shadow: inset 0 0 0 1.5px var(--border); }
+.cpm-found { margin-top: 8px; display: flex; flex-direction: column; gap: 2px; border-radius: 16px; background: #fff; box-shadow: 0 0 0 1px var(--line), 0 10px 26px rgba(40, 10, 25, .12); padding: 6px; }
+.cpm-found > button[role="option"] { display: flex; align-items: center; gap: 12px; min-height: 56px; padding: 6px 8px; border-radius: 12px; text-align: left; color: var(--ink); }
+.cpm-found > button[role="option"]:active { background: #fdf0f5; }
+.cpm-found > button[role="option"] > span { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.cpm-found b { font: 800 15px 'Nunito', sans-serif; }
+.cpm-found small { font: 700 13px 'Nunito', sans-serif; color: var(--muted); }
+.cpm-found .ic { color: var(--brand); }
+.cpm-found .vx-thumb { border-radius: 12px; flex: none; }
+.cpm-lines { margin: 0 -16px; }
+.cpm-sbody { padding: 16px 16px 4px; display: flex; flex-direction: column; gap: 10px; }
+.cpm-sbody .vx-lab { margin: 4px 0 0; }
+.cpm-sbody .vc-qrow { margin: 0 0 4px; }
+.cpm-sbody .kd-pick { width: 100%; }
+.cpm-sbody .kd-pick button { flex: 1; }
+.cpm-qty { text-align: center; outline: none; padding: 0; }
+.cpm-qty:focus { border-color: var(--brand); }
+.cpm-last { font: 700 14px 'Nunito', sans-serif; opacity: .9; }
+.cpm-sfoot { display: flex; flex-direction: column; gap: 4px; }
+.cpm-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 14px 16px 12px; background: #fff; }
+.cpm-strip .pl-stat { padding: 10px 12px; border-radius: 16px; gap: 10px; box-shadow: inset 0 0 0 1.5px var(--border); background: #fff; text-align: left; min-width: 0; }
+.cpm-strip button.pl-stat.on { background: #fdf0f5; box-shadow: inset 0 0 0 2px var(--brand); }
+.cpm-strip .pl-ico { width: 36px; height: 36px; border-radius: 18px; flex: none; }
+.cpm-strip .pl-txt { min-width: 0; }
+.cpm-strip .pl-txt b { font-size: 18px; white-space: nowrap; }
+.cpm-strip .pl-txt small { font-size: 13px; }
+.cpm-ico { flex: none; width: 48px; height: 48px; border-radius: 14px; display: flex; align-items: center; justify-content: center; background: #fdf0f5; color: var(--brand); }
+/* "Agregar productos" (22 nov, el usuario: un botón que llame a la acción, no un buscador; la ventana con estilo Yupana). */
+.cp-addbtn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: auto; margin: 0; padding: 0 22px; }
+.cp-acts { display: flex; align-items: center; gap: 10px; }
+.cp-scanbtn { display: inline-flex; align-items: center; gap: 8px; height: 48px; padding: 0 18px; border-radius: 24px; font: 800 15px 'Nunito', sans-serif; color: var(--brand);
+  box-shadow: inset 0 0 0 1.5px var(--border); background: #fff; }
+.cp-scanbtn:hover { background: #fdf0f5; }
+.cp-empty .cp-acts { margin-top: 12px; }
+.cp-empty .btn .ic { color: #fff; }
+.cp-acts .cp-scanbtn .ic { color: var(--brand); }
+.cpp-dlg { display: flex; flex-direction: column; max-height: calc(100vh - 80px); }
+.cpp-dlg > .vx-dhero { flex: none; margin: 0; }
+.dialog:has(.cpp-dlg) { padding: 0; overflow: hidden; }
+.cpp { display: flex; flex-direction: column; gap: 12px; padding: 0 0 8px; min-height: 0; flex: 1; }
+.cpp-dlg .cpp { padding: 18px 22px 8px; }
+.cpp-tools { display: flex; gap: 8px; align-items: center; flex: none; }
+.cpp-search { flex: 1; min-width: 0; margin: 0; height: 48px; box-shadow: inset 0 0 0 1.5px var(--border); }
+.cpp-search:focus-within { box-shadow: inset 0 0 0 2px var(--brand); }
+.cpp-tool { flex: none; height: 48px; min-width: 48px; border-radius: 14px; display: inline-flex; align-items: center; justify-content: center; gap: 6px; color: var(--brand);
+  background: #fff; box-shadow: inset 0 0 0 1.5px var(--border); font: 800 14.5px 'Nunito', sans-serif; }
+.cpp-tool:hover, .cpp-tool:active { background: #fdf0f5; }
+.cpp-new { padding: 0 14px 0 10px; }
+.cpp-list { display: flex; flex-direction: column; gap: 4px; overflow-y: auto; margin: 0 -8px; padding: 0 2px; min-height: 0; }
+.cpp-dlg .cpp-list { max-height: 420px; }
+.cpp-list > button[role="option"] { display: flex; align-items: center; gap: 12px; min-height: 62px; padding: 8px 12px; border-radius: 14px; text-align: left; color: var(--ink); flex: none; }
+.cpp-list > button[role="option"]:hover, .cpp-list > button[role="option"]:active { background: #fdf0f5; }
+.cpp-list > button[role="option"].on { background: #fdf0f5; box-shadow: inset 0 0 0 2px var(--brand); }
+.cpp-list > button[role="option"] > .ic { color: var(--brand); flex: none; }
+.cpp-list > button[role="option"]:not(.on) > .ic:first-child { color: #b9a6ae; }
+.cpp-list .cpp-txt { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.cpp-list b { font: 800 15.5px 'Nunito', sans-serif; }
+.cpp-list small { font: 700 13px 'Nunito', sans-serif; color: var(--muted); }
+.cpp-list .vx-thumb { border-radius: 12px; flex: none; }
+.cpp-list .sk-chip { font-style: normal; flex: none; }
+.cpp-none { margin: 18px 0; text-align: center; font: 700 14px 'Nunito', sans-serif; color: var(--muted); }
+.cpp-foot { flex: none; display: flex; align-items: center; gap: 10px; padding: 14px 22px 18px; border-top: 1px solid var(--line); }
+.cpp-count { flex: 1; font: 800 14px 'Nunito', sans-serif; color: var(--muted); }
+.cpp-foot .btn .ic { color: #fff; }
+/* Celular, dos pasos. */
+.cpm-steps { position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 10px; font: 800 13px 'Nunito', sans-serif; color: rgba(255, 255, 255, .7); }
+.cpm-steps .on { color: #fff; background: rgba(255, 255, 255, .2); padding: 4px 12px; border-radius: 999px; }
+.cpm-steps i { width: 26px; height: 2px; background: rgba(255, 255, 255, .5); border-radius: 2px; }
+.cpm-sum { position: relative; z-index: 1; width: 100%; display: flex; align-items: center; gap: 12px; margin-top: 12px; padding: 10px 14px; border-radius: 16px;
+  background: rgba(255, 255, 255, .16); color: #fff; text-align: left; }
+.cpm-sum > span { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.cpm-sum b { font: 800 15.5px 'Nunito', sans-serif; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cpm-sum small { font: 700 13px 'Nunito', sans-serif; opacity: .9; }
+.cpm-p2 { background: #fff; }
+.cpm-p2 .cpm-lines { margin: 0; padding-bottom: 150px; }
+.cpm-start { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; padding: 56px 28px; }
+.cpm-startico { width: 84px; height: 84px; border-radius: 26px; background: #fdf0f5; color: var(--brand); display: flex; align-items: center; justify-content: center; margin-bottom: 6px; }
+.cpm-start > b { font: 800 22px 'Baloo 2', sans-serif; }
+.cpm-start > span:not(.cpm-startico) { font: 700 15px 'Nunito', sans-serif; color: var(--muted); max-width: 320px; }
+.cpm-start .btn { margin-top: 14px; width: 100%; max-width: 340px; }
+.cpm-fab { bottom: calc(112px + env(safe-area-inset-bottom)); }
+.cpm-foot .btn { flex: 1; }
+/* Celular, ajustes del 22 nov (el usuario: más espacio y orden; la lista en su tarjeta; "Nuevo" flotante). */
+.cpm .cpm-card { gap: 18px; padding: 20px 16px; }
+.cpm .cpm-card .field { min-height: 60px; }
+.cpm-supbox { display: flex; flex-direction: column; gap: 10px; margin-top: -4px; padding: 14px 16px; border-radius: 16px; background: var(--field); }
+.cpm-supdebt { display: flex; align-items: center; justify-content: space-between; padding-top: 10px; border-top: 1px solid var(--line); font: 700 14px 'Nunito', sans-serif; color: var(--muted); }
+.cpm-supdebt b { font: 800 16px 'Nunito', sans-serif; color: var(--ok); }
+.cpm-supdebt.debe b { color: var(--warn); }
+.cpm-suprows { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.cpm-suprows > span { display: flex; flex-direction: column; min-width: 0; }
+.cpm-suprows small { font: 800 11.5px 'Nunito', sans-serif; letter-spacing: .6px; color: var(--label); text-transform: uppercase; }
+.cpm-suprows b { font: 800 15px 'Nunito', sans-serif; white-space: nowrap; }
+.cpm-supbox .sk-chip { font-style: normal; flex: none; text-align: center; line-height: 1.2; padding: 6px 10px; }
+.cpm-amaru { display: flex; align-items: flex-end; gap: 6px; padding: 26px 6px 120px; }
+.cpm-amaru img { width: auto; height: 132px; flex: none; }
+.cpm-amaru p { position: relative; margin: 0 0 40px; padding: 14px 16px; background: #fff; border-radius: 18px; font: 700 15px/1.4 'Nunito', sans-serif; color: var(--ink);
+  box-shadow: 0 6px 20px rgba(122, 10, 54, .1); }
+.cpm-amaru p::before { content: ''; position: absolute; left: -7px; bottom: 18px; width: 16px; height: 16px; background: #fff; transform: rotate(45deg); }
+.cpm-amaru b { color: var(--brand); }
+.cpm-p2.with-foot { background: var(--bg); }
+.cpm-p2body { padding-bottom: 170px; }
+.cpm-listcard { margin: 0; padding: 14px 0 4px; }
+.cpm-listhead { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; padding: 2px 16px 8px; }
+.cpm-listhead .vx-lab { margin: 0; }
+.cpm-count { font: 700 13.5px 'Nunito', sans-serif; color: var(--muted); }
+.cpm-p2 .cpm-lines { padding-bottom: 0; }
+
+.cpp-fab { position: sticky; bottom: 16px; margin: -58px 4px 0 auto; z-index: 3; }
+/* 22 nov (el usuario): la lista de productos a todo el ancho (sin perder espacio a los lados), con esquinas redondas arriba
+   sobre la franja; el pie separado con su raya; el celular del proveedor a la derecha, como la deuda. */
+.cpm-suprows > span:last-child { align-items: flex-end; text-align: right; }
+.cpm-p2body { padding: 0 0 170px; margin-top: -24px; }
+.cpm-listcard { border-radius: 24px 24px 0 0; box-shadow: none; padding-top: 18px; min-height: calc(100vh - 230px); }
+.cpm-p2 .foot { background: #fff; border-top: 1px solid var(--line); box-shadow: 0 -6px 18px rgba(122, 10, 54, .06); }
+.cpm-p2 .cpm-fab { bottom: calc(118px + env(safe-area-inset-bottom)); }
+.cpm-listcard .vx-row:last-child { border-bottom: 1px solid var(--line); }
+.pk-two { display: flex; flex-direction: column; min-width: 0; }
+.pk-two small { font: 700 12.5px "Nunito", sans-serif; color: var(--muted); }
+/* La lista para elegir de Yupana, mejorada para TODAS (22 nov, el usuario: "una clase general, nunca diseños sueltos"):
+   buscador, "+ Nuevo" y filas alineados al mismo borde; filas del mismo alto con su raya; la elegida en su fondo de color
+   con el ✓ en círculo; un dato debajo del nombre (`hint`) cuando hace falta. Computadora (.pk-menu) y celular (.pk-sheet). */
+.pk-menu { padding: 8px; border-radius: 18px; }
+.pk-search { height: 46px; margin: 0 0 8px; border-radius: 12px; padding: 0 12px; }
+.pk-search .ic { color: var(--brand); }
+.pk-create { width: 100%; margin: 0 0 8px; min-height: 46px; padding: 0 12px; border-radius: 12px; }
+.pk-list { gap: 0; }
+.pk-list button { flex: none; justify-content: flex-start; min-height: 48px; padding: 6px 12px; border-radius: 12px; position: relative; }
+.pk-list button + button::before { content: ''; position: absolute; left: 12px; right: 12px; top: 0; height: 1px; background: var(--line); }
+.pk-list button.on::before, .pk-list button.on + button::before, .pk-list button:hover::before, .pk-list button:hover + button::before { display: none; }
+.pk-list button > span:first-child { flex: 1; min-width: 0; }
+.pk-list button > .ic:last-child { flex: none; width: 26px; height: 26px; border-radius: 13px; background: var(--brand); color: #fff; font-size: 16px !important;
+  display: inline-flex; align-items: center; justify-content: center; }
+.pk-two small { font: 700 12.5px 'Nunito', sans-serif; color: var(--muted); }
+.pk-list button.on .pk-two small { color: var(--brand); opacity: .8; }
+.pk-sheet { display: flex; flex-direction: column; }
+.pk-sheet .pk-search { height: 52px; }
+.pk-sheet .pk-search input { font-size: 16px; }
+.pk-sheet .pk-create { min-height: 52px; font-size: 16px; padding: 0 16px; }
+.pk-sheet .pk-list button { min-height: 58px; padding: 8px 16px; font-size: 16px; }
+.pk-sheet .pk-list button + button::before { left: 16px; right: 16px; }
+.pk-sheet .pk-two small { font-size: 13.5px; }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
