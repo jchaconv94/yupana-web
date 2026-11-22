@@ -2572,6 +2572,153 @@ button.field.selfield { width: 100%; text-align: left; cursor: pointer; }
 .av-bandx { flex: none; width: 32px; height: 32px; margin: -4px -6px -4px 0; border-radius: 16px; display: flex; align-items: center; justify-content: center; color: inherit; opacity: .75; }
 .av-bandx:hover { opacity: 1; background: rgba(255, 255, 255, .6); }
 .av-bandbtn { flex: none; height: 36px; padding: 0 14px; border-radius: 18px; background: #fff; font: 800 13.5px 'Nunito', sans-serif; color: inherit; box-shadow: inset 0 0 0 1.5px currentColor; }
+
+/* ===== Stock en Productos (22 nov, prefijo sk-): la etiqueta de la tabla, Ajustar y Llegó mercadería. ===== */
+.sk-chip { height: 28px; padding: 0 11px; border-radius: 999px; font: 800 12.5px 'Nunito', sans-serif; white-space: nowrap; background: #e6f4ea; color: var(--ok); }
+.sk-chip.poco { background: var(--warnSoft); color: var(--warn); }
+.sk-chip.agotado { background: var(--badSoft); color: var(--bad); }
+.sk-chip.off { background: var(--field); color: var(--muted); }
+.sk-chip:hover { filter: brightness(.96); box-shadow: inset 0 0 0 1.5px currentColor; }
+.ca-tool + .ca-tool { margin-left: 0; }
+
+/* ===== Ficha de stock (22 nov, parte 1; prefijo sk-): panel a la derecha en la computadora, hoja en el celular. ===== */
+.sk-wrap { position: fixed; inset: 0; z-index: 80; }
+.sk-wrap > .scrim { position: absolute; inset: 0; background: rgba(30, 10, 20, .42); border: 0; animation: fadein .2s; }
+.sk-side { position: absolute; top: 0; right: 0; bottom: 0; width: min(560px, 100vw); background: var(--bg); box-shadow: -18px 0 48px rgba(40, 10, 25, .28);
+  display: flex; flex-direction: column; overflow-y: auto; animation: skin .24s cubic-bezier(.2, .8, .2, 1); scrollbar-width: thin; }
+@keyframes skin { from { transform: translateX(40px); opacity: .5; } }
+.sk-hero { position: relative; overflow: hidden; background: var(--aurora); color: #fff; padding: 20px 22px 18px; flex: none; }
+.sk-hero > :not(.stairs) { position: relative; z-index: 1; }
+.sk-hero .stairs { position: absolute; right: 0; bottom: 0; width: 320px; height: 200px; pointer-events: none; opacity: .9; }
+.sk-hrow { display: flex; align-items: center; gap: 14px; }
+.sk-hrow .vx-thumb { border-radius: 16px; box-shadow: 0 0 0 3px rgba(255, 255, 255, .85); }
+.sk-htext { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.sk-htext b { font: 800 21px/1.2 'Baloo 2', sans-serif; }
+.sk-htext small { font: 700 14px 'Nunito', sans-serif; opacity: .9; }
+.sk-hero .vx-dhx { position: static !important; flex: none; }
+.sk-big { display: flex; align-items: flex-end; gap: 12px; margin: 16px 0 14px; }
+.sk-big strong { font: 800 56px/0.9 'Baloo 2', sans-serif; letter-spacing: -1px; }
+.sk-big > span { display: flex; flex-direction: column; gap: 6px; font: 700 15px 'Nunito', sans-serif; opacity: .95; padding-bottom: 4px; }
+.sk-state { font-style: normal; align-self: flex-start; padding: 3px 10px; border-radius: 999px; font: 800 12.5px 'Nunito', sans-serif; background: rgba(255, 255, 255, .22); }
+.sk-state.poco { background: #ffd978; color: #6b4100; }
+.sk-state.agotado { background: #fff; color: var(--bad); }
+.sk-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.sk-kpi { background: rgba(255, 255, 255, .16); border: 1px solid rgba(255, 255, 255, .22); border-radius: 14px; padding: 9px 12px; display: flex; flex-direction: column; gap: 2px;
+  backdrop-filter: blur(4px); }
+.sk-kpi small { font: 700 12px 'Nunito', sans-serif; opacity: .88; }
+.sk-kpi b { font: 800 18px 'Baloo 2', sans-serif; }
+.sk-tabs { position: sticky; top: 0; z-index: 3; display: flex; gap: 4px; padding: 10px 14px; background: var(--bg); border-bottom: 1px solid var(--line); flex: none; }
+.sk-tabs button { flex: 1; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; gap: 6px; font: 800 14px 'Nunito', sans-serif; color: var(--muted); }
+.sk-tabs button:hover { background: #fdf0f5; }
+.sk-tabs button.on { background: #fff; color: var(--brand); box-shadow: 0 2px 10px rgba(122, 10, 54, .1), inset 0 0 0 1.5px #f3c4d6; }
+.sk-body { padding: 16px 18px 0; display: flex; flex-direction: column; gap: 14px; flex: 1; }
+.sk-sec { background: #fff; border-radius: 18px; padding: 14px 16px 16px; box-shadow: 0 1px 2px rgba(122, 10, 54, .06), 0 0 0 1px var(--line); }
+.sk-sec h3 { display: flex; align-items: center; gap: 10px; margin: 0 0 12px; font: 800 15.5px 'Nunito', sans-serif; color: var(--ink); }
+.sk-sec h3 i { font-style: normal; width: 24px; height: 24px; border-radius: 12px; background: #fde7ef; color: var(--brand); display: flex; align-items: center; justify-content: center;
+  font: 900 13px 'Nunito', sans-serif; flex: none; }
+.sk-sec h3 small { margin-left: auto; font: 700 12px 'Nunito', sans-serif; color: var(--muted); background: var(--field); padding: 2px 8px; border-radius: 999px; }
+.sk-pres { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 8px; }
+.sk-pres button { border-radius: 14px; padding: 12px 8px 10px; display: flex; flex-direction: column; align-items: center; gap: 3px; background: #fff;
+  box-shadow: inset 0 0 0 1.5px var(--border); color: var(--ink); transition: box-shadow .15s, background .15s; }
+.sk-pres button .ic { color: var(--muted); margin-bottom: 2px; }
+.sk-pres button b { font: 800 15px 'Nunito', sans-serif; }
+.sk-pres button small { font: 700 12.5px 'Nunito', sans-serif; color: var(--muted); }
+.sk-pres button.on { background: #fdf0f5; box-shadow: inset 0 0 0 2px var(--brand); }
+.sk-pres button.on .ic, .sk-pres button.on b { color: var(--brand); }
+.sk-step { display: flex; align-items: center; gap: 12px; }
+.sk-step button { width: 52px; height: 52px; border-radius: 26px; flex: none; display: flex; align-items: center; justify-content: center; color: var(--brand);
+  box-shadow: inset 0 0 0 1.5px #f3b6cb; background: #fff; }
+.sk-step button.fill { background: var(--button); color: #fff; box-shadow: 0 6px 14px rgba(194, 24, 91, .3); }
+.sk-step input { flex: 1; min-width: 0; height: 60px; border-radius: 16px; border: 0; text-align: center; font: 800 30px 'Baloo 2', sans-serif; color: var(--ink);
+  box-shadow: inset 0 0 0 2px var(--brand); outline: none; background: #fff; }
+.sk-hint { margin: 8px 2px 0; font: 700 13.5px 'Nunito', sans-serif; color: var(--muted); }
+.sk-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.sk-pill { padding: 5px 10px; border-radius: 999px; font: 800 12.5px 'Nunito', sans-serif; background: var(--field); color: var(--muted); }
+.sk-pill.up { background: var(--warnSoft); color: var(--warn); }
+.sk-pill.down { background: var(--okSoft); color: var(--ok); }
+.sk-vence { display: flex; flex-wrap: wrap; gap: 8px; }
+.sk-vence button { height: 40px; padding: 0 14px; border-radius: 20px; display: inline-flex; align-items: center; gap: 6px; font: 800 13.5px 'Nunito', sans-serif; color: var(--ink);
+  background: #fff; box-shadow: inset 0 0 0 1.5px var(--border); }
+.sk-vence button.on { background: #fdf0f5; color: var(--brand); box-shadow: inset 0 0 0 2px var(--brand); }
+.sk-price { border-radius: 18px; padding: 14px 16px 16px; background: linear-gradient(135deg, #fff 0%, #fff6f9 100%); box-shadow: 0 0 0 1px #f5d3df; }
+.sk-pricetop { display: flex; align-items: flex-end; justify-content: space-between; gap: 10px; }
+.sk-pricetop > span:first-child { display: flex; flex-direction: column; }
+.sk-pricetop small { font: 700 13px 'Nunito', sans-serif; color: var(--muted); }
+.sk-pricetop b { font: 800 28px/1.1 'Baloo 2', sans-serif; }
+.sk-gain { padding: 6px 12px; border-radius: 999px; background: var(--okSoft); color: var(--ok); font: 800 13.5px 'Nunito', sans-serif; }
+.sk-gain.low { background: var(--warnSoft); color: var(--warn); }
+.sk-bar { height: 8px; border-radius: 4px; background: #f1e6ea; margin-top: 10px; overflow: hidden; }
+.sk-bar i { display: block; height: 100%; border-radius: 4px; background: linear-gradient(90deg, #2f9a52, #1b6b35); transition: width .25s; }
+.sk-suggest { display: flex; align-items: center; gap: 10px; margin-top: 12px; padding: 10px 12px; border-radius: 14px; background: var(--warnSoft); color: var(--warn);
+  font: 700 13.5px/1.35 'Nunito', sans-serif; }
+.sk-suggest span { flex: 1; color: var(--ink); }
+.sk-suggest button { height: 36px; padding: 0 14px; border-radius: 18px; background: #fff; color: var(--warn); font: 900 13.5px 'Nunito', sans-serif; box-shadow: inset 0 0 0 1.5px currentColor; }
+.sk-foot { position: sticky; bottom: 0; margin: auto -18px 0; padding: 12px 18px 16px; background: rgba(251, 247, 248, .94); backdrop-filter: blur(6px);
+  border-top: 1px solid var(--line); display: flex; align-items: center; gap: 14px; }
+.sk-foot > span { display: flex; flex-direction: column; }
+.sk-foot small { font: 700 12.5px 'Nunito', sans-serif; color: var(--muted); }
+.sk-foot b { font: 800 22px/1.1 'Baloo 2', sans-serif; white-space: nowrap; }
+.sk-foot .btn { flex: 1; margin: 0; }
+.sk-reasons { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.sk-reasons button { border-radius: 14px; padding: 12px 6px; display: flex; flex-direction: column; align-items: center; gap: 6px; font: 800 13.5px 'Nunito', sans-serif; color: var(--ink);
+  background: #fff; box-shadow: inset 0 0 0 1.5px var(--border); }
+.sk-reasons button .ic { color: var(--muted); }
+.sk-reasons button.on { background: #fdf0f5; color: var(--brand); box-shadow: inset 0 0 0 2px var(--brand); }
+.sk-reasons button.on .ic { color: var(--brand); }
+.sk-diff { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; }
+.sk-diff.down { background: var(--badSoft); color: var(--bad); }
+.sk-diff.up { background: var(--okSoft); color: var(--ok); }
+.sk-diff span { display: flex; flex-direction: column; }
+.sk-diff b { font: 800 15.5px 'Nunito', sans-serif; }
+.sk-diff small { font: 700 13px 'Nunito', sans-serif; color: var(--ink); opacity: .8; }
+.sk-lots { display: flex; flex-direction: column; gap: 8px; }
+.sk-lots .vx-lab { margin: 0; }
+.sk-lot { display: flex; align-items: center; gap: 12px; padding: 11px 14px; border-radius: 14px; background: #fff; box-shadow: 0 0 0 1px var(--line); }
+.sk-lot .ic { color: var(--ok); }
+.sk-lot span { flex: 1; display: flex; flex-direction: column; }
+.sk-lot b { font: 800 14.5px 'Nunito', sans-serif; }
+.sk-lot small { font: 700 12.5px 'Nunito', sans-serif; color: var(--muted); }
+.sk-lot em { font-style: normal; font: 800 16px 'Baloo 2', sans-serif; }
+.sk-lot.sk-soon { background: var(--warnSoft); box-shadow: 0 0 0 1px #f0d68a; }
+.sk-lot.sk-soon .ic, .sk-lot.sk-soon b { color: var(--warn); }
+.sk-lot.sk-out { background: var(--badSoft); box-shadow: 0 0 0 1px #f3b8b3; }
+.sk-lot.sk-out .ic, .sk-lot.sk-out b { color: var(--bad); }
+.sk-day { background: #fff; border-radius: 18px; padding: 6px 14px; box-shadow: 0 0 0 1px var(--line); }
+.sk-day:last-child { margin-bottom: 18px; }
+.sk-dayname { font: 800 12px 'Nunito', sans-serif; letter-spacing: .6px; text-transform: uppercase; color: var(--label); padding: 8px 0 4px; }
+.sk-ev { display: flex; align-items: center; gap: 12px; padding: 10px 0; }
+.sk-ev + .sk-ev { border-top: 1px solid var(--line); }
+.sk-evi { width: 36px; height: 36px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex: none; }
+.sk-evi.entrada { background: var(--okSoft); color: var(--ok); }
+.sk-evi.venta { background: #fde7ef; color: var(--brand); }
+.sk-evi.ajuste { background: var(--warnSoft); color: var(--warn); }
+.sk-evt { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px; }
+.sk-evt b { font: 800 14.5px 'Nunito', sans-serif; }
+.sk-evt small { font: 700 12.5px 'Nunito', sans-serif; color: var(--muted); }
+.sk-evn { display: flex; flex-direction: column; align-items: flex-end; }
+.sk-evn small { font: 700 12px 'Nunito', sans-serif; color: var(--muted); }
+.sk-ev em { font-style: normal; font: 800 18px 'Baloo 2', sans-serif; }
+.sk-ev em.pos { color: var(--ok); }
+.sk-ev em.neg { color: var(--ink); }
+.sk-ficha .sheet-body, .sheet-body > .sk-ficha { margin: -6px -20px 0; }
+.sheet:has(> .sheet-body > .sk-ficha) > .grab { position: absolute; left: 50%; top: 0; transform: translateX(-50%); z-index: 4; background: rgba(255, 255, 255, .7); }
+.sheet-body > .sk-ficha { margin: -6px -20px -16px; }
+.sheet-body > .sk-ficha .sk-hero { border-radius: 24px 24px 0 0; padding-top: 26px; }
+.sheet-body > .sk-ficha .sk-tabs button { font-size: 13px; gap: 4px; }
+/* Celular: el stock debajo del precio, aparte del botón de la fila. */
+.sk-prow { position: relative; border-top: 1px solid var(--line); }
+.sk-prow.first { border-top: none; }
+.sk-prow > .prow { border-top: none; padding-bottom: 34px; }
+.sk-prow.first > .prow { padding-top: 2px; }
+.sk-prowchip { position: absolute; right: 0; bottom: 10px; }
+.sk-prowchip .sk-chip { height: 26px; font-size: 12px; }
+.sheet-body > .sk-ficha .sk-tabs { padding: 8px 10px; gap: 2px; }
+.sheet-body > .sk-ficha .sk-tabs button { white-space: nowrap; padding: 0 6px; }
+.sheet-body > .sk-ficha .sk-tabs .ic { display: none; }
+.sheet-body > .sk-ficha .sk-pres { grid-template-columns: repeat(auto-fit, minmax(86px, 1fr)); }
+.sheet-body > .sk-ficha .sk-kpi small { white-space: nowrap; font-size: 11.5px; }
+.sheet-body > .sk-ficha .sk-body { padding: 14px 14px 0; }
+.sheet-body > .sk-ficha .sk-foot { margin: auto -14px 0; padding: 12px 14px 16px; }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
