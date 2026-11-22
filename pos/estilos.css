@@ -215,7 +215,11 @@ mark { background: #fff1c7; color: inherit; border-radius: 4px; padding: 0 2px; 
 .sheet-title { flex: 1; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 20px; }
 .xbtn { width: 44px; height: 44px; border-radius: 22px; display: flex; align-items: center; justify-content: center; font-size: 22px; color: var(--muted); }
 .sheet-body { padding: 6px 20px 16px; overflow-y: auto; }
-.sheet-body > .vx-dhero:first-child { margin: -6px -20px 16px; border-radius: 0; }
+.sheet-body > .vx-dhero:first-child { margin: -6px -20px 16px; border-radius: 24px 24px 0 0; }
+.sheet-body > .av > .av-hero:first-child { margin: -6px -20px 0; border-radius: 24px 24px 0 0; padding-top: 34px; }
+/* Con cabecera de color (22 nov): la cabecera llega hasta arriba y la rayita para bajar la hoja va encima, en blanco. */
+.sheet:has(> .sheet-body > .vx-dhero:first-child, > .sheet-body > .av > .av-hero:first-child) > .grab,
+.dialog:has(.vx-dhero, .av-hero) > .dlg-grab { position: absolute; left: 50%; top: 0; transform: translateX(-50%); z-index: 3; background: rgba(255, 255, 255, .7); }
 .sheet-foot { padding: 10px 16px 16px; border-top: 1px solid var(--line); flex: none; }
 .choice-list button { display: flex; align-items: center; justify-content: space-between; width: 100%; min-height: 52px; padding: 0 4px;
   border-top: 1px solid var(--line); font-weight: 800; font-size: 15.5px; }
@@ -2018,6 +2022,8 @@ a.entry-home { display: inline-flex; align-self: flex-start; width: fit-content;
 .vx-dhx { position: absolute !important; top: 12px; right: 12px; width: 40px; height: 40px; border-radius: 20px; color: #fff; display: flex; align-items: center;
   justify-content: center; background: rgba(255, 255, 255, .16); }
 .vx-dhx:hover { background: rgba(255, 255, 255, .28); }
+.vx-dhx:focus { outline: none; }
+.vx-dhx:focus-visible { outline: 2px solid rgba(255, 255, 255, .85); outline-offset: 2px; }
 .vx-labrow { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
 .vx-labrow .vx-lab { margin: 0; }
 .vx-dcard { background: var(--field); border-radius: 16px; padding: 12px 14px; margin: 14px 0 16px; }
@@ -2327,7 +2333,8 @@ html:has(.vc-page) .toast { bottom: calc(96px + env(safe-area-inset-bottom)); }
     margin-bottom: var(--kb, 0px); padding: 4px 20px calc(16px + env(safe-area-inset-bottom)); animation: sheetin .22s ease-out; }
   .dlg-grab { display: block; }
   .dialog .dlg-x { top: 14px; }
-  .vx-dhero { margin: 4px -20px 16px; border-radius: 0; }
+  .vx-dhero { margin: -4px -20px 16px; border-radius: 24px 24px 0 0; padding-top: 30px; }
+  .av-hero { margin: -4px -20px 0; border-radius: 24px 24px 0 0; padding-top: 34px; }
 }
 
 /* La lista de Yupana (`Picker`, 21 nov): nunca la del navegador. Prefijo pk-. */
@@ -2511,6 +2518,60 @@ button.field.selfield { width: 100%; text-align: left; cursor: pointer; }
 .vx-stock.agotado { background: #efe9eb; color: #7a6970; }
 .vx-tile.out .vx-thumb { filter: grayscale(.8); opacity: .6; }
 .vx-tile.out .vx-name { color: var(--muted); }
+
+/* ===== Avisos (22 nov, sistema reutilizable; prefijo av-): Confirmar, Resultado y Banda. Cuatro tonos fijos:
+   peligro (rojo), aviso (ámbar), exito (verde) e info (magenta de la marca). ===== */
+.av { display: flex; flex-direction: column; align-items: stretch; }
+/* La cabecera de color del tono, a todo el ancho de la ventana, centrada, con la escalera de marca de agua. */
+.av-hero { position: relative; overflow: hidden; margin: -22px -24px 0; padding: 30px 56px 26px; display: flex; flex-direction: column; align-items: center;
+  gap: 12px; text-align: center; color: #fff; border-radius: 24px 24px 0 0; }
+.av-hero .stairs { position: absolute; right: 0; bottom: 0; width: 300px; height: 190px; pointer-events: none; opacity: .9; }
+.av-hero > :not(.stairs) { position: relative; z-index: 1; }
+.av-hero.av-peligro { background: linear-gradient(160deg, #e5483d 0%, #b3261e 55%, #7c140f 100%); }
+.av-hero.av-aviso { background: linear-gradient(160deg, #f0a020 0%, #c77700 55%, #8a5000 100%); }
+.av-hero.av-exito { background: linear-gradient(160deg, #2f9a52 0%, #1b6b35 55%, #0f4421 100%); }
+.av-hero.av-info { background: var(--aurora); }
+.av-ico { width: 76px; height: 76px; border-radius: 38px; display: flex; align-items: center; justify-content: center; background: rgba(255, 255, 255, .2);
+  box-shadow: 0 0 0 8px rgba(255, 255, 255, .1); }
+.av-title { margin: 0; font: 800 25px/1.2 'Baloo 2', sans-serif; color: #fff; }
+.av-x { position: absolute !important; top: 12px; right: 12px; width: 40px; height: 40px; border-radius: 20px; color: #fff; display: flex; align-items: center;
+  justify-content: center; background: rgba(255, 255, 255, .16); }
+.av-x:hover { background: rgba(255, 255, 255, .28); }
+.av-x:focus { outline: none; }
+.av-x:focus-visible { outline: 2px solid rgba(255, 255, 255, .85); outline-offset: 2px; }
+.av-text { margin: 18px auto 0; font: 600 15.5px/1.45 'Nunito', sans-serif; color: var(--muted); max-width: 360px; text-align: center; }
+.av-detail { margin-top: 16px; background: var(--field); border-radius: 16px; padding: 6px 16px; }
+.av-row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 9px 0; font: 700 14.5px 'Nunito', sans-serif; color: var(--muted); }
+.av-row + .av-row { border-top: 1px solid var(--line); }
+.av-row b { color: var(--ink); font-weight: 800; }
+.av-row.av-strong b { font: 800 20px 'Baloo 2', sans-serif; }
+.av-acts { display: flex; gap: 10px; margin-top: 22px; }
+.av-acts > button { flex: 1; height: 52px; border-radius: 26px; font: 900 16px 'Nunito', sans-serif; display: flex; align-items: center; justify-content: center; }
+.av-no { background: #fff; color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--border); }
+.av-no:hover { background: var(--field); }
+.av-si { color: #fff; }
+.av-si.av-peligro { background: var(--bad); box-shadow: 0 8px 18px rgba(179, 38, 30, .28); }
+.av-si.av-aviso { background: #b26a00; box-shadow: 0 8px 18px rgba(178, 106, 0, .28); }
+.av-si.av-exito { background: var(--ok); box-shadow: 0 8px 18px rgba(27, 107, 53, .25); }
+.av-si.av-info { background: var(--button); box-shadow: 0 8px 18px rgba(194, 24, 91, .3); }
+.av-si:hover { filter: brightness(1.06); }
+.av-acts > button:focus { outline: none; }
+.av-acts > button:focus-visible { outline: 3px solid #f5a3c3; outline-offset: 3px; }
+.av-si:disabled { opacity: .5; box-shadow: none; }
+.av-stack { flex-direction: column; gap: 4px; }
+.av-stack > button { flex: none; width: 100%; height: 56px; border-radius: 28px; font-size: 17px; }
+.av-txt { color: var(--brand); background: none; }
+.av-band { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 14px; border: 1.5px solid; }
+.av-band.av-peligro { background: var(--badSoft); border-color: #f3b8b3; color: var(--bad); }
+.av-band.av-aviso { background: var(--warnSoft); border-color: #f0d68a; color: var(--warn); }
+.av-band.av-exito { background: var(--okSoft); border-color: #b5dfc1; color: var(--ok); }
+.av-band.av-info { background: #fdf0f5; border-color: #f5c3d6; color: var(--brand); }
+.av-bandtext { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px; }
+.av-bandtext b { font: 800 14.5px 'Nunito', sans-serif; }
+.av-bandtext span { font: 600 13.5px 'Nunito', sans-serif; color: var(--ink); opacity: .8; }
+.av-bandx { flex: none; width: 32px; height: 32px; margin: -4px -6px -4px 0; border-radius: 16px; display: flex; align-items: center; justify-content: center; color: inherit; opacity: .75; }
+.av-bandx:hover { opacity: 1; background: rgba(255, 255, 255, .6); }
+.av-bandbtn { flex: none; height: 36px; padding: 0 14px; border-radius: 18px; background: #fff; font: 800 13.5px 'Nunito', sans-serif; color: inherit; box-shadow: inset 0 0 0 1.5px currentColor; }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
