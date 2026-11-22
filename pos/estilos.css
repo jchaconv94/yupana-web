@@ -2371,7 +2371,7 @@ button.field.selfield { width: 100%; text-align: left; cursor: pointer; }
 }
 
 /* ===== La venta (21 nov, aprobada con fotos): filas limpias, pie ordenado, teclado oculto. ===== */
-.vx-row { display: flex; align-items: flex-end; gap: 6px; padding: 9px 14px 9px 14px; border-bottom: 1px solid var(--line); }
+.vx-row { position: relative; display: flex; align-items: flex-end; gap: 6px; padding: 9px 14px 9px 14px; border-bottom: 1px solid var(--line); }
 .vx-row.hot { background: #fff5f8; box-shadow: inset 3px 0 0 var(--brand); }
 .vx-rowbody { flex: 1; min-width: 0; display: flex; gap: 10px; text-align: left; color: var(--ink); align-items: flex-start; }
 .vx-rowbody .vx-thumb { border-radius: 11px !important; }
@@ -2382,6 +2382,10 @@ button.field.selfield { width: 100%; text-align: left; cursor: pointer; }
 .vx-row2 { font: 700 12.5px 'Nunito', sans-serif; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-height: 28px;
   display: flex; align-items: center; gap: 3px; }
 .vx-rowstep { display: inline-flex; align-items: center; gap: 4px; flex: none; }
+/* Los botones de la fila van abajo a la derecha, encima del cuerpo: así el precio de todas las filas queda alineado. */
+.vx-row > .vx-rowstep, .vx-row > .vx-sm { position: absolute; right: 14px; bottom: 9px; }
+.vx-row .vx-row2 { padding-right: 40px; }
+.vx-row.hot .vx-row2 { padding-right: 112px; }
 .vx-rowstep b { min-width: 24px; text-align: center; font: 800 14px 'Nunito', sans-serif; }
 .vx-sm { flex: none; width: 28px; height: 28px; border-radius: 14px; display: flex; align-items: center; justify-content: center; }
 .vx-sm.out { border: 1.5px solid #f3b6cb; color: var(--brand); background: #fff; }
