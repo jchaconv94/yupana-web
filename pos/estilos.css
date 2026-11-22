@@ -2020,8 +2020,6 @@ a.entry-home { display: inline-flex; align-self: flex-start; width: fit-content;
 .vx-dhx:hover { background: rgba(255, 255, 255, .28); }
 .vx-labrow { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
 .vx-labrow .vx-lab { margin: 0; }
-.vx-undo { display: inline-flex; align-items: center; gap: 4px; font: 800 13.5px 'Nunito', sans-serif; color: var(--bad); padding: 6px 10px; border-radius: 999px;
-  background: #fdecec; min-height: 32px; }
 .vx-dcard { background: var(--field); border-radius: 16px; padding: 12px 14px; margin: 14px 0 16px; }
 .vx-dcard > span:first-child { display: flex; flex-direction: column; }
 .vx-dcard small { font: 700 12.5px 'Nunito', sans-serif; color: var(--muted); }
