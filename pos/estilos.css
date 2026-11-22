@@ -2862,6 +2862,154 @@ th.r .th-sort { flex-direction: row-reverse; }
 /* La leyenda de la Amazonía (catálogo 52) debajo del monto en letras. */
 .ticket .en-zone { margin-top: 4px; font-size: 10.5px; font-weight: 800; color: var(--ink); }
 @media print { .print-area .ticket .en-zone { color: #000; } }
+
+/* ===== Compras (22 nov, propuesta; prefijo cp-) ===== */
+.cp-strip { grid-template-columns: repeat(3, 1fr); margin-top: 14px; }
+.cp-items { display: inline-flex; align-items: center; gap: 4px; }
+.cp-items .vx-thumb { border-radius: 8px; }
+.cp-items span { margin-left: 6px; font: 700 13.5px 'Nunito', sans-serif; color: var(--muted); white-space: nowrap; }
+.cp-main { display: flex; flex-direction: column; gap: 16px; padding-bottom: 110px; }
+.cp-top { display: grid; grid-template-columns: 1.3fr 1fr; gap: 16px; align-items: stretch; }
+.cp-card { padding: 18px 20px; display: flex; flex-direction: column; gap: 12px; margin: 0; }
+.cp-lab { font: 800 12px 'Nunito', sans-serif; letter-spacing: 1px; color: var(--label); }
+.cp-kinds { display: flex; gap: 6px; background: var(--field); padding: 4px; border-radius: 14px; }
+.cp-kinds button { flex: 1; height: 40px; border-radius: 10px; font: 800 14px 'Nunito', sans-serif; color: var(--muted); }
+.cp-kinds button.on { background: #fff; color: var(--brand); box-shadow: 0 2px 8px rgba(122, 10, 54, .1); }
+.cp-pay { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.cp-pay button { border-radius: 14px; padding: 12px 6px; display: flex; flex-direction: column; align-items: center; gap: 6px; font: 800 13.5px 'Nunito', sans-serif; color: var(--ink);
+  background: #fff; box-shadow: inset 0 0 0 1.5px var(--border); text-align: center; }
+.cp-pay button .ic { color: var(--muted); }
+.cp-pay button.on { background: #fdf0f5; color: var(--brand); box-shadow: inset 0 0 0 2px var(--brand); }
+.cp-pay button.on .ic { color: var(--brand); }
+.cp-sum { margin-top: auto; background: var(--field); border-radius: 14px; padding: 10px 14px; display: flex; flex-direction: column; gap: 4px; }
+.cp-sum > div { display: flex; justify-content: space-between; align-items: baseline; font: 700 14px 'Nunito', sans-serif; color: var(--muted); }
+.cp-sum b { font: 800 22px 'Baloo 2', sans-serif; color: var(--ink); }
+.cp-debt b { color: var(--warn) !important; font-size: 17px !important; }
+.cp-find { position: relative; }
+.cp-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.cp-find .dsearch { width: 380px; height: 46px; }
+.cp-found { position: absolute; right: 0; width: 460px; top: 52px; z-index: 6; background: #fff; border-radius: 16px; box-shadow: 0 16px 40px rgba(40, 10, 25, .2), 0 0 0 1px var(--line);
+  padding: 6px; display: flex; flex-direction: column; }
+.cp-found > button[role="option"] { display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 12px; text-align: left; color: var(--ink); }
+.cp-found > button[role="option"]:hover { background: #fdf0f5; }
+.cp-found b { font: 800 15px 'Nunito', sans-serif; }
+.cp-found small { flex: 1; font: 700 13px 'Nunito', sans-serif; color: var(--muted); text-align: right; }
+.cp-found .ic { color: var(--brand); }
+.cp-found .vx-thumb { border-radius: 10px; }
+.cp-table td { vertical-align: middle; }
+.cp-table .pk-wrap { min-width: 150px; }
+.cp-table .field.selfield { padding-top: 10px; padding-bottom: 10px; }
+.cp-in { width: 100%; min-width: 70px; height: 42px; border-radius: 10px; border: 1.5px solid var(--border); padding: 0 10px; font: 800 15px 'Nunito', sans-serif; color: var(--ink);
+  background: #fff; outline: none; }
+.cp-in:focus { border-color: var(--brand); box-shadow: 0 0 0 3px #f8d3e1; }
+.cp-in.num { width: 76px; text-align: center; }
+.cp-money { display: inline-flex; align-items: center; gap: 6px; font: 800 14px 'Nunito', sans-serif; color: var(--muted); }
+.cp-money .cp-in { width: 96px; }
+.cp-empty { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 34px 10px; color: var(--muted); text-align: center; border: 2px dashed var(--border); border-radius: 16px; }
+.cp-empty .ic { color: var(--brand); }
+.cp-empty b { font: 800 16px 'Nunito', sans-serif; color: var(--ink); }
+.cp-foot { position: fixed; left: 0; right: 0; bottom: 0; z-index: 5; display: flex; align-items: center; gap: 18px; padding: 14px 28px; background: rgba(255, 255, 255, .96);
+  backdrop-filter: blur(6px); border-top: 1px solid var(--line); }
+.cp-foot span { flex: 1; font: 700 15px 'Nunito', sans-serif; color: var(--muted); }
+.cp-foot b { font: 800 28px 'Baloo 2', sans-serif; }
+.cp-foot .btn { width: auto; padding: 0 34px; margin: 0; }
+
+/* Elegir el comprobante (22 nov, el usuario: "que parezca un selector, no un botón"): opciones con su circulito de
+   radio; la elegida con el circulito lleno, borde y fondo suave magenta (nunca relleno de botón). Centrado. */
+.vx-seg.kd-pick { background: none; padding: 0; gap: 8px; }
+.vx-seg.kd-pick button { height: 46px; border-radius: 12px; gap: 8px; background: #fff; color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--border);
+  justify-content: center; text-align: center; font-weight: 700; transition: background .15s, box-shadow .15s; }
+.vx-seg.kd-pick button::before { content: ''; width: 18px; height: 18px; border-radius: 50%; box-sizing: border-box; border: 2px solid #b9a5ad; flex: none; background: #fff; }
+.vx-seg.kd-pick button:hover:not(.on) { box-shadow: inset 0 0 0 1.5px #f3b6cb; }
+.vx-seg.kd-pick button.on { background: #fdf0f5; color: var(--brand); font-weight: 800; box-shadow: inset 0 0 0 2px var(--brand); }
+.vx-seg.kd-pick button.on::before { border-color: var(--brand); background: radial-gradient(circle, var(--brand) 0 4px, #fff 4.5px); }
+.vx-seg.kd-pick button .ic { display: none; }
+.cp-card .vx-seg.kd-pick { width: 100%; }
+.cp-card .vx-seg.kd-pick button { flex: 1; }
+/* Nueva compra, ajustes (22 nov): aire entre las filas, campos del ancho de lo que llevan, producto en una línea. */
+.cp-card { gap: 18px; }
+.cp-card .frow { margin-top: 2px; }
+.cp-paid { max-width: 220px; }
+.cp-table .pnm { display: flex; align-items: center; gap: 10px; white-space: nowrap; }
+.cp-table .pnm .vx-thumb { flex: none; border-radius: 10px; }
+.cp-table .pnm b { font: 800 15px 'Nunito', sans-serif; }
+.cp-table input[type="date"].cp-in { width: 160px; }
+.cp-table input[aria-label^="Lote"].cp-in { width: 130px; }
+.cp-table .pk-wrap { min-width: 0; width: 170px; }
+
+.cp-card > .vx-seg.kd-pick { margin: 6px 0 10px; }
+.cp-paidrow { align-items: center !important; }
+.cp-paidin { display: inline-flex; align-items: center; gap: 6px; font: 800 15px 'Nunito', sans-serif; color: var(--muted); }
+.cp-paidin input { width: 120px; height: 40px; border-radius: 10px; border: 2px solid var(--brand); padding: 0 10px; text-align: right; font: 800 17px 'Nunito', sans-serif;
+  color: var(--ink); background: #fff; outline: none; }
+.cp-sum > div { padding: 6px 0; }
+.cp-sum > div + div { border-top: 1px solid var(--line); }
+.cp-sum .cp-paidrow b, .cp-debt b { font-size: 18px !important; }
+.cp-debt.ok b { color: var(--ok) !important; }
+.vx-docrow .vx-seg.kd-pick { width: auto; }
+.vx-docrow .vx-seg.kd-pick button { flex: none; padding: 0 16px; }
+
+/* Nueva compra reordenada (22 nov): arriba la compra en una fila de campos de su tamaño; el pago al guardar. */
+.cp-headcard { gap: 16px; }
+.cp-kind { width: auto !important; align-self: flex-start; }
+.cp-kind button { flex: none !important; padding: 0 16px; }
+.cp-fields { display: flex; gap: 12px; align-items: flex-start; flex-wrap: wrap; }
+.cp-sup { width: 380px; }
+.cp-num { width: 260px; }
+.cp-date { width: 190px; }
+.av-detail .cp-pay { margin-bottom: 12px; }
+.av-detail .cp-sum { background: #fff; }
+.av-detail { padding: 14px 16px; }
+
+/* Cabecera de Nueva compra en una fila (22 nov). */
+.cp-headcard { padding: 16px 20px; }
+.cp-headcard .cp-fields { display: grid; grid-template-columns: 1.6fr 1fr 1.1fr 0.9fr; gap: 12px; flex-wrap: nowrap; }
+.cp-headcard .cp-sup, .cp-headcard .cp-kd, .cp-headcard .cp-num, .cp-headcard .cp-date { width: auto !important; min-width: 0; }
+.cp-headcard .cp-fields { align-items: start; }
+.cp-headcard .field { height: 58px; box-sizing: border-box; display: flex; align-items: center; } .cp-headcard .field > input, .cp-headcard .field .static { width: 100%; }
+/* Nueva compra: tres diseños para elegir (22 nov). */
+.cp-sechead { display: flex; align-items: center; gap: 12px; }
+.cp-sechead b { display: block; font: 800 17px 'Nunito', sans-serif; }
+.cp-sechead small { font: 600 13px 'Nunito', sans-serif; color: var(--muted); }
+.cp-secico { width: 42px; height: 42px; border-radius: 13px; background: #fde7ef; color: var(--brand); display: flex; align-items: center; justify-content: center; flex: none; }
+.cp-a { gap: 16px; }
+.cp-supinfo { display: flex; align-items: center; gap: 8px; font: 700 13.5px 'Nunito', sans-serif; color: var(--muted); }
+.cp-supinfo em { font-style: normal; display: inline-flex; align-items: center; margin-left: 4px; }
+.cp-hero { position: relative; overflow: hidden; border-radius: 22px; background: var(--aurora); color: #fff; padding: 20px 22px 18px; display: flex; flex-direction: column; gap: 16px; }
+.cp-hero > :not(.stairs) { position: relative; z-index: 1; }
+.cp-hero .stairs { position: absolute; right: 0; bottom: 0; width: 360px; height: 220px; opacity: .9; pointer-events: none; }
+.cp-herotop { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; }
+.cp-herotop small { display: block; font: 700 13px 'Nunito', sans-serif; opacity: .9; }
+.cp-herotop b { display: block; font: 800 26px/1.15 'Baloo 2', sans-serif; }
+.cp-herotop em { font-style: normal; font: 700 13.5px 'Nunito', sans-serif; opacity: .9; }
+.cp-herototal { text-align: right; }
+.cp-herototal b { font-size: 36px; }
+.cp-herofields { background: #fff; border-radius: 16px; padding: 14px; }
+.cp-herofields .cp-fields { display: grid; grid-template-columns: 1.6fr 1fr 1.1fr 0.9fr; gap: 12px; align-items: start; }
+.cp-herofields .field { height: 58px; box-sizing: border-box; display: flex; align-items: center; color: var(--ink); }
+.cp-herofields .field > input, .cp-herofields .field .static { width: 100%; }
+.cp-two { display: grid; grid-template-columns: 340px 1fr; gap: 16px; align-items: start; }
+.cp-side { position: sticky; top: 0; gap: 16px; }
+.cp-side .cp-fields.cp-col { display: flex; flex-direction: column; gap: 14px; }
+.cp-side .cp-sup, .cp-side .cp-kd, .cp-side .cp-num, .cp-side .cp-date { width: 100% !important; }
+.cp-sidesum { margin-top: 4px; background: var(--field); border-radius: 16px; padding: 14px 16px; display: flex; flex-direction: column; gap: 2px; }
+.cp-sidesum span, .cp-sidesum small { font: 700 13.5px 'Nunito', sans-serif; color: var(--muted); }
+.cp-sidesum b { font: 800 30px 'Baloo 2', sans-serif; }
+.cp-two .cp-items-card { min-width: 0; }
+.cp-two .cp-find .dsearch { width: 300px; }
+.cp-herofields .cp-sup, .cp-herofields .cp-kd, .cp-herofields .cp-num, .cp-herofields .cp-date { width: auto !important; min-width: 0; }
+.cp-two .cp-table input[type="date"].cp-in { width: 140px; }
+.cp-two .cp-table input[aria-label^="Lote"].cp-in { width: 96px; }
+.cp-two .cp-table .pk-wrap { width: 140px; }
+.cp-two .cp-money .cp-in { width: 80px; }
+.cp-two .cp-in.num { width: 64px; }
+.cp-two .cp-table th, .cp-two .cp-table td { padding-left: 8px; padding-right: 8px; }
+/* Diseño A elegido (22 nov): "Productos" con su título como "Datos de la compra"; el buscador a la izquierda, debajo. */
+.cp-items-card .cp-head { flex-direction: row; align-items: center; justify-content: space-between; }
+.cp-items-card .cp-found { right: 0; left: auto; }
+
+.cp-foot .pf-cancel { margin-left: 8px; }
+.cp-find .dsearch { padding-right: 14px; }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
