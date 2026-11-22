@@ -628,6 +628,7 @@ td b { font-weight: 800; white-space: nowrap; }
 .cava.sm { width: 34px; height: 34px; font-size: 12.5px; }
 .add.addtop { margin: 0 0 6px; }
 .field .static { display: block; font-size: 15px; font-weight: 800; line-height: 1.35; }
+.field .static-none { display: block; font-size: 15px; line-height: 1.35; }
 .field select { display: block; width: 100%; appearance: none; -webkit-appearance: none; background: none; border: 0; outline: none; font-size: 16px;
   font-weight: 800; padding-right: 24px; cursor: pointer; }
 .field.selfield > .ic { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); font-size: 20px; color: var(--muted); pointer-events: none; }
@@ -885,6 +886,9 @@ html:has(.mpage.with-cart) { scroll-padding-bottom: 110px; }
 /* ===== arreglos de las revisiones (12 nov) ===== */
 
 /* el aviso de abajo con "Deshacer" */
+.toast .tclose { position: absolute; top: -9px; right: -9px; width: 24px; height: 24px; border-radius: 12px; background: #fff; color: #2b2226;
+  border: 1.5px solid #e6d9de; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 6px rgba(0, 0, 0, .2); }
+.toast .tclose:hover { color: var(--brand); border-color: var(--brand); }
 .toast .tact { margin-left: 6px; color: #ff8fb3; font-weight: 900; font-size: 14px; padding: 6px 4px; min-height: 36px; white-space: nowrap; }
 
 /* emitido: mientras se envía, reloj ámbar (sin el ✓) */
@@ -935,7 +939,7 @@ html:has(.mpage.with-cart) { scroll-padding-bottom: 110px; }
   }
   .sfil button::after, .seg button::after, .cash button::after, .qty .m::after, .seeall::after, .linkish::after, .tbtn::after, .pill::after,
   .xbtn::after, .ic-plain::after, .drawer .nav a::after, .drawer .nav button::after, .drawer .toggle::after, .drawer .logout::after,
-  .rowmenu .mi::after, .hint .fixx::after, .toast .tact::after {
+  .rowmenu .mi::after, .hint .fixx::after, .toast .tact::after, .toast .tclose::after {
     content: ''; position: absolute; left: min(0px, calc(50% - 24px)); right: min(0px, calc(50% - 24px)); top: min(0px, calc(50% - 24px));
     bottom: min(0px, calc(50% - 24px));
   }
@@ -2360,13 +2364,18 @@ button.field.selfield { width: 100%; text-align: left; cursor: pointer; }
 .pf-gain { display: flex; justify-content: space-between; align-items: center; background: var(--okSoft, #e8f5ec); color: var(--ok, #1b6b35);
   border-radius: 12px; padding: 10px 14px; font: 800 15px 'Nunito', sans-serif; }
 .pf-gain.bad { background: #fdecea; color: var(--bad); }
-.pf-pres { display: grid; grid-template-columns: 1.2fr .6fr 1fr 1.3fr 32px; gap: 8px; align-items: center; }
+.pf-pres { display: grid; grid-template-columns: 1.15fr .8fr .8fr 1.6fr 32px; gap: 8px; align-items: center; }
+.pf-pcode .withbtn { gap: 12px; }
+.pf-pcode .withbtn button { margin-right: -2px; }
 .pf-pres .field { padding-left: 12px; padding-right: 10px; }
+.pf-pres .selfield :is(.static, .static-none) { font-size: 16px; line-height: 1.4; }
+.pf-pres .selfield .static { padding-right: 20px; }
+.pf-pres .selfield > .ic { right: 8px; }
 .pf-x { width: 32px; height: 32px; border-radius: 16px; display: flex; align-items: center; justify-content: center; color: var(--muted); }
 .pf-x:hover { background: var(--field); }
 .pf-add { display: flex; align-items: center; gap: 6px; color: var(--brand); font: 800 15px 'Nunito', sans-serif; padding: 4px 2px; align-self: flex-start; }
 @media (max-width: 700px) {
-  .pf-pres { grid-template-columns: 1fr .7fr 1fr 32px; }
+  .pf-pres { grid-template-columns: 1.2fr .8fr .8fr 32px; }
   .pf-pres .pf-pcode { grid-column: 1 / 4; }
 }
 
@@ -2385,14 +2394,30 @@ button.field.selfield { width: 100%; text-align: left; cursor: pointer; }
 /* Los botones de la fila van abajo a la derecha, encima del cuerpo: así el precio de todas las filas queda alineado. */
 .vx-row > .vx-rowstep, .vx-row > .vx-sm { position: absolute; right: 14px; bottom: 9px; }
 .vx-row .vx-row2 { padding-right: 40px; }
+/* El total aparte solo en la venta ancha. */
+.vx-rowtot { display: none; }
+/* Venta ancha (22 nov, dibujo del usuario): una línea con el nombre, − n +, el total más grande y la ✕. */
+.vx-row.wide { align-items: center; gap: 14px; }
+.vx-row.wide .vx-row1 strong { display: none; }
+.vx-row.wide .vx-row2, .vx-row.wide.hot .vx-row2 { padding-right: 0; min-height: 0; }
+.vx-row.wide > .vx-rowstep, .vx-row.wide > .vx-sm { position: static; }
+.vx-row.wide .vx-rowtot { display: flex; flex-direction: column; align-items: flex-end; min-width: 92px; font: 800 18px 'Nunito', sans-serif; white-space: nowrap; }
+.vx-row.wide .vx-rowstep { min-width: 104px; justify-content: center; order: 1; }
+.vx-row.wide .vx-rowtot { order: 2; }
+.vx-row.wide > .vx-sm { order: 3; }
 .vx-row.hot .vx-row2 { padding-right: 112px; }
-.vx-rowstep b { min-width: 24px; text-align: center; font: 800 14px 'Nunito', sans-serif; }
+.vx-rowstep b { min-width: 30px; text-align: center; font: 800 17px 'Nunito', sans-serif; }
 .vx-sm { flex: none; width: 28px; height: 28px; border-radius: 14px; display: flex; align-items: center; justify-content: center; }
 .vx-sm.out { border: 1.5px solid #f3b6cb; color: var(--brand); background: #fff; }
 .vx-sm.fill { background: var(--brand); color: #fff; }
 .vx-sm.ghost { border: 1.5px solid var(--border); color: #a08f96; background: #fff; }
 .vx-sm.ghost:hover { color: var(--bad); border-color: var(--bad); }
 .vx-sale .vx-lines { flex: 1; overflow-y: auto; }
+/* El borde para agrandar la venta (22 nov): se arrastra hasta la mitad de la pantalla. */
+.vx-resize { position: absolute; left: -5px; top: 0; bottom: 0; width: 10px; cursor: col-resize; z-index: 5; touch-action: none; }
+.vx-resize::after { content: ''; position: absolute; left: 4px; top: 0; bottom: 0; width: 2px; background: transparent; transition: background .15s; }
+.vx-resize:hover::after, .vx-resize.on::after, .vx-resize:focus-visible::after { background: var(--brand); }
+.vx-resize:focus-visible { outline: none; }
 .vx-foot2 { padding: 12px 18px 14px; display: flex; flex-direction: column; gap: 10px; }
 .vx-footrow { display: flex; align-items: center; gap: 8px; }
 .vx-pill { display: inline-flex; align-items: center; gap: 6px; height: 36px; padding: 0 12px; border-radius: 999px; border: 1.5px solid #f3b6cb; color: var(--brand);
@@ -2420,8 +2445,15 @@ button.field.selfield { width: 100%; text-align: left; cursor: pointer; }
 .vx-padkeys button { border-radius: 9px; background: #fff; display: flex; align-items: center; justify-content: center; font: 800 18px 'Nunito', sans-serif;
   color: var(--ink); box-shadow: 0 1px 2px rgba(0, 0, 0, .08); }
 .vx-padkeys button:active { background: #fdf0f5; color: var(--brand); }
-.vx-padkeys .del { grid-column: 4; grid-row: 1 / span 2; }
-.vx-padkeys .ok { grid-column: 4; grid-row: 3 / span 2; background: var(--aurora); color: #fff; font-size: 16px; }
+.vx-padkeys .del { grid-column: 4; grid-row: 1 / span 4; }
+/* Con Pago rápido y Cobrar en el teclado: ⌫ arriba, Pago rápido y Cobrar (alto, como el Enter del teclado numérico). */
+.vx-padkeys:has(.vx-padcharge) { grid-template-columns: 1fr 1fr 1fr 1.6fr; grid-template-rows: repeat(4, 46px); }
+.vx-padkeys:has(.vx-padcharge) .del { grid-row: 1; }
+.vx-padkeys .vx-padquick { grid-column: 4; grid-row: 2; border: 2px solid var(--brand); color: var(--brand); font-size: 14.5px; }
+.vx-padkeys .vx-padcharge { grid-column: 4; grid-row: 3 / span 2; background: var(--aurora); color: #fff; font-size: 17px; flex-direction: column; gap: 4px; }
+.vx-padkeys .vx-padcharge kbd { font: 800 11px 'Nunito', sans-serif; border: 1.5px solid rgba(255, 255, 255, .6); border-radius: 5px; padding: 0 5px; }
+.vx-padkeys .vx-padquick:disabled, .vx-padkeys .vx-padcharge:disabled { opacity: .5; }
+.vx-total-sm b { font-size: 30px; }
 /* "¿Cómo lo lleva?" en el panel de la venta. */
 .vx-choose { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
 .vx-choosehead { display: flex; gap: 12px; align-items: center; margin-bottom: 4px; }
