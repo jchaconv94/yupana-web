@@ -2859,6 +2859,9 @@ th.r .th-sort { flex-direction: row-reverse; }
 .pk-create { display: flex; align-items: center; gap: 8px; width: calc(100% - 12px); margin: 4px 6px 6px; min-height: 46px; padding: 0 12px; border-radius: 12px;
   background: #fdf0f5; color: var(--brand); font: 800 15px 'Nunito', sans-serif; text-align: left; }
 .pk-create:hover { background: #fbe1ec; }
+/* La leyenda de la Amazonía (catálogo 52) debajo del monto en letras. */
+.ticket .en-zone { margin-top: 4px; font-size: 10.5px; font-weight: 800; color: var(--ink); }
+@media print { .print-area .ticket .en-zone { color: #000; } }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
