@@ -815,7 +815,7 @@ td b { font-weight: 800; white-space: nowrap; }
 @media print {
   @page { margin: 8mm; }
   body { background: #fff; }
-  .screen, .toast { display: none !important; }
+  .screen, .toast, .dialog-wrap, .sheet-wrap, .sk-wrap, .pk-out, .pk-menu { display: none !important; }
   .print-area { display: block; max-width: 80mm; margin: 0 auto; }
   .print-area .ticket { box-shadow: none; padding: 0; color: #000; }
 }
