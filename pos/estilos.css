@@ -3668,6 +3668,12 @@ th.r .th-sort { flex-direction: row-reverse; }
 .cp-in:focus, .cp-in:focus-visible { outline: none; box-shadow: none; border-color: var(--brand); }
 /* En los cuadritos para elegir el producto, la descripción va debajo del nombre (23 nov, el usuario); en el carrito, al lado. */
 .vx-tile .pdesc, .ptile .pdesc { display: block; margin-top: 2px; line-height: 1.2; }
+.ph-alt2 { align-self: center; display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 14px; border-radius: 20px; font: 800 14px 'Nunito', sans-serif;
+  color: var(--brand); background: #fdf0f5; cursor: pointer; }
+.ph-alt2:hover { background: #fbe3ec; }
+.ph-alt2:disabled { opacity: .5; }
+.ph-busy { text-align: center; padding: 0 12px; }
+.ph-box .ph-busy { background: rgba(253, 240, 245, .97); }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
