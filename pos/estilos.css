@@ -3607,6 +3607,23 @@ th.r .th-sort { flex-direction: row-reverse; }
 .pk-menu { display: flex; flex-direction: column; }
 .pk-menu > .pk-search, .pk-menu > .pk-create { flex: none; }
 .pk-menu > .pk-list { flex: 1 1 auto; min-height: 0; max-height: none; }
+/* Páginas del mismo ancho (23 nov, el usuario: "uniformiza las páginas"): todo lo de una página de registro (Nuevo
+   producto, Nueva compra, Categorías…) va en el mismo ancho que la ruta, centrado. */
+.pf-page > .pf-main { max-width: 1296px; width: 100%; margin: 0 auto; box-sizing: border-box; }
+/* La ventana de Yupana (Ventana): el botón ancho y, debajo, lo extra (Borrar…) en texto. */
+.vn-foot { display: flex; flex-direction: column; align-items: stretch; gap: 6px; }
+.vn-foot .ca-del, .sheet .ca-del { align-self: center; }
+/* "¡Listo!" con el ✓ que se dibuja y se cierra solo (23 nov). */
+.av-exitoso { padding-bottom: 10px; }
+.av-check svg { display: block; }
+.av-ring { stroke: #fff; stroke-width: 3.5; stroke-dasharray: 145; stroke-dashoffset: 145; animation: av-draw .55s ease-out .1s forwards; opacity: .9; }
+.av-tick { stroke: #fff; stroke-width: 4.5; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 40; stroke-dashoffset: 40; animation: av-draw .35s ease-out .55s forwards; }
+.av-check { animation: av-pop .5s cubic-bezier(.2, 1.4, .4, 1) both; }
+@keyframes av-draw { to { stroke-dashoffset: 0; } }
+@keyframes av-pop { from { transform: scale(.6); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.av-timer { display: block; height: 4px; border-radius: 2px; margin: 18px auto 0; width: 100%; background: var(--ok); transform-origin: left; animation: av-timer linear forwards; opacity: .55; }
+@keyframes av-timer { from { transform: scaleX(1); } to { transform: scaleX(0); } }
+@media (prefers-reduced-motion: reduce) { .av-ring, .av-tick { animation: none; stroke-dashoffset: 0; } .av-check { animation: none; } }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
