@@ -3629,6 +3629,45 @@ th.r .th-sort { flex-direction: row-reverse; }
    campos adentro: páginas, ventanas, hojas y filas que bajan de línea en el celular. No poner otra separación encima. */
 :root { --campos: 18px; }
 :where(*):has(> .field, > .pk-wrap, > div > .field, > div > .pk-wrap) { row-gap: var(--campos) !important; }
+/* REGLA GENERAL del pie de las ventanas (23 nov, el usuario: "el botón tiene que estar fijo abajo, no bajar para
+   encontrarlo"): en la computadora y en el celular, el botón de abajo (Listo, Guardar, Sí…) queda fijo al pie aunque lo
+   de arriba corra. Vale para toda ventana (Dialog) y hoja (Sheet). */
+.dialog > .pf-optfoot, .dialog > .acts2, .dialog > .av > .av-acts, .dialog > .sg-dlgfoot, .dialog .cpp-foot, .dialog > .vx-foot,
+.sheet-body > .av > .av-acts {
+  position: sticky; bottom: -18px; z-index: 3; background: #fff; margin-bottom: -18px; padding-bottom: 18px; }
+.sheet-body > .av > .av-acts { bottom: -16px; margin-bottom: -16px; padding-bottom: 16px; }
+/* La descripción corta del producto (23 nov): entre paréntesis, chica y sin negrita, para que se distinga del nombre. */
+.pdesc { font-weight: 600; font-size: .82em; color: var(--muted); letter-spacing: 0; }
+.vx-tile .pdesc, .ptile .pdesc { display: inline; }
+/* La foto del producto como en WhatsApp o Facebook (23 nov): el recuadro mismo es el botón. */
+.ph-top { position: relative; align-self: center; }
+.ph-box { position: relative; width: 220px; height: 220px; border-radius: 28px; display: flex; align-items: center; justify-content: center; overflow: hidden;
+  cursor: pointer; background: #fdf0f5; box-shadow: inset 0 0 0 2px #f3b6cb; border: 2px dashed transparent; transition: box-shadow .15s, background .15s; }
+.ph-box:not(.has) { box-shadow: none; border-color: #ef9fbe; }
+.ph-box:not(.has):hover, .ph-box.drag { background: #fbe3ec; border-color: var(--brand); }
+.ph-box.has { background: #fff; box-shadow: inset 0 0 0 1.5px var(--line); }
+.ph-box img { width: 100%; height: 100%; object-fit: contain; }
+.ph-empty { display: flex; flex-direction: column; align-items: center; gap: 4px; color: var(--brand); text-align: center; padding: 0 16px; }
+.ph-empty b { font: 900 16px 'Nunito', sans-serif; margin-top: 6px; }
+.ph-empty small { font: 700 13px 'Nunito', sans-serif; color: var(--muted); }
+.ph-over { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; background: rgba(30, 8, 18, .5);
+  color: #fff; font: 900 15px 'Nunito', sans-serif; opacity: 0; transition: opacity .15s; }
+.ph-box.has:hover .ph-over, .ph-box.has:focus-within .ph-over { opacity: 1; }
+.ph-badge { position: absolute; right: 10px; bottom: 10px; width: 38px; height: 38px; border-radius: 19px; background: var(--brand); color: #fff; display: flex;
+  align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(194, 24, 91, .35); }
+.ph-box.has:hover .ph-badge { opacity: 0; }
+.ph-busy { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; background: rgba(255, 255, 255, .85);
+  color: var(--brand); font: 900 14px 'Nunito', sans-serif; }
+.ph-del { position: absolute; top: -10px; right: -10px; width: 40px; height: 40px; border-radius: 20px; background: #fff; color: var(--bad); display: flex;
+  align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(30, 8, 18, .2), inset 0 0 0 1.5px var(--line); cursor: pointer; z-index: 2; }
+.ph-del:hover { background: #fdecea; }
+.ph > .ph-note { text-align: center; margin-top: -4px; }
+.sheet .ph-box { width: min(200px, 60vw); height: min(200px, 60vw); }
+@media (hover: none) { .ph-over { display: none; } }
+/* Las celdas de la compra: un solo borde al escribir (23 nov, el usuario: "doble borde"). */
+.cp-in:focus, .cp-in:focus-visible { outline: none; box-shadow: none; border-color: var(--brand); }
+/* En los cuadritos para elegir el producto, la descripción va debajo del nombre (23 nov, el usuario); en el carrito, al lado. */
+.vx-tile .pdesc, .ptile .pdesc { display: block; margin-top: 2px; line-height: 1.2; }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
