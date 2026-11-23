@@ -3747,6 +3747,11 @@ th.r .th-sort { flex-direction: row-reverse; }
 /* Lista con ícono (23 nov): el texto pegado al ícono, a la izquierda; el ícono en su cuadrito de color. */
 .pk-list button > .pk-ico + span { flex: 1; min-width: 0; text-align: left; }
 .pk-list button > span.pk-ico:first-child { flex: none; width: 32px; height: 32px; border-radius: 10px; background: #fdf0f5; color: var(--brand); display: inline-flex; align-items: center; justify-content: center; }
+/* Bajar una ventana con el dedo nunca recarga la página (23 nov, el usuario): con una ventana abierta, el navegador no
+   hace "jalar para recargar", y lo que corre adentro no empuja a la página. */
+html:has(.sheet-wrap, .dialog-wrap, .sk-wrap), html:has(.sheet-wrap, .dialog-wrap, .sk-wrap) body { overscroll-behavior-y: none; }
+.sheet-body, .dialog, .sk-side, .sheet { overscroll-behavior: contain; }
+.sheet > .grab, .sheet-head, .sheet-body > .vx-dhero:first-child, .sheet-body > .av > .av-hero, .sheet-wrap > .dim, .dialog-wrap > .scrim { touch-action: none; }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
