@@ -3694,6 +3694,13 @@ th.r .th-sort { flex-direction: row-reverse; }
 .br .ctw-tile b { min-height: 0; text-align: center; }
 .br .br-ico { width: 44px; height: 44px; border-radius: 14px; }
 .ctw-dlg .ctw.br { overflow-y: auto; }
+/* La vista del producto (23 nov): el contenido no se encoge, así el pie (Vender · Editar) queda pegado abajo. */
+.sk-side > .pv { flex: 1 0 auto; min-height: 0; }
+.pv-tabs { position: static; }
+.pv-tabs button { color: var(--brand); background: #fff; box-shadow: inset 0 0 0 1.5px var(--line); }
+.pv-tabs button:hover { background: #fdf0f5; }
+.sheet .pv-tabs { padding: 8px 0 0; border-bottom: 0; }
+.sheet .pv-tabs button { font-size: 13px; gap: 4px; white-space: nowrap; padding: 0 6px; }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
