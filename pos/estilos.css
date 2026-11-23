@@ -3552,6 +3552,19 @@ th.r .th-sort { flex-direction: row-reverse; }
 .sheet .ph-prev { width: 150px; height: 150px; }
 .sheet .ph-icons { flex: none; gap: 18px; }
 .ph-ic { width: 56px; height: 56px; border-radius: 28px; }
+/* Del catálogo de Yupana (23 nov): debajo del nombre, los productos que ya existen; un toque trae sus datos. */
+.ctg-wrap { position: relative; }
+.ctg { margin-top: 8px; border-radius: 16px; background: #fff; box-shadow: 0 12px 30px rgba(122, 10, 54, .14), inset 0 0 0 1.5px #f3c6d6; padding: 6px; display: flex; flex-direction: column; gap: 2px; }
+.ctg-head { display: flex; align-items: center; gap: 8px; padding: 6px 8px 8px; font: 800 13px 'Nunito', sans-serif; color: var(--brand); }
+.ctg-x { margin-left: auto; width: 30px; height: 30px; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: var(--muted); }
+.ctg-x:hover { background: var(--field); }
+.ctg-item { display: flex; align-items: center; gap: 12px; min-height: 58px; padding: 6px 8px; border-radius: 12px; text-align: left; color: var(--ink); }
+.ctg-item:hover, .ctg-item:active { background: #fdf0f5; }
+.ctg-item img, .ctg-ico { flex: none; width: 44px; height: 44px; border-radius: 12px; object-fit: contain; background: #fdf0f5; color: var(--brand); display: flex; align-items: center; justify-content: center; }
+.ctg-txt { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.ctg-txt b { font: 800 15px 'Nunito', sans-serif; }
+.ctg-txt small { font: 600 12.5px 'Nunito', sans-serif; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ctg-use { flex: none; font: 900 13px 'Nunito', sans-serif; color: #fff; background: var(--brand); border-radius: 999px; padding: 6px 12px; }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
