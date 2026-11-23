@@ -3756,6 +3756,118 @@ html:has(.sheet-wrap, .dialog-wrap, .sk-wrap), html:has(.sheet-wrap, .dialog-wra
 .pl-stat.ok .pl-ico { background: var(--okSoft); color: var(--ok); }
 /* La venta en la computadora (23 nov, el usuario): las filas a todo el ancho del panel, sin espacio a los costados. */
 .vx-sale .vx-lines { padding: 0; }
+/* Controla lotes y vencimientos (23 nov): una fila con su interruptor, dentro de la ventana de Stock. */
+.pf-lotsw { display: flex; align-items: center; gap: 12px; width: 100%; padding: 12px 14px; border-radius: 16px; background: #fff; box-shadow: inset 0 0 0 1.5px var(--line); text-align: left; cursor: pointer; }
+.pf-lotsw:hover { background: #fffafc; }
+.pf-lotsico { flex: none; width: 40px; height: 40px; border-radius: 12px; background: #fdf0f5; color: var(--brand); display: flex; align-items: center; justify-content: center; }
+.pf-lotstxt { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.pf-lotstxt b { font: 800 15px 'Nunito', sans-serif; color: var(--ink); }
+.pf-lotstxt small { font: 600 13px 'Nunito', sans-serif; color: var(--muted); }
+/* Lotes del producto: la fila "Sin lote" con su botón. */
+.lt-sin { flex-wrap: wrap; background: #fff8e6; }
+.lt-sin .ic { color: #8a5000; }
+.lt-poner { margin-left: auto; height: 40px; }
+/* Una ventana que se abre desde el panel del costado (Lotes › Ponerle lote, 23 nov) va encima de él, y su lista también. */
+.sk-wrap ~ .dialog-wrap, .sk-wrap ~ .sheet-wrap { z-index: 85; }
+.sk-wrap ~ .pk-out { z-index: 86; }
+.sk-wrap ~ .pk-menu { z-index: 87; }
+/* Lotes y vencimientos en la vista del producto (23 nov): cada lote con su punto de color. */
+.pv-lot { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-top: 1px solid var(--line); flex-wrap: wrap; }
+.pv-lot:first-of-type { border-top: 0; }
+.pv-lotdot { flex: none; width: 10px; height: 10px; border-radius: 5px; background: #1b6b35; }
+.pv-lot.warn .pv-lotdot { background: #c77700; }
+.pv-lot.bad .pv-lotdot { background: #b3261e; }
+.pv-lot.sin .pv-lotdot { background: var(--muted); }
+.pv-lottxt { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.pv-lottxt b { font: 800 14.5px 'Nunito', sans-serif; }
+.pv-lottxt small { font: 600 13px 'Nunito', sans-serif; color: var(--muted); }
+.pv-lot.bad .pv-lottxt small { color: #b3261e; }
+.pv-lot.warn .pv-lottxt small { color: #8a5000; }
+.pv-lotn { font: 800 15px 'Nunito', sans-serif; white-space: nowrap; }
+.pv-lotbtn { flex-basis: 100%; height: 42px; margin-top: 4px; }
+.pv-lot.sin { background: #fff8e6; margin: 4px -12px 0; padding: 10px 12px; border-radius: 12px; border-top: 0; }
+/* Ponerle fecha: varias filas de lote. */
+
+/* 23 nov: en el celular los tres botones del stock llevan su ícono ENCIMA del nombre, así entran sin apretarse. */
+.sheet-body > .sk-ficha .sk-tabs .ic, .sheet .pv-tabs .ic { display: inline-block; }
+.sheet-body > .sk-ficha .sk-tabs button, .sheet .pv-tabs button { flex-direction: column; height: 58px; gap: 3px; font-size: 12.5px; padding: 0 4px; line-height: 1.1; }
+
+/* 23 nov: secciones que se abren al tocarlas (`Plegable`): ícono, título y resumen; la flecha gira al abrir. */
+.pv-card.plg { padding: 0; overflow: hidden; }
+.plg-head { width: 100%; display: flex; align-items: center; gap: 12px; padding: 14px 16px; min-height: 64px; text-align: left; background: none; }
+.plg-head:hover { background: #fdf0f5; }
+.plg-ico { width: 38px; height: 38px; border-radius: 12px; background: #fdf0f5; color: var(--brand); display: grid; place-items: center; flex: none; }
+.plg-txt { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.plg-txt b { font: 800 15.5px 'Nunito', sans-serif; color: var(--ink); }
+.plg-txt small { font: 600 13px 'Nunito', sans-serif; color: var(--muted); }
+.plg-txt small.warn { color: #b26a00; }
+.plg-txt small.bad { color: var(--bad, #c62828); }
+.plg-head > .ic:last-child { color: var(--muted); transition: transform .2s; flex: none; }
+.plg.open .plg-head > .ic:last-child { transform: rotate(180deg); }
+.plg-body { padding: 0 16px 8px; }
+
+/* 23 nov: "¿Este producto vence?" dentro de Stock — dos botones Sí / No del mismo ancho (48 px o más), el elegido en
+   magenta, y una línea debajo que dice qué pasa con lo elegido. */
+.pf-vence .vx-lab { margin: 0 0 8px; }
+.pf-sino { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.pf-sino button { height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; gap: 8px; background: #fff; box-shadow: inset 0 0 0 1.5px var(--line2, #e6d3da); font: 800 15px 'Nunito', sans-serif; color: var(--ink); white-space: nowrap; }
+.pf-sino button .ic { color: var(--muted); }
+.pf-sino button:hover { background: #fdf0f5; }
+.pf-sino button.on { background: #fdf0f5; color: var(--brand); box-shadow: inset 0 0 0 2px var(--brand); }
+.pf-sino button.on .ic { color: var(--brand); }
+.pf-sinoayuda { margin: 8px 2px 0; font: 600 13px/1.4 'Nunito', sans-serif; color: var(--muted); }
+.pf-hint.warn { background: #fff6e0; color: #8a5a00; }
+.pf-hint.warn .ic { color: #b26a00; }
+
+
+/* 23 nov: los lotes en una tabla pequeña (`RepartoLotes`, el usuario: "más ordenado"): cabecera gris, una fila por lote
+   (Unidades · Vence · N.° de lote · ✕), "+ Otro lote" y la cuenta al pie. Celdas de 44 px; en el celular igual, más angosta. */
+.pf-cuando .vx-lab { margin: 0 0 8px; }
+.rl-tab { border-radius: 14px; box-shadow: inset 0 0 0 1.5px var(--line); overflow: hidden; background: #fff; }
+.rl-row { display: grid; grid-template-columns: 110px minmax(0, 1fr) minmax(0, 1fr) 36px; gap: 8px; align-items: center; padding: 8px 10px; border-top: 1px solid var(--line); }
+.rl-row.rl-head { border-top: 0; background: var(--field); padding-top: 9px; padding-bottom: 9px; }
+.rl-head span { font: 800 11.5px 'Nunito', sans-serif; letter-spacing: .6px; text-transform: uppercase; color: var(--label); }
+.rl-in { height: 44px; min-width: 0; width: 100%; border-radius: 10px; border: 1.5px solid var(--border); background: #fff; padding: 0 10px; font: 700 15px 'Nunito', sans-serif; color: var(--ink); }
+.rl-in:focus { outline: none; border-color: var(--brand); box-shadow: 0 0 0 3px #f8bbd0; }
+.rl-in.bad { border-color: #b3261e; background: #fff5f4; }
+.rl-in.rl-n { text-align: center; }
+.rl-in::placeholder { color: #a99aa0; font-weight: 600; }
+.rl-x { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; color: var(--muted); }
+.rl-x:hover { background: #fdf0f5; color: var(--brand); }
+.rl-foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 6px 10px; border-top: 1px solid var(--line); background: var(--field); }
+.rl-otro { height: 44px; display: inline-flex; align-items: center; gap: 6px; padding: 0 10px; border-radius: 10px; font: 800 14px 'Nunito', sans-serif; color: var(--brand); }
+.rl-otro:hover { background: #fdf0f5; }
+.rl-foot > span { display: inline-flex; align-items: center; gap: 4px; font: 800 13.5px 'Nunito', sans-serif; color: #8a5000; }
+.rl-foot > span.ok { color: #1b6b35; }
+.rl-foot > span.bad { color: #b3261e; }
+/* Celular: la tabla solo muestra (letra de 15 px) y cada fila se toca para llenarla en su hoja. */
+
+.rl-cel .rl-row { grid-template-columns: 58px minmax(0, 1.3fr) minmax(0, 1fr) 22px; gap: 10px; padding: 0 14px; }
+.rl-cel .rl-head { padding: 10px 14px; }
+.rl-tap { width: 100%; min-height: 52px; text-align: left; background: transparent; font: 700 15px 'Nunito', sans-serif; color: var(--ink); }
+.rl-tap:active { background: #fdf0f5; }
+.rl-tap b { font: 800 16px 'Nunito', sans-serif; }
+.rl-tap .pon { color: var(--brand); font-weight: 800; }
+.rl-tap .bad, .rl-tap b.bad { color: #b3261e; font-weight: 800; }
+.rl-tap .rl-lot { color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.rl-tap > .ic { color: var(--muted); }
+.rl-hoja { grid-template-columns: 1fr !important; }
+.rl-hoja input[type="date"] { min-width: 0; width: 100%; }
+.rl-sm { display: none; }
+@media (max-width: 560px) {
+  .rl-lg { display: none; }
+  .rl-sm { display: inline; }
+  .rl-row { grid-template-columns: 44px minmax(0, 1.7fr) minmax(0, 1fr) 28px; gap: 5px; padding: 8px 6px; }
+  .rl-in { padding: 0 6px; font-size: 14px; }
+  .rl-in[type="date"] { padding: 0 4px; font-size: 13.5px; }
+  .rl-in[type="date"]::-webkit-calendar-picker-indicator { margin: 0; padding: 0; width: 14px; }
+  .rl-in::placeholder { font-size: 12px; }
+  .rl-x { width: 30px; height: 30px; }
+  .rl-head span { font-size: 10.5px; letter-spacing: .3px; }
+}
+/* 23 nov (el usuario: "todos los componentes de ese formulario deben tener el mismo ancho"): en el celular el contenido de
+   toda ventana usa el mismo ancho que su botón de abajo (16 px del borde, como Material), no 36 px. */
+.sheet-body > .cpm-sbody { margin-left: -4px; margin-right: -4px; padding-left: 0; padding-right: 0; }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
