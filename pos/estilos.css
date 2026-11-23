@@ -3565,6 +3565,48 @@ th.r .th-sort { flex-direction: row-reverse; }
 .ctg-txt b { font: 800 15px 'Nunito', sans-serif; }
 .ctg-txt small { font: 600 12.5px 'Nunito', sans-serif; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .ctg-use { flex: none; font: 900 13px 'Nunito', sans-serif; color: #fff; background: var(--brand); border-radius: 999px; padding: 6px 12px; }
+
+/* Foto del producto (23 nov, el usuario: "botones muy grandes, la foto más grande"): la foto grande al centro y debajo
+   botones redondos de solo ícono, igual en la computadora y el celular. */
+.ph-top, .sheet .ph-top { flex-direction: column; align-items: center; gap: 12px; }
+.ph-prev, .sheet .ph-prev { width: 220px; height: 220px; border-radius: 28px; }
+.sheet .ph-prev { width: min(200px, 60vw); height: min(200px, 60vw); }
+.ph-icons, .sheet .ph-icons { flex: none; gap: 12px; }
+.ph-ic { width: 48px; height: 48px; border-radius: 24px; cursor: pointer; }
+.ph-ic.main { box-shadow: 0 4px 12px rgba(194, 24, 91, .28); }
+.ph-note { margin-top: -2px; }
+/* La ruta se va con la página (23 nov, el usuario: "que no sea fija"): toda la página corre junta; solo la barra de
+   arriba (← logo título) queda pegada. */
+.pf-page { overflow-y: auto; display: block; }
+.pf-page > .pf-head { position: sticky; top: 0; z-index: 4; }
+.pf-page > .pf-main { overflow: visible; }
+/* Ventana de categorías (23 nov, el usuario: "el buscador está mal"): las piezas no se aplastan al correr la lista; el
+   buscador con el mismo estilo de las listas (Picker). */
+.ctw > * { flex: none; }
+.ctw .pk-search { margin: 0; height: 48px; }
+/* Mientras escribe una categoría nueva: las que se parecen (23 nov). */
+.cnf-near { margin-top: 12px; display: flex; flex-direction: column; gap: 8px; }
+.cnf-nearlab { font: 800 13px 'Nunito', sans-serif; color: var(--label); }
+.cnf-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.cnf-chip { display: inline-flex; align-items: center; gap: 6px; min-height: 48px; padding: 0 14px; border-radius: 24px; background: #fdf0f5; color: var(--ink);
+  font: 800 14px 'Nunito', sans-serif; cursor: pointer; }
+.cnf-chip .ic { color: var(--brand); }
+.cnf-chip small { font: 700 12px 'Nunito', sans-serif; color: var(--muted); }
+.cnf-chip.sug { background: #fff; box-shadow: inset 0 0 0 1.5px var(--line); }
+.cnf-chip.sug small { color: var(--brand); }
+/* "Se vende por" en cuadritos (23 nov): la misma ventana que Categoría, con cuadritos más bajos (son más). */
+.un-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.sheet .un-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.un .ctw-tile { min-height: 92px; padding: 12px 6px 10px; }
+.un .ctw-tile b { min-height: 0; text-align: center; }
+.un-note { display: flex; gap: 8px; align-items: flex-start; margin: 2px 0 0; font: 600 13px/1.45 'Nunito', sans-serif; color: var(--muted); }
+.un-note .ic { color: var(--brand); flex: none; margin-top: 1px; }
+.un-note b { color: var(--ink); }
+.pfm-sbody > .ctw.un { padding: 0; }
+/* La lista nunca más larga que la pantalla (23 nov): el buscador y "+ Nueva" quedan fijos y la lista corre adentro. */
+.pk-menu { display: flex; flex-direction: column; }
+.pk-menu > .pk-search, .pk-menu > .pk-create { flex: none; }
+.pk-menu > .pk-list { flex: 1 1 auto; min-height: 0; max-height: none; }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
