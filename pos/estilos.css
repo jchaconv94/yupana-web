@@ -3466,6 +3466,92 @@ th.r .th-sort { flex-direction: row-reverse; }
 .entry-mtext.low, .tp-mhead > span { padding-top: 26px; }
 .entry-mtext.low > .peek-gap, .tp-mhead .peek-gap { height: 0; }
 .entry-mtext.low > .inca-peek, .tp-mhead .tp-minca { margin-top: -10px; }
+/* La categoría en ventana con cuadrícula (22 nov; idea de Casa Market). */
+.ctf-val { display: flex !important; align-items: center; gap: 8px; }
+.ctf-val .ic { color: var(--brand); flex: none; }
+.ctw-dlg { display: flex; flex-direction: column; max-height: calc(100vh - 80px); }
+.dialog:has(.ctw-dlg) { padding: 0; overflow: hidden; }
+.ctw-dlg > .ctw-hero { margin: 0; flex: none; }
+.ctw { display: flex; flex-direction: column; gap: 12px; padding: 18px 22px 22px; min-height: 0; overflow-y: auto; }
+.sheet .ctw { padding: 0 0 8px; }
+.ctw-search { margin: 0; height: 48px; box-shadow: inset 0 0 0 1.5px var(--border); }
+.ctw-search:focus-within { box-shadow: inset 0 0 0 2px var(--brand); }
+.ctw .pk-create { width: 100%; margin: 0; min-height: 48px; }
+.ctw-tabs { margin-top: 2px; }
+.ctw-tabs button { flex: 1; }
+.ctw-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.sheet .ctw-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.ctw-tile { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 6px; padding: 14px 8px 12px; min-height: 112px;
+  border-radius: 16px; background: #fff; color: var(--ink); text-align: center; box-shadow: inset 0 0 0 1.5px var(--line); transition: box-shadow .15s, background .15s; }
+.ctw-tile:hover { box-shadow: inset 0 0 0 2px #f3b6cb; background: #fffafc; }
+.ctw-tile.on { background: #fdf0f5; box-shadow: inset 0 0 0 2px var(--brand); }
+.ctw-ico { width: 48px; height: 48px; border-radius: 16px; background: #fdf0f5; color: var(--brand); display: flex; align-items: center; justify-content: center; }
+.ctw-tile.on .ctw-ico { background: #fff; }
+.ctw-tile b { font: 800 14px/1.2 'Nunito', sans-serif; overflow-wrap: anywhere; }
+.ctw-tile small { font: 700 12px 'Nunito', sans-serif; color: var(--muted); }
+.ctw-tile.sug small { color: var(--brand); }
+.ctw-tile.sug { box-shadow: inset 0 0 0 1.5px var(--line); border: 0; background-image: none; }
+.ctw-check { position: absolute; top: 8px; right: 8px; width: 22px; height: 22px; border-radius: 11px; background: var(--brand); color: #fff; display: flex; align-items: center; justify-content: center; }
+.ctw-grid { grid-auto-rows: 1fr; }
+.ctw-tile b { min-height: 34px; display: flex; align-items: center; }
+@media (hover: none) { .ctw-tile:hover { box-shadow: inset 0 0 0 1.5px var(--line); background: #fff; } .ctw-tile.on:hover { background: #fdf0f5; box-shadow: inset 0 0 0 2px var(--brand); } }
+.sheet .ctw-tile { min-height: 0; padding: 12px 6px 10px; gap: 4px; }
+.sheet .ctw-ico { width: 42px; height: 42px; border-radius: 14px; }
+/* El servicio a todo el ancho (22 nov, el usuario: Amaru y la escalera quedaban cortados). */
+.pf-over > .pf-one { max-width: none; margin: 0; }
+.pf-svc { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); align-items: start; }
+.pf-svc .frow.pf-prices, .pf-svc > .pf-prices { grid-template-columns: 1fr; }
+/* Servicio: tarjeta angosta (640 px) y Amaru encima de ella, a su derecha, así la tarjeta le tapa la cintura; la
+   escalera llega hasta el borde de abajo de la cabecera (22 nov, el usuario). */
+.pf-wrap > .pf-one { max-width: 640px; }
+.pf-hero.svc .pf-inca { right: calc(50% - 300px); }
+.pf-hero.svc .stairs { bottom: 0; height: 176px; width: 281px; }
+/* La barra de las páginas de registro: ←, el logo y la ruta que se toca (22 nov, aprobado). */
+.pf-logo { flex: none; width: 40px; height: 40px; border-radius: 12px; background: var(--aurora); display: flex; align-items: center; justify-content: center; }
+.pf-crumbs { display: flex; align-items: center; flex-wrap: wrap; gap: 2px; font: 700 13px 'Nunito', sans-serif; color: var(--label); }
+.pf-crumbs > span { display: inline-flex; align-items: center; gap: 2px; }
+.pf-crumbs button { font: inherit; color: var(--brand); padding: 2px 4px; border-radius: 6px; }
+.pf-crumbs button:hover { background: #fdf0f5; text-decoration: underline; }
+.pf-crumbs b { font-weight: 800; color: var(--ink); padding: 2px 4px; }
+.pf-crumbs .ic { color: var(--label); }
+/* La foto del producto (22 nov). */
+.vx-thumb.vx-photo { object-fit: contain; background: #fff; display: block; box-shadow: inset 0 0 0 1px var(--line); }
+.ptl.ptl-photo { padding: 0; overflow: visible; }
+.ptl.ptl-photo > img { width: 100%; height: 100%; object-fit: contain; border-radius: inherit; background: #fff; display: block; }
+.ph { display: flex; flex-direction: column; gap: 14px; padding: 4px 0 6px; }
+.sheet .ph { padding: 16px 0 6px; }
+.ph-top { display: flex; align-items: center; gap: 18px; }
+.ph-prev { flex: none; width: 132px; height: 132px; border-radius: 24px; background: #fdf0f5; color: var(--brand); display: flex; align-items: center; justify-content: center;
+  box-shadow: inset 0 0 0 2px #f8d3e1; overflow: hidden; }
+.ph-prev.has { background: #fff; box-shadow: inset 0 0 0 1.5px var(--line); }
+.ph-prev img { width: 100%; height: 100%; object-fit: contain; }
+.ph-acts { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: stretch; gap: 8px; }
+.ph-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; margin: 0; cursor: pointer; }
+.ph-btn .ic { color: #fff; }
+.ph-alt { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 46px; border-radius: 24px; font: 800 15px 'Nunito', sans-serif; color: var(--brand);
+  box-shadow: inset 0 0 0 1.5px var(--border); background: #fff; cursor: pointer; }
+.ph-alt:hover { background: #fdf0f5; }
+.ph-del { color: var(--bad); }
+.ph-note { font: 600 13px/1.4 'Nunito', sans-serif; color: var(--muted); text-align: center; }
+.ph .vx-lab { margin: 4px 0 0; }
+.dialog .ph .icgrid { max-height: 220px; overflow-y: auto; }
+/* La ruta debajo de la barra (23 nov). */
+.pf-crumbs { flex: none; display: flex; align-items: center; flex-wrap: wrap; gap: 2px; padding: 10px 28px 0; max-width: 1296px; width: 100%; margin: 0 auto; box-sizing: border-box;
+  font: 700 14px 'Nunito', sans-serif; color: var(--label); }
+.pf-crumbs button { font: inherit; color: var(--brand); padding: 4px 6px; border-radius: 8px; }
+.pf-crumbs b { font-weight: 800; color: var(--ink); padding: 4px 6px; }
+.pf-title h1 { font-size: 22px; }
+/* Foto en el celular: botones de solo ícono (23 nov). */
+.ph-icons { flex: 1; display: flex; align-items: center; justify-content: center; gap: 14px; }
+.ph-ic { width: 60px; height: 60px; border-radius: 30px; display: flex; align-items: center; justify-content: center; color: var(--brand); background: #fff;
+  box-shadow: inset 0 0 0 1.5px var(--border); cursor: pointer; }
+.ph-ic.main { background: var(--button, var(--brand)); color: #fff; box-shadow: 0 6px 16px rgba(194, 24, 91, .3); }
+.ph-ic.del { color: var(--bad); }
+.ph-ic:active { transform: scale(.95); }
+.sheet .ph-top { flex-direction: column; gap: 14px; }
+.sheet .ph-prev { width: 150px; height: 150px; }
+.sheet .ph-icons { flex: none; gap: 18px; }
+.ph-ic { width: 56px; height: 56px; border-radius: 28px; }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
