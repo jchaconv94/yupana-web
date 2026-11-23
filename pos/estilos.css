@@ -3710,6 +3710,43 @@ th.r .th-sort { flex-direction: row-reverse; }
 :is(h2, h3, h4, p, small, .sec, .note, .hint, .sk-bar, .sk-pricetop, .sk-suggest, .ne-logo-note, .vx-lab, .card, .found2)
   + :is(.field, .selfield, .qf, .pk-wrap, .frow, .cpm-two) { margin-top: var(--campos) !important; }
 :where(*):has(> .ne-fields) { row-gap: var(--campos) !important; }
+/* Listas en la computadora (23 nov, como Shopify): arriba solo los botones de la página, a la derecha; el buscador y los
+   filtros dentro del recuadro de la tabla, pegados a ella. */
+.tool.dact { justify-content: flex-end; }
+.lsrch { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding: 12px 12px 6px; flex: none; }
+.lsrch .dsearch { flex: 1 1 280px; max-width: 460px; }
+/* Lotes y vencimientos (23 nov): rojo vencido, ámbar 30 días o menos, verde el resto. */
+.lt-chip { display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 999px; font: 800 12.5px 'Nunito', sans-serif; white-space: nowrap; }
+.lt-chip.ok { background: #e6f4ea; color: #1b6b35; }
+.lt-chip.warn { background: #fff3d6; color: #8a5000; }
+.lt-chip.bad { background: #fde8e7; color: #b3261e; }
+.lt-chip.sm { padding: 2px 8px; font-size: 11.5px; margin-left: 6px; }
+.pl-mend .lt-chip.sm { margin-left: 0; }
+.lt-row { cursor: pointer; }
+.lt-row.bad td:first-child { box-shadow: inset 3px 0 0 #b3261e; }
+.lt-lot { font: 800 13.5px 'Nunito', sans-serif; letter-spacing: .3px; }
+.lt-strip { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.lt-seg { margin-top: 12px; position: relative; z-index: 1; }
+.lt-seg button { flex: 1; white-space: nowrap; font-size: 13px; padding: 0 4px; }
+.lt-seg em { font-style: normal; opacity: .7; }
+.pl-vencer { cursor: pointer; }
+.pl-strip:not(.compact):has(.pl-vencer) { grid-template-columns: repeat(5, 1fr) 1.35fr; }
+/* LA cabecera de toda tabla (23 nov, regla del usuario): buscador, filtros al lado y los botones a la derecha. */
+.lsrch { padding: 14px 12px 8px; }
+.lsrch .dsearch { flex: 1 1 280px; max-width: 420px; }
+.tbar-acts { margin-left: auto; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.fpick { white-space: nowrap; }
+.fpick .ic:last-child { margin-left: 2px; }
+/* Celular: la fecha que vence va en la línea chica, en su color (sin otra etiqueta). */
+.lt-txt { font-weight: 800; }
+.lt-txt.bad { color: #b3261e; }
+.lt-txt.warn { color: #8a5000; }
+.lt-txt.ok { color: #1b6b35; }
+.pl-strip:not(.compact):has(.pl-vencer) { grid-template-columns: repeat(4, 1fr) 1.35fr; }
+.pl-strip:not(.compact):not(:has(.pl-vencer)) { grid-template-columns: repeat(3, 1fr) 1.35fr; }
+/* Lista con ícono (23 nov): el texto pegado al ícono, a la izquierda; el ícono en su cuadrito de color. */
+.pk-list button > .pk-ico + span { flex: 1; min-width: 0; text-align: left; }
+.pk-list button > span.pk-ico:first-child { flex: none; width: 32px; height: 32px; border-radius: 10px; background: #fdf0f5; color: var(--brand); display: inline-flex; align-items: center; justify-content: center; }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
