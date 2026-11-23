@@ -3753,6 +3753,7 @@ html:has(.sheet-wrap, .dialog-wrap, .sk-wrap), html:has(.sheet-wrap, .dialog-wra
 /* LOS recuadros de números de arriba (23 nov, regla del usuario): un solo estilo en todos los módulos, de 4 a 5, del
    mismo ancho, con el mismo espacio arriba y abajo. */
 .pl-strip:not(.compact) { display: grid; grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 12px; margin: 0 0 6px; }
+.pl-stat.ok .pl-ico { background: var(--okSoft); color: var(--ok); }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
