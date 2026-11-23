@@ -3624,6 +3624,11 @@ th.r .th-sort { flex-direction: row-reverse; }
 .av-timer { display: block; height: 4px; border-radius: 2px; margin: 18px auto 0; width: 100%; background: var(--ok); transform-origin: left; animation: av-timer linear forwards; opacity: .55; }
 @keyframes av-timer { from { transform: scaleX(1); } to { transform: scaleX(0); } }
 @media (prefers-reduced-motion: reduce) { .av-ring, .av-tick { animation: none; stroke-dashoffset: 0; } .av-check { animation: none; } }
+/* REGLA GENERAL de los campos (23 nov, el usuario: "una clase general para todos"): entre un campo y el de abajo, siempre
+   18 px como mínimo (el nombre del campo sube al borde y si están más cerca se ven pegados). Vale para todo lo que tenga
+   campos adentro: páginas, ventanas, hojas y filas que bajan de línea en el celular. No poner otra separación encima. */
+:root { --campos: 18px; }
+:where(*):has(> .field, > .pk-wrap, > div > .field, > div > .pk-wrap) { row-gap: var(--campos) !important; }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
