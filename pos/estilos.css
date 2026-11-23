@@ -3676,6 +3676,23 @@ th.r .th-sort { flex-direction: row-reverse; }
 .ph-box .ph-busy { background: rgba(253, 240, 245, .97); }
 /* La descripción sobre las cabeceras de color se lee en blanco suave (23 nov, el usuario: "en gris no se nota"). */
 .pf-hero .pdesc, .vx-dhero .pdesc, .hero .pdesc, .sk-hero .pdesc, .pv-hero .pdesc { color: rgba(255, 255, 255, .88); }
+/* Marca (23 nov): la misma ventana de cuadritos que Categoría; las iniciales en vez del ícono. */
+.ctw-dlg > .vx-dhero { margin: 0; flex: none; }
+.br-ico { font: 900 16px 'Nunito', sans-serif; letter-spacing: .5px; }
+.ctf-none { color: var(--muted); font-weight: 700; }
+.br-mini { flex: none; width: 24px; height: 24px; border-radius: 8px; background: #fdf0f5; color: var(--brand); display: inline-flex; align-items: center; justify-content: center;
+  font: 900 10.5px 'Nunito', sans-serif; }
+.br-quitar { align-self: center; display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 14px; border-radius: 22px; font: 800 14px 'Nunito', sans-serif; color: var(--muted); }
+.br-quitar:hover { background: var(--field); }
+/* La ventana de Stock (23 nov, el usuario): de a dos por fila (stock y aviso; vence y lote), no uno por fila. */
+.pfm-sbody .pf-count .frow { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.pf-count input[type="date"] { min-width: 0; width: 100%; }
+.br-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.sheet .br-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.br .ctw-tile { min-height: 96px; padding: 12px 6px 10px; }
+.br .ctw-tile b { min-height: 0; text-align: center; }
+.br .br-ico { width: 44px; height: 44px; border-radius: 14px; }
+.ctw-dlg .ctw.br { overflow-y: auto; }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
