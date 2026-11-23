@@ -2864,7 +2864,7 @@ th.r .th-sort { flex-direction: row-reverse; }
 @media print { .print-area .ticket .en-zone { color: #000; } }
 
 /* ===== Compras (22 nov, propuesta; prefijo cp-) ===== */
-.cp-strip { grid-template-columns: repeat(3, 1fr); margin-top: 14px; }
+
 .cp-items { display: inline-flex; align-items: center; gap: 4px; }
 .cp-items .vx-thumb { border-radius: 8px; }
 .cp-items span { margin-left: 6px; font: 700 13.5px 'Nunito', sans-serif; color: var(--muted); white-space: nowrap; }
@@ -3725,12 +3725,10 @@ th.r .th-sort { flex-direction: row-reverse; }
 .lt-row { cursor: pointer; }
 .lt-row.bad td:first-child { box-shadow: inset 3px 0 0 #b3261e; }
 .lt-lot { font: 800 13.5px 'Nunito', sans-serif; letter-spacing: .3px; }
-.lt-strip { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .lt-seg { margin-top: 12px; position: relative; z-index: 1; }
 .lt-seg button { flex: 1; white-space: nowrap; font-size: 13px; padding: 0 4px; }
 .lt-seg em { font-style: normal; opacity: .7; }
 .pl-vencer { cursor: pointer; }
-.pl-strip:not(.compact):has(.pl-vencer) { grid-template-columns: repeat(5, 1fr) 1.35fr; }
 /* LA cabecera de toda tabla (23 nov, regla del usuario): buscador, filtros al lado y los botones a la derecha. */
 .lsrch { padding: 14px 12px 8px; }
 .lsrch .dsearch { flex: 1 1 280px; max-width: 420px; }
@@ -3742,8 +3740,6 @@ th.r .th-sort { flex-direction: row-reverse; }
 .lt-txt.bad { color: #b3261e; }
 .lt-txt.warn { color: #8a5000; }
 .lt-txt.ok { color: #1b6b35; }
-.pl-strip:not(.compact):has(.pl-vencer) { grid-template-columns: repeat(4, 1fr) 1.35fr; }
-.pl-strip:not(.compact):not(:has(.pl-vencer)) { grid-template-columns: repeat(3, 1fr) 1.35fr; }
 /* Lista con ícono (23 nov): el texto pegado al ícono, a la izquierda; el ícono en su cuadrito de color. */
 .pk-list button > .pk-ico + span { flex: 1; min-width: 0; text-align: left; }
 .pk-list button > span.pk-ico:first-child { flex: none; width: 32px; height: 32px; border-radius: 10px; background: #fdf0f5; color: var(--brand); display: inline-flex; align-items: center; justify-content: center; }
@@ -3754,6 +3750,9 @@ html:has(.sheet-wrap, .dialog-wrap, .sk-wrap), html:has(.sheet-wrap, .dialog-wra
 .sheet > .grab, .sheet-head, .sheet-body > .vx-dhero:first-child, .sheet-body > .av > .av-hero, .sheet-wrap > .dim, .dialog-wrap > .scrim { touch-action: none; }
 /* La cabecera de la tabla separada de la tabla con una línea (23 nov, el usuario). */
 .lsrch { border-bottom: 1px solid var(--line); padding-bottom: 16px; margin-bottom: 4px; }
+/* LOS recuadros de números de arriba (23 nov, regla del usuario): un solo estilo en todos los módulos, de 4 a 5, del
+   mismo ancho, con el mismo espacio arriba y abajo. */
+.pl-strip:not(.compact) { display: grid; grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 12px; margin: 0 0 6px; }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
