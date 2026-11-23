@@ -3170,6 +3170,302 @@ th.r .th-sort { flex-direction: row-reverse; }
 .pk-sheet .pk-list button { min-height: 58px; padding: 8px 16px; font-size: 16px; }
 .pk-sheet .pk-list button + button::before { left: 16px; right: 16px; }
 .pk-sheet .pk-two small { font-size: 13.5px; }
+/* Los dos contadores de Compras en el celular (22 nov, foto del usuario: en un celular angosto el texto se salía). El monto
+   y el ícono arriba, el texto debajo a todo el ancho del recuadro: entra desde 320 px sin bajar texto ni quitar el ícono. */
+.cpm-strip .pl-stat { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "n i" "t t"; align-items: center; row-gap: 2px; column-gap: 6px; padding: 10px 12px; }
+.cpm-strip .pl-ico { grid-area: i; width: 30px; height: 30px; border-radius: 15px; }
+.cpm-strip .pl-ico .ic { font-size: 17px !important; }
+.cpm-strip .pl-txt { display: contents; }
+.cpm-strip .pl-txt b { grid-area: n; font-size: 18px; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.cpm-strip .pl-txt small { grid-area: t; font-size: 13px; white-space: nowrap; }
+@media (max-width: 340px) { .cpm-strip { gap: 8px; padding: 12px 12px 10px; } .cpm-strip .pl-stat { padding: 10px 9px; } .cpm-strip .pl-txt small { font-size: 12.5px; } }
+/* "¿Cómo llegó?" en la hoja del celular (22 nov, revisado en celulares de 320 px): el nombre y debajo ×cantidad, con su
+   círculo de selector a la izquierda; las opciones del mismo ancho y siempre dentro de la pantalla. */
+.cpm-sbody .vx-seg.kd-pick { display: grid; grid-auto-columns: minmax(0, 1fr); grid-auto-flow: column; }
+.cpm-sbody .vx-seg.kd-pick button { height: auto; min-height: 56px; padding: 8px 10px; justify-content: flex-start; min-width: 0; }
+.cpm-pres { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; line-height: 1.2; text-align: left; }
+.cpm-pres small { font: 700 12.5px 'Nunito', sans-serif; color: var(--muted); }
+.kd-pick button.on .cpm-pres small { color: var(--brand); }
+@media (max-width: 359px) { .cpm-two { grid-template-columns: 1fr; } }
+/* El círculo arriba y el texto debajo (como las tarjetas de "¿Cómo pagaste?"): "Paquete" entra entero desde 320 px. */
+.cpm-sbody .vx-seg.kd-pick button { flex-direction: column; align-items: flex-start; gap: 6px; padding: 10px 10px; min-height: 0; }
+.cpm-sbody .vx-seg.kd-pick button .cpm-pres { width: 100%; }
+/* La fila de una compra en el celular: dos líneas (22 nov). */
+.cpm-row { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: #fff; }
+.cpm-row + .cpm-row { border-top: 1px solid var(--line); }
+.cpm-row .cpm-ico { width: 44px; height: 44px; border-radius: 14px; }
+.cpm-rowtext { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.cpm-r1, .cpm-r2 { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.cpm-r1 b { min-width: 0; font: 800 16px/1.25 'Nunito', sans-serif; }
+.cpm-r1 strong { flex: none; font: 800 16px 'Nunito', sans-serif; }
+.cpm-r2 small { min-width: 0; font: 600 13.5px 'Nunito', sans-serif; color: var(--muted); }
+.cpm-r2 em { flex: none; font: 800 13.5px 'Nunito', sans-serif; font-style: normal; }
+.cpm-r2 em.debe { color: var(--warn); }
+.cpm-r2 em.ok { color: var(--ok); }
+.cpm-row { gap: 10px; padding: 14px 14px 14px 16px; }
+.cpm-row .cpm-ico { width: 40px; height: 40px; border-radius: 12px; }
+.cpm-r2 small { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cpm-row.debe .cpm-ico { background: var(--warnSoft); color: var(--warn); }
+.cpm-row.ok .cpm-ico { background: var(--okSoft); color: var(--ok); }
+.cpm-r2 em { display: inline-flex; align-items: center; gap: 6px; }
+.cpm-r2 em::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+/* Presentaciones en el celular (22 nov): una línea cada una (nombre ×cantidad, código, precio) que abre su hoja. */
+.pfm-pres { display: flex; align-items: center; gap: 4px; border-bottom: 1px solid var(--line); }
+.pfm-presbody { flex: 1; min-width: 0; display: flex; align-items: center; gap: 12px; padding: 10px 0; text-align: left; color: var(--ink); }
+.pfm-presico { flex: none; width: 40px; height: 40px; border-radius: 12px; background: #fdf0f5; color: var(--brand); display: flex; align-items: center; justify-content: center; }
+.pfm-prestxt { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.pfm-prestxt b { font: 800 15.5px 'Nunito', sans-serif; }
+.pfm-prestxt small { font: 600 13px 'Nunito', sans-serif; color: var(--muted); }
+.pfm-presbody strong { flex: none; font: 800 15.5px 'Nunito', sans-serif; }
+.pfm-two .field { min-height: 58px; }
+.pf-pcode > .flabel { right: 56px; }
+/* "Más opciones" del producto en el celular (22 nov): filas con su valor que abren su hoja. */
+.pfm-more { display: flex; flex-direction: column; padding-bottom: 6px; }
+.pfm-more .pf-lab { margin-bottom: 4px; }
+.pfm-row { display: flex; align-items: center; gap: 12px; min-height: 64px; padding: 8px 0; text-align: left; color: var(--ink); }
+.pfm-row + .pfm-row { border-top: 1px solid var(--line); }
+.pfm-row > .ic:last-child { color: var(--muted); flex: none; }
+.pfm-row .pfm-prestxt small { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pfm-row.bad .pfm-prestxt small { color: var(--bad); }
+.pfm-row.bad .pfm-presico { background: #fdecea; color: var(--bad); }
+.pfm-sbody { gap: 12px; }
+.pfm-sbody .pf-stock { border-top: 0; padding-top: 0; margin-top: 0; }
+.pfm-sbody .pf-add { margin-top: 4px; }
+.pfm-sbody .frow { grid-template-columns: 1fr; }
+/* "Cuántos tienes" (22 nov) y más aire entre un texto y el campo que sigue (el usuario: "se ve muy pegado"). */
+.pf-stock { gap: 16px; }
+.pf-count .frow { row-gap: 18px; }
+.pf-hint { display: flex; align-items: flex-start; gap: 8px; margin: 2px 0 0; padding: 12px 14px; border-radius: 12px; background: var(--field); font: 600 14px/1.45 'Nunito', sans-serif; color: var(--muted); }
+.pf-hint .ic { color: var(--brand); flex: none; margin-top: 1px; }
+.pfm-sbody { gap: 18px; }
+.cpm-sbody .vx-lab + * { margin-top: 2px; }
+/* Más aire entre "Agregar presentación" y la raya de Precio por mayor (22 nov). */
+.pf-add + .pf-stock, .pf-add + * + .pf-stock { margin-top: 10px; padding-top: 18px; }
+.pf-card .pf-add { margin: 2px 0 6px; }
+.pf-card .pf-add + .pf-stock { margin-top: 20px; padding-top: 20px; }
+/* Las pestañas de dos o tres opciones (.seg), más visibles para todo el POS (22 nov, el usuario: "no se nota como tab"):
+   como los botones segmentados de Material 3, con borde y la elegida llena de magenta con su ✓. */
+.seg { background: #fff; box-shadow: inset 0 0 0 1.5px var(--border); padding: 4px; gap: 4px; }
+.seg button { color: var(--ink); font-weight: 800; }
+.seg button:hover:not(.on) { background: #fdf0f5; }
+.seg button.on { background: var(--brand); color: #fff; box-shadow: 0 3px 10px rgba(194, 24, 91, .28); }
+.seg button.on::before { content: '✓'; margin-right: 6px; font-weight: 900; }
+/* Título de la tarjeta con aire debajo, y "Agregar presentación" con aire arriba y abajo (22 nov). */
+.pf-card > .pf-lab { margin-bottom: 10px; }
+.pf-card .pf-gain + .pf-add, .pf-card .pf-add { margin: 10px 0 8px; padding: 8px 2px; }
+.pf-card > .pf-lab + * { margin-top: 22px !important; }
+/* Categoría, Se vende por e IGV en una fila (22 nov). */
+.pf-row3 { grid-template-columns: 1.2fr 1fr 1fr; }
+/* Espacio para el nombre de cada campo (22 nov, regla del usuario: el nombre que sube al borde nunca pegado a lo de arriba).
+   Para TODOS los campos del POS: entre un elemento y el campo que sigue, 18 px; entre filas de campos, 18 px. */
+.fgap > * + * { margin-top: 18px; }
+.frow { row-gap: 18px; }
+.pf-card .pf-gain + .pf-add, .pf-card .pf-add { margin: 12px 0 8px; }
+.cpm-card, .cpm .cpm-card { gap: 20px; }
+.cpm-sbody, .pfm-sbody { gap: 20px; }
+.cp-headcard .cp-fields { margin-top: 6px; }
+.vx-cname .field { margin-top: 12px; }
+/* Las pestañas sin sombra (22 nov, el usuario: "no debe parecerse a un botón"): la elegida con fondo rosado suave, letra
+   magenta y su ✓, como los botones segmentados de Material 3; la caja con su borde. */
+.seg button.on { background: #fbe1ec; color: var(--brand); box-shadow: none; font-weight: 900; }
+.seg button:hover:not(.on) { background: #fdf5f8; }
+.pf-card > .pf-stock { margin-top: 20px !important; padding-top: 22px; }
+.pfm-more > .pf-lab + * { margin-top: 4px !important; }
+.pfm-more > .pfm-row { margin-top: 0 !important; }
+.pf-nameigv { grid-template-columns: minmax(0, 1fr) 182px; align-items: start; }
+/* El pie de toda página de registro en la computadora (22 nov): igual al de Nueva compra. */
+.pf-foot { position: fixed; left: 0; right: 0; bottom: 0; z-index: 5; display: flex; align-items: center; gap: 18px; padding: 14px 28px; background: rgba(255, 255, 255, .96);
+  backdrop-filter: blur(6px); border-top: 1px solid var(--line); }
+.pf-footinfo { flex: 1; min-width: 0; font: 700 15px 'Nunito', sans-serif; color: var(--muted); }
+.pf-foottotal { font: 800 28px 'Baloo 2', sans-serif; }
+.pf-foot .btn { width: auto; padding: 0 34px; margin: 0; }
+.pf-foot .pf-cancel { margin-left: 8px; }
+.pf-page > .pf-main { padding-bottom: 110px; }
+/* El campo de cantidad con − y + (22 nov). */
+.field.qf { padding-top: 8px; padding-bottom: 8px; padding-left: 8px; padding-right: 8px; }
+.field.qf > .flabel { top: 0; right: auto; max-width: calc(100% - 20px); left: 9px; padding: 0 5px; font-size: 12.5px; font-weight: 800; color: var(--label); background: #fff; }
+.field.qf:focus-within > .flabel { color: var(--brand); }
+.qf-in { display: flex; align-items: center; gap: 6px; }
+.qf-in input { flex: 1; min-width: 0; text-align: center; font-weight: 800; font-size: 17px; }
+.field.qf :is(input)::placeholder { color: #b9a6ae; }
+.qf-btn { flex: none; width: 38px; height: 38px; border-radius: 19px; display: flex; align-items: center; justify-content: center; color: var(--brand); background: #fdf0f5; }
+.qf-btn:hover:not(:disabled) { background: #fbe1ec; }
+.qf-btn:disabled { opacity: .4; }
+/* Varios descuentos por cantidad (22 nov): una fila por descuento con su ✕. */
+.pf-tier { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 32px; gap: 10px; align-items: center; }
+.pf-tierlist > span { display: flex; flex-direction: column; gap: 2px; }
+.pf-tierlist > span > span:first-child { font-weight: 800; color: var(--ink); }
+@media (max-width: 420px) { .pf-tier { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr) 28px; gap: 8px; } }
+/* La ventana de una opción del producto en la computadora (22 nov). */
+.pf-optbody { padding: 4px 0 8px; max-height: calc(100vh - 300px); overflow-y: auto; }
+.pf-optfoot { padding-top: 14px; border-top: 1px solid var(--line); margin-top: 8px; }
+.pf-optfoot .btn { margin: 0; }
+.pf-deskrows { margin-top: 18px; border-top: 1px solid var(--line); }
+.pf-deskrows .pfm-row { margin-top: 0 !important; }
+/* "¿Qué vas a crear?" (22 nov, rehecho con la referencia de Casa Market): cabecera de color con Amaru y tres tarjetas con
+   su dibujo grande. */
+.tp-page { background: var(--bg); }
+.tp-main { flex: 1; overflow-y: auto; padding: 28px 28px 60px; }
+.tp-hero { position: relative; overflow: hidden; max-width: 1080px; margin: 0 auto; height: 200px; border-radius: 28px; background: var(--aurora); color: #fff;
+  display: flex; align-items: center; padding: 0 44px; }
+.tp-hero .stairs { position: absolute; right: 0; bottom: 0; width: 420px; height: 200px; opacity: .9; pointer-events: none; }
+.tp-herotxt { position: relative; z-index: 1; }
+.tp-herotxt h2 { margin: 0; font: 800 40px/1.1 'Baloo 2', sans-serif; }
+.tp-herotxt p { margin: 8px 0 0; font: 700 17px 'Nunito', sans-serif; opacity: .92; }
+.tp-inca { position: absolute; z-index: 1; right: 64px; bottom: 0; height: 190px; width: auto; }
+.tp-grid { position: relative; z-index: 2; max-width: 1020px; margin: -44px auto 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+.tp-card { position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 16px; padding: 30px 24px 26px; border-radius: 26px;
+  background: #fff; color: var(--ink); box-shadow: 0 14px 34px rgba(122, 10, 54, .10), inset 0 0 0 1.5px var(--line); transition: box-shadow .18s, transform .18s; }
+.tp-card:hover { transform: translateY(-4px); box-shadow: 0 20px 44px rgba(122, 10, 54, .16), inset 0 0 0 2px var(--brand); }
+.tp-art { position: relative; width: 150px; height: 128px; display: block; }
+.tp-circle { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 116px; height: 116px; border-radius: 50%; display: flex; align-items: center;
+  justify-content: center; color: var(--brand); background: radial-gradient(circle at 35% 30%, #fff 0, #fde3ee 55%, #f9cfe0 100%); box-shadow: 0 10px 24px rgba(194, 24, 91, .18); }
+.tp-badge { position: absolute; right: 4px; bottom: 2px; width: 52px; height: 52px; border-radius: 18px; background: #ffc629; color: #5a3a00; display: flex; align-items: center;
+  justify-content: center; box-shadow: 0 6px 14px rgba(90, 58, 0, .25); border: 3px solid #fff; transform: rotate(-8deg); }
+.tp-dot { position: absolute; border-radius: 50%; background: #f8bbd0; }
+.tp-dot.a { width: 14px; height: 14px; left: 6px; top: 14px; }
+.tp-dot.b { width: 9px; height: 9px; right: 18px; top: 4px; background: #ffc629; }
+.tp-dot.c { width: 7px; height: 7px; left: 22px; bottom: 6px; }
+.tp-txt { display: flex; flex-direction: column; gap: 6px; align-items: center; }
+.tp-txt b { font: 800 26px/1.1 'Baloo 2', sans-serif; color: var(--brand); }
+.tp-what { font: 700 15px/1.45 'Nunito', sans-serif; color: var(--ink); max-width: 260px; }
+.tp-txt em { font: 600 13.5px 'Nunito', sans-serif; font-style: normal; color: var(--muted); background: #fdf5f8; padding: 5px 12px; border-radius: 999px; }
+.tp-go { margin-top: auto; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #fdf0f5; color: var(--brand);
+  transition: background .18s, color .18s; }
+.tp-card:hover .tp-go { background: var(--brand); color: #fff; }
+.tp-soon { max-width: 1020px; margin: 22px auto 0; display: flex; align-items: center; justify-content: center; gap: 8px; font: 700 14px 'Nunito', sans-serif; color: var(--muted); }
+.tp-soon .ic { color: var(--brand); }
+/* Celular: la pregunta en la cabecera con Amaru; las tarjetas en fila (dibujo a la izquierda). */
+.tp-mhead { position: relative; z-index: 1; display: flex; align-items: flex-end; justify-content: space-between; gap: 8px; margin-top: 10px; min-height: 112px; }
+.tp-mhead > span { display: flex; flex-direction: column; gap: 4px; padding-bottom: 46px; }
+.tp-mhead b { font: 800 27px/1.1 'Baloo 2', sans-serif; color: #fff; }
+.tp-mhead small { font: 700 14px/1.35 'Nunito', sans-serif; color: rgba(255, 255, 255, .9); }
+.tp-minca { height: 132px; width: auto; flex: none; margin-bottom: -64px; }
+.tp-m .tp-grid { margin: 0; grid-template-columns: 1fr; gap: 12px; }
+.tp-m .tp-card { flex-direction: row; text-align: left; align-items: center; gap: 12px; padding: 16px 14px 16px 10px; }
+.tp-m .tp-art { width: 96px; height: 88px; flex: none; }
+.tp-m .tp-circle { width: 76px; height: 76px; }
+.tp-m .tp-circle .ic { font-size: 42px !important; }
+.tp-m .tp-badge { width: 36px; height: 36px; border-radius: 12px; right: 0; bottom: 0; border-width: 2px; }
+.tp-m .tp-badge .ic { font-size: 19px !important; }
+.tp-m .tp-txt { align-items: flex-start; flex: 1; min-width: 0; gap: 4px; }
+.tp-m .tp-txt b { font-size: 22px; }
+.tp-m .tp-what { font-size: 14px; }
+.tp-m .tp-txt em { font-size: 12.5px; padding: 3px 10px; }
+.tp-m .tp-go { margin: 0; width: 36px; height: 36px; flex: none; }
+@media (hover: none) { .tp-card:hover { transform: none; box-shadow: 0 14px 34px rgba(122, 10, 54, .10), inset 0 0 0 1.5px var(--line); } .tp-card:hover .tp-go { background: #fdf0f5; color: var(--brand); } }
+/* El servicio: una sola tarjeta al centro. */
+.pf-one { max-width: 760px; margin: 0 auto; width: 100%; }
+.pf-one .pf-row3 > *:first-child { display: contents; }
+.pf-preview { margin-top: 22px !important; display: flex; align-items: center; gap: 16px; padding: 16px; border-radius: 18px; background: #fdf5f8; box-shadow: inset 0 0 0 1px var(--line); }
+.pf-preview .ptl { flex: none; }
+.pf-prevtxt { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.pf-prevtxt small { font: 800 11.5px 'Nunito', sans-serif; letter-spacing: .8px; text-transform: uppercase; color: var(--label); }
+.pf-prevtxt b { font: 800 17px 'Nunito', sans-serif; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pf-prevtxt strong { font: 800 20px 'Baloo 2', sans-serif; color: var(--brand); }
+.pf-prices:has(> :only-child) { grid-template-columns: 1fr; }
+@media (hover: none) { .tp-card:hover { box-shadow: 0 1px 0 var(--line), 0 6px 20px rgba(122, 10, 54, .06), inset 0 0 0 1.5px var(--line); transform: none; } }
+.pf-preview .ptl { width: 60px; height: 60px; border-radius: 18px; background: #fff; color: var(--brand); display: flex; align-items: center; justify-content: center;
+  font-size: 30px; position: relative; box-shadow: 0 6px 16px rgba(122, 10, 54, .14); border: 0; }
+.pf-preview .ptl .ed { right: -6px; bottom: -6px; width: 24px; height: 24px; border-radius: 12px; font-size: 13px; }
+.tp-m .tp-txt em { display: none; }
+.tp-m .tp-card { padding-top: 14px; padding-bottom: 14px; }
+/* El formulario con identidad (22 nov, el usuario: "con el estilo de ¿Qué vas a crear?"): cabecera de color con cómo se verá
+   al vender, el tipo, la escalera y Amaru; las tarjetas suben sobre ella, cada una con su título e ícono. */
+.pf-wrap { max-width: 1240px; margin: 0 auto; }
+.pf-hero { position: relative; overflow: hidden; height: 176px; border-radius: 28px; background: var(--aurora); color: #fff; display: flex; align-items: center; gap: 22px;
+  padding: 0 36px 34px; }
+.pf-hero .stairs { position: absolute; right: 0; bottom: 0; width: 420px; height: 190px; opacity: .9; pointer-events: none; }
+.pf-hero > :not(.stairs) { position: relative; z-index: 1; }
+.pf-hero .ptl { width: 84px; height: 84px; border-radius: 24px; background: #fff; color: var(--brand); display: flex; align-items: center; justify-content: center;
+  font-size: 44px; position: relative; flex: none; border: 0; box-shadow: 0 10px 24px rgba(40, 0, 15, .25); }
+.pf-hero .ptl .ed { right: -6px; bottom: -6px; width: 28px; height: 28px; border-radius: 14px; font-size: 15px; }
+.pf-herotxt { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.pf-chip { align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 999px; background: rgba(255, 255, 255, .2);
+  font: 800 13px 'Nunito', sans-serif; }
+.pf-herotxt > b { font: 800 30px/1.1 'Baloo 2', sans-serif; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 640px; }
+.pf-heroprice { display: flex; align-items: baseline; gap: 10px; font: 800 26px 'Baloo 2', sans-serif; }
+.pf-heroprice small { font: 700 14px 'Nunito', sans-serif; opacity: .9; }
+.pf-inca { position: absolute !important; right: 70px; bottom: 0; height: 168px; width: auto; }
+.pf-over { margin-top: -38px; position: relative; z-index: 2; padding: 0 20px; }
+.pf-wrap > .pf-one { margin-top: -38px; position: relative; z-index: 2; }
+.pf-over .pf-card, .pf-wrap > .pf-one { box-shadow: 0 14px 34px rgba(122, 10, 54, .10), inset 0 0 0 1.5px var(--line); border-radius: 24px; }
+.pf-sechead { margin-bottom: 4px; }
+.pf-card > .pf-sechead + * { margin-top: 24px !important; }
+.pf-card .pf-deskrows { margin-top: 18px; }
+.pfm-more > .pf-sechead { margin-bottom: 6px; }
+.pfm-more > .pf-sechead + .pfm-row { margin-top: 8px !important; }
+.pfm-more.fgap > * + *, .pfm-more > * + * { margin-top: 0; }
+/* Amaru de cuerpo entero, nunca solo la cabeza (22 nov, el usuario): parado detrás de la tarjeta, que le tapa solo los pies. */
+.hero > .inca-peek { height: 196px; bottom: 56px; }
+@media (max-width: 359px) { .hero > .inca-peek { height: 166px; } }
+.tp-hero { height: 284px; padding-bottom: 44px; }
+.tp-inca { height: 222px; bottom: 50px; right: 80px; filter: drop-shadow(0 10px 16px rgba(60, 0, 20, .25)); }
+.tp-minca { height: 182px; margin-bottom: -38px; filter: drop-shadow(0 8px 12px rgba(60, 0, 20, .25)); }
+.tp-mhead > span { padding-bottom: 60px; }
+.cpm-amaru { padding-bottom: 150px; }
+.cpm-amaru img { height: 176px; }
+/* Que se vea entero sobre el botón de abajo (22 nov). */
+.cpm-amaru { padding-top: 12px; align-items: center; }
+.cpm-amaru img { height: 140px; }
+.cpm-amaru p { margin: 0; font-size: 14.5px; }
+.cpm-amaru p::before { bottom: auto; top: 50%; margin-top: -8px; }
+.cpm .cpm-card { gap: 16px; padding: 18px 16px; }
+.cpm-amaru { padding-top: 4px; }
+.cpm-amaru img { height: 128px; }
+/* Amaru de la cintura para arriba, asomado detrás de las tarjetas, y las escaleras enteras y en su proporción (22 nov,
+   el usuario: "ni solo la cabeza ni cuerpo entero"; "las escaleras no están bien"). La tarjeta le tapa solo el corte. */
+.hero > .inca-peek { height: 172px; bottom: 50px; }
+@media (max-width: 359px) { .hero > .inca-peek { height: 146px; } }
+.tp-hero { height: 214px; padding-bottom: 44px; }
+.tp-hero .stairs { width: 248px; height: 155px; bottom: 44px; }
+.tp-inca { height: 178px; bottom: 30px; right: 110px; }
+.tp-minca { height: 150px; margin-bottom: -46px; }
+.tp-mhead > span { padding-bottom: 54px; }
+.pf-hero .stairs { width: 220px; height: 138px; bottom: 38px; }
+.pf-inca { height: 150px; bottom: 26px; right: 120px; filter: drop-shadow(0 8px 14px rgba(60, 0, 20, .25)); }
+.tp-minca { height: 128px; margin-bottom: -40px; }
+.hero > .inca-peek { height: 156px; }
+/* Más grande y pegado al borde derecho, así el texto tiene su espacio (22 nov, el usuario). */
+.hero > .inca-peek { height: 196px; bottom: 44px; right: -14px; }
+@media (max-width: 359px) { .hero > .inca-peek { height: 170px; } }
+.tp-mhead { min-height: 150px; }
+.tp-minca { height: 196px; margin-bottom: -36px; margin-right: -30px; }
+/* Celular: Amaru de tamaño medio, sin quitarle espacio a las letras (22 nov). */
+.hero > .inca-peek { height: 158px; bottom: 46px; right: -4px; }
+@media (max-width: 359px) { .hero > .inca-peek { height: 140px; } }
+.tp-mhead { min-height: 120px; }
+.tp-minca { height: 158px; margin-bottom: -40px; margin-right: -12px; }
+/* Amaru detrás de las letras, como una imagen "detrás del texto" (22 nov, el usuario): el texto usa todo el ancho y
+   pasa por encima de Amaru; Amaru dentro del ancho de la tarjeta, así la tarjeta le tapa el corte de abajo. */
+.entry-mtext { max-width: none !important; position: relative; z-index: 2; }
+.entry-mtext, .tp-mhead > span { text-shadow: 0 1px 10px rgba(80, 0, 30, .35); }
+.hero > .inca-peek { z-index: 1; right: 22px; bottom: 52px; }
+.tp-mhead > span { position: relative; z-index: 2; max-width: none; }
+.tp-minca { position: absolute; right: -2px; bottom: -44px; margin: 0; z-index: 1; }
+.entry-mhero > .entry-mtext { z-index: 3 !important; }
+.entry-mhero > .inca-peek { z-index: 1 !important; }
+/* Amaru con "ajuste estrecho" (22 nov, el usuario: el texto puede llegar hasta Amaru pero nunca taparle la cara): va
+   flotando a la derecha dentro del texto y su silueta (shape-outside) aparta las letras; un espacio fino arriba lo baja
+   para que la tarjeta le tape la cintura. */
+.entry-mtext { display: flow-root; min-height: 150px; text-shadow: none; }
+.peek-gap { float: right; width: 1px; height: 40px; }
+.entry-mtext > .inca-peek, .tp-mhead .tp-minca { float: right; clear: right; position: static !important; height: 158px; width: auto; margin: 0 -6px -60px 6px;
+  shape-outside: url(inca-saludo-busto.webp); shape-image-threshold: .4; shape-margin: 8px; filter: drop-shadow(0 8px 12px rgba(60, 0, 20, .25)); }
+.tp-mhead { display: block; min-height: 0; }
+.tp-mhead > span { display: flow-root; min-height: 150px; padding-bottom: 0; text-shadow: none; }
+.tp-mhead > span > b, .tp-mhead > span > small { display: block; }
+.tp-mhead .tp-minca { shape-outside: url(inca-baston-busto.webp); }
+.entry-mhero > .entry-mtext { z-index: 1 !important; }
+/* Amaru hasta la barriga y sin hueco al lado del texto (22 nov, el usuario). */
+.peek-gap { height: 16px; }
+.entry-mtext, .tp-mhead > span { min-height: 0; }
+.entry-mtext > .inca-peek, .tp-mhead .tp-minca { height: 172px; margin-bottom: -46px; }
+.tp-mhead .tp-minca { margin-bottom: -32px; }
+/* Con poco texto, el texto baja un poco para no dejar hueco al lado de Amaru (22 nov). */
+.entry-mtext.low, .tp-mhead > span { padding-top: 26px; }
+.entry-mtext.low > .peek-gap, .tp-mhead .peek-gap { height: 0; }
+.entry-mtext.low > .inca-peek, .tp-mhead .tp-minca { margin-top: -10px; }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
