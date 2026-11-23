@@ -3701,6 +3701,15 @@ th.r .th-sort { flex-direction: row-reverse; }
 .pv-tabs button:hover { background: #fdf0f5; }
 .sheet .pv-tabs { padding: 8px 0 0; border-bottom: 0; }
 .sheet .pv-tabs button { font-size: 13px; gap: 4px; white-space: nowrap; padding: 0 6px; }
+/* Vence y lote en Agregar stock: de a dos si caben (la misma regla que la ventana de Stock). */
+.sk-vl { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important; }
+.sk-vl input[type="date"] { min-width: 0; width: 100%; }
+/* REGLA GENERAL de los campos, parte 2 (23 nov, el usuario: "siempre un espacio arriba"): un campo debajo de cualquier
+   otra cosa (un título, un texto, una barra, un precio) también queda a 18 px como mínimo, no solo debajo de otro campo.
+   En las cajas normales los márgenes se juntan (queda el mayor: 18 px). Lo revisa la prueba de campos (audit2.js). */
+:is(h2, h3, h4, p, small, .sec, .note, .hint, .sk-bar, .sk-pricetop, .sk-suggest, .ne-logo-note, .vx-lab, .card, .found2)
+  + :is(.field, .selfield, .qf, .pk-wrap, .frow, .cpm-two) { margin-top: var(--campos) !important; }
+:where(*):has(> .ne-fields) { row-gap: var(--campos) !important; }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
