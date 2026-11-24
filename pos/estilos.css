@@ -4007,6 +4007,16 @@ div.aqs-grid { row-gap: 26px !important; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: transparent; border-radius: 8px; }
 *:hover::-webkit-scrollbar-thumb { background: rgba(120, 40, 80, .32); }
+/* Computadora (24 nov, el usuario: "la barra no debe pasar de la cabecera"): el panel no baja entero; baja solo lo que está
+   debajo de la cabecera y las pestañas, así la barra (y su espacio) empieza debajo de ellas. */
+.sk-side { overflow: hidden; }
+.sk-side > .sk-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; }
+.sk-side > .pv { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; overflow: hidden; }
+.sk-side > .pv > .pv-cards { flex: 1 1 auto; min-height: 0; overflow-y: auto; }
+/* Un poco más bajas (24 nov, el usuario): arriba se ve el fondo oscuro para cerrar tocándolo. */
+.sheet:has(> .sheet-body > .sk-ficha), .sheet:has(> .sheet-body > .pv-sheet) {
+  height: calc(100dvh - 64px - var(--kb, 0px)); max-height: calc(100dvh - 64px - var(--kb, 0px));
+}
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
