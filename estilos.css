@@ -43,3 +43,12 @@ a { color: var(--enlace); }
 ul.lista { padding-left: 20px; }
 footer { margin-top: 40px; color: var(--suave); font-size: 15px; display: flex; flex-wrap: wrap; gap: 16px; }
 code { font-size: 15px; }
+
+/* REGLA GENERAL de las barras de desplazamiento (24 nov, el usuario: "nunca la barra clásica"): invisibles; al pasar el
+   mouse por encima de lo que baja, una barra fina y redondeada de Yupana. Para todo el sistema (POS, web, pago, panel). */
+* { scrollbar-width: thin; scrollbar-color: transparent transparent; }
+*:hover { scrollbar-color: rgba(120, 40, 80, .32) transparent; }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: transparent; border-radius: 8px; }
+*:hover::-webkit-scrollbar-thumb { background: rgba(120, 40, 80, .32); }

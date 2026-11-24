@@ -3986,6 +3986,27 @@ div.aqs-grid { row-gap: 26px !important; }
 .sheet-body > .sk-ficha .aqs-gan { padding: 10px 14px; }
 .sheet-body > .sk-ficha .sk-foot { padding-top: 10px; padding-bottom: 12px; }
 .sheet-body > .sk-ficha { margin-bottom: 0; }
+/* Celular (24 nov, el usuario): el detalle y las tres pestañas del stock, todas del MISMO alto (sin saltos al cambiar),
+   y con fondo propio abajo (el pie no deja ver lo de atrás). Lo de arriba de 40 px queda sin fondo: sin esquinas blancas. */
+.sheet:has(> .sheet-body > .sk-ficha), .sheet:has(> .sheet-body > .pv-sheet) {
+  background: linear-gradient(transparent 40px, #fbf7f8 40px);
+  height: calc(100dvh - 12px - var(--kb, 0px)); max-height: calc(100dvh - 12px - var(--kb, 0px));
+}
+.sheet-body:has(> .sk-ficha), .sheet-body:has(> .pv-sheet) { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+.sheet-body > .sk-ficha { flex: 1 0 auto; display: flex; flex-direction: column; }
+.sheet-body > .sk-ficha > .sk-body { flex: 1 0 auto; }
+.sheet:has(> .sheet-body > .pv-sheet) > .sheet-foot { background: #fbf7f8; }
+.sk-side > .sk-top { flex: none; }
+.sk-mas { width: 100%; height: 48px; display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 16px; }
+
+/* REGLA GENERAL de las barras de desplazamiento (24 nov, el usuario: "nunca la barra clásica"): invisibles; al pasar el
+   mouse por encima de lo que baja, una barra fina y redondeada de Yupana. Para todo el sistema (POS, web, pago, panel). */
+* { scrollbar-width: thin; scrollbar-color: transparent transparent; }
+*:hover { scrollbar-color: rgba(120, 40, 80, .32) transparent; }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: transparent; border-radius: 8px; }
+*:hover::-webkit-scrollbar-thumb { background: rgba(120, 40, 80, .32); }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
@@ -4040,3 +4061,12 @@ div.aqs-grid { row-gap: 26px !important; }
   .yw-chip, .yw-ring { display: none; }
   .yw-coin, .yw-glow { animation: none; }
 }
+
+/* REGLA GENERAL de las barras de desplazamiento (24 nov, el usuario: "nunca la barra clásica"): invisibles; al pasar el
+   mouse por encima de lo que baja, una barra fina y redondeada de Yupana. Para todo el sistema (POS, web, pago, panel). */
+* { scrollbar-width: thin; scrollbar-color: transparent transparent; }
+*:hover { scrollbar-color: rgba(120, 40, 80, .32) transparent; }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: transparent; border-radius: 8px; }
+*:hover::-webkit-scrollbar-thumb { background: rgba(120, 40, 80, .32); }

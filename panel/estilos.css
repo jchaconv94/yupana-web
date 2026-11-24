@@ -522,3 +522,12 @@ th.right .th-sort { flex-direction: row-reverse; }
   .yw-chip, .yw-ring { display: none; }
   .yw-coin, .yw-glow { animation: none; }
 }
+
+/* REGLA GENERAL de las barras de desplazamiento (24 nov, el usuario: "nunca la barra clásica"): invisibles; al pasar el
+   mouse por encima de lo que baja, una barra fina y redondeada de Yupana. Para todo el sistema (POS, web, pago, panel). */
+* { scrollbar-width: thin; scrollbar-color: transparent transparent; }
+*:hover { scrollbar-color: rgba(120, 40, 80, .32) transparent; }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: transparent; border-radius: 8px; }
+*:hover::-webkit-scrollbar-thumb { background: rgba(120, 40, 80, .32); }
