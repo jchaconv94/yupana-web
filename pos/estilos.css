@@ -4064,6 +4064,18 @@ tr:has(.aviso-vence) > td { padding-bottom: 28px; }
 td:has(> .aviso-vence.sm) { position: static; }
 .aqs-f.aqs-f { row-gap: 4px !important; }
 .cp-in.bad { border-color: var(--bad); background: #fff5f5; }
+/* La flechita del menú que apunta al botón que lo abrió (24 nov, el usuario: "que se sepa de dónde sale; que sus líneas
+   sean las del mismo recuadro"). El menú y la puntita son UNA sola figura: sin borde ni sombra propios; el contorno fino y
+   la sombra los dibuja un solo filtro sobre las dos juntas, así la línea sigue sin cortes. */
+.con-flecha { overflow: visible !important; border: 0 !important; box-shadow: none !important;
+  filter: drop-shadow(0 0 0.6px rgba(60, 20, 40, .45)) drop-shadow(0 14px 22px rgba(40, 10, 25, .16)); }
+.con-flecha::before { content: ''; position: absolute; left: calc(var(--fx) - 8px); width: 16px; height: 16px; background: #fff; transform: rotate(45deg); pointer-events: none; }
+.con-flecha.arriba::before { top: -7px; border-radius: 3px 0 0 0; }
+.con-flecha.abajo::before { bottom: -7px; border-radius: 0 0 3px 0; }
+.con-flecha.arriba.esq-der { border-top-right-radius: 6px; }
+.con-flecha.arriba.esq-izq { border-top-left-radius: 6px; }
+.con-flecha.abajo.esq-der { border-bottom-right-radius: 6px; }
+.con-flecha.abajo.esq-izq { border-bottom-left-radius: 6px; }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
