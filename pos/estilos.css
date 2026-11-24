@@ -4038,6 +4038,32 @@ div.aqs-grid { row-gap: 26px !important; }
 * { -webkit-tap-highlight-color: transparent; }
 /* Los recuadros del detalle nunca se aplastan: cada uno con su alto; si no entran, se baja (24 nov). */
 .pv-cards > * { flex-shrink: 0; }
+/* El aviso de la fecha de vencimiento (24 nov): pegado debajo del campo; rojo si ya pasó o vence hoy, ámbar si es muy lejana. */
+.aviso-vence { display: flex; align-items: center; gap: 5px; padding-left: 4px; font: 800 12.5px/1.3 'Nunito', sans-serif; }
+.aviso-vence.bad { color: var(--bad); }
+.aviso-vence.warn { color: #8a5000; }
+.aviso-vence.sm { font-size: 11.5px; padding-left: 2px; margin-top: 3px; }
+.field.warn { border-color: #e0a100 !important; }
+.rl-in.warn, .cp-in.warn { border-color: #e0a100; }
+.rl-vcell { display: flex; flex-direction: column; min-width: 0; }
+/* El aviso en las tablas no mueve el campo (24 nov, el usuario): va debajo, en una línea, sin empujar la fila. */
+.rl-vcell { position: relative; }
+.rl-vcell > .aviso-vence.sm, td > .aviso-vence.sm { position: absolute; left: 2px; top: calc(100% + 1px); margin: 0; white-space: nowrap; line-height: 1; }
+td:has(> .aviso-vence.sm) { position: relative; }
+/* La fila con aviso crece solo hacia abajo: los campos quedan donde estaban y el aviso no pisa la línea. */
+.rl-row:has(.aviso-vence) { align-items: start; padding-bottom: 24px; }
+tr:has(.aviso-vence) > td { padding-bottom: 22px; }
+.rl-row:has(.aviso-vence) > .rl-x { margin-top: 4px; }
+/* El aviso en las tablas a la misma distancia del campo que en las ventanas (24 nov, el usuario). */
+.rl-vcell > .aviso-vence.sm, td > .aviso-vence.sm { top: calc(100% + 7px); }
+.rl-row:has(.aviso-vence) { padding-bottom: 30px; }
+tr:has(.aviso-vence) > td { padding-bottom: 28px; }
+/* El aviso pegado a su campo en todas partes (6 px, como en "Agregar lote"); en el celular el campo de al lado no se estira. */
+.aqs-f { row-gap: 4px !important; }
+.cpm-two { align-items: start; }
+td:has(> .aviso-vence.sm) { position: static; }
+.aqs-f.aqs-f { row-gap: 4px !important; }
+.cp-in.bad { border-color: var(--bad); background: #fff5f5; }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
