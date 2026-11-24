@@ -4076,6 +4076,54 @@ td:has(> .aviso-vence.sm) { position: static; }
 .con-flecha.arriba.esq-izq { border-top-left-radius: 6px; }
 .con-flecha.abajo.esq-der { border-bottom-right-radius: 6px; }
 .con-flecha.abajo.esq-izq { border-bottom-left-radius: 6px; }
+
+/* Corregir stock (24 nov): los 3 caminos (Restar · Sumar · Lo conté), de qué lote sale y el conteo por lote. */
+.aj-modos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.aj-modos button { min-height: 56px; border-radius: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; background: #fff; box-shadow: inset 0 0 0 1.5px var(--line2, #e6d3da); font: 800 14px 'Nunito', sans-serif; color: var(--ink); }
+.aj-modos button .ic { color: var(--muted); }
+.aj-modos button:hover:not(:disabled) { background: #fdf0f5; }
+.aj-modos button.on { background: #fdf0f5; color: var(--brand); box-shadow: inset 0 0 0 2px var(--brand); }
+.aj-modos button.on .ic { color: var(--brand); }
+.aj-modos button:disabled { opacity: .45; cursor: not-allowed; }
+.aj-lotes { display: flex; flex-direction: column; border-radius: 14px; overflow: hidden; box-shadow: inset 0 0 0 1.5px var(--line2, #e6d3da); }
+.aj-lotes button { display: flex; align-items: center; gap: 10px; min-height: 56px; padding: 6px 14px; background: #fff; text-align: left; }
+.aj-lotes button + button { border-top: 1px solid #f0e4e8; }
+.aj-lotes button .ic { color: var(--muted); flex: none; }
+.aj-lotes button.on { background: #fdf6f8; }
+.aj-lotes button.on .ic { color: var(--brand); }
+.aj-lt { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.aj-lt b { font: 800 14.5px 'Nunito', sans-serif; color: var(--ink); }
+.aj-lt small { font: 700 12.5px 'Nunito', sans-serif; color: var(--muted); }
+.aj-lt small.bad { color: var(--bad); }
+.aj-lotes em { font: 800 13px 'Nunito', sans-serif; font-style: normal; color: var(--muted); white-space: nowrap; }
+.aj-conteo { border-radius: 14px; overflow: hidden; box-shadow: inset 0 0 0 1.5px var(--line2, #e6d3da); }
+.aj-cr { display: grid; grid-template-columns: minmax(0, 1fr) 64px 118px; gap: 8px; align-items: center; min-height: 58px; padding: 6px 12px; }
+.aj-cr + .aj-cr { border-top: 1px solid #f0e4e8; }
+.aj-ch { min-height: 36px; background: #faf3f5; font: 800 11.5px 'Nunito', sans-serif; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+.aj-cl { display: flex; flex-direction: column; min-width: 0; }
+.aj-cl b { font: 800 14px 'Nunito', sans-serif; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.aj-cl small { font: 700 12px 'Nunito', sans-serif; color: var(--muted); }
+.aj-cy { font: 800 15px 'Nunito', sans-serif; color: var(--muted); text-align: center; }
+.aj-ci { display: flex; align-items: center; gap: 6px; }
+.aj-ci .rl-in { width: 64px; flex: none; }
+.aj-ci em { font: 800 13px 'Nunito', sans-serif; font-style: normal; }
+.aj-ci em.neg, .sk-foot b.neg { color: var(--bad); }
+.aj-ci em.pos, .sk-foot b.pos { color: var(--ok); }
+.sk-reasons button { text-align: center; line-height: 1.2; }
+/* Al bajar, nada se asoma por las esquinas redondeadas de arriba (24 nov): la hoja recorta su contenido con su forma. */
+.sheet-body:has(> .sk-ficha), .sheet-body:has(> .pv-sheet) { border-radius: 24px 24px 0 0; }
+/* Corregir stock › "¿Qué pasó?": las situaciones con su línea de ayuda (24 nov). */
+.aj-sit { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.aj-sit button { min-height: 86px; padding: 10px 6px; border-radius: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; background: #fff; box-shadow: inset 0 0 0 1.5px var(--line2, #e6d3da); text-align: center; }
+.aj-sit button .ic { color: var(--muted); margin-bottom: 2px; }
+.aj-sit button b { font: 800 13.5px/1.2 'Nunito', sans-serif; color: var(--ink); }
+.aj-sit button small { font: 700 11.5px/1.2 'Nunito', sans-serif; color: var(--muted); }
+.aj-sit button:hover:not(:disabled) { background: #fdf0f5; }
+.aj-sit button.on { background: #fdf0f5; box-shadow: inset 0 0 0 2px var(--brand); }
+.aj-sit button.on .ic, .aj-sit button.on b { color: var(--brand); }
+.aj-sit button.ir small { color: var(--brand); }
+.aj-sit button:disabled { opacity: .45; cursor: not-allowed; }
+.aj-modos { grid-template-columns: repeat(2, 1fr); }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
