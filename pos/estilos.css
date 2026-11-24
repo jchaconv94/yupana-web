@@ -3962,6 +3962,30 @@ div.aqs-grid { row-gap: 26px !important; }
   .sk-cuanto small { font-size: 14px; }
   .sk-back { width: 44px; height: 44px; }
 }
+/* El detalle con la misma cabecera baja (24 nov): sin franja ni esquinas blancas, la rayita encima y la cabecera fija. */
+.sheet-body:has(> .pv-sheet) { padding-top: 0; }
+.sheet-body > .pv-sheet { margin-top: 0; }
+.sheet:has(> .sheet-body > .pv-sheet) > .grab { z-index: 8; }
+/* Sin el borde claro alrededor de la cabecera (24 nov, el usuario): la hoja ya no pinta blanco detrás de las esquinas de
+   la cabecera; el fondo claro empieza debajo de ellas (en el stock y en el detalle del producto). */
+.sheet:has(> .sheet-body > .sk-ficha), .sheet:has(> .sheet-body > .pv-sheet) { background: transparent; box-shadow: none; }
+.sheet-body:has(> .sk-ficha), .sheet-body:has(> .pv-sheet) { background: linear-gradient(transparent 40px, #fbf7f8 40px); }
+/* El stock en el celular, alto casi toda la pantalla (24 nov, el usuario: "que todo entre sin hacer scroll"). */
+.sheet:has(> .sheet-body > .sk-ficha) { max-height: calc(100dvh - 12px - var(--kb, 0px)); }
+/* Compacto en la hoja del celular para que todo entre sin bajar (24 nov): menos aire, no menos cosas. */
+.sheet-body > .sk-ficha .sk-hero2 { padding-top: 22px; padding-bottom: 10px; }
+.sheet-body > .sk-ficha .sk-body { gap: 10px; padding-top: 12px; }
+.sheet-body > .sk-ficha .sk-sec { padding: 10px 14px 12px; }
+.sheet-body > .sk-ficha .sk-sec h3 { margin-bottom: 8px; }
+.sheet-body > .sk-ficha .sk-pres button { padding: 8px 6px 7px; gap: 1px; }
+.sheet-body > .sk-ficha .sk-reasons button { padding: 8px 6px; gap: 4px; }
+.sheet-body > .sk-ficha .sk-step button { width: 48px; height: 48px; }
+.sheet-body > .sk-ficha .sk-step input { height: 52px; }
+.sheet-body > .sk-ficha .sk-sec h3 + .aqs-grid { margin-top: 18px; }
+.sheet-body > .sk-ficha .aqs-grid { grid-template-columns: 1fr 1fr; column-gap: 10px; }
+.sheet-body > .sk-ficha .aqs-gan { padding: 10px 14px; }
+.sheet-body > .sk-ficha .sk-foot { padding-top: 10px; padding-bottom: 12px; }
+.sheet-body > .sk-ficha { margin-bottom: 0; }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
