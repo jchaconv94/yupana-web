@@ -4124,6 +4124,26 @@ td:has(> .aviso-vence.sm) { position: static; }
 .aj-sit button.ir small { color: var(--brand); }
 .aj-sit button:disabled { opacity: .45; cursor: not-allowed; }
 .aj-modos { grid-template-columns: repeat(2, 1fr); }
+/* Conteo por lote: la columna "Contaste" centrada, con − y + a los costados y la diferencia debajo (24 nov). */
+.aj-cr { grid-template-columns: minmax(0, 1fr) 64px 150px; }
+.aj-ch > span:nth-child(2), .aj-ch > span:nth-child(3) { text-align: center; }
+.aj-ci { flex-direction: column; justify-content: center; gap: 2px; }
+.aj-step { display: flex; align-items: center; justify-content: center; gap: 6px; }
+.aj-step button { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: #fdf0f5; color: var(--brand); flex: none; }
+.aj-step button:hover { background: #fbe0ea; }
+.aj-ci .rl-in { width: 58px; text-align: center; }
+.aj-ci em { line-height: 1; }
+@media (max-width: 560px) { .aj-cr { grid-template-columns: minmax(0, 1fr) 46px 138px; gap: 6px; padding: 6px 10px; } .aj-step { gap: 4px; } .aj-ci .rl-in { width: 52px; } }
+/* La diferencia en su columna "Dif." (24 nov): una pastilla roja si falta, verde si sobra; 0 en gris. */
+.aj-cr { grid-template-columns: minmax(0, 1fr) 64px 150px 56px; }
+.aj-ch > span:nth-child(4) { text-align: center; }
+.aj-ci { flex-direction: row; }
+.aj-cd { display: flex; justify-content: center; }
+.aj-cd em { min-width: 40px; padding: 4px 8px; border-radius: 999px; text-align: center; font: 800 13.5px 'Nunito', sans-serif; font-style: normal; }
+.aj-cd em.neg { background: #fde8e7; color: var(--bad); }
+.aj-cd em.pos { background: #e6f4ea; color: var(--ok); }
+.aj-cero { font: 700 13.5px 'Nunito', sans-serif; color: var(--muted); }
+@media (max-width: 560px) { .aj-cr { grid-template-columns: minmax(0, 1fr) 40px 124px 44px; gap: 4px; padding: 6px 8px; } .aj-step button { width: 32px; height: 32px; } .aj-ci .rl-in { width: 46px; } .aj-cd em { min-width: 0; padding: 3px 6px; font-size: 12.5px; } .aj-ch { font-size: 10.5px; } }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
