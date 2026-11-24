@@ -3900,7 +3900,7 @@ html:has(.sheet-wrap, .dialog-wrap, .sk-wrap), html:has(.sheet-wrap, .dialog-wra
 .aqs-help.ok { color: var(--ok); }
 .aqs-help.nuevo { color: var(--brand); }
 .aqs-help.bad { color: var(--bad); }
-.aqs-lista { grid-column: 1 / -1; position: static; width: auto; max-width: none; margin-top: -8px; }
+.aqs-lista { z-index: 200; padding: 6px; border-radius: 14px; }
 /* Cuánto ganas con el costo nuevo: el precio de venta es el del producto (solo se ve). */
 .aqs-gan { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; padding: 14px 16px; border-radius: 18px; background: #fff; box-shadow: 0 1px 2px rgba(60, 20, 40, .06); }
 .aqs-gan span { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
