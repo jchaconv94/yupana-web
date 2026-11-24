@@ -3868,6 +3868,53 @@ html:has(.sheet-wrap, .dialog-wrap, .sk-wrap), html:has(.sheet-wrap, .dialog-wra
 /* 23 nov (el usuario: "todos los componentes de ese formulario deben tener el mismo ancho"): en el celular el contenido de
    toda ventana usa el mismo ancho que su botón de abajo (16 px del borde, como Material), no 36 px. */
 .sheet-body > .cpm-sbody { margin-left: -4px; margin-right: -4px; padding-left: 0; padding-right: 0; }
+
+
+/* El campo del número de lote con ⌄ para elegir uno que ya tiene (23 nov, como Odoo). */
+.rl-lotc, .rl-lotf { position: relative; }
+.rl-lotc .rl-in { width: 100%; }
+.rl-lotc.con .rl-in, .rl-lotf.con input { padding-right: 44px; }
+.rl-lotbtn { position: absolute; right: 4px; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center; color: var(--muted); background: transparent; }
+.rl-lotbtn:hover { background: #fdf0f5; color: var(--brand); }
+
+/* Agregar stock › Lotes (23 nov): la lista corta de lotes y "+ Agregar lote", que abre su ventana. */
+.aqs-x { width: 44px; height: 44px; margin-right: 6px; border-radius: 10px; display: grid; place-items: center; color: var(--muted); background: transparent; flex: none; }
+.aqs-x:hover { background: #fdf0f5; color: var(--bad); }
+.aqs-add { width: 100%; height: 48px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+/* Agregar stock › ¿Qué llegó? (23 nov): una tablita (lote, vence, cantidad, costo), como "Aumentar stock" de Casa Market. */
+.aqs-tab { border-radius: 14px; box-shadow: inset 0 0 0 1.5px var(--line2, #e6d3da); overflow: hidden; margin-bottom: 12px; }
+.aqs-tr { display: flex; align-items: center; }
+.aqs-tr + .aqs-tr { border-top: 1px solid #f0e4e8; }
+.aqs-th { display: grid; grid-template-columns: minmax(0, 1.4fr) 1fr .6fr .9fr; gap: 8px; min-height: 38px; padding: 0 50px 0 14px; background: #faf3f5; font: 800 11.5px 'Nunito', sans-serif; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+.aqs-th > span:last-child { display: none; }
+.aqs-cells { flex: 1; min-width: 0; display: grid; grid-template-columns: minmax(0, 1.4fr) 1fr .6fr .9fr; gap: 8px; align-items: center; min-height: 58px; padding: 6px 0 6px 14px; background: transparent; text-align: left; font: 700 14px 'Nunito', sans-serif; color: var(--ink); cursor: pointer; }
+.aqs-cells:hover { background: #fdf6f8; }
+.aqs-lot { display: flex; flex-direction: column; min-width: 0; }
+.aqs-lot b { font: 800 14.5px 'Nunito', sans-serif; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.aqs-lot small { font: 700 12px 'Nunito', sans-serif; color: var(--muted); }
+@media (max-width: 560px) { .sheet .frow.pf-count:not(.rl-hoja) { grid-template-columns: 1fr; } }
+/* Agregar stock (23 nov, el usuario: "campos no tan anchos, con descripciones"): dos columnas y una línea bajo cada campo. */
+.aqs-grid { display: grid; grid-template-columns: 1fr 1fr; column-gap: 14px; row-gap: 18px; }
+.aqs-f { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.aqs-help { display: flex; align-items: center; gap: 5px; padding-left: 4px; font: 700 12.5px 'Nunito', sans-serif; color: var(--muted); }
+.aqs-help.ok { color: var(--ok); }
+.aqs-help.nuevo { color: var(--brand); }
+.aqs-help.bad { color: var(--bad); }
+.aqs-lista { grid-column: 1 / -1; position: static; width: auto; max-width: none; margin-top: -8px; }
+/* Cuánto ganas con el costo nuevo: el precio de venta es el del producto (solo se ve). */
+.aqs-gan { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; padding: 14px 16px; border-radius: 18px; background: #fff; box-shadow: 0 1px 2px rgba(60, 20, 40, .06); }
+.aqs-gan span { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.aqs-gan small { font: 700 12.5px 'Nunito', sans-serif; color: var(--muted); }
+.aqs-gan b { font: 800 16px 'Nunito', sans-serif; color: var(--ink); }
+.aqs-gan b em { font: 800 12px 'Nunito', sans-serif; font-style: normal; color: var(--brand); }
+.aqs-gan .ok b { color: var(--ok); }
+.aqs-gan .low b { color: var(--warn); }
+@media (max-width: 560px) { .aqs-grid { grid-template-columns: 1fr; } }
+/* La descripción pegada a su campo (24 nov, el usuario: "más pegado al campo de arriba y separado abajo"). */
+.aqs-grid > .aqs-f { row-gap: 4px !important; }
+div.aqs-grid { row-gap: 26px !important; }
+/* Regla de campos: el primer campo queda a 18 px del título de su sección. */
+.sk-sec h3 + .aqs-grid { margin-top: 18px; }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
