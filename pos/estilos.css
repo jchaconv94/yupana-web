@@ -2515,7 +2515,7 @@ button.field.selfield { width: 100%; text-align: left; cursor: pointer; }
 .vx-stock { position: absolute; left: 50%; bottom: -8px; transform: translateX(-50%); white-space: nowrap; padding: 2px 8px; border-radius: 999px;
   font: 800 11.5px 'Nunito', sans-serif; background: var(--okSoft, #e8f5ec); color: var(--ok, #1b6b35); box-shadow: 0 0 0 2px #fff; }
 .vx-stock.poco { background: #fff1db; color: #a15c00; }
-.vx-stock.agotado { background: #efe9eb; color: #7a6970; }
+.vx-stock.agotado { background: #efe9eb; color: #5f5157; }
 .vx-tile.out .vx-thumb { filter: grayscale(.8); opacity: .6; }
 .vx-tile.out .vx-name { color: var(--muted); }
 
@@ -3800,7 +3800,7 @@ html:has(.sheet-wrap, .dialog-wrap, .sk-wrap), html:has(.sheet-wrap, .dialog-wra
 .plg-txt { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
 .plg-txt b { font: 800 15.5px 'Nunito', sans-serif; color: var(--ink); }
 .plg-txt small { font: 600 13px 'Nunito', sans-serif; color: var(--muted); }
-.plg-txt small.warn { color: #b26a00; }
+.plg-txt small.warn { color: #975a00; }
 .plg-txt small.bad { color: var(--bad, #c62828); }
 .plg-head > .ic:last-child { color: var(--muted); transition: transform .2s; flex: none; }
 .plg.open .plg-head > .ic:last-child { transform: rotate(180deg); }
