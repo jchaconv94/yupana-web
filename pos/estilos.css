@@ -2359,6 +2359,9 @@ button.field.selfield { width: 100%; text-align: left; cursor: pointer; }
 .pk-sheet .pk-list { max-height: none; }
 .pk-sheet .pk-list button { min-height: 52px; font-size: 16px; }
 .pk-sel { padding: 5px 8px 5px 12px; gap: 4px; font-weight: 800; cursor: pointer; }
+/* "Mostrar 10 ⌄" (25 nov, el usuario): la flecha al costado del número, no debajo (la regla vieja de `.pager .sel .ic` la ponía suelta). */
+.pager .pk-sel { height: 34px; padding: 0 8px 0 12px; gap: 6px; }
+.pager .pk-sel .ic { position: static; font-size: 18px; color: var(--muted); }
 
 /* "En tu cuenta" (21 nov): la venta abierta se guarda en la cuenta. */
 .vx-cloud { display: inline-flex; align-items: center; gap: 4px; padding: 3px 9px; border-radius: 999px; background: var(--okSoft, #e8f5ec);
@@ -4220,6 +4223,47 @@ td:has(> .aviso-vence.sm) { position: static; }
 .aj-compra span { flex: 1; min-width: 0; display: flex; flex-direction: column; }
 .aj-compra b { font: 800 14.5px 'Nunito', sans-serif; }
 .aj-compra small { font: 700 12.5px 'Nunito', sans-serif; color: var(--muted); }
+/* Lotes y vencimientos en una ventana (25 nov, el usuario: antes era otra página). Lo de adentro corre; la cabecera queda. */
+.vt-body { padding: 16px 18px 18px; max-height: calc(100vh - 200px); overflow-y: auto; display: flex; flex-direction: column; gap: 14px; }
+.vt-body > .pl-strip { margin: 0; }
+.vt-card { max-height: none; }
+.vt-card .tscroll { min-height: 220px; }
+.vt-mbody { padding: 14px 16px 8px; display: flex; flex-direction: column; gap: 12px; }
+.vt-seg button { padding: 8px 6px; font-size: 14px; min-height: 44px; }
+.vt-seg button em { font-style: normal; font-size: 12px; opacity: .8; }
+.vt-seg button.on::before { content: none; }
+.vt-mlist { margin: 0 -16px; }
+/* El panel de filtros de la computadora (25 nov, opción B del usuario; como Stripe y Notion): pegado al botón "Filtros",
+   encima de la tabla. Izquierda: los filtros; derecha: las opciones del elegido; abajo: Quitar filtros y Listo. */
+.flp { z-index: 72; display: grid; grid-template-columns: 210px 1fr; grid-template-rows: minmax(0, 1fr) auto; background: #fff; border-radius: 18px; overflow: hidden;
+  box-shadow: 0 18px 50px rgba(60, 10, 30, .22), 0 0 0 1px var(--line); }
+.flp-l { background: #fbf7f8; padding: 10px; display: flex; flex-direction: column; gap: 4px; border-right: 1px solid var(--line); overflow-y: auto; }
+.flp-l button { display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 12px; border-radius: 12px; font: 800 15px 'Nunito', sans-serif; color: var(--ink); text-align: left; }
+.flp-l button > span { flex: 1; min-width: 0; }
+.flp-l button > .ic { color: var(--muted); }
+.flp-l button:hover { background: #fdf0f5; }
+.flp-l button.on { background: #fff; color: var(--brand); box-shadow: 0 1px 3px rgba(0, 0, 0, .08); }
+.flp-l button.on > .ic { color: var(--brand); }
+.flp-l em { font-style: normal; min-width: 22px; height: 22px; padding: 0 6px; border-radius: 11px; background: var(--brand); color: #fff; font-size: 12.5px; display: inline-grid; place-items: center; }
+.flp-l small { font: 800 12.5px 'Nunito', sans-serif; color: var(--brand); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 80px; }
+.flp-r { padding: 12px 14px 8px; display: flex; flex-direction: column; min-height: 0; min-width: 0; }
+.flp-r .pk-search { margin: 0 0 8px; }
+.flp-r .pk-create { width: 100%; margin: 0 0 6px; }
+.flp-list { display: flex; flex-direction: column; overflow-y: auto; min-height: 0; max-height: 360px; }
+.flp-list button { display: flex; align-items: center; gap: 12px; min-height: 50px; padding: 4px 10px; border-radius: 12px; text-align: left; font: 700 15px 'Nunito', sans-serif; color: var(--ink); flex: none; }
+.flp-list button > .ic:first-child { color: var(--brand); flex: none; }
+.flp-list button > .ic:nth-child(2) { color: var(--muted); flex: none; }
+.flp-list button:hover { background: var(--field); }
+.flp-list button.on { background: #fdf0f5; color: var(--brand); font-weight: 800; }
+.flp-f { grid-column: 1 / 3; display: flex; align-items: center; justify-content: space-between; gap: 10px; border-top: 1px solid var(--line); padding: 10px 14px; }
+/* El lápiz de cada categoría en la ventana de categorías (25 nov, el usuario): cambiar el nombre o borrar. Arriba a la
+   izquierda (a la derecha va el ✓ de la elegida). */
+.ctw-cell { position: relative; display: flex; }
+.ctw-cell > .ctw-tile { flex: 1; }
+.ctw-edit { position: absolute; top: 6px; left: 6px; width: 32px; height: 32px; border-radius: 16px; display: grid; place-items: center; color: var(--muted); background: #fff;
+  box-shadow: 0 0 0 1px var(--line); }
+.ctw-edit::after { content: ''; position: absolute; inset: -6px; }
+.ctw-edit:hover { color: var(--brand); box-shadow: 0 0 0 1.5px var(--brand); }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
