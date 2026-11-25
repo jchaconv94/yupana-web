@@ -756,6 +756,16 @@ button.bubble { text-align: left; cursor: pointer; color: var(--ink); font-famil
   .keep-shot { padding: 28px 22px; }
   .keep-shot .phone { width: 196px; }
 }
+
+/* Amaru, el inca de Yupana (25 nov, el usuario: "es el embajador de la marca… tiene que aparecer él siempre"): de cuerpo
+   entero; solo en "¡Empieza hoy, gratis!" (el usuario: en las demás secciones "se ve como intruso"). */
+.amaru { display: block; height: auto; pointer-events: none; user-select: none; filter: drop-shadow(0 14px 18px rgba(60, 0, 25, 0.18)); }
+.final { position: relative; }
+.amaru-final { position: relative; width: auto; height: 170px; margin: 18px auto -64px; filter: drop-shadow(0 14px 18px rgba(0, 0, 0, 0.25)); }
+@media (min-width: 900px) {
+  .final-in { padding-left: 0; }
+  .amaru-final { position: absolute; left: 6%; bottom: -64px; height: 330px; margin: 0; }
+}
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
