@@ -2898,7 +2898,15 @@ button.pl-stat.on, button.pl-stat.on:hover { box-shadow: 0 0 0 2px var(--brand),
   border-bottom: 1px solid var(--line); text-align: left; }
 .flt-quitar em { font-style: normal; min-width: 22px; height: 22px; padding: 0 6px; border-radius: 11px; background: var(--brand); color: #fff; font-size: 12.5px; display: inline-grid; place-items: center; }
 /* Precio y Estado con aire entre los dos (25 nov, el usuario: "muy pegados"). */
-.ptable th.pl-est, .ptable td.pl-est { padding-left: 40px; }
+/* El MISMO espacio entre todas las columnas (25 nov, el usuario): cada columna a su ancho justo y lo que sobra, repartido
+   en partes iguales (`--g`, lo calcula `useGapsIguales`). El nombre del producto baja de línea si no entra. */
+.ptable.gaps th, .ptable.gaps td { padding-left: var(--g, 32px); padding-right: 0; white-space: nowrap; }
+.ptable.gaps th:first-child, .ptable.gaps td:first-child, .ptable.gaps th:nth-child(2), .ptable.gaps td:nth-child(2) { padding-left: 12px; }
+.ptable.gaps th:last-child, .ptable.gaps td:last-child { padding-right: 14px; }
+.ptable.gaps th:nth-child(2) { width: var(--pw, auto); }
+.ptable.gaps.midiendo { width: auto !important; }
+.ptable.gaps.midiendo th:nth-child(2) { width: auto; }
+.ptable.gaps.midiendo th:nth-child(n + 3), .ptable.gaps.midiendo td:nth-child(n + 3) { padding-left: 0; }
 /* El stock y, debajo en letra chica, cuándo vence (25 nov, el usuario: la etiqueta ensanchaba la columna). */
 .pl-stk { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 3px; }
 .pl-stk > small { font-size: 12.5px; }
@@ -4293,6 +4301,13 @@ td:has(> .aviso-vence.sm) { position: static; }
 .lsrch > .flt-chips::-webkit-scrollbar { display: none; }
 .lsrch > .flt-chips .flt-chip, .lsrch > .flt-chips .flt-clear { flex: none; white-space: nowrap; }
 .flt-btn.ico { width: 42px; padding: 0; justify-content: center; }
+
+/* La cabecera de color de toda hoja con título (25 nov, el usuario: "unifiquemos las ventanas en el celular"): la misma de
+   las ventanas; fija arriba (solo corre lo de abajo), con la rayita para bajar la hoja encima, en blanco. */
+.sheet > .sheet-top { margin: 0; flex: none; border-radius: 24px 24px 0 0; padding: 24px 56px 20px 18px; display: flex; align-items: center; gap: 14px; touch-action: none; }
+.sheet > .sheet-top .vx-dhico { width: 50px; height: 50px; border-radius: 14px; }
+.sheet:has(> .sheet-top) > .grab { position: absolute; left: 50%; top: 0; transform: translateX(-50%); z-index: 3; background: rgba(255, 255, 255, .7); }
+.sheet:has(> .sheet-top) > .sheet-body { padding-top: 16px; }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
