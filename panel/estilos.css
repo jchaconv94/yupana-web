@@ -623,6 +623,24 @@ th.right .th-sort { flex-direction: row-reverse; }
   .msg-date { display: block; text-align: center; color: rgba(255, 255, 255, 0.85); font-weight: 700; font-size: 14px; margin: 6px 0 24px; white-space: nowrap; }
   .msg-aud { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
+/* Editar los mensajes (25 nov): en Salen solos el texto se toca para editar y el interruptor queda aparte con una raya (como
+   los ajustes de Android); en las tablas, la columna Acciones centrada (25 nov, el usuario). */
+.paytable th.center { text-align: center; }
+.paytable td.center { text-align: center; }
+.msg-list > .msg-row.msg-split { padding: 0; align-items: stretch; gap: 0; }
+.msg-splittap { flex: 1; min-width: 0; padding: 14px 16px; }
+.msg-splitline { width: 1px; flex: none; background: var(--line); margin: 16px 0; }
+.msg-list > .msg-row.msg-split .toggle { align-self: center; margin: 0 16px; flex: none; }
+.msg-acts { display: inline-flex; align-items: center; gap: 12px; }
+.linkbtn.msg-del { color: #b3261e; }
+/* Pie de las hojas más bajo cuando lleva un enlace debajo del botón (25 nov, el usuario: "ocupa mucho espacio"): el enlace
+   sigue de 48 px para tocarlo, pero sin espacio extra arriba ni abajo. */
+.vh-sheet .sheetfoot:has(> .linkbtn) { gap: 0; padding-bottom: 6px; }
+/* Computadora: "+ Nuevo mensaje" a la derecha de las pestañas, en vez del círculo flotante (25 nov, el usuario). */
+.msg-tabbar { display: flex; align-items: stretch; gap: 16px; padding-right: 16px; border-bottom: 1px solid var(--line); background: #fff; }
+.msg-tabbar > .msg-tabs { flex: 1; min-width: 0; border-bottom: 0; }
+/* `.main` también es la clase del contenido de la página (24 px de relleno en la computadora): aquí no. */
+.msg-tabbar > .msg-newbtn { align-self: center; flex: none; margin: 8px 0; min-height: 48px; padding: 0 20px; border-radius: 24px; font-size: 15px; }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
