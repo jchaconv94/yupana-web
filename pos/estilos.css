@@ -4401,6 +4401,10 @@ button.vx-sumdisc { font: 800 14.5px 'Nunito', sans-serif; color: var(--ok, #1b7
 .sheet-body > .vc-sale:first-child > .vx-client:first-child { top: -6px; }
 .sheet:has(> .sheet-body > .vc-sale:first-child > .vx-client:first-child) > .grab { z-index: 8; }
 .sheet-body > .vc-sale:first-child > .vx-client:first-child { box-shadow: 0 4px 0 #fff; }
+/* Resumen corto con el teclado abierto: la fila de acciones y el Total con su línea. */
+.vx-sum.compact { gap: 4px; padding-top: 8px; padding-bottom: 8px; }
+.vx-sum.compact .vx-sumtot { border-top: 1px solid var(--border); padding-top: 6px; margin-top: 2px; }
+.vx-foot2 > .vx-pad { margin-left: -6px; margin-right: -6px; }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
