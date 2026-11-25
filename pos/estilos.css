@@ -4318,6 +4318,18 @@ td:has(> .aviso-vence.sm) { position: static; }
 .vx-choose.hoja .vx-actions .btn { width: 100%; flex: 1; }
 /* Tus negocios en la hoja: el título ya va en la cabecera de color. */
 .bizsheet > .lbl:first-child { display: none; }
+
+/* Vista de una compra (25 nov, el usuario: "haz lo de compras"): el modelo de la vista del producto. */
+.cv-ico { width: 52px; height: 52px; border-radius: 16px; }
+.cv-total { grid-template-columns: auto; row-gap: 6px; }
+.cv-total strong { font-size: 28px; }
+.cv-line { align-items: center; }
+.cv-line > span { min-width: 0; color: var(--ink); font-weight: 800; }
+.cv-line > span small { display: block; margin-top: 2px; color: var(--muted); font-weight: 700; }
+.cv-pay { grid-template-columns: repeat(2, 1fr); }
+.cpm-tap { cursor: pointer; }
+.cpm-tap:active { background: var(--field); }
+@media (max-width: 560px) { .cv-total strong { font-size: 23px; } }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
