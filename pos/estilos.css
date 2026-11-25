@@ -4330,6 +4330,9 @@ td:has(> .aviso-vence.sm) { position: static; }
 .cpm-tap { cursor: pointer; }
 .cpm-tap:active { background: var(--field); }
 @media (max-width: 560px) { .cv-total strong { font-size: 23px; } }
+/* Tu canasta en el celular (25 nov, el usuario: "más alto así haya un producto"): la hoja casi hasta arriba. */
+.sheet:has(> .sheet-body > .cs-body) { height: 82vh; height: 82dvh; }
+.sheet:has(> .sheet-body > .cs-body) > .sheet-body { flex: 1; }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
