@@ -4394,6 +4394,13 @@ td:has(> .aviso-vence.sm) { position: static; }
 button.vx-sumdisc { font: 800 14.5px 'Nunito', sans-serif; color: var(--ok, #1b7a3d); background: none; border: 0; padding: 0; }
 .vx-sumnow { display: inline-flex; align-items: baseline; gap: 10px; }
 .vx-sumnow s { font: 700 16px 'Nunito', sans-serif; color: var(--muted); }
+/* Venta actual (celular, 25 nov, el usuario): mínimo 82 % y, con más productos, sube hasta casi arriba; la cabecera del
+   cliente queda fija al bajar y solo corre la lista. */
+.sheet:has(> .sheet-body > .vc-sale) { height: auto; min-height: 82vh; min-height: 82dvh; max-height: 94vh; max-height: 94dvh; }
+.sheet-body > .vc-sale:first-child > .vx-client:first-child { position: sticky; top: 0; z-index: 6; }
+.sheet-body > .vc-sale:first-child > .vx-client:first-child { top: -6px; }
+.sheet:has(> .sheet-body > .vc-sale:first-child > .vx-client:first-child) > .grab { z-index: 8; }
+.sheet-body > .vc-sale:first-child > .vx-client:first-child { box-shadow: 0 4px 0 #fff; }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
