@@ -4360,6 +4360,40 @@ td:has(> .aviso-vence.sm) { position: static; }
 /* Venta actual (celular): alta aunque tenga un producto, como Tu canasta (25 nov, el usuario). */
 .sheet:has(> .sheet-body > .vc-sale) { height: 82vh; height: 82dvh; }
 .sheet:has(> .sheet-body > .vc-sale) > .sheet-body { flex: 1; }
+/* Resumen del pie de la venta (25 nov, el usuario: fusión de A y B, opción 2): de borde a borde, sin bordes a los lados. */
+.vx-sum { background: var(--field); display: flex; flex-direction: column; gap: 6px; padding: 12px 20px 12px; margin: -12px -18px 0; }
+.sheet-foot .vc-salefoot .vx-sum { margin: -22px -34px 0; padding-left: 34px; padding-right: 34px; }
+.vx-sumrow { display: flex; justify-content: space-between; align-items: center; min-height: 26px; font: 700 14.5px 'Nunito', sans-serif; color: var(--muted); }
+.vx-sumrow b { color: var(--ink); font-weight: 800; }
+.vx-sumacts { display: inline-flex; align-items: center; gap: 10px; }
+.vx-sumacts .vx-round { width: 32px; height: 32px; }
+.vx-sumempty, .vx-sumadd { display: inline-flex; align-items: center; gap: 5px; background: none; border: 0; padding: 0; font: 800 14.5px 'Nunito', sans-serif; position: relative; }
+.vx-sumempty { color: #8a7a80; }
+.vx-sumadd { color: var(--brand); }
+.vx-sumempty::after, .vx-sumadd::after { content: ''; position: absolute; inset: -10px -6px; }
+.vx-sumempty:disabled, .vx-sumadd:disabled { opacity: .45; }
+.vx-sumdisc { display: inline-flex; align-items: center; gap: 6px; }
+.vx-sumdisc > button:first-child { font: 800 14.5px 'Nunito', sans-serif; color: var(--ok, #1b7a3d); background: none; border: 0; padding: 0; }
+.vx-sumx { width: 24px; height: 24px; border-radius: 12px; border: 1.5px solid var(--border); background: #fff; color: #a08f96; display: flex; align-items: center; justify-content: center; }
+.vx-sumtot { display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid var(--border); padding-top: 8px; margin-top: 2px; }
+.vx-sumtot span { font: 800 17px 'Nunito', sans-serif; color: var(--ink); }
+.vx-sumtot b { font: 800 32px/1 'Baloo 2', sans-serif; color: var(--ink); }
+.vx-sum.compact { padding-top: 10px; padding-bottom: 10px; }
+.vx-sum.compact .vx-sumtot { border-top: 0; padding-top: 0; margin-top: 0; }
+.vx-sum.compact .vx-sumtot b { font-size: 28px; }
+/* El resumen otra vez en recuadro redondeado, con poco espacio a los costados (12 px), y los botones del mismo ancho
+   (25 nov, el usuario: "que el espacio a los costados sea más reducido, no que llegue del todo"). */
+.vx-sum { margin: 0 -6px; border-radius: 16px; padding: 12px 16px; }
+.vx-foot2 .vx-actions { margin: 0 -6px; }
+.sheet-foot .vc-salefoot .vx-sum { margin: -6px -22px 0; padding-left: 16px; padding-right: 16px; }
+.sheet-foot .vc-salefoot .vx-actions { margin: 0 -22px; }
+/* Descuento puesto: "Quitar" en texto al inicio y el monto alineado; en el Total, el de antes chico y tachado. */
+.vx-sumlab { display: inline-flex; align-items: center; gap: 10px; }
+.vx-sumquitar { background: none; border: 0; padding: 0; font: 800 14px 'Nunito', sans-serif; color: var(--brand); text-decoration: underline; text-underline-offset: 3px; position: relative; }
+.vx-sumquitar::after { content: ''; position: absolute; inset: -10px -6px; }
+button.vx-sumdisc { font: 800 14.5px 'Nunito', sans-serif; color: var(--ok, #1b7a3d); background: none; border: 0; padding: 0; }
+.vx-sumnow { display: inline-flex; align-items: baseline; gap: 10px; }
+.vx-sumnow s { font: 700 16px 'Nunito', sans-serif; color: var(--muted); }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
