@@ -2884,6 +2884,13 @@ button.pl-stat.on, button.pl-stat.on:hover { box-shadow: 0 0 0 2px var(--brand),
 /* Los 4 filtros llenan el ancho, sin un vacío al final (25 nov, el usuario). */
 .flt-cats button { display: inline-flex; align-items: center; gap: 2px; }
 .flt-cats button .ic { opacity: .9; }
+/* Con 2 o 3 filtros (Comprobantes, Clientes, Compras): a la izquierda, con el aire de las pestañas de antes. */
+.flt-cats.pocos { justify-content: flex-start; gap: 26px; }
+.hero[style*="center"] .flt-cats.pocos { justify-content: center; }
+/* Clientes en el celular: la lista vacía mantiene su alto, el mensaje al centro (como Productos). */
+.mpage:has(> .lbody > .card > .empty) { display: flex; flex-direction: column; }
+.mpage > .lbody:has(> .card > .empty) { flex: 1; display: flex; flex-direction: column; }
+.lbody > .card:has(> .empty) { flex: 1; display: flex; flex-direction: column; justify-content: center; min-height: 320px; }
 .flt-quitar { width: 100%; min-height: 48px; padding: 0 16px; display: flex; align-items: center; gap: 8px; color: var(--brand); font: 800 15px 'Nunito', sans-serif;
   border-bottom: 1px solid var(--line); text-align: left; }
 .flt-quitar em { font-style: normal; min-width: 22px; height: 22px; padding: 0 6px; border-radius: 11px; background: var(--brand); color: #fff; font-size: 12.5px; display: inline-grid; place-items: center; }
