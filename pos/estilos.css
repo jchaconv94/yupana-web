@@ -2427,20 +2427,28 @@ button.field.selfield { width: 100%; text-align: left; cursor: pointer; }
 /* Los botones de la fila van abajo a la derecha, encima del cuerpo: así el precio de todas las filas queda alineado. */
 .vx-row > .vx-rowstep, .vx-row > .vx-sm { position: absolute; right: 14px; bottom: 9px; }
 .vx-row .vx-row2 { padding-right: 40px; }
+/* La ✕ de quitar en la fila angosta, más chica (25 nov, opción 3 del usuario): no le quita espacio al precio; el toque sigue siendo de 44 px. */
+.vx-row:not(.hot):not(.wide) > .vx-sm { width: 22px; height: 22px; border-radius: 11px; }
+.vx-row:not(.hot):not(.wide) > .vx-sm svg { width: 13px; height: 13px; }
+.vx-row:not(.hot):not(.wide) > .vx-sm::after { inset: -11px; }
+.vx-row:not(.hot):not(.wide) .vx-row2 { padding-right: 30px; }
 /* El total aparte solo en la venta ancha. */
 .vx-rowtot { display: none; }
 /* Venta ancha (22 nov, dibujo del usuario): una línea con el nombre, − n +, el total más grande y la ✕. */
 .vx-row.wide { align-items: center; gap: 14px; }
 .vx-row.wide .vx-row1 strong { display: none; }
 .vx-row.wide .vx-row2, .vx-row.wide.hot .vx-row2 { padding-right: 0; min-height: 0; }
-.vx-row.wide > .vx-rowstep, .vx-row.wide > .vx-sm { position: static; }
+.vx-row.wide > .vx-rowstep { position: static; }
+.vx-row.wide > .vx-sm { position: relative; }
 .vx-row.wide .vx-rowtot { display: flex; flex-direction: column; align-items: flex-end; min-width: 92px; font: 800 18px 'Nunito', sans-serif; white-space: nowrap; }
 .vx-row.wide .vx-rowstep { min-width: 104px; justify-content: center; order: 1; }
 .vx-row.wide .vx-rowtot { order: 2; }
 .vx-row.wide > .vx-sm { order: 3; }
 .vx-row.hot .vx-row2 { padding-right: 112px; }
 .vx-rowstep b { min-width: 30px; text-align: center; font: 800 17px 'Nunito', sans-serif; }
-.vx-sm { flex: none; width: 28px; height: 28px; border-radius: 14px; display: flex; align-items: center; justify-content: center; }
+.vx-sm { flex: none; width: 28px; height: 28px; border-radius: 14px; display: flex; align-items: center; justify-content: center; position: relative; }
+/* Zona de toque invisible de 44 px (25 nov, el usuario: el botón se ve igual, solo recibe mejor el dedo). */
+.vx-sm::after { content: ''; position: absolute; inset: -8px; border-radius: 50%; }
 .vx-sm.out { border: 1.5px solid #f3b6cb; color: var(--brand); background: #fff; }
 .vx-sm.fill { background: var(--brand); color: #fff; }
 .vx-sm.ghost { border: 1.5px solid var(--border); color: #a08f96; background: #fff; }
@@ -2779,6 +2787,14 @@ button.pl-stat.on, button.pl-stat.on:hover { box-shadow: 0 0 0 2px var(--brand),
 .pv-sec { height: 52px; padding: 0 16px; border-radius: 26px; display: inline-flex; align-items: center; justify-content: center; gap: 7px; background: #fff; color: var(--brand);
   font: 800 14.5px 'Nunito', sans-serif; box-shadow: inset 0 0 0 1.5px #f3b6cb; white-space: nowrap; }
 .pv-sec:hover { background: #fdf0f5; }
+/* Archivado en la lista del celular (25 nov, el usuario): toda la fila en gris, sin etiqueta. */
+.pl-mrow.arch { background: #f1edee; }
+.pl-mrow.arch .vx-thumb { filter: grayscale(1); opacity: .75; }
+.pl-mrow.arch .pl-mtext b, .pl-mrow.arch .pl-mend b { color: #6f6268; }
+.pl-mrow.arch .sk-chip, .pl-mrow.arch .lt-txt { filter: grayscale(1); }
+/* El estado en la tabla de Productos (25 nov): solo se lee, no se toca. */
+.sk-chip.st { display: inline-flex; align-items: center; font-style: normal; }
+.sk-chip.st:hover { filter: none; box-shadow: none; }
 .pv-main { flex: 1; margin: 0; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
 .sheet-body > .pv-sheet { margin: -6px -20px -16px; }
 .sheet-body > .pv-sheet .pv-hero { border-radius: 24px 24px 0 0; padding-top: 26px; }
@@ -2797,7 +2813,8 @@ button.pl-stat.on, button.pl-stat.on:hover { box-shadow: 0 0 0 2px var(--brand),
 .pl-strip.compact .pl-txt { flex-direction: row; align-items: baseline; gap: 6px; }
 .pl-strip.compact .pl-txt b { font-size: 18px; }
 .pl-strip.compact .pl-txt small { font-size: 13.5px; color: var(--ink); }
-.pl-mlist { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding-bottom: 4px; }
+.pl-mlist { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+/* Sin espacio al pie (25 nov, el usuario): el gris de un archivado llega hasta la línea. El "Ver más" lleva su margen. */
 .pl-m { background: #fff; }
 .pl-mrow { width: 100%; display: flex; align-items: center; gap: 12px; padding: 12px 16px; text-align: left; color: var(--ink); background: #fff; }
 .pl-mrow + .pl-mrow { border-top: 1px solid var(--line); }
@@ -2846,6 +2863,32 @@ button.pl-stat.on, button.pl-stat.on:hover { box-shadow: 0 0 0 2px var(--brand),
 .th-sort:hover { background: #fdf0f5; color: var(--brand); }
 .th-sort:hover .ic, .th-sort.on .ic { opacity: 1; }
 .th-sort.on { color: var(--brand); }
+/* Los filtros (25 nov, el usuario): en la computadora el botón "Filtros" abre una fila ahí mismo (nunca una ventana) y la
+   tabla cambia al elegir; cerrada, lo filtrado queda en chips. En el celular, filtros en texto donde estaban las pestañas. */
+.flt-btn { height: 42px; padding: 0 12px 0 14px; border-radius: 12px; display: inline-flex; align-items: center; gap: 7px; flex: none; background: #fff; color: var(--ink);
+  font: 800 14.5px 'Nunito', sans-serif; box-shadow: inset 0 0 0 1.5px var(--border); }
+.flt-btn:hover { background: #fdf0f5; color: var(--brand); }
+.flt-btn .ic { color: var(--brand); }
+.flt-btn.on { box-shadow: inset 0 0 0 1.5px var(--brand); color: var(--brand); }
+.flt-btn em { font-style: normal; min-width: 22px; height: 22px; padding: 0 6px; border-radius: 11px; background: var(--brand); color: #fff; font-size: 12.5px; display: inline-grid; place-items: center; }
+.flt-fila { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 0 16px 14px; }
+.flt-chips { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 0 16px 12px; }
+.flt-chip { height: 32px; padding: 0 8px 0 12px; border-radius: 16px; display: inline-flex; align-items: center; gap: 4px; background: #fdf0f5; color: var(--brand);
+  font: 800 13.5px 'Nunito', sans-serif; position: relative; }
+.flt-chip::after { content: ''; position: absolute; inset: -6px 0; }
+.flt-chip:hover { background: #fbe1ec; }
+.flt-clear { font: 800 13.5px 'Nunito', sans-serif; color: var(--brand); padding: 6px 4px; min-height: 36px; }
+.flt-cats { margin-right: 0; padding-right: 0; gap: 8px; justify-content: space-between; -webkit-mask-image: none; mask-image: none; }
+@media (max-width: 370px) { .flt-cats button { font-size: 14px; } .flt-cats { gap: 4px; } }
+@media (max-width: 340px) { .flt-cats { gap: 1px; } .flt-cats button .ic { margin-left: -2px; } }
+/* Los 4 filtros llenan el ancho, sin un vacío al final (25 nov, el usuario). */
+.flt-cats button { display: inline-flex; align-items: center; gap: 2px; }
+.flt-cats button .ic { opacity: .9; }
+/* Precio y Estado con aire entre los dos (25 nov, el usuario: "muy pegados"). */
+.ptable th.pl-est, .ptable td.pl-est { padding-left: 40px; }
+/* El stock y, debajo en letra chica, cuándo vence (25 nov, el usuario: la etiqueta ensanchaba la columna). */
+.pl-stk { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 3px; }
+.pl-stk > small { font-size: 12.5px; }
 th.r .th-sort { flex-direction: row-reverse; }
 
 /* El título de las listas del celular, un poco más grande (22 nov). */
