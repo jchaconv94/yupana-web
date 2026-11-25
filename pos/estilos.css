@@ -2884,6 +2884,9 @@ button.pl-stat.on, button.pl-stat.on:hover { box-shadow: 0 0 0 2px var(--brand),
 /* Los 4 filtros llenan el ancho, sin un vacío al final (25 nov, el usuario). */
 .flt-cats button { display: inline-flex; align-items: center; gap: 2px; }
 .flt-cats button .ic { opacity: .9; }
+.flt-quitar { width: 100%; min-height: 48px; padding: 0 16px; display: flex; align-items: center; gap: 8px; color: var(--brand); font: 800 15px 'Nunito', sans-serif;
+  border-bottom: 1px solid var(--line); text-align: left; }
+.flt-quitar em { font-style: normal; min-width: 22px; height: 22px; padding: 0 6px; border-radius: 11px; background: var(--brand); color: #fff; font-size: 12.5px; display: inline-grid; place-items: center; }
 /* Precio y Estado con aire entre los dos (25 nov, el usuario: "muy pegados"). */
 .ptable th.pl-est, .ptable td.pl-est { padding-left: 40px; }
 /* El stock y, debajo en letra chica, cuándo vence (25 nov, el usuario: la etiqueta ensanchaba la columna). */
@@ -2902,6 +2905,21 @@ th.r .th-sort { flex-direction: row-reverse; }
 .pk-create { display: flex; align-items: center; gap: 8px; width: calc(100% - 12px); margin: 4px 6px 6px; min-height: 46px; padding: 0 12px; border-radius: 12px;
   background: #fdf0f5; color: var(--brand); font: 800 15px 'Nunito', sans-serif; text-align: left; }
 .pk-create:hover { background: #fbe1ec; }
+/* Al pie de la lista de un filtro (25 nov, el usuario; como el "Reset/OK" de Ant Design): "Quitar filtro" a la izquierda y,
+   en las de varias, "Listo" a la derecha. En el celular va en el pie fijo de la hoja. */
+.pk-foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; border-top: 1px solid var(--line); margin: 8px -8px -8px; padding: 8px 10px; }
+.sheet-foot .pk-foot { border-top: 0; margin: 0; padding: 0; }
+.pk-clear { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 10px; border-radius: 12px; color: var(--brand); font: 800 15px 'Nunito', sans-serif; }
+.pk-clear:hover:not(:disabled) { background: #fdf0f5; }
+.pk-clear:disabled { color: var(--muted); opacity: .6; }
+.pk-done { min-height: 44px; padding: 0 22px; border-radius: 22px; background: var(--brand); color: #fff; font: 800 15px 'Nunito', sans-serif; margin-left: auto; }
+.sheet-foot .pk-done { min-height: 52px; padding: 0 34px; border-radius: 26px; }
+.pk-list button > .ic:first-child { color: var(--brand); flex: none; }
+/* La tabla y la lista vacías (por un filtro sin resultados) mantienen su alto y el mensaje va al centro (25 nov, el usuario). */
+.split2 > .listcard:has(> .tscroll > .empty) { align-self: stretch; }
+.tscroll:has(> .empty) { flex: 1; display: flex; align-items: center; justify-content: center; }
+.pl-m:has(> .pl-mlist > .empty) { display: flex; flex-direction: column; }
+.pl-mlist:has(> .empty) { flex: 1; display: flex; flex-direction: column; justify-content: center; min-height: 320px; }
 /* La leyenda de la Amazonía (catálogo 52) debajo del monto en letras. */
 .ticket .en-zone { margin-top: 4px; font-size: 10.5px; font-weight: 800; color: var(--ink); }
 @media print { .print-area .ticket .en-zone { color: #000; } }
