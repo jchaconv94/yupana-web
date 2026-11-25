@@ -4347,6 +4347,8 @@ td:has(> .aviso-vence.sm) { position: static; }
 /* Al medio de la fila (25 nov, el usuario): el total y la ✕ de la fila sin tocar. */
 .vx-row:not(.hot):not(.wide) > .vx-rowtot, .vx-row:not(.hot):not(.wide) > .vx-sm { top: 50%; bottom: auto; transform: translateY(-50%); }
 .vx-row:not(.hot):not(.wide) .vx-row1 b, .vx-row:not(.hot):not(.wide) .vx-row2 { padding-right: 120px; }
+/* Venta ancha: la ✕ en su sitio, al medio de la fila (25 nov: se subía y se pegaba al total). */
+.vx-row.wide > .vx-sm { right: auto; bottom: auto; top: auto; transform: none; }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
