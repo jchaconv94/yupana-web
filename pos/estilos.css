@@ -4342,6 +4342,11 @@ td:has(> .aviso-vence.sm) { position: static; }
 .sk-evn small.cl-st.bad { color: var(--bad); }
 .sk-ev.sp-ev .sk-evn em.neg { color: var(--bad); }
 .pv-card.cl-form { padding: 18px 16px 8px; }
+/* Devoluciones al stock (26 nov): ¿vuelve al estante? en la nota de crédito. */
+.cp-pay.nc-stock { grid-template-columns: 1fr 1fr; margin-bottom: 4px; }
+.cp-pay.nc-stock button { flex-direction: row; justify-content: flex-start; gap: 10px; padding: 12px 14px; min-height: 58px; text-align: left; }
+.cp-pay.nc-stock button > span { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.cp-pay.nc-stock small { font: 700 12.5px 'Nunito', sans-serif; color: var(--muted); }
 .cv-reg { margin: 2px 0 14px; text-align: center; font: 700 13px 'Nunito', sans-serif; color: var(--muted); }
 .cv-line { align-items: center; }
 .cv-line > span { min-width: 0; color: var(--ink); font-weight: 800; }
