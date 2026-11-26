@@ -2114,6 +2114,7 @@ a.entry-home { display: inline-flex; align-self: flex-start; width: fit-content;
 .vx-dfield { display: flex; align-items: center; gap: 6px; height: 52px; margin-top: 10px; border-radius: 14px; border: 2px solid var(--brand); padding: 0 14px; }
 .vx-dfield span { color: var(--muted); font: 800 18px 'Nunito', sans-serif; }
 .vx-dfield input { flex: 1; min-width: 0; border: 0; outline: none; font: 800 20px 'Nunito', sans-serif; color: var(--ink); background: transparent; }
+.vx-dqty { margin-top: 18px; }
 .vx-dfield.bad { border-color: var(--bad); }
 .vx-derr { color: var(--bad); font: 700 13px 'Nunito', sans-serif; margin-top: 6px; }
 .vx-undisc { display: block; margin-top: 10px; }
@@ -4342,6 +4343,70 @@ td:has(> .aviso-vence.sm) { position: static; }
 .sk-evn small.cl-st.bad { color: var(--bad); }
 .sk-ev.sp-ev .sk-evn em.neg { color: var(--bad); }
 .pv-card.cl-form { padding: 18px 16px 8px; }
+/* Nota de crédito (26 nov): en la ventana de Yupana; ¿por qué? en 4 recuadros. */
+.nc-body { display: flex; flex-direction: column; }
+.sec2.nc-sec { margin: 18px 0 10px; }
+.nc-body > .sec2.nc-sec:first-child { margin-top: 2px; }
+/* Los avisos en el celular (26 nov, el usuario: "la cabecera se pierde"): la cabecera de color queda fija al bajar. */
+.sheet-body .av > .av-hero { position: sticky; top: -6px; z-index: 3; }
+.an-mot { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.an-mot > button { min-height: 48px; padding: 6px 10px; border-radius: 12px; background: #fff; box-shadow: inset 0 0 0 1.5px var(--line); display: flex; align-items: center; gap: 8px;
+  font: 800 13.5px/1.2 'Nunito', sans-serif; color: var(--ink); text-align: left; }
+.an-mot > button .ic { color: var(--muted); flex: none; }
+.an-mot > button.on { background: #fdecec; color: var(--bad); box-shadow: inset 0 0 0 2px var(--bad); }
+.an-mot > button.on .ic { color: var(--bad); }
+.an-mot > button:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.an-otro { margin-top: 8px; }
+.an-warn { display: flex; gap: 8px; align-items: flex-start; margin: 12px 0 0; font: 700 13px/1.35 'Nunito', sans-serif; color: var(--warn); }
+.an-warn .ic { flex: none; margin-top: 1px; }
+.av-detail .sec2.an-sec { margin: 4px 0 6px; }
+.av-detail .warnbox { margin-top: 12px; }
+.nc-seg { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.nc-seg > button { min-height: 58px; padding: 6px 4px; border-radius: 14px; background: #fff; box-shadow: inset 0 0 0 1.5px var(--line); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;
+  font: 800 13.5px/1.15 'Nunito', sans-serif; color: var(--ink); text-align: center; }
+.nc-seg > button .ic { color: var(--muted); }
+.nc-seg > button:hover { background: #fdf6f9; }
+.nc-seg > button.on { background: #fdf0f5; color: var(--brand); box-shadow: inset 0 0 0 2px var(--brand); }
+.nc-seg > button.on .ic { color: var(--brand); }
+.nc-seg.nc-two { grid-template-columns: 1fr 1fr; }
+.nc-seg.nc-two > button { min-height: 54px; font-size: 14.5px; }
+.nc-seg > button small { font: 700 12px 'Nunito', sans-serif; color: var(--muted); }
+.qty.nc-qty { flex: none; }
+.nc-qty > * { width: 38px; height: 40px; }
+.nc-qty .m:disabled { opacity: .35; cursor: default; }
+.nc-x { flex: none; width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; color: var(--muted); }
+.nc-x:hover { background: #fdecec; color: var(--bad); }
+.nc-que { display: flex; gap: 8px; align-items: flex-start; margin: -2px 0 12px; font: 700 13.5px/1.35 'Nunito', sans-serif; color: var(--muted); }
+.nc-que .ic { flex: none; margin-top: 1px; color: var(--brand); }
+.nc-box { margin-top: 10px; background: #fff; }
+.nc-box > .nc-pick .nc-find { border-radius: 12px; }
+.nc-box .nc-tab { margin-top: 8px; }
+.nc-tab tr:last-child td { border-bottom: 1px solid var(--line); }
+.nc-find { width: 100%; min-height: 50px; display: flex; align-items: center; gap: 10px; padding: 0 14px; text-align: left; background: #fdf8fa; }
+.nc-find > span { flex: 1; min-width: 0; font: 700 15px 'Nunito', sans-serif; color: var(--muted); }
+.nc-find .ic { color: var(--brand); }
+.nc-find.on, .nc-find:hover { background: #fdf0f5; }
+.nc-find:disabled { opacity: .6; cursor: default; }
+.nc-tab { width: 100%; border-collapse: collapse; }
+.nc-tab th { padding: 8px 10px 6px; font: 800 11.5px 'Nunito', sans-serif; letter-spacing: .6px; text-transform: uppercase; color: var(--label); text-align: left; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: #fff; }
+.nc-tab tbody tr, .nc-tab tbody tr:hover { background: transparent; }
+.nc-tab td { padding: 8px 10px; vertical-align: middle; border-bottom: 1px solid var(--line); }
+
+.nc-tab td b { display: block; font: 800 14.5px 'Nunito', sans-serif; color: var(--ink); }
+.nc-tab td small { font: 700 12.5px 'Nunito', sans-serif; color: var(--muted); }
+.nc-tab .c { text-align: center; width: 1%; white-space: nowrap; }
+.nc-tab .r { text-align: right; width: 1%; white-space: nowrap; }
+.nc-tab .x { width: 1%; padding-left: 0; }
+.nc-tab th:first-child, .nc-tab td:first-child { padding-left: 2px; }
+.nc-tab .x { padding-right: 0; }
+.nc-box .nc-none { margin: 8px 0 0; padding: 10px 2px; }
+.nc-que2 { margin-top: 16px; }
+.nc-dcard { margin-bottom: 0; }
+.nc-none { margin: 10px 0 0; padding: 4px 6px; text-align: center; font: 700 14px 'Nunito', sans-serif; color: var(--muted); }
+.pf-toggle.nc-stock { margin-top: 14px; padding: 8px 14px; border-radius: 14px; box-shadow: inset 0 0 0 1.5px var(--line); }
+.pf-toggle.nc-stock b { font-size: 15px; }
+.cv-reg.nc-pie { margin: 14px 0 0; }
+.nc-body .notebox { margin-top: 18px; }
 .cv-reg { margin: 2px 0 14px; text-align: center; font: 700 13px 'Nunito', sans-serif; color: var(--muted); }
 .cv-line { align-items: center; }
 .cv-line > span { min-width: 0; color: var(--ink); font-weight: 800; }
