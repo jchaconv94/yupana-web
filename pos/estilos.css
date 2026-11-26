@@ -4325,6 +4325,23 @@ td:has(> .aviso-vence.sm) { position: static; }
 .cv-total strong { font-size: 28px; }
 /* La etiqueta bajo el monto, delgada y fina (26 nov, el usuario: "hazlo más delgado, más fino"). */
 .cv-total em { height: 22px; padding: 0 9px; font: 700 11.5px/22px 'Nunito', sans-serif; letter-spacing: .2px; }
+.pv-tabs button.off, .pv-sec.off { opacity: .45; }
+.pv-sec.cv-red { color: var(--bad); box-shadow: inset 0 0 0 1.5px #f3c2c2; }
+.pv-sec.cv-red:hover { background: #fdecec; }
+.cv-total strong.neg { color: #fff; }
+.pv-row.cv-tot span, .pv-row.cv-tot b { color: var(--ink); font-weight: 900; font-size: 16px; }
+.pv-row .paym { display: inline-flex; align-items: center; gap: 8px; }
+.cv-dl { display: flex; gap: 8px; padding: 6px 0 10px; }
+.cv-dl > .pv-sec { flex: 1 1 0; height: 46px; font-size: 14px; }
+/* Clientes (26 nov): la vista en VistaLateral, como Productos y Proveedores. */
+.pv-row.cl-top { align-items: center; }
+.pv-row.cl-top > span { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); min-width: 0; }
+.pv-row.cl-top .rank { font-style: normal; flex: none; }
+.sk-evn small.cl-st.ok { color: var(--ok); }
+.sk-evn small.cl-st.wait { color: var(--warn); }
+.sk-evn small.cl-st.bad { color: var(--bad); }
+.sk-ev.sp-ev .sk-evn em.neg { color: var(--bad); }
+.pv-card.cl-form { padding: 18px 16px 8px; }
 .cv-reg { margin: 2px 0 14px; text-align: center; font: 700 13px 'Nunito', sans-serif; color: var(--muted); }
 .cv-line { align-items: center; }
 .cv-line > span { min-width: 0; color: var(--ink); font-weight: 800; }
