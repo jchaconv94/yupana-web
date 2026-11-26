@@ -4323,6 +4323,9 @@ td:has(> .aviso-vence.sm) { position: static; }
 .cv-ico { width: 52px; height: 52px; border-radius: 16px; }
 .cv-total { grid-template-columns: auto; row-gap: 6px; }
 .cv-total strong { font-size: 28px; }
+/* La etiqueta bajo el monto, delgada y fina (26 nov, el usuario: "hazlo más delgado, más fino"). */
+.cv-total em { height: 22px; padding: 0 9px; font: 700 11.5px/22px 'Nunito', sans-serif; letter-spacing: .2px; }
+.cv-reg { margin: 2px 0 14px; text-align: center; font: 700 13px 'Nunito', sans-serif; color: var(--muted); }
 .cv-line { align-items: center; }
 .cv-line > span { min-width: 0; color: var(--ink); font-weight: 800; }
 .cv-line > span small { display: block; margin-top: 2px; color: var(--muted); font-weight: 700; }
@@ -4464,6 +4467,26 @@ button.vx-sumdisc { font: 800 14.5px 'Nunito', sans-serif; color: var(--ok, #1b7
 .rv-help { display: flex; gap: 8px; margin: 14px 0 0; font: 700 13px/1.4 'Nunito', sans-serif; color: var(--muted); }
 @media (max-width: 899px) { .rv-row { flex-wrap: wrap; } .rv-text { flex-basis: calc(100% - 60px); } .rv-btn { flex: 1; justify-content: center; } }
 .alert.rv-alert .ai { background: #fff4dc; color: #9a5b00; }
+/* Proveedores (25 nov, el usuario: "como en Productos"): la vista en la ventana lateral general (VistaLateral). */
+.pv-row.sp-debe { align-items: center; }
+.pv-row.sp-debe > span { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px; color: var(--ink); }
+.pv-row.sp-debe > span small { color: var(--muted); }
+.pv-row.sp-debe > b { color: var(--warn); }
+.sp-pay { flex: none; min-width: 76px; height: 40px; padding: 0 14px; border-radius: 20px; background: #fdf0f5; color: var(--brand); font: 800 14px 'Nunito', sans-serif; position: relative; }
+.sp-pay::after { content: ''; position: absolute; inset: -4px 0; }
+.sp-pay:hover { background: #fbe1ec; }
+.pv-tabs button.on { background: #fdf0f5; box-shadow: inset 0 0 0 2px var(--brand); }
+/* Sus compras (26 nov): el Historial del producto con las compras del proveedor; cada fila abre su compra. */
+.sk-ev.sp-ev { width: 100%; text-align: left; color: var(--ink); }
+@media (hover: hover) { .sk-ev.sp-ev:hover .sk-evt b { color: var(--brand); } }
+.sp-ev .sk-evn em { font-size: 16.5px; }
+.sk-evn small.sp-debes { color: var(--warn); font-weight: 800; }
+.sp-nada { text-align: center; margin: 24px 0; }
+.sp-empty { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; padding: 6px 0 8px; font: 700 14.5px 'Nunito', sans-serif; color: var(--muted); }
+.pv-row b.sp-wrap { white-space: normal; text-align: right; }
+.pl-mend b.sp-red { color: var(--warn); }
+.cpm-row .cava { flex: none; }
+button.cpm-row { width: 100%; text-align: left; } button.cpm-row > .cpm-rowtext { flex: 1; min-width: 0; }
 /* ===== La espera de Yupana (13 nov; la misma de la app: web/comun/espera.ts) ===== */
 .yw { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; overflow: hidden; color: #fff;
   background: linear-gradient(170deg, #f0306e 0%, #c2185b 55%, #5e0828 100%); transition: opacity .22s ease; }
